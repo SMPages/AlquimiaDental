@@ -1,6 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Inject, LOCALE_ID } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { LanguageService } from "../../services/language.service";
 
 @Component({
   selector: "app-language-switcher",
@@ -10,15 +9,19 @@ import { LanguageService } from "../../services/language.service";
   styleUrls: ["./language-switcher.component.scss"],
 })
 export class LanguageSwitcherComponent {
-  currentLanguage = "es";
+  currentLanguage: string;
 
-  constructor(private languageService: LanguageService) {
-    this.languageService.currentLanguage$.subscribe((lang) => {
-      this.currentLanguage = lang;
-    });
+  constructor(@Inject(LOCALE_ID) private locale: string) {
+    this.currentLanguage = this.locale.startsWith("en") ? "en" : "es";
   }
 
-  setLanguage(lang: string) {
-    this.languageService.setLanguage(lang);
+  getLanguageUrl(lang: string): string {
+    // Si tu app está desplegada en dominio.com/
+    // Angular normalmente genera: dominio.com/es/ y dominio.com/en/
+    if (lang === "es") {
+      return "/es/";
+    } else {
+      return "/en/";
+    }
   }
 }

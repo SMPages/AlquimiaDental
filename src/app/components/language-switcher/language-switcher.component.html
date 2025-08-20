@@ -1,16 +1,16 @@
 <div class="language-switcher">
-  <button 
-    (click)="setLanguage('es')" 
-    [class.active]="currentLanguage === 'es'"
+  <a 
+    [href]="getLanguageUrl('es')" 
+    [class.active]="currentLanguage === 'es'" 
     class="lang-btn"
   >
     ES
-  </button>
-  <button 
-    (click)="setLanguage('en')" 
-    [class.active]="currentLanguage === 'en'"
+  </a>
+  <a 
+    [href]="getLanguageUrl('en')" 
+    [class.active]="currentLanguage === 'en'" 
     class="lang-btn"
   >
     EN
-  </button>
+  </a>
 </div>

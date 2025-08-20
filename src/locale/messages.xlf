@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6821304421022163572" datatype="html">
+        <source>Descripción de la doctora</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+        <note priority="1" from="description">footer description</note>
+      </trans-unit>
+      <trans-unit id="7259883397103295489" datatype="html">
+        <source>Enlaces rápidos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+        <note priority="1" from="description">footer quick links title</note>
+      </trans-unit>
+      <trans-unit id="1926157928707021468" datatype="html">
+        <source>Inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+        <note priority="1" from="description">nav home</note>
+      </trans-unit>
+      <trans-unit id="2379082776169073909" datatype="html">
+        <source>Acerca de</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <note priority="1" from="description">nav about</note>
+      </trans-unit>
+      <trans-unit id="5962081135827219847" datatype="html">
+        <source>Servicios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+        <note priority="1" from="description">nav services</note>
+      </trans-unit>
+      <trans-unit id="8433768950518578342" datatype="html">
+        <source>Contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+        <note priority="1" from="description">nav contact</note>
+      </trans-unit>
+      <trans-unit id="7490174235500138023" datatype="html">
+        <source>Estética</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+        <note priority="1" from="description">services aesthetic</note>
+      </trans-unit>
+      <trans-unit id="3506012335859419853" datatype="html">
+        <source>Rehabilitación</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+        <note priority="1" from="description">services rehabilitation</note>
+      </trans-unit>
+      <trans-unit id="2541609182058870269" datatype="html">
+        <source>Implantes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+        <note priority="1" from="description">services implants</note>
+      </trans-unit>
+      <trans-unit id="704016196869359674" datatype="html">
+        <source>Ortodoncia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">29,31</context>
+        </context-group>
+        <note priority="1" from="description">services orthodontics</note>
+      </trans-unit>
+      <trans-unit id="4611764843497599529" datatype="html">
+        <source>Información de contacto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+        <note priority="1" from="description">footer contact info</note>
+      </trans-unit>
+      <trans-unit id="3988409374562158776" datatype="html">
+        <source>Santo Domingo, RD</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+        <note priority="1" from="description">footer location</note>
+      </trans-unit>
+      <trans-unit id="7777634325783018668" datatype="html">
+        <source>Todos los derechos reservados</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+        <note priority="1" from="description">footer rights</note>
+      </trans-unit>
+      <trans-unit id="nav.doctorName" datatype="html">
+        <source>Dra. Sorany Díaz P.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">6,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.home" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.about" datatype="html">
+        <source>About</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.services" datatype="html">
+        <source>Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.gallery" datatype="html">
+        <source>Gallery</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.blog" datatype="html">
+        <source>Blog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.contact" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutTitle" datatype="html">
+        <source>Sobre nosotros</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutSubtitle" datatype="html">
+        <source>Excelencia en odontología moderna</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutDescription1" datatype="html">
+        <source>Más de 15 años transformando sonrisas.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutDescription2" datatype="html">
+        <source>Nuestro equipo está comprometido con tu bienestar.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutYearsExperience" datatype="html">
+        <source>Años de experiencia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutHappyPatients" datatype="html">
+        <source>Pacientes felices</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">17,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutSuccessRate" datatype="html">
+        <source>Índice de éxito</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutInternationalPatients" datatype="html">
+        <source>Pacientes internacionales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutImageAlt" datatype="html">
+        <source>Perfil de doctor especialista</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/about-section/about-section.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactTitle" datatype="html">
+        <source>Contáctanos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactSubtitle" datatype="html">
+        <source>Estamos listos para atenderte</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactAddressTitle" datatype="html">
+        <source>Dirección</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactAddress" datatype="html">
+        <source>Cra 15 #45-67, Bogotá, Colombia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactPhoneTitle" datatype="html">
+        <source>Teléfono</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactPhone" datatype="html">
+        <source>+57 310 123 4567</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactEmailTitle" datatype="html">
+        <source>Correo electrónico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactHoursTitle" datatype="html">
+        <source>Horarios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="contactHours" datatype="html">
+        <source>Lunes a Viernes 8am - 6pm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">22,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formName" datatype="html">
+        <source>Nombre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formEmail" datatype="html">
+        <source>Correo electrónico</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formPhone" datatype="html">
+        <source>Teléfono</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formServicePlaceholder" datatype="html">
+        <source>Selecciona un servicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formServiceAesthetic" datatype="html">
+        <source>Estética dental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formServiceImplants" datatype="html">
+        <source>Implantes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formServiceOrthodontics" datatype="html">
+        <source>Ortodoncia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formMessage" datatype="html">
+        <source>Escribe tu mensaje</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formSubmit" datatype="html">
+        <source>Enviar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/contac-section/contac-section.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroTitle" datatype="html">
+        <source>Tu sonrisa, nuestra prioridad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroSubtitle" datatype="html">
+        <source>Cuidamos tu salud dental con excelencia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroDescription" datatype="html">
+        <source> Somos especialistas en estética dental y rehabilitación oral. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroCtaPrimary" datatype="html">
+        <source>Agenda tu cita</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroCtaSecondary" datatype="html">
+        <source>Conócenos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="heroImageAlt" datatype="html">
+        <source>Doctora especialista en estética dental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/hero-section/hero-section.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="servicesTitle" datatype="html">
+        <source>Nuestros servicios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="servicesSubtitle" datatype="html">
+        <source> Tratamientos especializados para tu sonrisa </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">5,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aestheticAlt" datatype="html">
+        <source>Estética dental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aestheticTitle" datatype="html">
+        <source>Estética dental</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aestheticDescription" datatype="html">
+        <source>Devolvemos la belleza y armonía a tu sonrisa.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">14,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="implantsAlt" datatype="html">
+        <source>Implantes dentales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="implantsTitle" datatype="html">
+        <source>Implantes dentales</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="implantsDescription" datatype="html">
+        <source>Recupera tus piezas dentales con seguridad y calidad.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orthodonticsAlt" datatype="html">
+        <source>Ortodoncia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orthodonticsTitle" datatype="html">
+        <source>Ortodoncia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orthodonticsDescription" datatype="html">
+        <source>Corrige la posición de tus dientes de manera efectiva.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/services-section/services-section.component.html</context>
+          <context context-type="linenumber">28,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonialsTitle" datatype="html">
+        <source>Testimonios</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonialsSubtitle" datatype="html">
+        <source>Lo que dicen nuestros pacientes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial1Text" datatype="html">
+        <source>“Un servicio excelente, mi sonrisa cambió por completo.”</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial1Author" datatype="html">
+        <source>María G.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial1Location" datatype="html">
+        <source>Bogotá, Colombia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial2Text" datatype="html">
+        <source>“Muy profesionales y atentos, los recomiendo al 100%.”</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial2Author" datatype="html">
+        <source>John D.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial2Location" datatype="html">
+        <source>Miami, USA</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">18,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial3Text" datatype="html">
+        <source>“Gracias a Alquimia Dental recuperé la confianza en mí mismo.”</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial3Author" datatype="html">
+        <source>Carlos R.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="testimonial3Location" datatype="html">
+        <source>Medellín, Colombia</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/testimonials-section/testimonials-section.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

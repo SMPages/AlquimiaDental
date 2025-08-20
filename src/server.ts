@@ -12,55 +12,77 @@ const indexHtml = join(serverDistFolder, 'index.server.html');
 const app = express();
 const commonEngine = new CommonEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+// 🌍 Configuración de idiomas soportados
+const SUPPORTED_LANGS = ['es', 'en'];
+const DEFAULT_LANG = 'es';
 
 /**
- * Serve static files from /browser
+ * Middleware para redirigir a URL con idioma
  */
-app.get(
-  '**',
+app.use((req, res, next) => {
+  const url = req.url;
+
+  // ✅ 1. Verificamos si la URL ya tiene prefijo de idioma
+  const hasLangPrefix = SUPPORTED_LANGS.some(
+    (lang) => url.startsWith(`/${lang}/`) || url === `/${lang}`
+  );
+
+  if (hasLangPrefix) {
+    return next();
+  }
+
+  // ✅ 2. Detectamos idioma del navegador (Accept-Language)
+  const acceptLang = req.headers['accept-language'] || '';
+  const preferred = acceptLang.split(',')[0].split('-')[0]; // ej: "es-CO" → "es"
+
+  const lang = SUPPORTED_LANGS.includes(preferred) ? preferred : DEFAULT_LANG;
+
+  // ✅ 3. Redirigimos con prefijo de idioma
+  return res.redirect(301, `/${lang}${url}`);
+});
+
+/**
+ * Servir archivos estáticos desde /browser
+ */
+app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
-  }),
+    index: 'index.html',
+  })
 );
 
 /**
- * Handle all other requests by rendering the Angular application.
+ * Render con Angular Universal
  */
 app.get('**', (req, res, next) => {
-  const { protocol, originalUrl, baseUrl, headers } = req;
+  const { originalUrl, baseUrl, headers } = req;
+
+  // ⚡ Extraer idioma desde la URL (/es/... o /en/...)
+  const langPrefix = SUPPORTED_LANGS.find((l) =>
+    originalUrl.startsWith(`/${l}/`) || originalUrl === `/${l}`
+  );
+
+  const baseHref = langPrefix ? `/${langPrefix}` : `/${DEFAULT_LANG}`;
 
   commonEngine
     .render({
       bootstrap,
       documentFilePath: indexHtml,
-      url: `${protocol}://${headers.host}${originalUrl}`,
+      url: `http://${headers.host}${originalUrl}`,
       publicPath: browserDistFolder,
-      providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+      providers: [{ provide: APP_BASE_HREF, useValue: baseHref }],
     })
     .then((html) => res.send(html))
     .catch((err) => next(err));
 });
 
 /**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * Iniciar servidor
  */
 if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
   app.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`✅ Server corriendo en http://localhost:${port}`);
   });
 }
 

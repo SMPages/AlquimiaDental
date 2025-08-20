@@ -1,30 +1,21 @@
-import { Component, type OnInit } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { TranslatePipe } from "../../pipes/translate.pipe"
-import type { SeoService } from "../../services/seo.service"
-import type { LanguageService } from "../../services/language.service"
-
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { SeoService } from "../../services/seo.service";
+import { HeroSectionComponent } from "../hero-section/hero-section.component";
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
-  template: `
-    <!-- ... existing template ... -->
-  `,
+  imports: [CommonModule,
+    HeroSectionComponent
+  ],
+  templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    private seoService: SeoService,
-    private languageService: LanguageService,
-  ) {}
+  constructor(private seoService: SeoService) {}
 
   ngOnInit() {
-    this.seoService.updateSeoTags("home")
-
-    // Update SEO when language changes
-    this.languageService.currentLanguage$.subscribe(() => {
-      this.seoService.updateSeoTags("home")
-    })
+    // Ya no esperamos traducciones desde un servicio, solo actualizamos SEO
+    this.seoService.updateSeoTags("home");
   }
 }

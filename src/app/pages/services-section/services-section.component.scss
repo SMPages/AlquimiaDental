@@ -1,0 +1,66 @@
+/* === SERVICES SECTION === */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+.service-card {
+  background: var(--background-secondary); // fondo coherente con la paleta
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  text-align: center;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-strong);
+  }
+
+  .service-icon {
+    width: clamp(60px, 15vw, 80px);
+    height: clamp(60px, 15vw, 80px);
+    margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+    background: var(--accent-color); // icono destacado con acento
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: clamp(30px, 8vw, 40px);
+      height: clamp(30px, 8vw, 40px);
+      filter: brightness(0) invert(1); // mantiene visibilidad sobre fondo de acento
+    }
+  }
+
+  h3 {
+    color: var(--accent-color); // título de servicio en color acento
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+
+  h2 {
+    color: var(--accent-color); // título principal con acento
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}

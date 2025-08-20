@@ -1,0 +1,80 @@
+/* === CONTACT SECTION === */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 4vw, 2rem);
+  }
+}
+
+.contact-info {
+  .contact-item {
+    margin-bottom: 2rem;
+
+    h4 {
+      color: var(--accent-color); // destacamos con acento
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+}
+
+.contact-form {
+  background: var(--background-secondary); // más coherente con la paleta
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  box-shadow: 0 4px 6px var(--shadow-color);
+
+  .form-group {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: clamp(0.75rem, 2vw, 1rem);
+      border: 2px solid var(--border-color);
+      border-radius: 0.5rem;
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      transition: border-color 0.3s ease;
+      min-height: 44px; // touch target
+
+      &:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(212, 103, 95, 0.1); // tono del acento
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: clamp(100px, 20vw, 120px);
+    }
+  }
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+
+  h2 {
+    color: var(--accent-color);
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}

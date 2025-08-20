@@ -1,0 +1,53 @@
+/* === TESTIMONIALS SECTION === */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+.testimonial-card {
+  background: var(--background-secondary); // fondo coherente con la paleta
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: clamp(0.5rem, 2vw, 1rem);
+  box-shadow: 0 4px 6px var(--shadow-color);
+
+  p {
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    line-height: 1.6;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    color: var(--text-secondary);
+  }
+
+  .testimonial-author {
+    strong {
+      display: block;
+      color: var(--accent-color); // nombre del autor con color acento
+      margin-bottom: 0.25rem;
+    }
+
+    span {
+      color: var(--text-muted); // rol o descripción más clara
+      font-size: 0.875rem;
+    }
+  }
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+
+  h2 {
+    color: var(--accent-color); // título principal con acento
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}

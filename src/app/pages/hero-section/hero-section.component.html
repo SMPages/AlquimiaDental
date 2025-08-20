@@ -1,0 +1,28 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title" i18n="@@heroTitle">Alquimia Dental®</h1>
+      <p class="hero-subtitle" i18n="@@heroSubtitle">
+        Donde cada sonrisa se convierte en una historia
+      </p>
+      <p class="hero-description" i18n="@@heroDescription">
+        Más que odontología: transformamos vidas con ciencia, arte y alma.
+      </p>
+      <div class="hero-buttons">
+        <a [routerLink]="['/', currentLang, 'contact']" class="btn-primary-doc" i18n="@@heroCtaPrimary">
+          Agenda tu cita
+        </a>
+        <a [routerLink]="['/', currentLang, 'about']" class="btn-secondary-doc" i18n="@@heroCtaSecondary">
+          Conócenos
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="/images/elegant-dental-doctor.jpg"
+        alt="Doctora especialista en estética dental"
+        i18n-alt="@@heroImageAlt"
+      />
+    </div>
+  </div>
+</section>
