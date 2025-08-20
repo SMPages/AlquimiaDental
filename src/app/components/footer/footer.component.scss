@@ -1,0 +1,61 @@
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: clamp(2rem, 6vw, 3rem) 0 clamp(0.75rem, 2vw, 1rem);
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .footer-section {
+    h3, h4 {
+      color: var(--primary-color);
+      margin-bottom: clamp(0.75rem, 2vw, 1rem);
+      font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    }
+    
+    p {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+    
+    ul {
+      list-style: none;
+      
+      li {
+        margin-bottom: 0.5rem;
+        color: #d1d5db;
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        
+        a {
+          color: #d1d5db;
+          text-decoration: none;
+          transition: color 0.3s ease;
+          padding: 0.25rem 0;
+          display: inline-block;
+          
+          &:hover, &:focus {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: clamp(0.75rem, 2vw, 1rem);
+    text-align: center;
+    
+    p {
+      color: #9ca3af;
+      margin: 0;
+      font-size: clamp(0.75rem, 2vw, 0.875rem);
+    }
+  }
+  

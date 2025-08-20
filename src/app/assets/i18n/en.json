@@ -1,0 +1,90 @@
+{
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "gallery": "Gallery",
+      "blog": "Blog",
+      "contact": "Contact",
+      "language": "Language"
+    },
+    "hero": {
+      "title": "Dr. Sorany Díaz P.",
+      "subtitle": "Specialist in Aesthetic Dentistry and Oral Rehabilitation",
+      "description": "Transforming smiles with advanced techniques and personalized care. Over 15 years of experience providing world-class dental services.",
+      "cta": "Schedule Consultation",
+      "cta_secondary": "View Services"
+    },
+    "about": {
+      "title": "About the Doctor",
+      "subtitle": "Experience and Excellence in Dentistry",
+      "description": "Dr. Sorany Díaz P. is a renowned specialist in aesthetic dentistry with over 15 years of experience. Graduated with honors from Universidad Nacional Pedro Henríquez Ureña, she has dedicated her career to perfecting advanced techniques in oral rehabilitation and dental aesthetics.",
+      "experience": "15+ Years of Experience",
+      "patients": "5,000+ Satisfied Patients",
+      "procedures": "10,000+ Successful Procedures",
+      "certifications": "20+ International Certifications"
+    },
+    "services": {
+      "title": "Specialized Services",
+      "subtitle": "Cutting-Edge Treatments for Your Perfect Smile",
+      "aesthetic": {
+        "title": "Aesthetic Dentistry",
+        "description": "Porcelain veneers, professional whitening, and personalized smile design."
+      },
+      "rehabilitation": {
+        "title": "Oral Rehabilitation",
+        "description": "Complete restoration of dental function and aesthetics with advanced techniques."
+      },
+      "implants": {
+        "title": "Dental Implants",
+        "description": "Permanent solutions with state-of-the-art titanium implants."
+      },
+      "orthodontics": {
+        "title": "Invisible Orthodontics",
+        "description": "Clear aligners to discreetly correct dental positioning."
+      }
+    },
+    "testimonials": {
+      "title": "Patient Testimonials",
+      "subtitle": "Real Transformation Stories",
+      "testimonial1": {
+        "text": "Dr. Sorany completely transformed my smile. Her professionalism and attention to detail are exceptional. I recommend her services 100%.",
+        "author": "María González",
+        "location": "Santo Domingo, DR"
+      },
+      "testimonial2": {
+        "text": "I came from Miami for oral rehabilitation treatment. The result exceeded all my expectations. Definitely worth the trip.",
+        "author": "James Rodriguez",
+        "location": "Miami, FL"
+      },
+      "testimonial3": {
+        "text": "Excellent care and incredible results. The doctor is very professional and her team makes you feel at home.",
+        "author": "Ana Martínez",
+        "location": "New York, NY"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Schedule Your Consultation Today",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Office Hours",
+      "form": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "service": "Service of Interest",
+        "message": "Message",
+        "submit": "Send Message"
+      }
+    },
+    "footer": {
+      "description": "Specialist in aesthetic dentistry and oral rehabilitation. Transforming smiles with advanced techniques and personalized care.",
+      "quick_links": "Quick Links",
+      "services_title": "Services",
+      "contact_info": "Contact Information",
+      "rights": "All rights reserved."
+    }
+  }
+  

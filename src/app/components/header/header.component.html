@@ -1,0 +1,28 @@
+<header class="header">
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            <h2>Dra. Sorany Díaz P.</h2>
+          </div>
+  
+          <div class="nav-menu" [class.active]="isMenuOpen">
+            <a href="#home" class="nav-link" (click)="closeMenu()">{{ 'nav.home' | translate }}</a>
+            <a href="#about" class="nav-link" (click)="closeMenu()">{{ 'nav.about' | translate }}</a>
+            <a href="#services" class="nav-link" (click)="closeMenu()">{{ 'nav.services' | translate }}</a>
+            <a href="#gallery" class="nav-link" (click)="closeMenu()">{{ 'nav.gallery' | translate }}</a>
+            <a href="#blog" class="nav-link" (click)="closeMenu()">{{ 'nav.blog' | translate }}</a>
+            <a href="#contact" class="nav-link" (click)="closeMenu()">{{ 'nav.contact' | translate }}</a>
+            <app-language-switcher></app-language-switcher>
+          </div>
+  
+          <button class="mobile-menu-btn" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  

@@ -1,0 +1,90 @@
+{
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre Mí",
+      "services": "Servicios",
+      "gallery": "Galería",
+      "blog": "Blog",
+      "contact": "Contacto",
+      "language": "Idioma"
+    },
+    "hero": {
+      "title": "Dra. Sorany Díaz P.",
+      "subtitle": "Especialista en Odontología Estética y Rehabilitación Oral",
+      "description": "Transformando sonrisas con técnicas avanzadas y atención personalizada. Más de 15 años de experiencia brindando servicios dentales de clase mundial.",
+      "cta": "Agenda tu Consulta",
+      "cta_secondary": "Ver Servicios"
+    },
+    "about": {
+      "title": "Sobre la Doctora",
+      "subtitle": "Experiencia y Excelencia en Odontología",
+      "description": "La Dra. Sorany Díaz P. es una reconocida especialista en odontología estética con más de 15 años de experiencia. Graduada con honores de la Universidad Nacional Pedro Henríquez Ureña, ha dedicado su carrera a perfeccionar técnicas avanzadas en rehabilitación oral y estética dental.",
+      "experience": "15+ Años de Experiencia",
+      "patients": "5,000+ Pacientes Satisfechos",
+      "procedures": "10,000+ Procedimientos Exitosos",
+      "certifications": "20+ Certificaciones Internacionales"
+    },
+    "services": {
+      "title": "Servicios Especializados",
+      "subtitle": "Tratamientos de Vanguardia para tu Sonrisa Perfecta",
+      "aesthetic": {
+        "title": "Odontología Estética",
+        "description": "Carillas de porcelana, blanqueamiento profesional y diseño de sonrisa personalizado."
+      },
+      "rehabilitation": {
+        "title": "Rehabilitación Oral",
+        "description": "Restauración completa de la función y estética dental con técnicas avanzadas."
+      },
+      "implants": {
+        "title": "Implantes Dentales",
+        "description": "Soluciones permanentes con implantes de titanio de última generación."
+      },
+      "orthodontics": {
+        "title": "Ortodoncia Invisible",
+        "description": "Alineadores transparentes para corregir la posición dental discretamente."
+      }
+    },
+    "testimonials": {
+      "title": "Testimonios de Pacientes",
+      "subtitle": "Historias Reales de Transformación",
+      "testimonial1": {
+        "text": "La Dra. Sorany transformó completamente mi sonrisa. Su profesionalismo y atención al detalle son excepcionales. Recomiendo sus servicios al 100%.",
+        "author": "María González",
+        "location": "Santo Domingo, RD"
+      },
+      "testimonial2": {
+        "text": "Vine desde Miami para un tratamiento de rehabilitación oral. El resultado superó todas mis expectativas. Definitivamente vale la pena el viaje.",
+        "author": "James Rodriguez",
+        "location": "Miami, FL"
+      },
+      "testimonial3": {
+        "text": "Excelente atención y resultados increíbles. La doctora es muy profesional y su equipo te hace sentir como en casa.",
+        "author": "Ana Martínez",
+        "location": "New York, NY"
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "subtitle": "Agenda tu Consulta Hoy",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "Email",
+      "hours": "Horarios de Atención",
+      "form": {
+        "name": "Nombre Completo",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "service": "Servicio de Interés",
+        "message": "Mensaje",
+        "submit": "Enviar Mensaje"
+      }
+    },
+    "footer": {
+      "description": "Especialista en odontología estética y rehabilitación oral. Transformando sonrisas con técnicas avanzadas y atención personalizada.",
+      "quick_links": "Enlaces Rápidos",
+      "services_title": "Servicios",
+      "contact_info": "Información de Contacto",
+      "rights": "Todos los derechos reservados."
+    }
+  }
+  
