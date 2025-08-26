@@ -1,10 +1,7 @@
-$root = "dist\alquimia-dental\browser"
-
-@"
-<!doctype html><html lang="es"><head>
+﻿<!doctype html>
+<html lang="es"><head>
   <meta charset="utf-8">
   <title>Alquimia Dental</title>
-  <meta http-equiv="refresh" content="0; url=./es/">
-  <script>location.replace('./es/');</script>
-</head><body>Redirigiendo a <a href="./es/">/es/</a>…</body></html>
-"@ | Out-File -Encoding utf8 "$root\index.html"
+  <meta http-equiv="refresh" content="0; url=/AlquimiaDental/es/">
+  <script>location.replace("/AlquimiaDental/es/");</script>
+</head><body>Redirigiendo a <a href="/AlquimiaDental/es/">/AlquimiaDental/es/</a>…</body></html>
