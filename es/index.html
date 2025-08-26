@@ -128,19 +128,15 @@
   try{
     var base = "/AlquimiaDental";
     var p = location.pathname || "/";
-    if (!p.startsWith(base)) return; // fuera del repo, no tocamos
+    if (!p.startsWith(base)) return;
     var segs = p.slice(base.length).split("/").filter(Boolean);
     var i = 0, last = null;
     while (i < segs.length && (segs[i] === "es" || segs[i] === "en")) { last = segs[i]; i++; }
     var lang = last || "es";
-    // Si ya está normalizada: base + "/" + lang + ...
     var normalized = base + "/" + lang + (segs.slice(i).length ? "/" + segs.slice(i).join("/") : "") + "/";
     var current = p.endsWith("/") ? p : p + "/";
-    if (current !== normalized) {
-      location.replace(normalized + (location.search||"") + (location.hash||""));
-    }
+    if (current !== normalized) location.replace(normalized + (location.search||"") + (location.hash||""));
   }catch(e){}
 })();</script>
-
 </body>
 </html>
