@@ -114,20 +114,13 @@
 /*lang-normalizer (GH Pages)*/
 (function(){
   try{
-    // Cambia esto si tu repo cambia
-    var base = "/AlquimiaDental";
+    var base = "/AlquimiaDental";   // <— ajusta si cambia el repo
     var p = location.pathname || "/";
-
-    // Solo actúa en GitHub Pages (ruta bajo /AlquimiaDental)
     if (!p.startsWith(base)) return;
-
-    // Extrae prefijos consecutivos 'es'|'en' y usa el ÚLTIMO
     var segs = p.slice(base.length).split("/").filter(Boolean);
     var i = 0, last = null;
     while (i < segs.length && (segs[i] === "es" || segs[i] === "en")) { last = segs[i]; i++; }
     var lang = last || "es";
-
-    // Reconstruye la URL normalizada y redirige si hace falta
     var rest = segs.slice(i);
     var normalized = base + "/" + lang + (rest.length ? "/" + rest.join("/") : "") + "/";
     var current = p.endsWith("/") ? p : p + "/";
@@ -137,6 +130,7 @@
   }catch(e){}
 })();
 </script>
+
   <!-- Google Analytics (replace with actual tracking ID) -->
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
   <script>
