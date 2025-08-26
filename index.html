@@ -1,6 +1,12 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>Alquimia Dental</title>
-<meta http-equiv="refresh" content="0; url=/AlquimiaDental/es/">
-<script>location.replace("/AlquimiaDental/es/");</script>
-Redirigiendo a <a href="/AlquimiaDental/es/">/AlquimiaDental/es/</a>…
+<script>
+  (function () {
+    var base = "/AlquimiaDental";
+    var lang = (navigator.language || "es").slice(0,2).toLowerCase();
+    if (lang !== "en" && lang !== "es") lang = "es";
+    location.replace(base + "/" + lang + "/");
+  })();
+</script>
+<p>Redirigiendo según el idioma del navegador…</p>
