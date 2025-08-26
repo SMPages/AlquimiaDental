@@ -92,12 +92,14 @@ const root404 = `<!doctype html>
 <title>Alquimia Dental</title>
 <script>
 (function () {
-  var base = "/AlquimiaDental";
+  var base = ${JSON.stringify(PUBLIC_BASE)};
   var p = location.pathname || "";
   if (!p.startsWith(base)) { location.replace(base + "/es/"); return; }
-  var rest = p.slice(base.length);           // ej: /es/opinions o /en/loquesea
-  var m = rest.match(/^\/(es|en)\b/);
-  var lang = m ? m[1] : "es";
+
+  var segs = p.slice(base.length).split("/").filter(Boolean);
+  var i = 0, last = null;
+  while (i < segs.length && (segs[i] === "es" || segs[i] === "en")) { last = segs[i]; i++; }
+  var lang = last || "es";
   location.replace(base + "/" + lang + "/");
 })();
 </script>`;

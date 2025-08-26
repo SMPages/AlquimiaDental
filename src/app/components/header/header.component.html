@@ -1,58 +1,37 @@
+<!-- src/app/components/header/header.component.html -->
 <header class="header">
   <div class="container-header">
     <div class="header-content">
-      
       <!-- Logo -->
       <div class="logo">
         <h2>Alquimia Dental®</h2>
       </div>
-      
+
       <!-- Navegación principal -->
       <nav class="nav" [class.nav-open]="isMenuOpen">
         <ul class="nav-list">
-          <li>
-            <a [routerLink]="['/', currentLang]" class="nav-link" (click)="closeMenu()" i18n="@@nav.home">Inicio</a>
-          </li>
-          <li>
-            <a [routerLink]="['/', currentLang, 'about']" class="nav-link" (click)="closeMenu()" i18n="@@nav.about">Acerca de mí</a>
-          </li>
-          <li>
-            <a [routerLink]="['/', currentLang, 'services']" class="nav-link" (click)="closeMenu()" i18n="@@nav.services">Servicios</a>
-          </li>
-          <li>
-            <a [routerLink]="['/', currentLang, 'gallery']" class="nav-link" (click)="closeMenu()" i18n="@@nav.gallery">Galería</a>
-          </li>
-          <li>
-            <a [routerLink]="['/', currentLang, 'blog']" class="nav-link" (click)="closeMenu()" i18n="@@nav.blog">Articulos</a>
-          </li>
-          <li>
-            <a [routerLink]="['/', currentLang, 'opinions']" class="nav-link" (click)="closeMenu()" i18n="@@nav.opinions">Opiniones</a>
-          </li>
+          <li><a [routerLink]="['/', currentLang]" (click)="closeMenu()" class="nav-link" i18n="@@nav.home">Inicio</a></li>
+          <li><a [routerLink]="['/', currentLang, 'about']" (click)="closeMenu()" class="nav-link" i18n="@@nav.about">Acerca de mí</a></li>
+          <li><a [routerLink]="['/', currentLang, 'services']" (click)="closeMenu()" class="nav-link" i18n="@@nav.services">Servicios</a></li>
+          <li><a [routerLink]="['/', currentLang, 'gallery']" (click)="closeMenu()" class="nav-link" i18n="@@nav.gallery">Galería</a></li>
+          <li><a [routerLink]="['/', currentLang, 'blog']" (click)="closeMenu()" class="nav-link" i18n="@@nav.blog">Articulos</a></li>
+          <li><a [routerLink]="['/', currentLang, 'opinions']" (click)="closeMenu()" class="nav-link" i18n="@@nav.opinions">Opiniones</a></li>
         </ul>
       </nav>
 
       <!-- Acciones del header -->
       <div class="header-actions">
-         <a
-          href="https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quiero%20agendar%20una%20valoraci%C3%B3n."
-          target="_blank"
-          rel="noopener"
-          class="btn btn-primary"
-          (click)="closeMenu()"
-          i18n="@@header.bookCta"
-          aria-label="Chatear por WhatsApp para agendar una cita"
-        >
+        <!-- CTA directo a WhatsApp -->
+        <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener" i18n="@@header.bookCta">
           Agenda conmigo
         </a>
 
-        <!-- 🔥 Aquí va el switch de idioma -->
+        <!-- Switch de idioma (ya corrige prefijos repetidos) -->
         <app-language-switcher></app-language-switcher>
 
         <!-- Botón hamburguesa -->
         <button class="menu-toggle" (click)="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>

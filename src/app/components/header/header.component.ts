@@ -1,7 +1,12 @@
-import { Component } from "@angular/core";
+// src/app/components/header/header.component.ts
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule, ActivatedRoute } from "@angular/router";
+import { Router, RouterModule, NavigationEnd, UrlTree } from "@angular/router";
+import { filter, map, startWith } from "rxjs/operators";
 import { LanguageSwitcherComponent } from "../language-switcher/language-switcher.component";
+
+type Lang = 'es' | 'en';
+const isLang = (s?: string): s is Lang => s === 'es' || s === 'en';
 
 @Component({
   selector: "app-header",
@@ -11,22 +16,32 @@ import { LanguageSwitcherComponent } from "../language-switcher/language-switche
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
+  private router = inject(Router);
+
   isMenuOpen = false;
-  currentLang = "es"; // idioma por defecto
+  currentLang: Lang = 'es';
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe((params) => {
-      if (params["lang"]) {
-        this.currentLang = params["lang"];
-      }
-    });
+  constructor() {
+    // Recalcular idioma en cada navegación (y una vez al iniciar)
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      startWith(null),
+      map(() => this.getLangFromUrl(this.router.url))
+    ).subscribe(lang => this.currentLang = lang);
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  private getLangFromUrl(url: string): Lang {
+    const tree: UrlTree = this.router.parseUrl(url);
+    const segs = tree.root.children['primary']?.segments ?? [];
+    // Tomar TODOS los prefijos consecutivos de idioma y quedarnos con el ÚLTIMO
+    let last: Lang | null = null;
+    for (const s of segs.map(s => s.path)) {
+      if (isLang(s)) last = s;
+      else break;
+    }
+    return last ?? 'es';
   }
 
-  closeMenu() {
-    this.isMenuOpen = false;
-  }
+  toggleMenu() { this.isMenuOpen = !this.isMenuOpen; }
+  closeMenu() { this.isMenuOpen = false; }
 }
