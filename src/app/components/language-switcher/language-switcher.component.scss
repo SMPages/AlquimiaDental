@@ -1,93 +1,93 @@
 /* src/app/components/language-switcher/language-switcher.component.scss */
 
-/* Aísla el componente */
-:host { display: inline-block; }
+/* ---- paleta local (ajústala si quieres) ---- */
+$ink: #4a4a4a;               // texto normal
+$ink-dim: #8f8f8f;           // inactivo
+$accent: #bb7354;            // terracota (botón grande)
+$accent-ink: #ffffff;        // texto sobre terracota
+$surface: #ffffff;           // fondo del toggle
+$border: #e5ddd7;            // borde suave
+$shadow: rgba(187, 115, 84, .28);
 
+/* ---- contenedor ---- */
 .lang-switcher-root {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-/* Switch principal (una sola pieza) */
+/* ---- toggle ---- */
 .lang-switch {
-  --track-height: 30px;
-  --track-width: 72px;
-  --thumb-size: 26px;
-  --track-off: #c9c9c9;
-  --track-on: var(--primary, #c17854); /* usa tu paleta */
-  --text-on: #ffffff;
-  --focus-ring: 0 0 0 3px rgba(0, 123, 255, 0.35);
-
   position: relative;
-  display: inline-flex;
+  display: inline-grid;
+  grid-auto-flow: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-  width: var(--track-width);
-  height: var(--track-height);
-  padding: 0 6px;
-  border: 0;
+  gap: 0;
+  padding: 4px;
+  border: 1.5px solid $border;
+  background: $surface;
   border-radius: 999px;
-  background: var(--track-off);
-  cursor: pointer;
+  box-shadow: 0 8px 22px -8px $shadow;
   user-select: none;
-  outline: none;
 
-  font-weight: 700;
-  color: var(--text-on);
-  transition: background-color 0.28s ease;
+  /* tamaño/espaciado del toggle */
+  --pad-x: 14px;
+  --pad-y: 7px;
+  --fs: 0.92rem;
 
-  &:focus-visible { box-shadow: var(--focus-ring); }
-
-  .label {
+  .lang {
     position: relative;
-    z-index: 2;
-    width: 50%;
-    text-align: center;
-    font-size: 0.82rem;
+    z-index: 1; /* por encima del thumb */
+    padding: var(--pad-y) var(--pad-x);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: var(--fs);
     line-height: 1;
-    transition: opacity 0.25s ease;
+    text-decoration: none;
+    color: $ink-dim;
+    transition: color .18s ease, opacity .18s ease;
 
-    &.dim { opacity: 0.6; }
-    &.es { text-align: left; }
-    &.en { text-align: right; }
+    &:hover { opacity: .9; }
+    &:focus-visible {
+      outline: 2px solid rgba(0,0,0,.25);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+
+    /* no azules subrayados jamás */
+    &:visited, &:active { color: inherit; text-decoration: none; }
   }
 
+  /* pastilla que se mueve */
   .thumb {
     position: absolute;
-    z-index: 1;
-    top: 2px; left: 2px;
-    width: var(--thumb-size);
-    height: var(--thumb-size);
-    border-radius: 50%;
-    background: #fff;
-    transition: transform 0.28s ease;
-    will-change: transform;
+    inset: 4px auto 4px 4px;     /* top/right/bottom/left */
+    width: calc(50% - 8px);
+    border-radius: 999px;
+    background: $accent;
+    box-shadow: 0 10px 20px -8px $shadow, inset 0 0 0 1px rgba(255,255,255,.25);
+    transform: translateX(0);    /* ES por defecto */
+    transition: transform .22s ease-in-out;
+    z-index: 0;                  /* detrás del texto */
   }
 
-  /* Estado cuando está en inglés (mueve el thumb y cambia el fondo) */
-  &.is-en {
-    background: var(--track-on);
-    .thumb {
-      transform: translateX(calc(var(--track-width) - var(--thumb-size) - 4px));
-    }
-  }
+  /* color del texto cuando está seleccionado */
+  &.lang-es .es { color: $accent-ink; }
+  &.lang-en .en { color: $accent-ink; }
+
+  /* texto inactivo */
+  &.lang-es .en,
+  &.lang-en .es { color: $ink; }
+
+  /* mover el thumb a la derecha cuando EN está activo */
+  &.lang-en .thumb { transform: translateX(100%); }
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+/* opcional: ajusta un poquito la escala para pantallas pequeñas */
+@media (max-width: 480px) {
   .lang-switch {
-    --track-height: 26px;
-    --track-width: 64px;
-    --thumb-size: 22px;
-
-    .label { font-size: 0.74rem; }
+    --pad-x: 12px;
+    --pad-y: 6px;
+    --fs: .9rem;
   }
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .lang-switch,
-  .lang-switch .label,
-  .lang-switch .thumb { transition: none !important; }
 }

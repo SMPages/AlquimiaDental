@@ -1,26 +1,38 @@
 <!-- src/app/components/language-switcher/language-switcher.component.html -->
 <div class="lang-switcher-root">
-  <button
+  <nav
     class="lang-switch"
-    type="button"
-    [class.is-en]="currentLang === 'en'"
-    role="switch"
-    [attr.aria-checked]="currentLang === 'en'"
-    [attr.aria-label]="'Cambiar idioma. Actual: ' + currentLang.toUpperCase()"
-    (click)="toggle()"
+    [class.lang-es]="currentLang === 'es'"
+    [class.lang-en]="currentLang === 'en'"
+    aria-label="Language switch"
+    role="tablist"
   >
-    <span
+    <a
       class="label es"
+      role="tab"
       [class.dim]="currentLang !== 'es'"
-      (click)="$event.stopPropagation(); switchTo('es')"
-    >ES</span>
-
-    <span
-      class="label en"
-      [class.dim]="currentLang !== 'en'"
-      (click)="$event.stopPropagation(); switchTo('en')"
-    >EN</span>
+      [attr.aria-selected]="currentLang === 'es'"
+      [attr.aria-current]="currentLang === 'es' ? 'page' : null"
+      [href]="computeHref('es')"
+      hreflang="es"
+      (click)="$event.preventDefault(); switchTo('es')"
+    >
+      ES
+    </a>
 
     <span class="thumb" aria-hidden="true"></span>
-  </button>
+
+    <a
+      class="label en"
+      role="tab"
+      [class.dim]="currentLang !== 'en'"
+      [attr.aria-selected]="currentLang === 'en'"
+      [attr.aria-current]="currentLang === 'en' ? 'page' : null"
+      [href]="computeHref('en')"
+      hreflang="en"
+      (click)="$event.preventDefault(); switchTo('en')"
+    >
+      EN
+    </a>
+  </nav>
 </div>

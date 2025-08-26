@@ -67,10 +67,15 @@ const landing = `${PUBLIC_BASE}/es/`;
 const rootIndex = `<!doctype html>
 <meta charset="utf-8">
 <title>Alquimia Dental</title>
-<meta http-equiv="refresh" content="0; url=${landing}">
-<script>location.replace(${JSON.stringify(landing)});</script>
-Redirigiendo a <a href="${landing}">${landing}</a>…
-`;
+<script>
+  (function () {
+    var base = ${JSON.stringify(PUBLIC_BASE)};
+    var lang = (navigator.language || "es").slice(0,2).toLowerCase();
+    if (lang !== "en" && lang !== "es") lang = "es";
+    location.replace(base + "/" + lang + "/");
+  })();
+</script>
+<p>Redirigiendo según el idioma del navegador…</p>`;
 
 // 404 que normaliza y CONSERVA el resto de la ruta
 const root404 = `<!doctype html>

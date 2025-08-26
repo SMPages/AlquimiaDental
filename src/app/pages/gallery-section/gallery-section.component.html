@@ -43,11 +43,11 @@
       <button class="lb-close" (click)="cerrarLightbox()" aria-label="Cerrar">✕</button>
 
       <div class="lb-header">
-        <h3>{{ items[indexActual]?.titulo }}</h3>
+        <h3>{{ items[indexActual].titulo }}</h3>
       </div>
 
       <div class="lb-media">
-        <img [src]="items[indexActual]?.src" [alt]="items[indexActual]?.alt" />
+        <img [src]="items[indexActual].src" [alt]="items[indexActual].alt" />
       </div>
 
       <div class="lb-nav">
