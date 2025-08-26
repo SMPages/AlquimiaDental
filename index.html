@@ -3,10 +3,10 @@
 <title>Alquimia Dental</title>
 <script>
   (function () {
-    var base = "/AlquimiaDental/es";
+    var base = "/AlquimiaDental";
     var lang = (navigator.language || "es").slice(0,2).toLowerCase();
     if (lang !== "en" && lang !== "es") lang = "es";
-    var dest = (base + "/" + lang + "/").replace(/\/+/, "/");
+    var dest = (base + "/" + lang + "/").replace(//+/g, "/");
     location.replace(dest);
   })();
 </script>
