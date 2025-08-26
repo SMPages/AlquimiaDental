@@ -23,20 +23,20 @@ export class GallerySectionComponent implements OnDestroy {
     {
       id: 1,
       titulo: 'Rehabilitación total sobre implantes',
-      src: '/images/caso3.jpg',
+      src: 'images/caso3.jpg',
       alt: 'Antes y después de rehabilitación total sobre implantes',
       descripcion: 'Función y estética recuperadas con prótesis sobre implantes.'
     },
     {
       id: 2,
       titulo: 'Diseño de sonrisa – Carillas cerámicas',
-      src: '/images/caso2.jpg',
+      src: 'images/caso2.jpg',
       alt: 'Antes y después con carillas cerámicas'
     },
     {
       id: 3,
       titulo: 'Blanqueamiento y resinas estéticas',
-      src: '/images/caso3.jpg',
+      src: 'images/caso3.jpg',
       alt: 'Comparación antes y después de blanqueamiento y resinas',
       descripcion: 'Función y estética recuperadas con prótesis sobre implantes.'
     }
