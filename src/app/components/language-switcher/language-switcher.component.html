@@ -1,16 +1,26 @@
-<!-- Usa un nombre de clase único para evitar conflicto con el wrapper del header -->
+<!-- src/app/components/language-switcher/language-switcher.component.html -->
 <div class="lang-switcher-root">
   <button
     class="lang-switch"
     type="button"
+    [class.is-en]="currentLang === 'en'"
     role="switch"
-    [attr.aria-checked]="currentLanguage === 'en'"
-    [class.active]="currentLanguage === 'en'"
-    (click)="toggleLanguage()"
-    aria-label="Cambiar idioma entre Español e Inglés"
+    [attr.aria-checked]="currentLang === 'en'"
+    [attr.aria-label]="'Cambiar idioma. Actual: ' + currentLang.toUpperCase()"
+    (click)="toggle()"
   >
-    <span class="label es" [class.dim]="currentLanguage === 'en'">ES</span>
-    <span class="label en" [class.dim]="currentLanguage === 'es'">EN</span>
+    <span
+      class="label es"
+      [class.dim]="currentLang !== 'es'"
+      (click)="$event.stopPropagation(); switchTo('es')"
+    >ES</span>
+
+    <span
+      class="label en"
+      [class.dim]="currentLang !== 'en'"
+      (click)="$event.stopPropagation(); switchTo('en')"
+    >EN</span>
+
     <span class="thumb" aria-hidden="true"></span>
   </button>
 </div>

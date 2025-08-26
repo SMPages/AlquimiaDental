@@ -2,6 +2,9 @@
   "name": "alquimia-dental",
   "version": "0.0.0",
   "scripts": {
+    "build:gh": "ng build --configuration production --base-href \"https://smpages.github.io/AlquimiaDental/\"",
+    "postbuild:gh": "node tools/postbuild-ghp.cjs",
+    "deploy:gh": "npm run build:gh && npm run postbuild:gh && ngh --dir=dist/alquimia-dental/browser",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -32,7 +35,7 @@
     "@angular/compiler-cli": "^19.2.0",
     "@types/express": "^4.17.17",
     "@types/node": "^18.18.0",
-    "angular-cli-ghpages": "^2.0.3",
+    "angular-cli-ghpages": "^2.0.4",
     "typescript": "~5.7.2"
   }
 }

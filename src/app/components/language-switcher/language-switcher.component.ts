@@ -1,74 +1,60 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { Router, NavigationEnd } from "@angular/router";
-import { filter, Subscription } from "rxjs";
+import { Component } from '@angular/core';
+import { Router, RouterModule, UrlTree } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-type Lang = "es" | "en";
+type Lang = 'es' | 'en';
+const SUPPORTED: ReadonlyArray<Lang> = ['es', 'en'] as const;
+const isLang = (v?: string): v is Lang => !!v && (v === 'es' || v === 'en');
 
 @Component({
-  selector: "app-language-switcher",
+  selector: 'app-language-switcher',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: "./language-switcher.component.html",
-  styleUrls: ["./language-switcher.component.scss"],
+  imports: [CommonModule, RouterModule],
+  templateUrl: './language-switcher.component.html',
+  styleUrls: ['./language-switcher.component.scss'],
 })
-export class LanguageSwitcherComponent implements OnInit, OnDestroy {
-  // ✅ Ahora acepta string y valida internamente
-  @Input() set lang(value: string | undefined) {
-    if (value === "es" || value === "en") {
-      this.currentLanguage = value;
-    }
-    // Si viene otro valor, se ignora y se mantiene el valor actual (o el de la URL)
-  }
-
-  currentLanguage: Lang = "es";
-  private sub?: Subscription;
-
+export class LanguageSwitcherComponent {
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.syncFromUrl(); // primer valor desde la URL
-    // Reaccionar a cambios de ruta para mantener el switch sincronizado
-    this.sub = this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe(() => this.syncFromUrl());
+  private pathSegments(): string[] {
+    const tree: UrlTree = this.router.parseUrl(this.router.url);
+    const segs = tree.root.children['primary']?.segments ?? [];
+    return segs.map(s => s.path);
   }
 
-  ngOnDestroy(): void {
-    this.sub?.unsubscribe();
-  }
-
-  /** Lee el primer segmento de la URL cuando no viene un @Input válido */
-  private syncFromUrl(): void {
-    const url = this.router.url || "/";
-    const first = url.split("?")[0].split("#")[0].split("/").filter(Boolean)[0];
-    // Cae a 'es' por defecto si no hay 'en' como primer segmento
-    this.currentLanguage = (first === "en" ? "en" : "es");
-  }
-
-  /** Cambia entre ES/EN y navega reemplazando solo el primer segmento */
-  toggleLanguage(): void {
-    const next: Lang = this.currentLanguage === "es" ? "en" : "es";
-
-    // Tomar segmentos actuales y reemplazar el 1er segmento por 'es' o 'en'
-    const tree = this.router.parseUrl(this.router.url);
-    const segments = tree.root.children["primary"]?.segments ?? [];
-    const fragment = tree.fragment ?? undefined; // ✅ Normaliza null -> undefined
-
-    if (segments.length === 0) {
-      // Estás en '/', navega a '/next' preservando query/fragment
-      this.router.navigate(["/", next], {
-        queryParams: tree.queryParams,
-        fragment,
-      });
-      return;
+  /** Idioma actual: toma el ÚLTIMO prefijo de idioma consecutivo al inicio (si hay varios) */
+  get currentLang(): Lang {
+    const segs = this.pathSegments();
+    let last: Lang | null = null;
+    for (const s of segs) {
+      if (isLang(s)) last = s;
+      else break;
     }
+    return last ?? 'es';
+  }
 
-    // Reemplaza el primer segmento (idioma) conservando el resto de la ruta
-    const rest = segments.slice(1).map(s => s.path);
-    this.router.navigate(["/", next, ...rest], {
+  /** Quita TODOS los prefijos de idioma consecutivos y devuelve el resto de la ruta */
+  private stripLeadingLangs(segs: string[]): string[] {
+    let i = 0;
+    while (i < segs.length && isLang(segs[i])) i++;
+    return segs.slice(i);
+  }
+
+  switchTo(lang: Lang) {
+    if (this.currentLang === lang) return;
+
+    const tree = this.router.parseUrl(this.router.url);
+    const segs = this.pathSegments();
+    const rest = this.stripLeadingLangs(segs);
+
+    this.router.navigate(['/', lang, ...rest], {
+      replaceUrl: true,
       queryParams: tree.queryParams,
-      fragment,
+      fragment: tree.fragment ?? undefined,
     });
+  }
+
+  toggle() {
+    this.switchTo(this.currentLang === 'es' ? 'en' : 'es');
   }
 }
