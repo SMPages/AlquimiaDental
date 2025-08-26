@@ -1,16 +1,16 @@
-<div class="language-switcher">
-  <a 
-    [href]="getLanguageUrl('es')" 
-    [class.active]="currentLanguage === 'es'" 
-    class="lang-btn"
+<!-- Usa un nombre de clase único para evitar conflicto con el wrapper del header -->
+<div class="lang-switcher-root">
+  <button
+    class="lang-switch"
+    type="button"
+    role="switch"
+    [attr.aria-checked]="currentLanguage === 'en'"
+    [class.active]="currentLanguage === 'en'"
+    (click)="toggleLanguage()"
+    aria-label="Cambiar idioma entre Español e Inglés"
   >
-    ES
-  </a>
-  <a 
-    [href]="getLanguageUrl('en')" 
-    [class.active]="currentLanguage === 'en'" 
-    class="lang-btn"
-  >
-    EN
-  </a>
+    <span class="label es" [class.dim]="currentLanguage === 'en'">ES</span>
+    <span class="label en" [class.dim]="currentLanguage === 'es'">EN</span>
+    <span class="thumb" aria-hidden="true"></span>
+  </button>
 </div>

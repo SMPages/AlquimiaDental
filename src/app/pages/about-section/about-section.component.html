@@ -1,76 +1,90 @@
-<section id="about" class="section">
-  <div class="section-header text-center">
-    <h2 i18n="@@aboutTitle">Sobre mí</h2>
-    <p class="section-subtitle" i18n="@@aboutSubtitle">
-      Odontología con ciencia, arte y alma
-    </p>
-  </div>
+<section id="sobre-mi" class="about-section section" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-content">
+      
+      <!-- Imagen -->
+      <div class="about-image">
+        <img
+          src="/images/about.png"
+          alt="Dra. Sorany Díaz, especialista en rehabilitación y estética oral en Popayán"
+          width="440" height="600"
+          loading="lazy" decoding="async" fetchpriority="low"
+          class="office-photo fade-in"
+          i18n-alt="@@aboutImageAlt"
+        />
+      </div>
 
-  <div class="about-content">
-    <div class="about-text">
-      <p i18n="@@aboutIntro">
-        👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral. 
-        En mi consultorio practico lo que llamo <strong>alquimia dental</strong>: transformar 
-        cada sonrisa con un enfoque humano, personalizado y de vanguardia.
-      </p>
+      <!-- Texto -->
+      <div class="about-text">
+        <h2 id="about-title" class="section-title fade-in" i18n="@@aboutTitle">
+          Sobre mí
+        </h2>
+        <h3 class="section-subtitle fade-in" i18n="@@aboutSubtitle">
+          Odontología con ciencia, arte y alma
+        </h3>
 
-      <p i18n="@@aboutPhilosophy">
-        Para mí, cada tratamiento va más allá de resinas, carillas o coronas: 
-        es un proceso de confianza, autoestima y transformación personal.
-      </p>
-
-      <!-- Lista de servicios principales -->
-      <h3 i18n="@@aboutServicesTitle">Servicios destacados</h3>
-      <ul class="services-list">
-        <li i18n="@@serviceDigital">Odontología Digital</li>
-        <li i18n="@@serviceWhitening">Blanqueamiento dental</li>
-        <li i18n="@@serviceVeneers">Lentes y Carillas Cerámicas</li>
-        <li i18n="@@serviceCleaning">Limpieza dental profesional</li>
-        <li i18n="@@serviceJewelry">Joyas Dentales – Grillz Oro / Plata</li>
-        <li i18n="@@serviceSmileDesign">Diseños de sonrisa de alta estética</li>
-        <li i18n="@@serviceRehabilitation">Rehabilitación & Implantología Oral</li>
-        <li i18n="@@serviceProsthesis">Prótesis Total – Fijas – Removibles – Híbridas</li>
-      </ul>
-
-      <!-- CTA -->
-      <div class="about-cta">
-        <p i18n="@@aboutCtaText">
-          Cada sonrisa puede ser una nueva historia. 
-          Empieza la tuya hoy mismo.
+        <p class="about-description fade-in" i18n="@@aboutIntro">
+          👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.
+          En mi consultorio practico lo que llamo <strong>alquimia dental</strong>: transformar
+          cada sonrisa con un enfoque humano, personalizado y de vanguardia.
         </p>
-        <a href="https://wa.me/573147992217" target="_blank" class="btn-primary-doc" i18n="@@aboutCtaBtn">
-          Agenda tu cita
-        </a>
-      </div>
 
-      <!-- Stats -->
-      <div class="stats-grid">
-        <div class="stat-item">
-          <h3>15+</h3>
-          <p i18n="@@aboutYearsExperience">Años de experiencia</p>
+        <p class="about-description fade-in" i18n="@@aboutPhilosophy">
+          Para mí, cada tratamiento va más allá de resinas, carillas o coronas:
+          es un proceso de confianza, autoestima y transformación personal.
+        </p>
+
+        <!-- Servicios destacados -->
+        <div class="credentials fade-in">
+          <h4 class="credentials-title" i18n="@@aboutServicesTitle">Servicios destacados</h4>
+          <ul class="credentials-list services-list">
+            <li i18n="@@serviceDigital">Odontología Digital</li>
+            <li i18n="@@serviceWhitening">Blanqueamiento dental</li>
+            <li i18n="@@serviceVeneers">Lentes y Carillas Cerámicas</li>
+            <li i18n="@@serviceCleaning">Limpieza dental profesional</li>
+            <li i18n="@@serviceJewelry">Joyas Dentales – Grillz Oro / Plata</li>
+            <li i18n="@@serviceSmileDesign">Diseños de sonrisa de alta estética</li>
+            <li i18n="@@serviceRehabilitation">Rehabilitación & Implantología Oral</li>
+            <li i18n="@@serviceProsthesis">Prótesis Total – Fijas – Removibles – Híbridas</li>
+          </ul>
         </div>
-        <div class="stat-item">
-          <h3>2000+</h3>
-          <p i18n="@@aboutHappyPatients">Pacientes felices</p>
+
+        <!-- CTA -->
+        <div class="about-cta fade-in">
+          <p i18n="@@aboutCtaText">
+            Cada sonrisa puede ser una nueva historia. Empieza la tuya hoy mismo.
+          </p>
+          <a
+            href="https://wa.me/573147992217"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary-doc"
+            i18n="@@aboutCtaBtn"
+          >
+            Agenda tu cita
+          </a>
         </div>
-        <div class="stat-item">
-          <h3>98%</h3>
-          <p i18n="@@aboutSuccessRate">Índice de éxito</p>
-        </div>
-        <div class="stat-item">
-          <h3>50+</h3>
-          <p i18n="@@aboutInternationalPatients">Pacientes internacionales</p>
+
+        <!-- Stats -->
+        <div class="stats-grid fade-in" aria-label="Resultados y experiencia">
+          <div class="stat-item">
+            <h3>15+</h3>
+            <p i18n="@@aboutYearsExperience">Años de experiencia</p>
+          </div>
+          <div class="stat-item">
+            <h3>2000+</h3>
+            <p i18n="@@aboutHappyPatients">Pacientes felices</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p i18n="@@aboutSuccessRate">Índice de éxito</p>
+          </div>
+          <div class="stat-item">
+            <h3>50+</h3>
+            <p i18n="@@aboutInternationalPatients">Pacientes internacionales</p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Imagen -->
-    <div class="about-image">
-      <img
-        src="/images/about.png"
-        alt="Perfil de la Dra. Sorany Díaz"
-        i18n-alt="@@aboutImageAlt"
-      />
     </div>
   </div>
 </section>

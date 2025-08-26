@@ -1,31 +1,141 @@
- <section id="services" class="section marble-bg">
-    <div class="section-header text-center">
-      <h2 i18n="@@servicesTitle">Nuestros servicios</h2>
+<section id="services" class="services-section marble-bg" aria-labelledby="services-title">
+  <div class="container">
+    <!-- Encabezado -->
+    <header class="section-header text-center">
+      <h2 id="services-title" class="section-title" i18n="@@servicesTitle">Nuestros servicios</h2>
       <p class="section-subtitle" i18n="@@servicesSubtitle">
         Tratamientos especializados para tu sonrisa
       </p>
+    </header>
+
+    <!-- Grid de servicios -->
+    <div class="services-grid" role="list">
+      <!-- Odontología Digital -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/digital-dentistry.png"
+               alt="Odontología digital"
+               i18n-alt="@@svcDigitalAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcDigitalTitle">Odontología Digital</h3>
+        <p class="service-description" i18n="@@svcDigitalDesc">
+          Escaneo intraoral, planificación 3D y tratamientos precisos y cómodos.
+        </p>
+      </article>
+
+      <!-- Blanqueamiento dental -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/whitening.png"
+               alt="Blanqueamiento dental"
+               i18n-alt="@@svcWhiteningAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcWhiteningTitle">Blanqueamiento dental</h3>
+        <p class="service-description" i18n="@@svcWhiteningDesc">
+          Aclara varios tonos de forma segura y controlada.
+        </p>
+      </article>
+
+      <!-- Lentes y Carillas Cerámicas -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/veneers.png"
+               alt="Lentes y carillas cerámicas"
+               i18n-alt="@@svcVeneersAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcVeneersTitle">Lentes y Carillas Cerámicas</h3>
+        <p class="service-description" i18n="@@svcVeneersDesc">
+          Corrección estética mínima invasiva con acabado natural.
+        </p>
+      </article>
+
+      <!-- Limpieza dental profesional -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/cleaning.png"
+               alt="Limpieza dental profesional"
+               i18n-alt="@@svcCleaningAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcCleaningTitle">Limpieza dental profesional</h3>
+        <p class="service-description" i18n="@@svcCleaningDesc">
+          Profilaxis y mantenimiento para encías y dientes sanos.
+        </p>
+      </article>
+
+      <!-- Joyas Dentales – Grillz Oro / Plata -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/dental-jewelry.png"
+               alt="Joyas dentales y grillz"
+               i18n-alt="@@svcJewelryAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcJewelryTitle">Joyas Dentales – Grillz Oro / Plata</h3>
+        <p class="service-description" i18n="@@svcJewelryDesc">
+          Personaliza tu sonrisa con diseños seguros y a medida.
+        </p>
+      </article>
+
+      <!-- Diseños de sonrisa de alta estética -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/smile-design.png"
+               alt="Diseño de sonrisa de alta estética"
+               i18n-alt="@@svcSmileDesignAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcSmileDesignTitle">Diseños de sonrisa de alta estética</h3>
+        <p class="service-description" i18n="@@svcSmileDesignDesc">
+          Planificación fotográfica y mock-up para resultados previsibles.
+        </p>
+      </article>
+
+      <!-- Rehabilitación & Implantología Oral -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/rehab-implant.png"
+               alt="Rehabilitación e implantología oral"
+               i18n-alt="@@svcRehabImplantAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcRehabImplantTitle">Rehabilitación &amp; Implantología Oral</h3>
+        <p class="service-description" i18n="@@svcRehabImplantDesc">
+          Función y estética con coronas, puentes e implantes guiados.
+        </p>
+      </article>
+
+      <!-- Prótesis Total – Fijas – Removibles – Híbridas -->
+      <article class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">
+          <img src="/assets/images/icons/prosthesis.png"
+               alt="Prótesis total, fijas, removibles e híbridas"
+               i18n-alt="@@svcProsthesisAlt"
+               width="48" height="48" loading="lazy" decoding="async" />
+        </div>
+        <h3 class="service-title" i18n="@@svcProsthesisTitle">Prótesis Total – Fijas – Removibles – Híbridas</h3>
+        <p class="service-description" i18n="@@svcProsthesisDesc">
+          Soluciones personalizadas para recuperar función y sonrisa.
+        </p>
+      </article>
     </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="/assets/images/dental-aesthetics-icon.png" alt="Estética dental" i18n-alt="@@aestheticAlt" />
-        </div>
-        <h3 i18n="@@aestheticTitle">Estética dental</h3>
-        <p i18n="@@aestheticDescription">Devolvemos la belleza y armonía a tu sonrisa.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="/assets/images/dental-implants-icon.png" alt="Implantes dentales" i18n-alt="@@implantsAlt" />
-        </div>
-        <h3 i18n="@@implantsTitle">Implantes dentales</h3>
-        <p i18n="@@implantsDescription">Recupera tus piezas dentales con seguridad y calidad.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">
-          <img src="/assets/images/orthodontics-icon.png" alt="Ortodoncia" i18n-alt="@@orthodonticsAlt" />
-        </div>
-        <h3 i18n="@@orthodonticsTitle">Ortodoncia</h3>
-        <p i18n="@@orthodonticsDescription">Corrige la posición de tus dientes de manera efectiva.</p>
-      </div>
+
+    <!-- CTA -->
+    <div class="services-cta">
+      <p class="cta-text" i18n="@@servicesCtaText">
+        ¿Listo para transformar tu sonrisa? Agenda una valoración.
+      </p>
+      <a
+        href="https://wa.me/573147992217"
+        target="_blank" rel="noopener"
+        class="cta-button"
+        i18n="@@servicesCtaButton"
+      >
+        Agenda tu cita
+      </a>
     </div>
-  </section>
+  </div>
+</section>

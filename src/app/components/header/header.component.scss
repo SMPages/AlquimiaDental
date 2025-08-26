@@ -1,178 +1,136 @@
-/* === HEADER === */
 .header {
-  background-color: var(--background-navbar);
-  box-shadow: 0 2px 5px var(--shadow-color);
-  position: sticky;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
 
-  .navbar {
-    .container {
+  .container-header {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .logo h2 {
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .nav {
+    .nav-list {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
 
-      .nav-content {
-        display: flex;
-        justify-content: space-between; // Logo izquierda, nav centro, idioma derecha
-        align-items: center;
-        width: 100%;
+    .nav-link {
+      color: var(--foreground);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      cursor: pointer;
 
-        /* Logo */
-        .logo {
-          display: flex;
-          align-items: center;
-          flex: 1;
-          gap: 0.75rem;
-
-          .logo-img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-          }
-
-          .logo-text {
-            display: flex;
-            flex-direction: column;
-
-            h2 {
-              color: var(--accent-color);
-              font-family: var(--fuente-secundaria);
-              font-weight: 700;
-              margin: 0;
-            }
-
-            h3 {
-              color: var(--accent-color);
-              font-family: var(--fuente-secundaria);
-              font-weight: 400;
-              font-size: 0.875rem;
-              margin: 0;
-            }
-          }
-        }
-
-        /* Menú de navegación centrado */
-        .nav-menu {
-          flex: 2;
-          display: flex;
-          justify-content: center;
-          gap: 1.5rem;
-          align-items: center;
-
-          a.nav-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: -2px;
-              left: 0;
-              width: 0;
-              height: 2px;
-              background-color: var(--accent-color);
-              transition: width 0.3s ease;
-            }
-
-            &:hover {
-              color: var(--accent-color);
-              &::after {
-                width: 100%;
-              }
-            }
-          }
-        }
-
-        /* Selector de idiomas a la derecha */
-        app-language-switcher {
-          flex: 1;
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        /* Botón móvil */
-        .mobile-menu-btn {
-          display: none;
-          flex-direction: column;
-          justify-content: space-between;
-          width: 25px;
-          height: 20px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 0;
-
-          span {
-            display: block;
-            height: 3px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-          }
-        }
+      &:hover {
+        color: var(--primary);
       }
     }
   }
 
-  /* === RESPONSIVE === */
-  @media (max-width: 1024px) {
-    .nav-menu {
-      gap: 1rem;
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+
+      &.active {
+        background: var(--primary);
+        color: var(--primary-foreground);
+        border-color: var(--primary);
+      }
+
+      &:hover:not(.active) {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: var(--foreground);
+      margin: 3px 0;
+      transition: 0.3s;
     }
   }
 
   @media (max-width: 768px) {
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      height: 100vh;
-      width: 250px;
-      flex-direction: column;
-      background: var(--background-navbar);
-      padding: 4rem 1.5rem;
-      gap: 2rem;
-      transition: right 0.3s ease;
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid var(--border);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
 
-      &.active {
-        right: 0;
+      &.nav-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
       }
 
-      a.nav-link {
-        font-size: 1.125rem;
-      }
-
-      app-language-switcher {
-        justify-content: flex-start;
-        margin-left: 0;
+      .nav-list {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
       }
     }
 
-    .mobile-menu-btn {
+    .menu-toggle {
       display: flex;
-      z-index: 1100;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .nav-content {
-      justify-content: space-between;
     }
 
-    .logo h2 {
-      font-size: 1.25rem;
-    }
-
-    .nav-menu {
-      width: 200px;
-      padding: 3rem 1rem;
-      gap: 1.5rem;
+    .btn {
+      display: none;
     }
   }
 }

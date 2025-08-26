@@ -1,28 +1,71 @@
 <section class="hero-section">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1 class="hero-title" i18n="@@heroTitle">Alquimia Dental®</h1>
-      <p class="hero-subtitle" i18n="@@heroSubtitle">
-        Donde cada sonrisa se convierte en una historia
-      </p>
-      <p class="hero-description" i18n="@@heroDescription">
-        Más que odontología: transformamos vidas con ciencia, arte y alma.
-      </p>
-      <div class="hero-buttons">
-        <a [routerLink]="['/', currentLang, 'contact']" class="btn-primary-doc" i18n="@@heroCtaPrimary">
-          Agenda tu cita
-        </a>
-        <a [routerLink]="['/', currentLang, 'about']" class="btn-secondary-doc" i18n="@@heroCtaSecondary">
-          Conócenos
-        </a>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <!-- H1 natural -->
+        <h1 class="hero-title fade-in" i18n="@@heroTitle">
+          Dra. Sorany Díaz
+        </h1>
+
+        <!-- H2 claro y sin sonar a keyword stuffing -->
+        <h2 class="hero-subtitle fade-in" i18n="@@heroSubtitle">
+          Especialista en estética dental en Bogotá
+        </h2>
+
+        <!-- Párrafo más humano -->
+        <p class="hero-description fade-in" i18n="@@heroDescription">
+          Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. 
+          Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.
+        </p>
+        <!-- Bloque "En los medios" sutil -->
+        <div class="hero-media-mention fade-in">
+          <span class="mention-text">Mencionada en</span>
+          <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/" target="_blank" rel="noopener" aria-label="Artículo en Rolling Stone">
+            <img src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
+                 alt="Rolling Stone"
+                 width="120" height="auto"
+                 loading="lazy" decoding="async"
+                 class="mention-logo" />
+          </a>
+        </div>
+        <div class="hero-buttons fade-in">
+          <a
+    href="https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quiero%20agendar%20una%20valoraci%C3%B3n."
+    target="_blank"
+    rel="noopener"
+    class="btn btn-primary"
+    i18n="@@heroCtaPrimary"
+    aria-label="Chatear por WhatsApp para agendar cita"
+  >
+    Agenda tu cita
+  </a>
+          <a [routerLink]="['/', currentLang, 'about']" class="btn btn-secondary" i18n="@@heroCtaSecondary">
+            Conóceme
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img
-        src="/images/elegant-dental-doctor.jpg"
-        alt="Doctora especialista en estética dental"
-        i18n-alt="@@heroImageAlt"
-      />
-    </div>
+
+      <div class="hero-image fade-in">
+        <img
+          src="/images/elegant-dental-doctor.jpg"
+          alt="Odontóloga especialista en estética dental en Bogotá"
+          i18n-alt="@@heroImageAlt"
+          class="doctor-photo"
+        />
+      </div>
+       </div>
+      <!-- Fotos del consultorio -->
+        <div class="clinic-gallery fade-in">
+          <h4 class="clinic-title">Cuidamos cada detalle para que tu experiencia sea cómoda, moderna y segura.</h4>
+          <p class="clinic-intro">
+            
+          </p>
+          <div class="clinic-photos">
+            <img src="/images/consultorio-1.jpg" alt="Recepción del consultorio dental" loading="lazy" decoding="async" />
+            <img src="/images/consultorio-1.jpg" alt="Área de atención odontológica" loading="lazy" decoding="async" />
+            <img src="/images/consultorio-1.jpg" alt="Equipo odontológico moderno" loading="lazy" decoding="async" />
+          </div>
+        </div>
+   
   </div>
 </section>
