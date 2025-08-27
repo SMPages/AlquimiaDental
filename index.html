@@ -69,7 +69,26 @@
     ]
   }
   </script>
+<script>
+  (function () {
+    // base href del index (Angular lo inyecta a /AlquimiaDental/ en producción)
+    var base = (document.querySelector('base')?.getAttribute('href') || '/').replace(/\/+$/, '/') ;
+    // ¿estamos justo en la raíz del repo?
+    var atRoot =
+      location.pathname === base ||
+      location.pathname === base.replace(/\/+$/, '');
 
+    if (!atRoot) return;
+
+    // detecta idioma del navegador
+    var lang = (navigator.language || 'es').slice(0,2).toLowerCase();
+    if (lang !== 'en' && lang !== 'es') lang = 'es';
+
+    // redirige a /<repo>/<lang>/
+    var dest = (base + lang + '/').replace(/\/+/g, '/');
+    location.replace(dest);
+  })();
+</script>
   <noscript>Esta aplicación funciona mejor con JavaScript habilitado.</noscript>
 <style>:root{--background:#faf8f5;--foreground:#4a453f;--card:#fcfbf9;--card-foreground:#4a453f;--primary:#c17854;--primary-foreground:#fcfbf9;--secondary:#d4a574;--secondary-foreground:#4a453f;--muted:#f0ede8;--muted-foreground:#8b8680;--accent:#d4a574;--accent-foreground:#fcfbf9;--border:#e8e3dc;--input:#ffffff;--ring:rgba(193, 120, 84, .3);--radius:.5rem;--primary-color:var(--primary)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background-color:var(--background);color:var(--foreground);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}</style><link rel="stylesheet" href="styles-4CKAEOEO.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-4CKAEOEO.css"></noscript></head>
 <body>
