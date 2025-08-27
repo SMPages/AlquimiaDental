@@ -2,25 +2,21 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <!-- H1 natural -->
-        <h1 class="hero-title fade-in" i18n="@@heroTitle">
-          Dra. Sorany Díaz
-        </h1>
+        <!-- H1 -->
+        <h1 class="hero-title fade-in">{{ 'hero.title' | translate }}</h1>
 
-        <!-- H2 claro y sin sonar a keyword stuffing -->
-        <h2 class="hero-subtitle fade-in" i18n="@@heroSubtitle">
-          Especialista en estética dental en Bogotá
-        </h2>
+        <!-- H2 -->
+        <h2 class="hero-subtitle fade-in">{{ 'hero.subtitle' | translate }}</h2>
 
-        <!-- Párrafo más humano -->
-        <p class="hero-description fade-in" i18n="@@heroDescription">
-          Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. 
-          Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.
-        </p>
-        <!-- Bloque "En los medios" sutil -->
+        <!-- Párrafo -->
+        <p class="hero-description fade-in">{{ 'hero.description' | translate }}</p>
+
+        <!-- En los medios -->
         <div class="hero-media-mention fade-in">
-          <span class="mention-text">Mencionada en</span>
-          <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/" target="_blank" rel="noopener" aria-label="Artículo en Rolling Stone">
+          <span class="mention-text">{{ 'hero.mediaMention' | translate }}</span>
+          <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
+             target="_blank" rel="noopener"
+             aria-label="Artículo en Rolling Stone">
             <img src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
                  alt="Rolling Stone"
                  width="120" height="auto"
@@ -28,44 +24,46 @@
                  class="mention-logo" />
           </a>
         </div>
+
+        <!-- Botones -->
         <div class="hero-buttons fade-in">
-          <a
-    href="https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quiero%20agendar%20una%20valoraci%C3%B3n."
-    target="_blank"
-    rel="noopener"
-    class="btn btn-primary"
-    i18n="@@heroCtaPrimary"
-    aria-label="Chatear por WhatsApp para agendar cita"
-  >
-    Agenda tu cita
-  </a>
-          <a [routerLink]="['/', currentLang, 'about']" class="btn btn-secondary" i18n="@@heroCtaSecondary">
-            Conóceme
+          <a href="https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quiero%20agendar%20una%20valoraci%C3%B3n."
+             target="_blank"
+             rel="noopener"
+             class="btn btn-primary"
+             aria-label="Chatear por WhatsApp para agendar cita">
+            {{ 'hero.ctaPrimary' | translate }}
+          </a>
+
+          <a [routerLink]="['/', currentLang, 'about']"
+             class="btn btn-secondary">
+            {{ 'hero.ctaSecondary' | translate }}
           </a>
         </div>
       </div>
 
+      <!-- Imagen principal -->
       <div class="hero-image fade-in">
-        <img
-          src="images/elegant-dental-doctor.jpg"
-          alt="Odontóloga especialista en estética dental en Bogotá"
-          i18n-alt="@@heroImageAlt"
-          class="doctor-photo"
-        />
+        <img src="images/elegant-dental-doctor.jpg"
+             [alt]="'hero.imageAlt' | translate"
+             class="doctor-photo" />
       </div>
-       </div>
-      <!-- Fotos del consultorio -->
-        <div class="clinic-gallery fade-in">
-          <h4 class="clinic-title">Cuidamos cada detalle para que tu experiencia sea cómoda, moderna y segura.</h4>
-          <p class="clinic-intro">
-            
-          </p>
-          <div class="clinic-photos">
-            <img src="images/consultorio-1.jpg" alt="Recepción del consultorio dental" loading="lazy" decoding="async" />
-            <img src="images/consultorio-1.jpg" alt="Área de atención odontológica" loading="lazy" decoding="async" />
-            <img src="images/consultorio-1.jpg" alt="Equipo odontológico moderno" loading="lazy" decoding="async" />
-          </div>
-        </div>
-   
+    </div>
+
+    <!-- Fotos del consultorio -->
+    <div class="clinic-gallery fade-in">
+      <h4 class="clinic-title">{{ 'clinic.title' | translate }}</h4>
+      <div class="clinic-photos">
+        <img src="images/consultorio-1.jpg"
+             [alt]="'clinic.photo1Alt' | translate"
+             loading="lazy" decoding="async" />
+        <img src="images/consultorio-1.jpg"
+             [alt]="'clinic.photo2Alt' | translate"
+             loading="lazy" decoding="async" />
+        <img src="images/consultorio-1.jpg"
+             [alt]="'clinic.photo3Alt' | translate"
+             loading="lazy" decoding="async" />
+      </div>
+    </div>
   </div>
 </section>

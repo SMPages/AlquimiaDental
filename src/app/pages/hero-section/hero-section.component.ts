@@ -1,22 +1,19 @@
-import { Component } from '@angular/core';
-import { RouterModule, ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../i18n/translation.service';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule, TranslatePipe],
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.scss']
 })
 export class HeroSectionComponent {
-  currentLang = 'es'; // idioma por defecto
+  private i18n = inject(TranslationService);
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      if (params['lang']) {
-        this.currentLang = params['lang'];
-      }
-    });
+  get currentLang() {
+    return this.i18n.currentLang;
   }
 }

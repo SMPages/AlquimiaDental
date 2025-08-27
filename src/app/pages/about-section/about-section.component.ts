@@ -1,11 +1,12 @@
+// src/app/pages/about-section/about-section.component.ts
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about-section',
-  imports: [],
+  standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './about-section.component.html',
-  styleUrl: './about-section.component.scss'
+  styleUrls: ['./about-section.component.scss']
 })
-export class AboutSectionComponent {
-
-}
+export class AboutSectionComponent {}

@@ -1,12 +1,13 @@
+<!-- src/app/pages/blog-section/blog-section.component.html -->
 <section id="media" class="media-section marble-bg" aria-labelledby="media-title">
   <div class="container">
     <!-- Encabezado -->
     <header class="section-header text-center">
       <h2 id="media-title" class="section-title">
-        📰 En los medios
+        {{ 'media.title' | translate }}
       </h2>
       <p class="section-subtitle">
-        Menciones y artículos donde he compartido mi trabajo en Alquimia Dental®.
+        {{ 'media.subtitle' | translate }}
       </p>
     </header>
 
@@ -16,13 +17,13 @@
         <a
           href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
           target="_blank" rel="noopener"
-          aria-label="Abrir artículo: El arte de reinventar sonrisas (Rolling Stone)"
           class="image-link"
+          [attr.aria-label]="'media.featured.linkAria' | translate"
         >
           <img
             src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/05/El-arte-de-reinventar-sonrisas-portada.jpg?w=1280&ssl=1"
             width="1280" height="720"
-            alt="Portada del artículo El arte de reinventar sonrisas"
+            [alt]="'media.featured.imageAlt' | translate"
             class="featured-image"
             loading="lazy" decoding="async" itemprop="image"
           />
@@ -37,16 +38,15 @@
             width="96" height="28"
             loading="lazy" decoding="async"
           />
-          <span class="chip-text">Rolling Stone</span>
+          <span class="chip-text">{{ 'media.featured.source' | translate }}</span>
         </div>
 
         <h3 class="article-title" itemprop="headline">
-          El arte de reinventar sonrisas
+          {{ 'media.featured.headline' | translate }}
         </h3>
 
         <p class="article-excerpt" itemprop="description">
-          Soy especialista en rehabilitación oral y dedico mi trabajo a unir ciencia y estética
-          para transformar sonrisas con salud y confianza.
+          {{ 'media.featured.excerpt' | translate }}
         </p>
 
         <div class="article-actions">
@@ -56,7 +56,7 @@
             target="_blank" rel="noopener"
             itemprop="mainEntityOfPage"
           >
-            Leer artículo completo
+            {{ 'media.featured.readMore' | translate }}
           </a>
         </div>
       </div>

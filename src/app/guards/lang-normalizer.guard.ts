@@ -1,24 +1,21 @@
+import { CanMatchFn, Route, UrlSegment, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import { CanMatchFn, Router, UrlSegment } from '@angular/router';
 
-const isLang = (s?: string) => s === 'es' || s === 'en';
+const SUPPORTED = ['es', 'en'] as const;
 
-/** Colapsa prefijos de idioma repetidos: /es/en/opinions -> /en/opinions */
-export const langNormalizerGuard: CanMatchFn = (_route, segments: UrlSegment[]) => {
+export const langNormalizerGuard: CanMatchFn = (_r: Route, segments: UrlSegment[]) => {
   const router = inject(Router);
-
-  // Extrae todos los prefijos de idioma consecutivos al principio
-  let i = 0; let last: string | undefined;
-  while (i < segments.length && isLang(segments[i].path)) {
-    last = segments[i].path;
-    i++;
+  const raw = segments[0]?.path ?? '';
+  const lang = raw.toLowerCase();
+  if (!lang) return true;
+  if (raw !== lang) {
+    const rest = segments.slice(1).map(s => s.path);
+    return router.createUrlTree(['/', lang, ...rest]);
   }
-
-  // Si hay 0 o 1, no hay nada que normalizar
-  if (i <= 1) return true;
-
-  // Hay varios: usa el último y el resto de la ruta
-  const rest = segments.slice(i).map(s => s.path);
-  router.navigate(['/', last!, ...rest], { replaceUrl: true });
-  return false;
+  if (!SUPPORTED.includes(lang as any)) {
+    const stored = (localStorage.getItem('preferredLang') || '').toLowerCase();
+    const fallback = (SUPPORTED.includes(stored as any) ? stored : 'es') as 'es' | 'en';
+    return router.createUrlTree(['/', fallback]);
+  }
+  return true;
 };

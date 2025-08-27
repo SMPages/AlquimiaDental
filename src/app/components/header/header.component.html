@@ -4,36 +4,55 @@
     <div class="header-content">
       <!-- Logo -->
       <div class="logo">
-        <h2>Alquimia Dental®</h2>
+        <h2>{{ 'brand' | translate }}</h2>
       </div>
 
       <!-- Navegación principal -->
       <nav class="nav" [class.nav-open]="isMenuOpen">
         <ul class="nav-list">
-          <li><a [routerLink]="['/', currentLang]" (click)="closeMenu()" class="nav-link" i18n="@@nav.home">Inicio</a></li>
-          <li><a [routerLink]="['/', currentLang, 'about']" (click)="closeMenu()" class="nav-link" i18n="@@nav.about">Acerca de mí</a></li>
-          <li><a [routerLink]="['/', currentLang, 'services']" (click)="closeMenu()" class="nav-link" i18n="@@nav.services">Servicios</a></li>
-          <li><a [routerLink]="['/', currentLang, 'gallery']" (click)="closeMenu()" class="nav-link" i18n="@@nav.gallery">Galería</a></li>
-          <li><a [routerLink]="['/', currentLang, 'blog']" (click)="closeMenu()" class="nav-link" i18n="@@nav.blog">Articulos</a></li>
-          <li><a [routerLink]="['/', currentLang, 'opinions']" (click)="closeMenu()" class="nav-link" i18n="@@nav.opinions">Opiniones</a></li>
+          <li><a [routerLink]="['/', currentLang]" (click)="closeMenu()" class="nav-link">{{ 'nav.home' | translate }}</a></li>
+          <li><a [routerLink]="['/', currentLang, 'about']" (click)="closeMenu()" class="nav-link">{{ 'nav.about' | translate }}</a></li>
+          <li><a [routerLink]="['/', currentLang, 'services']" (click)="closeMenu()" class="nav-link">{{ 'nav.services' | translate }}</a></li>
+          <li><a [routerLink]="['/', currentLang, 'gallery']" (click)="closeMenu()" class="nav-link">{{ 'nav.gallery' | translate }}</a></li>
+          <li><a [routerLink]="['/', currentLang, 'blog']" (click)="closeMenu()" class="nav-link">{{ 'nav.blog' | translate }}</a></li>
+          <li><a [routerLink]="['/', currentLang, 'opinions']" (click)="closeMenu()" class="nav-link">{{ 'nav.opinions' | translate }}</a></li>
         </ul>
       </nav>
 
-      <!-- Acciones del header -->
-      <div class="header-actions">
-        <!-- CTA directo a WhatsApp -->
-        <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener" i18n="@@header.bookCta">
-          Agenda conmigo
-        </a>
+    <!-- Acciones del header -->
+    <div class="header-actions">
+      <!-- CTA directo a WhatsApp -->
+      <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener">
+        {{ 'header.bookCta' | translate }}
+      </a>
 
-        <!-- Switch de idioma (ya corrige prefijos repetidos) -->
-        <app-language-switcher></app-language-switcher>
+      <!-- Switch de idioma -->
+      <nav class="lang-switch" aria-label="Language selector">
+        <button
+          type="button"
+          class="lang-btn"
+          [class.active]="currentLang === 'es'"
+          [attr.aria-current]="currentLang === 'es' ? 'true' : null"
+          (click)="switchLang('es')"
+        >ES</button>
 
-        <!-- Botón hamburguesa -->
-        <button class="menu-toggle" (click)="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+        <span class="sep" aria-hidden="true">/</span>
+
+        <button
+          type="button"
+          class="lang-btn"
+          [class.active]="currentLang === 'en'"
+          [attr.aria-current]="currentLang === 'en' ? 'true' : null"
+          (click)="switchLang('en')"
+        >EN</button>
+      </nav>
+
+      <!-- Botón hamburguesa -->
+      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
     </div>
   </div>
 </header>

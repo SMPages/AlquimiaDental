@@ -1,26 +1,53 @@
-import type { Routes } from "@angular/router";
-import { HomeComponent } from "./pages/home/home.component";
-import { AboutSectionComponent } from "../app/pages/about-section/about-section.component";
-import { GallerySectionComponent } from "../app/pages/gallery-section/gallery-section.component"; 
-import { ServicesSectionComponent } from "../app/pages/services-section/services-section.component";
-import { TestimonialsSectionComponent } from "../app/pages/testimonials-section/testimonials-section.component";
-import { BlogSectionComponent } from "../app/pages/blog-section/blog-section.component";
-import { langNormalizerGuard } from "../app/guards/lang-normalizer.guard"
+import { Routes } from '@angular/router';
+import { browserLangRedirectGuard } from './guards/browser-lang-redirect.guard';
+import { langNormalizerGuard } from './guards/lang-normalizer.guard';
 
 export const routes: Routes = [
+  // Entrada sin lang: el guard devuelve UrlTree a /es o /en.
   {
-    path: ":lang",
-    canMatch: [langNormalizerGuard], 
+    path: '',
+    pathMatch: 'full',
+    canMatch: [browserLangRedirectGuard],
+    redirectTo: '' // Angular lo pide aunque no se use
+  },
+
+  {
+    path: ':lang',
+    canMatch: [langNormalizerGuard],
     children: [
-      { path: "", component: HomeComponent },
-      { path: "about", component: AboutSectionComponent },
-      { path: "services", component: ServicesSectionComponent },
-      { path: "gallery", component: GallerySectionComponent },
-      { path: "blog", component: BlogSectionComponent },
-      { path: "opinions", component: TestimonialsSectionComponent },
-      { path: "**", redirectTo: "" }
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/home/home.component').then(m => m.HomeComponent)
+      },
+      {
+        path: 'about',
+        loadComponent: () =>
+          import('./pages/about-section/about-section.component').then(m => m.AboutSectionComponent)
+      },
+      {
+        path: 'services',
+        loadComponent: () =>
+          import('./pages/services-section/services-section.component').then(m => m.ServicesSectionComponent)
+      },
+      {
+        path: 'gallery',
+        loadComponent: () =>
+          import('./pages/gallery-section/gallery-section.component').then(m => m.GallerySectionComponent)
+      },
+      {
+        path: 'blog',
+        loadComponent: () =>
+          import('./pages/blog-section/blog-section.component').then(m => m.BlogSectionComponent)
+      },
+      {
+        path: 'opinions',
+        loadComponent: () =>
+          import('./pages/testimonials-section/testimonials-section.component').then(m => m.TestimonialsSectionComponent)
+      },
+      { path: '**', redirectTo: '' }
     ]
   },
-  { path: "", redirectTo: "es", pathMatch: "full" },
-  { path: "**", redirectTo: "es" }
+
+  { path: '**', redirectTo: '' }
 ];

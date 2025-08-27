@@ -1,90 +1,175 @@
 {
-    "nav": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "gallery": "Gallery",
-      "blog": "Blog",
-      "contact": "Contact",
-      "language": "Language"
-    },
-    "hero": {
-      "title": "Dr. Sorany Díaz P.",
-      "subtitle": "Specialist in Aesthetic Dentistry and Oral Rehabilitation",
-      "description": "Transforming smiles with advanced techniques and personalized care. Over 15 years of experience providing world-class dental services.",
-      "cta": "Schedule Consultation",
-      "cta_secondary": "View Services"
-    },
-    "about": {
-      "title": "About the Doctor",
-      "subtitle": "Experience and Excellence in Dentistry",
-      "description": "Dr. Sorany Díaz P. is a renowned specialist in aesthetic dentistry with over 15 years of experience. Graduated with honors from Universidad Nacional Pedro Henríquez Ureña, she has dedicated her career to perfecting advanced techniques in oral rehabilitation and dental aesthetics.",
-      "experience": "15+ Years of Experience",
-      "patients": "5,000+ Satisfied Patients",
-      "procedures": "10,000+ Successful Procedures",
-      "certifications": "20+ International Certifications"
-    },
-    "services": {
-      "title": "Specialized Services",
-      "subtitle": "Cutting-Edge Treatments for Your Perfect Smile",
-      "aesthetic": {
-        "title": "Aesthetic Dentistry",
-        "description": "Porcelain veneers, professional whitening, and personalized smile design."
+  "brand": "Alquimia Dental®",
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Articles",
+    "opinions": "Testimonials"
+  },
+  "header": {
+    "bookCta": "Book with me"
+  },
+  "hero": {
+    "title": "Dr. Sorany Díaz",
+    "subtitle": "Specialist in Dental Aesthetics in Bogotá",
+    "description": "We transform smiles with cosmetic dentistry treatments, implants, and oral rehabilitation. Patients from different countries travel to Bogotá to trust our expertise and human quality.",
+    "ctaPrimary": "Book your appointment",
+    "ctaSecondary": "Meet me",
+    "imageAlt": "Dentist specialized in dental aesthetics in Bogotá",
+    "mediaMention": "Featured in"
+  },
+  "clinic": {
+    "title": "We take care of every detail to make your experience comfortable, modern, and safe.",
+    "photo1Alt": "Dental office reception",
+    "photo2Alt": "Dental care area",
+    "photo3Alt": "Modern dental equipment"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Specialized treatments for your smile",
+    "ctaText": "Ready to transform your smile? Book a consultation.",
+    "ctaButton": "Book your appointment",
+    "items": {
+      "digital": {
+        "title": "Digital Dentistry",
+        "desc": "Intraoral scanning, 3D planning, and precise, comfortable treatments.",
+        "alt": "Digital dentistry"
       },
-      "rehabilitation": {
-        "title": "Oral Rehabilitation",
-        "description": "Complete restoration of dental function and aesthetics with advanced techniques."
+      "whitening": {
+        "title": "Teeth Whitening",
+        "desc": "Brighten several shades safely and effectively.",
+        "alt": "Teeth whitening"
       },
-      "implants": {
-        "title": "Dental Implants",
-        "description": "Permanent solutions with state-of-the-art titanium implants."
+      "veneers": {
+        "title": "Ceramic Veneers & Lenses",
+        "desc": "Minimally invasive aesthetic correction with a natural finish.",
+        "alt": "Ceramic veneers and lenses"
       },
-      "orthodontics": {
-        "title": "Invisible Orthodontics",
-        "description": "Clear aligners to discreetly correct dental positioning."
+      "cleaning": {
+        "title": "Professional Dental Cleaning",
+        "desc": "Prophylaxis and maintenance for healthy teeth and gums.",
+        "alt": "Professional dental cleaning"
+      },
+      "jewelry": {
+        "title": "Dental Jewelry – Gold/Silver Grillz",
+        "desc": "Personalize your smile with safe, custom designs.",
+        "alt": "Dental jewelry and grillz"
+      },
+      "smileDesign": {
+        "title": "High-Aesthetic Smile Design",
+        "desc": "Photographic planning and mock-up for predictable results.",
+        "alt": "High-aesthetic smile design"
+      },
+      "rehabImplant": {
+        "title": "Oral Rehabilitation & Implantology",
+        "desc": "Function and aesthetics with crowns, bridges, and guided implants.",
+        "alt": "Oral rehabilitation and implantology"
+      },
+      "prosthesis": {
+        "title": "Complete Prosthesis – Fixed – Removable – Hybrid",
+        "desc": "Personalized solutions to restore function and your smile.",
+        "alt": "Complete prosthesis, fixed, removable, and hybrid"
       }
-    },
-    "testimonials": {
-      "title": "Patient Testimonials",
-      "subtitle": "Real Transformation Stories",
-      "testimonial1": {
-        "text": "Dr. Sorany completely transformed my smile. Her professionalism and attention to detail are exceptional. I recommend her services 100%.",
-        "author": "María González",
-        "location": "Santo Domingo, DR"
-      },
-      "testimonial2": {
-        "text": "I came from Miami for oral rehabilitation treatment. The result exceeded all my expectations. Definitely worth the trip.",
-        "author": "James Rodriguez",
-        "location": "Miami, FL"
-      },
-      "testimonial3": {
-        "text": "Excellent care and incredible results. The doctor is very professional and her team makes you feel at home.",
-        "author": "Ana Martínez",
-        "location": "New York, NY"
-      }
-    },
-    "contact": {
-      "title": "Contact",
-      "subtitle": "Schedule Your Consultation Today",
-      "address": "Address",
-      "phone": "Phone",
-      "email": "Email",
-      "hours": "Office Hours",
-      "form": {
-        "name": "Full Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "service": "Service of Interest",
-        "message": "Message",
-        "submit": "Send Message"
-      }
-    },
-    "footer": {
-      "description": "Specialist in aesthetic dentistry and oral rehabilitation. Transforming smiles with advanced techniques and personalized care.",
-      "quick_links": "Quick Links",
-      "services_title": "Services",
-      "contact_info": "Contact Information",
-      "rights": "All rights reserved."
     }
+  },
+  "testimonials": {
+    "title": "💬 My Patients' Stories",
+    "subtitle": "Every smile tells a story. Here are some experiences from those who have trusted me.",
+    "items": {
+      "alejandra": {
+        "author": "Alejandra Cabarique Garcia",
+        "text": "“A professional dedicated to her patients, very responsible and detail-oriented; but also humane and empathetic. It's the first time I’ve found a dentist who doesn’t make me feel fear during procedures. Highly recommended 😌”"
+      },
+      "milena": {
+        "author": "Milena Gracia",
+        "text": "“I would like to express my total satisfaction with the service provided by Dr. Sorany, who performed a smile design that exceeded all my expectations. From the very beginning, she demonstrated professionalism, guiding me clearly and in detail throughout the process. The result gave me great confidence when smiling. She used high-quality materials and her recommendations were very clear. Totally recommended!”"
+      },
+      "carlos": {
+        "author": "Carlos Libardo Lopez Penaloza",
+        "text": "“I used to be terrified of dentists… and with Dr. Sorany I found a caring professional for nervous patients like me. I was so impressed that I recommended her to many friends and even brought my son for treatment. Thank you so much!”"
+      },
+      "angelica": {
+        "author": "Angélica Parra",
+        "text": "“Excellent work! I came urgently due to a broken filling. I was treated warmly and professionally, not only addressing the urgent problem but also reviewing the overall condition of my teeth. Recommended for her meticulous work: I was very happy with the result.”"
+      },
+      "brigitte": {
+        "author": "Brigitte Martinez D.",
+        "text": "“Excellent oral rehabilitator. I had an emergency with my veneers and Dr. Sorany explained and recommended the best option for my dental health. After the procedure, the result was wonderful: she gave me back my smile. Highly recommended!”"
+      },
+      "john": {
+        "author": "John Ortiz",
+        "text": "“I recommend Dr. Sorany’s work. She is very punctual and clear from the beginning without extending or overpricing treatments. She performed 2 crowns and several fillings; I was very satisfied with her work.”"
+      },
+      "dayanna": {
+        "author": "Dayanna Sánchez",
+        "text": "“Dr. Sorany has been treating me for over 8 years and she is an excellent professional. Her diagnoses are always accurate and her way of working is impeccable. Highly recommended.”"
+      }
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Dentistry with science, art, and soul",
+    "imageAlt": "Dr. Sorany Díaz, specialist in oral rehabilitation and dental aesthetics in Popayán",
+    "intro1": "👩🏻‍⚕️ I am Dr. Sorany Díaz Pechene, specialist in oral rehabilitation and dental aesthetics.",
+    "intro2": "In my practice I apply what I call",
+    "introStrong": "dental alchemy",
+    "intro3": ": transforming each smile with a human, personalized, and cutting-edge approach.",
+    "philosophy": "For me, every treatment goes beyond fillings, veneers, or crowns: it is a process of trust, self-esteem, and personal transformation.",
+    "servicesTitle": "Highlighted Services",
+    "ctaText": "Every smile can be a new story. Start yours today.",
+    "ctaBtn": "Book your appointment",
+    "yearsExperience": "Years of experience",
+    "happyPatients": "Happy patients",
+    "successRate": "Success rate",
+    "internationalPatients": "International patients"
+  },
+  "media": {
+    "title": "📰 In the Media",
+    "subtitle": "Mentions and articles where I’ve shared my work at Alquimia Dental®.",
+    "featured": {
+      "source": "Rolling Stone",
+      "headline": "The Art of Reinventing Smiles",
+      "excerpt": "I specialize in oral rehabilitation and dedicate my work to uniting science and aesthetics to transform smiles with health and confidence.",
+      "readMore": "Read full article",
+      "imageAlt": "Cover of the article The Art of Reinventing Smiles",
+      "linkAria": "Open article: The Art of Reinventing Smiles (Rolling Stone)"
+    }
+  },
+  "gallery": {
+    "title": "📸 Before and After",
+    "subtitle": "Some results of my treatments.",
+    "badgeBefore": "Before",
+    "badgeAfter": "After",
+    "btnView": "View larger",
+    "lightbox": {
+      "label": "Expanded view",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "items": {
+      "case1": {
+        "title": "Full Rehabilitation on Implants",
+        "alt": "Before and after full rehabilitation on implants",
+        "desc": "Function and aesthetics restored with implant-supported prosthesis."
+      },
+      "case2": {
+        "title": "Smile Design – Ceramic Veneers",
+        "alt": "Before and after with ceramic veneers"
+      },
+      "case3": {
+        "title": "Whitening and Aesthetic Fillings",
+        "alt": "Comparison before and after whitening and fillings",
+        "desc": "Function and aesthetics restored with implant-supported prosthesis."
+      }
+    }
+  },
+  "footer": {
+    "slogan": "Transforming smiles with science, art, and soul",
+    "rights": "All rights reserved",
+    "address": "Cl. 18 #77-51 Office 419, Fontibón, Bogotá",
+    "brand": "Alquimia Dental®"
   }
-  
+}

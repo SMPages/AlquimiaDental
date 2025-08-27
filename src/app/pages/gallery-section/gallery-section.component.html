@@ -1,58 +1,63 @@
+<!-- src/app/pages/gallery-section/gallery-section.component.html -->
 <section id="galeria" class="galeria-section marble-bg" aria-labelledby="galeria-title">
   <div class="container">
     <header class="section-header text-center">
-      <h2 id="galeria-title" class="section-title">📸 Antes y después</h2>
-      <p class="section-subtitle">Algunos resultados de mis tratamientos.</p>
+      <h2 id="galeria-title" class="section-title">{{ 'gallery.title' | translate }}</h2>
+      <p class="section-subtitle">{{ 'gallery.subtitle' | translate }}</p>
     </header>
 
     <!-- Feed tipo Instagram -->
     <div class="galeria-grid ig-feed" role="list">
-      <article class="galeria-card" role="listitem" *ngFor="let item of items; let i = index">
-        <h3 class="card-title">{{ item.titulo }}</h3>
+      <article class="galeria-card"
+               role="listitem"
+               *ngFor="let item of items; let i = index; trackBy: trackById">
+        <h3 class="card-title">{{ item.titleKey | translate }}</h3>
 
         <!-- Foto combinada (arriba = Antes / abajo = Después) -->
         <figure class="combined-photo"
                 (click)="abrirLightbox(i)"
                 (keyup.enter)="abrirLightbox(i)"
                 tabindex="0"
-                [attr.aria-describedby]="item.descripcion ? ('caption-' + i) : null">
-          <img [src]="item.src" [alt]="item.alt" loading="lazy" decoding="async" />
+                [attr.aria-describedby]="item.descKey ? ('caption-' + i) : null">
+          <img [src]="item.src" [alt]="item.altKey | translate" loading="lazy" decoding="async" />
 
           <!-- overlays sutiles -->
           <span class="edge top" aria-hidden="true"></span>
           <span class="edge bottom" aria-hidden="true"></span>
           <figcaption class="badges" aria-hidden="true">
-            <span class="badge badge-top">Antes</span>
-            <span class="badge badge-bottom">Después</span>
+            <span class="badge badge-top">{{ 'gallery.badgeBefore' | translate }}</span>
+            <span class="badge badge-bottom">{{ 'gallery.badgeAfter' | translate }}</span>
           </figcaption>
         </figure>
 
-        <p class="card-desc" *ngIf="item.descripcion" [attr.id]="'caption-' + i">
-          {{ item.descripcion }}
+        <p class="card-desc" *ngIf="item.descKey" [attr.id]="'caption-' + i">
+          {{ item.descKey | translate }}
         </p>
 
-        <button class="btn-ver" type="button" (click)="abrirLightbox(i)">Ver en grande</button>
+        <button class="btn-ver" type="button" (click)="abrirLightbox(i)">
+          {{ 'gallery.btnView' | translate }}
+        </button>
       </article>
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" *ngIf="abierto" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+  <div class="lightbox" *ngIf="abierto" role="dialog" aria-modal="true" [attr.aria-label]="'gallery.lightbox.label' | translate">
     <div class="lightbox-backdrop" (click)="cerrarLightbox()"></div>
     <div class="lightbox-content" role="document">
-      <button class="lb-close" (click)="cerrarLightbox()" aria-label="Cerrar">✕</button>
+      <button class="lb-close" (click)="cerrarLightbox()" [attr.aria-label]="'gallery.lightbox.close' | translate">✕</button>
 
       <div class="lb-header">
-        <h3>{{ items[indexActual].titulo }}</h3>
+        <h3>{{ items[indexActual].titleKey | translate }}</h3>
       </div>
 
       <div class="lb-media">
-        <img [src]="items[indexActual].src" [alt]="items[indexActual].alt" />
+        <img [src]="items[indexActual].src" [alt]="items[indexActual].altKey | translate" />
       </div>
 
       <div class="lb-nav">
-        <button class="lb-prev" (click)="prev()" aria-label="Anterior">‹</button>
-        <button class="lb-next" (click)="next()" aria-label="Siguiente">›</button>
+        <button class="lb-prev" (click)="prev()" [attr.aria-label]="'gallery.lightbox.prev' | translate">‹</button>
+        <button class="lb-next" (click)="next()" [attr.aria-label]="'gallery.lightbox.next' | translate">›</button>
       </div>
     </div>
   </div>

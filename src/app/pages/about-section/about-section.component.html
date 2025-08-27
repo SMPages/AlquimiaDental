@@ -1,67 +1,66 @@
+<!-- src/app/pages/about-section/about-section.component.html -->
 <section id="sobre-mi" class="about-section section" aria-labelledby="about-title">
   <div class="container">
     <div class="about-content">
-      
+
       <!-- Imagen -->
       <div class="about-image">
         <img
           src="images/about.png"
-          alt="Dra. Sorany Díaz, especialista en rehabilitación y estética oral en Popayán"
+          [alt]="'about.imageAlt' | translate"
           width="440" height="600"
           loading="lazy" decoding="async" fetchpriority="low"
           class="office-photo fade-in"
-          i18n-alt="@@aboutImageAlt"
         />
       </div>
 
       <!-- Texto -->
       <div class="about-text">
-        <h2 id="about-title" class="section-title fade-in" i18n="@@aboutTitle">
-          Sobre mí
+        <h2 id="about-title" class="section-title fade-in">
+          {{ 'about.title' | translate }}
         </h2>
-        <h3 class="section-subtitle fade-in" i18n="@@aboutSubtitle">
-          Odontología con ciencia, arte y alma
+
+        <h3 class="section-subtitle fade-in">
+          {{ 'about.subtitle' | translate }}
         </h3>
 
-        <p class="about-description fade-in" i18n="@@aboutIntro">
-          👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.
-          En mi consultorio practico lo que llamo <strong>alquimia dental</strong>: transformar
-          cada sonrisa con un enfoque humano, personalizado y de vanguardia.
+        <p class="about-description fade-in">
+          {{ 'about.intro1' | translate }}
+          {{ 'about.intro2' | translate }}
+          <strong>{{ 'about.introStrong' | translate }}</strong>{{ 'about.intro3' | translate }}
         </p>
 
-        <p class="about-description fade-in" i18n="@@aboutPhilosophy">
-          Para mí, cada tratamiento va más allá de resinas, carillas o coronas:
-          es un proceso de confianza, autoestima y transformación personal.
+        <p class="about-description fade-in">
+          {{ 'about.philosophy' | translate }}
         </p>
 
         <!-- Servicios destacados -->
         <div class="credentials fade-in">
-          <h4 class="credentials-title" i18n="@@aboutServicesTitle">Servicios destacados</h4>
+          <h4 class="credentials-title">
+            {{ 'about.servicesTitle' | translate }}
+          </h4>
           <ul class="credentials-list services-list">
-            <li i18n="@@serviceDigital">Odontología Digital</li>
-            <li i18n="@@serviceWhitening">Blanqueamiento dental</li>
-            <li i18n="@@serviceVeneers">Lentes y Carillas Cerámicas</li>
-            <li i18n="@@serviceCleaning">Limpieza dental profesional</li>
-            <li i18n="@@serviceJewelry">Joyas Dentales – Grillz Oro / Plata</li>
-            <li i18n="@@serviceSmileDesign">Diseños de sonrisa de alta estética</li>
-            <li i18n="@@serviceRehabilitation">Rehabilitación & Implantología Oral</li>
-            <li i18n="@@serviceProsthesis">Prótesis Total – Fijas – Removibles – Híbridas</li>
+            <li>{{ 'services.items.digital.title' | translate }}</li>
+            <li>{{ 'services.items.whitening.title' | translate }}</li>
+            <li>{{ 'services.items.veneers.title' | translate }}</li>
+            <li>{{ 'services.items.cleaning.title' | translate }}</li>
+            <li>{{ 'services.items.jewelry.title' | translate }}</li>
+            <li>{{ 'services.items.smileDesign.title' | translate }}</li>
+            <li>{{ 'services.items.rehabImplant.title' | translate }}</li>
+            <li>{{ 'services.items.prosthesis.title' | translate }}</li>
           </ul>
         </div>
 
         <!-- CTA -->
         <div class="about-cta fade-in">
-          <p i18n="@@aboutCtaText">
-            Cada sonrisa puede ser una nueva historia. Empieza la tuya hoy mismo.
-          </p>
+          <p>{{ 'about.ctaText' | translate }}</p>
           <a
             href="https://wa.me/573147992217"
             target="_blank"
             rel="noopener"
             class="btn-primary-doc"
-            i18n="@@aboutCtaBtn"
           >
-            Agenda tu cita
+            {{ 'about.ctaBtn' | translate }}
           </a>
         </div>
 
@@ -69,21 +68,22 @@
         <div class="stats-grid fade-in" aria-label="Resultados y experiencia">
           <div class="stat-item">
             <h3>15+</h3>
-            <p i18n="@@aboutYearsExperience">Años de experiencia</p>
+            <p>{{ 'about.yearsExperience' | translate }}</p>
           </div>
           <div class="stat-item">
             <h3>2000+</h3>
-            <p i18n="@@aboutHappyPatients">Pacientes felices</p>
+            <p>{{ 'about.happyPatients' | translate }}</p>
           </div>
           <div class="stat-item">
             <h3>98%</h3>
-            <p i18n="@@aboutSuccessRate">Índice de éxito</p>
+            <p>{{ 'about.successRate' | translate }}</p>
           </div>
           <div class="stat-item">
             <h3>50+</h3>
-            <p i18n="@@aboutInternationalPatients">Pacientes internacionales</p>
+            <p>{{ 'about.internationalPatients' | translate }}</p>
           </div>
         </div>
+
       </div>
     </div>
   </div>

@@ -1,56 +1,56 @@
+// src/app/pages/gallery-section/gallery-section.component.ts
 import { Component, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
-type CombinedItem = {
+type GalleryItem = {
   id: number;
-  titulo: string;
-  src: string;      // una sola imagen (arriba=antes / abajo=después)
-  alt: string;
-  descripcion?: string;
+  src: string;           // una sola imagen (arriba=antes / abajo=después)
+  titleKey: string;      // e.g. gallery.items.case1.title
+  altKey: string;        // e.g. gallery.items.case1.alt
+  descKey?: string;      // e.g. gallery.items.case1.desc (opcional)
 };
 
 @Component({
   selector: 'app-gallery-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './gallery-section.component.html',
   styleUrls: ['./gallery-section.component.scss']
 })
 export class GallerySectionComponent implements OnDestroy {
 
-  // Coloca tus imágenes en /public/images/...
-  readonly items: CombinedItem[] = [
+  readonly items: GalleryItem[] = [
     {
       id: 1,
-      titulo: 'Rehabilitación total sobre implantes',
       src: 'images/caso3.jpg',
-      alt: 'Antes y después de rehabilitación total sobre implantes',
-      descripcion: 'Función y estética recuperadas con prótesis sobre implantes.'
+      titleKey: 'gallery.items.case1.title',
+      altKey:   'gallery.items.case1.alt',
+      descKey:  'gallery.items.case1.desc'
     },
     {
       id: 2,
-      titulo: 'Diseño de sonrisa – Carillas cerámicas',
       src: 'images/caso2.jpg',
-      alt: 'Antes y después con carillas cerámicas'
+      titleKey: 'gallery.items.case2.title',
+      altKey:   'gallery.items.case2.alt'
     },
     {
       id: 3,
-      titulo: 'Blanqueamiento y resinas estéticas',
       src: 'images/caso3.jpg',
-      alt: 'Comparación antes y después de blanqueamiento y resinas',
-      descripcion: 'Función y estética recuperadas con prótesis sobre implantes.'
+      titleKey: 'gallery.items.case3.title',
+      altKey:   'gallery.items.case3.alt',
+      descKey:  'gallery.items.case3.desc'
     }
-    // …agrega hasta 10 casos
   ];
 
   // Lightbox
   abierto = false;
   indexActual = 0;
 
-  // --- Helpers ---
-  trackById = (_: number, item: CombinedItem) => item.id;
+  // Helpers
+  trackById = (_: number, item: GalleryItem) => item.id;
 
-  private preload(src: string | undefined) {
+  private preload(src?: string) {
     if (!src) return;
     const img = new Image();
     img.src = src;
@@ -82,7 +82,7 @@ export class GallerySectionComponent implements OnDestroy {
     this.preloadNeighbors();
   }
 
-  // Teclas rápidas en el lightbox
+  // Teclas rápidas
   @HostListener('window:keydown', ['$event'])
   onKey(e: KeyboardEvent) {
     if (!this.abierto) return;
@@ -91,7 +91,6 @@ export class GallerySectionComponent implements OnDestroy {
     if (e.key === 'ArrowLeft') this.prev();
   }
 
-  // Si el componente se desmonta con el lightbox abierto, restaurar scroll
   ngOnDestroy() {
     document.body.style.overflow = '';
   }

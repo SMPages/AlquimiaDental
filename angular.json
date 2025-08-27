@@ -13,12 +13,6 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
-      "i18n": {
-        "sourceLocale": "es",
-        "locales": {
-          "en": "src/locale/messages.en.xlf"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -27,12 +21,15 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
+              "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/404.html",
+              "src/.nojekyll",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -42,12 +39,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "src/server.ts"
-            },
-            "localize": true
+            "localize": false
           },
           "configurations": {
             "production": {
@@ -64,13 +56,12 @@
                 }
               ],
               "outputHashing": "all",
-              "localize": ["es", "en"]
+              "baseHref": "/AlquimiaDental/"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "localize": ["es", "en"]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"

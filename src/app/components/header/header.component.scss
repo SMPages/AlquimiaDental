@@ -134,3 +134,56 @@
     }
   }
 }
+
+/* Ajustes base para alinear todo en una fila en desktop */
+.header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+/* Switch */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .125rem;
+  border-radius: .75rem;
+  background: rgba(0,0,0,.04); /* sutil para integrarse con la barra */
+  backdrop-filter: saturate(1.2);
+
+  .lang-btn {
+    border: 0;
+    background: transparent;
+    padding: .25rem .5rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .75;
+    border-radius: .5rem;
+    transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
+
+    &.active {
+      opacity: 1;
+      box-shadow: 0 0 0 1.5px currentColor inset;
+    }
+
+    &:hover { opacity: 1; transform: translateY(-1px); }
+    &:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  }
+
+  .sep { opacity: .5; user-select: none; }
+}
+
+/* Responsivo: en móvil separa un poco el switch del CTA para que no choquen */
+@media (max-width: 768px) {
+  .header .header-actions {
+    gap: .5rem;
+  }
+  .lang-switch {
+    background: transparent;
+    .lang-btn {
+      padding: .25rem .375rem;
+    }
+  }
+}
