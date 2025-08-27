@@ -1,175 +1,175 @@
 {
   "brand": "Alquimia Dental®",
   "nav": {
-    "home": "Inicio",
-    "about": "Acerca de mí",
-    "services": "Servicios",
-    "gallery": "Galería",
-    "blog": "Artículos",
-    "opinions": "Opiniones"
+    "home": "Home",
+    "about": "About Me",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Articles",
+    "opinions": "Testimonials"
   },
   "header": {
-    "bookCta": "Agenda conmigo"
+    "bookCta": "Book with me"
   },
-   "hero": {
-    "title": "Dra. Sorany Díaz",
-    "subtitle": "Especialista en estética dental en Bogotá",
-    "description": "Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.",
-    "ctaPrimary": "Agenda tu cita",
-    "ctaSecondary": "Conóceme",
-    "imageAlt": "Odontóloga especialista en estética dental en Bogotá",
-    "mediaMention": "Mencionada en"
+  "hero": {
+    "title": "Dr. Sorany Díaz",
+    "subtitle": "Specialist in Dental Aesthetics in Bogotá",
+    "description": "We transform smiles with cosmetic dentistry treatments, implants, and oral rehabilitation. Patients from different countries travel to Bogotá to trust our expertise and human quality.",
+    "ctaPrimary": "Book your appointment",
+    "ctaSecondary": "Meet me",
+    "imageAlt": "Dentist specialized in dental aesthetics in Bogotá",
+    "mediaMention": "Featured in"
   },
   "clinic": {
-    "title": "Cuidamos cada detalle para que tu experiencia sea cómoda, moderna y segura.",
-    "photo1Alt": "Recepción del consultorio dental",
-    "photo2Alt": "Área de atención odontológica",
-    "photo3Alt": "Equipo odontológico moderno"
+    "title": "We take care of every detail to make your experience comfortable, modern, and safe.",
+    "photo1Alt": "Dental office reception",
+    "photo2Alt": "Dental care area",
+    "photo3Alt": "Modern dental equipment"
   },
   "services": {
-    "title": "Nuestros servicios",
-    "subtitle": "Tratamientos especializados para tu sonrisa",
-    "ctaText": "¿Listo para transformar tu sonrisa? Agenda una valoración.",
-    "ctaButton": "Agenda tu cita",
+    "title": "Our Services",
+    "subtitle": "Specialized treatments for your smile",
+    "ctaText": "Ready to transform your smile? Book a consultation.",
+    "ctaButton": "Book your appointment",
     "items": {
       "digital": {
-        "title": "Odontología Digital",
-              "desc": "Escaneo intraoral, planificación 3D y tratamientos precisos y cómodos.",
-              "alt": "Odontología digital"
+        "title": "Digital Dentistry",
+        "desc": "Intraoral scanning, 3D planning, and precise, comfortable treatments.",
+        "alt": "Digital dentistry"
       },
       "whitening": {
-        "title": "Blanqueamiento dental",
-        "desc": "Aclara varios tonos de forma segura y controlada.",
-        "alt": "Blanqueamiento dental"
+        "title": "Teeth Whitening",
+        "desc": "Brighten several shades safely and effectively.",
+        "alt": "Teeth whitening"
       },
       "veneers": {
-        "title": "Lentes y Carillas Cerámicas",
-        "desc": "Corrección estética mínima invasiva con acabado natural.",
-        "alt": "Lentes y carillas cerámicas"
+        "title": "Ceramic Veneers & Lenses",
+        "desc": "Minimally invasive aesthetic correction with a natural finish.",
+        "alt": "Ceramic veneers and lenses"
       },
       "cleaning": {
-        "title": "Limpieza dental profesional",
-        "desc": "Profilaxis y mantenimiento para encías y dientes sanos.",
-        "alt": "Limpieza dental profesional"
+        "title": "Professional Dental Cleaning",
+        "desc": "Prophylaxis and maintenance for healthy teeth and gums.",
+        "alt": "Professional dental cleaning"
       },
       "jewelry": {
-        "title": "Joyas Dentales – Grillz Oro / Plata",
-        "desc": "Personaliza tu sonrisa con diseños seguros y a medida.",
-        "alt": "Joyas dentales y grillz"
+        "title": "Dental Jewelry – Gold/Silver Grillz",
+        "desc": "Personalize your smile with safe, custom designs.",
+        "alt": "Dental jewelry and grillz"
       },
       "smileDesign": {
-        "title": "Diseños de sonrisa de alta estética",
-        "desc": "Planificación fotográfica y mock-up para resultados previsibles.",
-        "alt": "Diseño de sonrisa de alta estética"
+        "title": "High-Aesthetic Smile Design",
+        "desc": "Photographic planning and mock-up for predictable results.",
+        "alt": "High-aesthetic smile design"
       },
       "rehabImplant": {
-        "title": "Rehabilitación & Implantología Oral",
-        "desc": "Función y estética con coronas, puentes e implantes guiados.",
-        "alt": "Rehabilitación e implantología oral"
+        "title": "Oral Rehabilitation & Implantology",
+        "desc": "Function and aesthetics with crowns, bridges, and guided implants.",
+        "alt": "Oral rehabilitation and implantology"
       },
       "prosthesis": {
-        "title": "Prótesis Total – Fijas – Removibles – Híbridas",
-        "desc": "Soluciones personalizadas para recuperar función y sonrisa.",
-        "alt": "Prótesis total, fijas, removibles e híbridas"
+        "title": "Complete Prosthesis – Fixed – Removable – Hybrid",
+        "desc": "Personalized solutions to restore function and your smile.",
+        "alt": "Complete prosthesis, fixed, removable, and hybrid"
       }
     }
   },
-   "testimonials": {
-    "title": "💬 Historias de mis pacientes",
-    "subtitle": "Cada sonrisa cuenta una historia. Aquí comparto algunas experiencias de quienes han confiado en mí.",
+  "testimonials": {
+    "title": "💬 My Patients' Stories",
+    "subtitle": "Every smile tells a story. Here are some experiences from those who have trusted me.",
     "items": {
       "alejandra": {
         "author": "Alejandra Cabarique Garcia",
-        "text": "“Una profesional dedicada a sus pacientes, muy responsable y detallista en su trabajo; pero humana y llena de empatía. Es la primera vez que encuentro una odontóloga que no me da temor ni miedo en los procedimientos, la recomiendo 😌”"
+        "text": "“A professional dedicated to her patients, very responsible and detail-oriented; but also humane and empathetic. It's the first time I’ve found a dentist who doesn’t make me feel fear during procedures. Highly recommended 😌”"
       },
       "milena": {
         "author": "Milena Gracia",
-        "text": "“Me gustaría expresar mi total satisfacción con el servicio brindado por la Dra. Sorany, quien me realizó un diseño de sonrisa que superó todas mis expectativas. Desde el primer momento demostró profesionalismo, guiándome de manera clara y detallada a lo largo de todo el proceso. El resultado me dio mucha confianza al sonreír. Utilizó materiales de excelente calidad y sus recomendaciones fueron muy claras. ¡Totalmente recomendada!”"
+        "text": "“I would like to express my total satisfaction with the service provided by Dr. Sorany, who performed a smile design that exceeded all my expectations. From the very beginning, she demonstrated professionalism, guiding me clearly and in detail throughout the process. The result gave me great confidence when smiling. She used high-quality materials and her recommendations were very clear. Totally recommended!”"
       },
       "carlos": {
         "author": "Carlos Libardo Lopez Penaloza",
-        "text": "“Yo le tenía pavor a los odontólogos... y en la Dra. Sorany encontré una profesional comprensiva para personas nerviosas como yo. Quedé tan encantado que recomendé a muchos de mis amigos y traje a mi hijo para sus tratamientos. ¡Muchas gracias!”"
+        "text": "“I used to be terrified of dentists… and with Dr. Sorany I found a caring professional for nervous patients like me. I was so impressed that I recommended her to many friends and even brought my son for treatment. Thank you so much!”"
       },
       "angelica": {
         "author": "Angélica Parra",
-        "text": "“¡Excelente trabajo! Acudí con urgencia por el quiebre de una resina. Me atendieron con calidez y profesionalismo, explicándome no solo el daño de mi urgencia sino también el estado general de mis dientes. Recomendada por su trabajo tan pulido: quedé muy feliz con el resultado.”"
+        "text": "“Excellent work! I came urgently due to a broken filling. I was treated warmly and professionally, not only addressing the urgent problem but also reviewing the overall condition of my teeth. Recommended for her meticulous work: I was very happy with the result.”"
       },
       "brigitte": {
         "author": "Brigitte Martinez D.",
-        "text": "“Excelente rehabilitadora oral. Me surgió una emergencia con mis carillas y la Dra. Sorany me explicó y recomendó lo mejor para mi salud dental. Después del procedimiento el resultado fue maravilloso: me devolvió la sonrisa. ¡Muy recomendada!”"
+        "text": "“Excellent oral rehabilitator. I had an emergency with my veneers and Dr. Sorany explained and recommended the best option for my dental health. After the procedure, the result was wonderful: she gave me back my smile. Highly recommended!”"
       },
       "john": {
         "author": "John Ortiz",
-        "text": "“Recomiendo el trabajo de la Dra. Sorany. Es muy cumplida y clara desde el principio sin extender el tratamiento ni encarecerlo. Me realizó 2 coronas y varias resinas; quedé muy satisfecho con su trabajo.”"
+        "text": "“I recommend Dr. Sorany’s work. She is very punctual and clear from the beginning without extending or overpricing treatments. She performed 2 crowns and several fillings; I was very satisfied with her work.”"
       },
       "dayanna": {
         "author": "Dayanna Sánchez",
-        "text": "“La Dra. Sorany me ha atendido por más de 8 años y es una gran profesional. Sus diagnósticos siempre son acertados y su forma de trabajar es impecable. Muy recomendada.”"
+        "text": "“Dr. Sorany has been treating me for over 8 years and she is an excellent professional. Her diagnoses are always accurate and her way of working is impeccable. Highly recommended.”"
       }
     }
   },
   "about": {
-    "title": "Sobre mí",
-    "subtitle": "Odontología con ciencia, arte y alma",
-    "imageAlt": "Dra. Sorany Díaz, especialista en rehabilitación y estética oral en Popayán",
-    "intro1": "👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.",
-    "intro2": "En mi consultorio practico lo que llamo",
-    "introStrong": "alquimia dental",
-    "intro3": ": transformar cada sonrisa con un enfoque humano, personalizado y de vanguardia.",
-    "philosophy": "Para mí, cada tratamiento va más allá de resinas, carillas o coronas: es un proceso de confianza, autoestima y transformación personal.",
-    "servicesTitle": "Servicios destacados",
-    "ctaText": "Cada sonrisa puede ser una nueva historia. Empieza la tuya hoy mismo.",
-    "ctaBtn": "Agenda tu cita",
-    "yearsExperience": "Años de experiencia",
-    "happyPatients": "Pacientes felices",
-    "successRate": "Índice de éxito",
-    "internationalPatients": "Pacientes internacionales"
+    "title": "About Me",
+    "subtitle": "Dentistry with science, art, and soul",
+    "imageAlt": "Dr. Sorany Díaz, specialist in oral rehabilitation and dental aesthetics in Popayán",
+    "intro1": "👩🏻‍⚕️ I am Dr. Sorany Díaz Pechene, specialist in oral rehabilitation and dental aesthetics.",
+    "intro2": "In my practice I apply what I call",
+    "introStrong": "dental alchemy",
+    "intro3": ": transforming each smile with a human, personalized, and cutting-edge approach.",
+    "philosophy": "For me, every treatment goes beyond fillings, veneers, or crowns: it is a process of trust, self-esteem, and personal transformation.",
+    "servicesTitle": "Highlighted Services",
+    "ctaText": "Every smile can be a new story. Start yours today.",
+    "ctaBtn": "Book your appointment",
+    "yearsExperience": "Years of experience",
+    "happyPatients": "Happy patients",
+    "successRate": "Success rate",
+    "internationalPatients": "International patients"
   },
   "media": {
-    "title": "📰 En los medios",
-    "subtitle": "Menciones y artículos donde he compartido mi trabajo en Alquimia Dental®.",
+    "title": "📰 In the Media",
+    "subtitle": "Mentions and articles where I’ve shared my work at Alquimia Dental®.",
     "featured": {
       "source": "Rolling Stone",
-      "headline": "El arte de reinventar sonrisas",
-      "excerpt": "Soy especialista en rehabilitación oral y dedico mi trabajo a unir ciencia y estética para transformar sonrisas con salud y confianza.",
-      "readMore": "Leer artículo completo",
-      "imageAlt": "Portada del artículo El arte de reinventar sonrisas",
-      "linkAria": "Abrir artículo: El arte de reinventar sonrisas (Rolling Stone)"
+      "headline": "The Art of Reinventing Smiles",
+      "excerpt": "I specialize in oral rehabilitation and dedicate my work to uniting science and aesthetics to transform smiles with health and confidence.",
+      "readMore": "Read full article",
+      "imageAlt": "Cover of the article The Art of Reinventing Smiles",
+      "linkAria": "Open article: The Art of Reinventing Smiles (Rolling Stone)"
     }
   },
   "gallery": {
-    "title": "📸 Antes y después",
-    "subtitle": "Algunos resultados de mis tratamientos.",
-    "badgeBefore": "Antes",
-    "badgeAfter": "Después",
-    "btnView": "Ver en grande",
+    "title": "📸 Before and After",
+    "subtitle": "Some results of my treatments.",
+    "badgeBefore": "Before",
+    "badgeAfter": "After",
+    "btnView": "View larger",
     "lightbox": {
-      "label": "Vista ampliada",
-      "close": "Cerrar",
-      "prev": "Anterior",
-      "next": "Siguiente"
+      "label": "Expanded view",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
     },
     "items": {
       "case1": {
-        "title": "Rehabilitación total sobre implantes",
-        "alt": "Antes y después de rehabilitación total sobre implantes",
-        "desc": "Función y estética recuperadas con prótesis sobre implantes."
+        "title": "Full Rehabilitation on Implants",
+        "alt": "Before and after full rehabilitation on implants",
+        "desc": "Function and aesthetics restored with implant-supported prosthesis."
       },
       "case2": {
-        "title": "Diseño de sonrisa – Carillas cerámicas",
-        "alt": "Antes y después con carillas cerámicas"
+        "title": "Smile Design – Ceramic Veneers",
+        "alt": "Before and after with ceramic veneers"
       },
       "case3": {
-        "title": "Blanqueamiento y resinas estéticas",
-        "alt": "Comparación antes y después de blanqueamiento y resinas",
-        "desc": "Función y estética recuperadas con prótesis sobre implantes."
+        "title": "Whitening and Aesthetic Fillings",
+        "alt": "Comparison before and after whitening and fillings",
+        "desc": "Function and aesthetics restored with implant-supported prosthesis."
       }
     }
   },
-   "footer": {
-    "slogan": "Transformando sonrisas con ciencia, arte y alma",
-    "rights": "Todos los derechos reservados",
-    "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
+  "footer": {
+    "slogan": "Transforming smiles with science, art, and soul",
+    "rights": "All rights reserved",
+    "address": "Cl. 18 #77-51 Office 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
   }
 }
