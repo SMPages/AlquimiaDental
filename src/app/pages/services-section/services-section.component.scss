@@ -99,20 +99,29 @@
       border-color: color-mix(in oklch, var(--border) 40%, var(--secondary) 60%);
     }
 
-    .service-icon {
-      width: clamp(64px, 9vw, 80px);
-      height: clamp(64px, 9vw, 80px);
-      margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+        /* Contenedor circular que recorta la imagen */
+    .service-media {
+      width: clamp(64px, 9vw, 88px);
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-      box-shadow: 0 4px 14px rgba(193, 120, 84, 0.25);
+      overflow: hidden;
+      margin: 0 auto clamp(1rem, 3vw, 1.5rem);
 
-      img {
-        width: 48px; height: 48px;
-        filter: brightness(0) invert(1);
-      }
+      /* Opcional: aro/halo suave detrás */
+      background: radial-gradient(120% 120% at 30% 30%, var(--secondary), var(--primary));
+      box-shadow: 0 6px 18px rgba(193, 120, 84, 0.25);
+      display: block; /* asegura el rectángulo del contenedor */
+    }
+
+    /* La foto llena el círculo sin deformarse */
+    .service-photo {
+      width: 100%;
+      height: 100%;
+      display: block;         /* elimina espacios/fugas */
+      object-fit: cover;      /* recorta proporcionalmente */
+      object-position: center;
+      /* MUY IMPORTANTE: sin filtros que inviertan colores */
+      filter: none;
     }
 
     .service-title {

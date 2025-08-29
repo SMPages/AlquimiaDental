@@ -7,11 +7,14 @@
 
     <div class="services-grid" role="list">
       <article class="service-card" role="listitem" *ngFor="let s of items">
-        <div class="service-icon" aria-hidden="true">
-          <img [src]="s.icon"
-               [alt]="'services.items.' + s.key + '.alt' | translate"
-               width="48" height="48" loading="lazy" decoding="async" />
-        </div>
+       <div class="service-media" aria-hidden="true">
+        <img
+          [src]="s.icon"
+          [alt]="'services.items.' + s.key + '.alt' | translate"
+          class="service-photo"
+          loading="lazy"
+          decoding="async" />
+      </div>
         <h3 class="service-title">{{ ('services.items.' + s.key + '.title') | translate }}</h3>
         <p class="service-description">{{ ('services.items.' + s.key + '.desc') | translate }}</p>
       </article>
