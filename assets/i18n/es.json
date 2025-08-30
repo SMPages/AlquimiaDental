@@ -77,6 +77,9 @@
    "testimonials": {
     "title": "💬 Historias de mis pacientes",
     "subtitle": "Cada sonrisa cuenta una historia. Aquí comparto algunas experiencias de quienes han confiado en mí.",
+    "moreText": "¿Quieres ver más reseñas reales?",
+    "moreButton": "Ver más en Google",
+    "moreAria": "Abrir reseñas en Google",
     "items": {
       "alejandra": {
         "author": "Alejandra Cabarique Garcia",

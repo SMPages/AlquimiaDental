@@ -77,6 +77,9 @@
   "testimonials": {
     "title": "💬 My Patients' Stories",
     "subtitle": "Every smile tells a story. Here are some experiences from those who have trusted me.",
+    "moreText": "Want to read more real reviews?",
+    "moreButton": "See more on Google",
+    "moreAria": "Open Google reviews",
     "items": {
       "alejandra": {
         "author": "Alejandra Cabarique Garcia",
