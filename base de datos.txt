@@ -1,0 +1,305 @@
+-- =====================================================================
+-- ESQUEMA y extensiones
+-- =====================================================================
+create schema if not exists dental;
+
+-- Para UUID y hashing externo (guardamos solo el hash)
+create extension if not exists pgcrypto;
+-- Para emails case-insensitive (unique real por email)
+create extension if not exists citext;
+
+-- =====================================================================
+-- Helper: updated_at automático
+-- =====================================================================
+create or replace function dental.set_timestamp()
+returns trigger as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$ language plpgsql;
+
+-- =====================================================================
+-- Tipos enumerados (namespaced en dental)
+-- =====================================================================
+do $$
+begin
+  if not exists (
+    select 1 from pg_type where typname = 'publish_status'
+      and typnamespace = 'dental'::regnamespace
+  ) then
+    create type dental.publish_status as enum ('draft','scheduled','published','archived');
+  end if;
+
+  if not exists (
+    select 1 from pg_type where typname = 'media_type'
+      and typnamespace = 'dental'::regnamespace
+  ) then
+    create type dental.media_type as enum ('image','video','file');
+  end if;
+
+  if not exists (
+    select 1 from pg_type where typname = 'admin_role'
+      and typnamespace = 'dental'::regnamespace
+  ) then
+    create type dental.admin_role as enum ('owner','admin','editor','viewer');
+  end if;
+end$$;
+
+-- =====================================================================
+-- Tabla: admins (login)
+--  - Usa email (citext) único y case-insensitive
+--  - Guarda SOLO el hash de la contraseña (bcrypt/argon2/otro)
+--  - Role y estado para autorización
+-- =====================================================================
+create table if not exists dental.admins (
+  id              uuid primary key default gen_random_uuid(),
+  email           citext not null unique,
+  password_hash   text not null,             -- ej. bcrypt/argon2 (NUNCA guardes la contraseña en claro)
+  display_name    text not null,
+  avatar_url      text,
+  role            dental.admin_role not null default 'admin',
+  is_active       boolean not null default true,
+  last_login_at   timestamptz,
+  created_at      timestamptz not null default now(),
+  updated_at      timestamptz not null default now(),
+  -- Hardening básico opcional:
+  constraint chk_admins_pwdhash_len check (length(password_hash) >= 20)
+);
+
+create index if not exists idx_dental_admins_role_active
+  on dental.admins (role, is_active);
+
+create trigger trg_dental_admins_set_timestamp
+before update on dental.admins
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Tabla: posts (blog / novedades)
+-- =====================================================================
+create table if not exists dental.posts (
+  id              uuid primary key default gen_random_uuid(),
+  title           text not null,
+  slug            text not null unique,
+  excerpt         text,
+  content_md      text,
+  cover_url       text,
+  media_url       text,
+  media_kind      dental.media_type,
+  status          dental.publish_status not null default 'draft',
+  published_at    timestamptz,
+  tags            text[] not null default '{}',
+  is_featured     boolean not null default false,
+  order_index     int not null default 0,
+  created_at      timestamptz not null default now(),
+  updated_at      timestamptz not null default now()
+);
+
+create index if not exists idx_dental_posts_status_pubat
+  on dental.posts (status, published_at desc);
+
+create index if not exists idx_dental_posts_is_featured
+  on dental.posts (is_featured) where is_featured = true;
+
+create trigger trg_dental_posts_set_timestamp
+before update on dental.posts
+for each row execute function dental.set_timestamp();
+
+-- Múltiples medios por post (opcional)
+create table if not exists dental.post_media (
+  id           uuid primary key default gen_random_uuid(),
+  post_id      uuid not null references dental.posts(id) on delete cascade,
+  url          text not null,
+  kind         dental.media_type not null,
+  alt_text     text,
+  order_index  int not null default 0,
+  created_at   timestamptz not null default now(),
+  updated_at   timestamptz not null default now()
+);
+create index if not exists idx_dental_post_media_post_order
+  on dental.post_media (post_id, order_index);
+
+create trigger trg_dental_post_media_set_timestamp
+before update on dental.post_media
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Tabla: testimonios
+-- =====================================================================
+create table if not exists dental.testimonios (
+  id             uuid primary key default gen_random_uuid(),
+  author_name    text not null,
+  author_role    text,
+  avatar_url     text,
+  rating         int check (rating between 1 and 5),
+  content        text not null,
+  source_url     text,
+  is_featured    boolean not null default false,
+  order_index    int not null default 0,
+  created_at     timestamptz not null default now(),
+  updated_at     timestamptz not null default now(),
+  published_at   timestamptz,
+  status         dental.publish_status not null default 'published'
+);
+
+create index if not exists idx_dental_testimonios_order
+  on dental.testimonios (is_featured desc, order_index asc, created_at desc);
+
+create trigger trg_dental_testimonios_set_timestamp
+before update on dental.testimonios
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Tabla: articulos_prensa (menciones en medios)
+-- =====================================================================
+create table if not exists dental.articulos_prensa (
+  id             uuid primary key default gen_random_uuid(),
+  title          text not null,
+  slug           text not null unique,
+  source_name    text,
+  source_url     text,
+  excerpt        text,
+  cover_url      text,
+  published_on   date,
+  status         dental.publish_status not null default 'published',
+  is_featured    boolean not null default false,
+  order_index    int not null default 0,
+  tags           text[] not null default '{}',
+  created_at     timestamptz not null default now(),
+  updated_at     timestamptz not null default now()
+);
+
+create index if not exists idx_dental_articulos_order
+  on dental.articulos_prensa (is_featured desc, order_index asc, published_on desc);
+
+create trigger trg_dental_articulos_set_timestamp
+before update on dental.articulos_prensa
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Tabla: galeria (ítems sueltos)
+-- =====================================================================
+create table if not exists dental.galeria_items (
+  id            uuid primary key default gen_random_uuid(),
+  title         text,
+  description   text,
+  url           text not null,
+  kind          dental.media_type not null default 'image',
+  alt_text      text,
+  tags          text[] not null default '{}',
+  is_visible    boolean not null default true,
+  order_index   int not null default 0,
+  created_at    timestamptz not null default now(),
+  updated_at    timestamptz not null default now()
+);
+
+create index if not exists idx_dental_galeria_visible_order
+  on dental.galeria_items (is_visible, order_index);
+
+create trigger trg_dental_galeria_set_timestamp
+before update on dental.galeria_items
+for each row execute function dental.set_timestamp();
+
+-- Álbumes opcionales
+create table if not exists dental.galeria_albums (
+  id           uuid primary key default gen_random_uuid(),
+  name         text not null,
+  slug         text not null unique,
+  description  text,
+  cover_url    text,
+  order_index  int not null default 0,
+  created_at   timestamptz not null default now(),
+  updated_at   timestamptz not null default now()
+);
+
+create table if not exists dental.galeria_album_items (
+  album_id     uuid not null references dental.galeria_albums(id) on delete cascade,
+  item_id      uuid not null references dental.galeria_items(id) on delete cascade,
+  order_index  int not null default 0,
+  primary key (album_id, item_id)
+);
+
+create index if not exists idx_dental_album_items_order
+  on dental.galeria_album_items (album_id, order_index);
+
+create trigger trg_dental_galeria_albums_set_timestamp
+before update on dental.galeria_albums
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Tabla: servicios
+-- =====================================================================
+create table if not exists dental.servicios (
+  id              uuid primary key default gen_random_uuid(),
+  name            text not null,
+  slug            text not null unique,
+  short_desc      text,
+  long_desc_md    text,
+  icon_url        text,
+  price_amount    numeric(12,2),
+  price_currency  text not null default 'COP',
+  duration_min    int,
+  is_active       boolean not null default true,
+  is_featured     boolean not null default false,
+  order_index     int not null default 0,
+  created_at      timestamptz not null default now(),
+  updated_at      timestamptz not null default now()
+);
+
+create index if not exists idx_dental_servicios_active_order
+  on dental.servicios (is_active desc, is_featured desc, order_index asc);
+
+create trigger trg_dental_servicios_set_timestamp
+before update on dental.servicios
+for each row execute function dental.set_timestamp();
+
+-- Medios asociados a un servicio (opcional)
+create table if not exists dental.servicio_media (
+  id           uuid primary key default gen_random_uuid(),
+  servicio_id  uuid not null references dental.servicios(id) on delete cascade,
+  url          text not null,
+  kind         dental.media_type not null default 'image',
+  alt_text     text,
+  order_index  int not null default 0,
+  created_at   timestamptz not null default now(),
+  updated_at   timestamptz not null default now()
+);
+create index if not exists idx_dental_servicio_media_order
+  on dental.servicio_media (servicio_id, order_index);
+
+create trigger trg_dental_servicio_media_set_timestamp
+before update on dental.servicio_media
+for each row execute function dental.set_timestamp();
+
+-- =====================================================================
+-- Vistas de consumo (filtradas/ordenadas)
+-- =====================================================================
+create or replace view dental.v_posts_publicados as
+  select *
+  from dental.posts
+  where status = 'published'
+  order by is_featured desc, published_at desc nulls last, created_at desc;
+
+create or replace view dental.v_testimonios_publicados as
+  select *
+  from dental.testimonios
+  where status = 'published'
+  order by is_featured desc, order_index asc, created_at desc;
+
+create or replace view dental.v_articulos_publicados as
+  select *
+  from dental.articulos_prensa
+  where status = 'published'
+  order by is_featured desc, order_index asc, published_on desc nulls last, created_at desc;
+
+create or replace view dental.v_galeria_visible as
+  select *
+  from dental.galeria_items
+  where is_visible = true
+  order by order_index asc, created_at desc;
+
+create or replace view dental.v_servicios_activos as
+  select *
+  from dental.servicios
+  where is_active = true
+  order by is_featured desc, order_index asc, name asc;

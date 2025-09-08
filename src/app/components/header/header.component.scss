@@ -187,3 +187,18 @@
     }
   }
 }
+/* Botón outline consistente con el tema */
+.btn.btn-outline {
+  border: 1px solid #111827; /* gris-900 */
+  color: #111827;
+  background: transparent;
+  border-radius: 0.75rem; /* 12px */
+  padding: 0.5rem 1rem;
+  line-height: 1.25rem;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn.btn-outline:hover {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}

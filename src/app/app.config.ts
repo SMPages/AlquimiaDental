@@ -1,15 +1,21 @@
+// src/app/app.config.ts
 import { ApplicationConfig, APP_INITIALIZER } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// 👇 nuestro interceptor
+import { authInterceptor } from './auth/auth.interceptor';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(),
+
+    // HttpClient + Auth Interceptor
+    provideHttpClient(withInterceptors([authInterceptor])),
 
     // ngx-translate v17
     provideTranslateService({
@@ -21,15 +27,15 @@ export const appConfig: ApplicationConfig = {
       }),
     }),
 
-    // opcional: registrar idiomas al bootstrap
+    // registrar idiomas en el bootstrap
     {
       provide: APP_INITIALIZER,
       multi: true,
       useFactory: (t: TranslateService) => () => {
         t.addLangs(['es', 'en']);
-        t.setDefaultLang('es'); // el lang activo lo decide la URL/guards
+        t.setDefaultLang('es');
       },
-      deps: [TranslateService]
-    }
-  ]
+      deps: [TranslateService],
+    },
+  ],
 };

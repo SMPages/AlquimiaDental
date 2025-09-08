@@ -19,40 +19,44 @@
         </ul>
       </nav>
 
-    <!-- Acciones del header -->
-    <div class="header-actions">
-      <!-- CTA directo a WhatsApp -->
-      <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener">
-        {{ 'header.bookCta' | translate }}
-      </a>
+      <!-- Acciones del header -->
+      <div class="header-actions">
+        <!-- CTA directo a WhatsApp -->
+        <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener">
+          {{ 'header.bookCta' | translate }}
+        </a>
 
-      <!-- Switch de idioma -->
-      <nav class="lang-switch" aria-label="Language selector">
-        <button
-          type="button"
-          class="lang-btn"
-          [class.active]="currentLang === 'es'"
-          [attr.aria-current]="currentLang === 'es' ? 'true' : null"
-          (click)="switchLang('es')"
-        >ES</button>
+        <!-- NUEVO: botón Admin → /login -->
+        <a class="btn btn-outline" [routerLink]="['/', currentLang, 'login']">
+          {{ 'header.admin' | translate }}
+        </a>
 
-        <span class="sep" aria-hidden="true">/</span>
+        <!-- Switch de idioma -->
+        <nav class="lang-switch" aria-label="Language selector">
+          <button
+            type="button"
+            class="lang-btn"
+            [class.active]="currentLang === 'es'"
+            [attr.aria-current]="currentLang === 'es' ? 'true' : null"
+            (click)="switchLang('es')"
+          >ES</button>
 
-        <button
-          type="button"
-          class="lang-btn"
-          [class.active]="currentLang === 'en'"
-          [attr.aria-current]="currentLang === 'en' ? 'true' : null"
-          (click)="switchLang('en')"
-        >EN</button>
-      </nav>
+          <span class="sep" aria-hidden="true">/</span>
 
-      <!-- Botón hamburguesa -->
-      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+          <button
+            type="button"
+            class="lang-btn"
+            [class.active]="currentLang === 'en'"
+            [attr.aria-current]="currentLang === 'en' ? 'true' : null"
+            (click)="switchLang('en')"
+          >EN</button>
+        </nav>
 
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 </header>

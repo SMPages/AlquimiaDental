@@ -45,6 +45,38 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/testimonials-section/testimonials-section.component').then(m => m.TestimonialsSectionComponent)
       },
+      {
+        path: 'login',
+        loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent),
+      },
+       {
+      path: 'auth/dash-admin',
+      loadComponent: () =>
+        import('./auth/dash-admin/dash-admin.component').then(m => m.DashAdminComponent),
+      children: [
+        { path: '', pathMatch: 'full', redirectTo: 'overview' },
+
+        // Overview simple
+        { path: 'overview', loadComponent: () =>
+          import('./auth/dash-admin/overview/overview.component').then(m => m.OverviewComponent) },
+
+        // CRUDs (carga perezosa de cada sección)
+        { path: 'posts', loadComponent: () =>
+          import('./auth/dash-admin/posts/posts.component').then(m => m.PostsAdminComponent) },
+
+        { path: 'blog', loadComponent: () =>
+          import('./auth/dash-admin/blog/blog.component').then(m => m.BlogAdminComponent) },
+
+        { path: 'gallery', loadComponent: () =>
+          import('./auth/dash-admin/gallery/gallery.component').then(m => m.GalleryAdminComponent) },
+
+        { path: 'testimonials', loadComponent: () =>
+          import('./auth/dash-admin/testimonials/testimonials.component').then(m => m.TestimonialsAdminComponent) },
+
+        { path: 'services', loadComponent: () =>
+          import('./auth/dash-admin/services/services.component').then(m => m.ServicesAdminComponent) },
+      ]
+    },
       { path: '**', redirectTo: '' }
     ]
   },

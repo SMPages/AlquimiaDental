@@ -1,0 +1,88 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <h1>{{ 'auth.login.title' | translate }}</h1>
+      <p>{{ 'auth.login.subtitle' | translate }}</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Email -->
+      <div class="field">
+        <label for="email">{{ 'auth.login.email' | translate }}</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          [attr.aria-invalid]="email.touched && email.invalid ? true : null"
+          placeholder="nombre@dominio.com" />
+        <ng-container *ngIf="email.touched && email.invalid">
+          <p *ngIf="email.errors?.['required']" class="error">
+            {{ 'auth.errors.required' | translate }}
+          </p>
+          <p *ngIf="email.errors?.['email']" class="error">
+            {{ 'auth.errors.email' | translate }}
+          </p>
+        </ng-container>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label for="password">{{ 'auth.login.password' | translate }}</label>
+        <div class="password-wrap">
+          <input
+            id="password"
+            [type]="showPassword() ? 'text' : 'password'"
+            formControlName="password"
+            autocomplete="current-password"
+            [attr.aria-invalid]="password.touched && password.invalid ? true : null"
+            placeholder="••••••••" />
+          <button
+            type="button"
+            class="eye"
+            (click)="toggleShowPassword()"
+            [attr.aria-label]="(showPassword() ? 'Ocultar' : 'Mostrar')">
+            {{ showPassword() ? '🙈' : '👁️' }}
+          </button>
+        </div>
+        <ng-container *ngIf="password.touched && password.invalid">
+          <p *ngIf="password.errors?.['required']" class="error">
+            {{ 'auth.errors.required' | translate }}
+          </p>
+          <p *ngIf="password.errors?.['minlength']" class="error">
+            {{ 'auth.errors.minlength' | translate:{ n: 6 } }}
+          </p>
+        </ng-container>
+      </div>
+
+      <!-- Remember me -->
+      <div class="row between">
+        <label class="check">
+          <input type="checkbox" formControlName="remember" />
+          <span>{{ 'auth.login.remember' | translate }}</span>
+        </label>
+        <!-- Si agregas recuperación:
+        <a class="link" [routerLink]="['/forgot']">{{ 'auth.login.forgot' | translate }}</a> -->
+      </div>
+
+      <!-- Error global -->
+      <p *ngIf="error()" class="error global">{{ error() }}</p>
+
+      <!-- Submit -->
+      <button type="submit" [disabled]="form.invalid || loading()" class="btn btn-primary w-full">
+        <ng-container *ngIf="!loading()">{{ 'auth.login.cta' | translate }}</ng-container>
+        <span *ngIf="loading()" class="loading">
+          <svg class="spin" viewBox="0 0 24 24" fill="none">
+            <circle class="ring" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="meter" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+          </svg>
+          {{ 'auth.login.loading' | translate }}
+        </span>
+      </button>
+    </form>
+
+    <div class="login-footer">
+      <p>{{ 'auth.login.disclaimer' | translate }}</p>
+    </div>
+  </div>
+</div>

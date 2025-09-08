@@ -1,0 +1,137 @@
+:host { display: block; }
+
+/* ===== Paleta del sitio (ajusta si ya tienes vars globales) ===== */
+:root {
+  --bg-page:       #F6F1EB;  /* fondo arena claro (como el sitio) */
+  --surface:       #FFFFFF;
+  --text:          #2D2A26;  /* gris marrón */
+  --muted:         #6F6A65;  /* gris suave */
+  --border:        #E9E2DA;
+  --shadow:        0 1px 2px rgba(0,0,0,.06), 0 10px 30px rgba(0,0,0,.08);
+
+  --accent:        #C97C5D;  /* terracota CTA */
+  --accent-600:    #B56E52;
+  --error:         #DC2626;
+}
+
+/* ===== Layout general ===== */
+.login-page {
+  min-height: calc(100dvh - var(--header-h, 72px));
+  background: var(--bg-page);
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 40px);
+}
+
+.login-card {
+  width: min(640px, 92vw);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: clamp(20px, 3vw, 28px);
+}
+
+/* ===== Header ===== */
+.login-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.login-header h1 {
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: .2px;
+}
+.login-header p {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+/* ===== Form ===== */
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: .925rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.field input[type="email"],
+.field input[type="password"],
+.password-wrap input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.field input::placeholder { color: #b7b1aa; }
+
+.field input:focus,
+.password-wrap input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 23%, #ffffff);
+}
+
+/* Password eye */
+.password-wrap { position: relative; }
+.password-wrap .eye {
+  position: absolute;
+  right: 8px; top: 50%;
+  translate: 0 -50%;
+  padding: 4px 6px;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.password-wrap .eye:hover { color: var(--text); }
+
+/* Row util */
+.row { display: flex; gap: 12px; align-items: center; }
+.row.between { justify-content: space-between; }
+
+/* Checkbox estilizado nativo (simple y accesible) */
+.check input[type="checkbox"] { accent-color: var(--accent); }
+.check span { color: var(--text); font-size: .925rem; }
+
+/* Errores */
+.error { color: var(--error); font-size: .85rem; margin-top: 6px; }
+.error.global { text-align: left; }
+
+/* Botón primario: usa tu .btn .btn-primary global; este fallback lo mejora si no está */
+.btn.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  padding: 11px 16px;
+  font-weight: 600;
+  transition: background-color .15s ease, border-color .15s ease, transform .08s ease;
+}
+.btn.btn-primary:hover { background: var(--accent-600); border-color: var(--accent-600); }
+.btn.btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+.btn.btn-primary:active { transform: translateY(1px); }
+
+/* Loader chico dentro del botón */
+.loading { display: inline-flex; align-items: center; gap: 8px; }
+.spin { width: 20px; height: 20px; }
+.ring { opacity: .25; }
+.meter { opacity: .85; }
+
+/* Responsive pequeño */
+@media (max-width: 420px) {
+  .login-card { border-radius: 14px; padding: 16px; }
+}

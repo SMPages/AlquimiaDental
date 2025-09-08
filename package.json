@@ -1,17 +1,15 @@
 {
   "name": "alquimia-dental",
   "version": "0.0.0",
- "scripts": {
-  "ng": "ng",
-  "start": "ng serve",
-  "build": "ng build",
-  "watch": "ng build --watch --configuration development",
-
-  "build:gh": "ng build --configuration production",
-  "deploy:gh": "npm run build:gh && ngh --dir=dist/alquimia-dental/browser",
-
-  "serve:ssr:AlquimiaDental": "node dist/alquimia-dental/server/server.mjs"
-},
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "build:gh": "ng build --configuration production",
+    "deploy:gh": "npm run build:gh && ngh --dir=dist/alquimia-dental/browser",
+    "serve:ssr:AlquimiaDental": "node dist/alquimia-dental/server/server.mjs"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.14",
@@ -27,6 +25,8 @@
     "@angular/ssr": "^19.2.0",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
+    "@supabase/supabase-js": "^2.57.2",
+    "bcryptjs": "^3.0.2",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

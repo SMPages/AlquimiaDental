@@ -144,3 +144,19 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.75rem;
   }
 }
+/* Esconde por completo header y footer en el admin */
+body[data-admin="true"] app-header,
+body[data-admin="true"] app-footer {
+  display: none !important;
+}
+
+/* Si además quieres ocultar otros bloques “públicos” reutilizables */
+body[data-admin="true"] .public-only {
+  display: none !important;
+}
+
+/* Opcional: que el main ocupe todo el alto cuando no hay header/footer */
+body[data-admin="true"] main,
+body[data-admin="true"] .page {
+  min-height: 100vh;
+}

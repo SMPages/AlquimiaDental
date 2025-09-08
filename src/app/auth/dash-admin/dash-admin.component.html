@@ -1,0 +1,64 @@
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="!sidebarOpen()">
+    <div class="brand">
+      <div class="logo">🦷</div>
+      <div class="name" *ngIf="sidebarOpen()">Dr. Sorany • Admin</div>
+    </div>
+
+    <nav class="menu">
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'overview']"
+         routerLinkActive="active" class="item" (click)="sidebarOpen() && false">
+        <span class="ico">🏠</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.overview' | translate }}</span>
+      </a>
+
+      <div class="section" *ngIf="sidebarOpen()">{{ 'admin.content' | translate }}</div>
+
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'posts']"
+         routerLinkActive="active" class="item">
+        <span class="ico">📰</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.posts' | translate }}</span>
+      </a>
+
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'blog']"
+         routerLinkActive="active" class="item">
+        <span class="ico">✍️</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.blog' | translate }}</span>
+      </a>
+
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'gallery']"
+         routerLinkActive="active" class="item">
+        <span class="ico">🖼️</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.gallery' | translate }}</span>
+      </a>
+
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'testimonials']"
+         routerLinkActive="active" class="item">
+        <span class="ico">⭐</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.testimonials' | translate }}</span>
+      </a>
+
+      <a [routerLink]="['/', lang, 'auth', 'dash-admin', 'services']"
+         routerLinkActive="active" class="item">
+        <span class="ico">🧰</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.services' | translate }}</span>
+      </a>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <button class="logout" (click)="logout()">
+      <span class="ico">🚪</span><span class="txt" *ngIf="sidebarOpen()">{{ 'admin.logout' | translate }}</span>
+    </button>
+  </aside>
+
+  <!-- Main -->
+  <section class="main">
+    <header class="topbar">
+      <button class="burger" (click)="toggleSidebar()" aria-label="Toggle sidebar">☰</button>
+      <h1 class="title">{{ 'admin.title' | translate }}</h1>
+      <div class="right">
+        <!-- espacio para user/role/lang switch si quieres -->
+      </div>
+    </header>
+
+    <div class="content">
+      <router-outlet />
+    </div>
+  </section>
+</div>
