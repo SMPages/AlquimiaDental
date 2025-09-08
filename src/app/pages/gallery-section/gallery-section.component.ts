@@ -1,14 +1,13 @@
-// src/app/pages/gallery-section/gallery-section.component.ts
-import { Component, HostListener, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 type GalleryItem = {
   id: number;
-  src: string;           // una sola imagen (arriba=antes / abajo=después)
-  titleKey: string;      // e.g. gallery.items.case1.title
-  altKey: string;        // e.g. gallery.items.case1.alt
-  descKey?: string;      // e.g. gallery.items.case1.desc (opcional)
+  src: string;
+  titleKey?: string;
+  altKey: string;
+  descKey?: string;
 };
 
 @Component({
@@ -18,80 +17,60 @@ type GalleryItem = {
   templateUrl: './gallery-section.component.html',
   styleUrls: ['./gallery-section.component.scss']
 })
-export class GallerySectionComponent implements OnDestroy {
+export class GallerySectionComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('reel', { static: true }) reelRef!: ElementRef<HTMLDivElement>;
 
-  readonly items: GalleryItem[] = [
-    {
-      id: 1,
-      src: 'images/caso3.jpg',
-      titleKey: 'gallery.items.case1.title',
-      altKey:   'gallery.items.case1.alt',
-      descKey:  'gallery.items.case1.desc'
-    },
-    {
-      id: 2,
-      src: 'images/caso2.jpg',
-      titleKey: 'gallery.items.case2.title',
-      altKey:   'gallery.items.case2.alt'
-    },
-    {
-      id: 3,
-      src: 'images/caso3.jpg',
-      titleKey: 'gallery.items.case3.title',
-      altKey:   'gallery.items.case3.alt',
-      descKey:  'gallery.items.case3.desc'
-    }
+  items: GalleryItem[] = [
+    { id: 1, src: 'images/caso3.jpg', titleKey: 'gallery.items.case1.title', altKey: 'gallery.items.case1.alt', descKey: 'gallery.items.case1.desc' },
+    { id: 2, src: 'images/caso1.jpg', titleKey: 'gallery.items.case2.title', altKey: 'gallery.items.case2.alt' },
+    { id: 3, src: 'images/caso2.jpg', titleKey: 'gallery.items.case3.title', altKey: 'gallery.items.case3.alt', descKey: 'gallery.items.case3.desc' },
+    // { id: 4, src: 'images/caso4.jpg', titleKey: 'gallery.items.case4.title', altKey: 'gallery.items.case4.alt' },
+    // { id: 5, src: 'images/caso5.jpg', titleKey: 'gallery.items.case5.title', altKey: 'gallery.items.case5.alt' }
   ];
 
-  // Lightbox
-  abierto = false;
-  indexActual = 0;
+  trackById = (_: number, i: GalleryItem) => i.id;
 
-  // Helpers
-  trackById = (_: number, item: GalleryItem) => item.id;
+  private autoplayId?: number;
+  private stepPx = 0;
+  private resizeHandler = () => this.computeStep();
 
-  private preload(src?: string) {
-    if (!src) return;
-    const img = new Image();
-    img.src = src;
-  }
-  private preloadNeighbors() {
-    const prev = this.items[(this.indexActual - 1 + this.items.length) % this.items.length]?.src;
-    const next = this.items[(this.indexActual + 1) % this.items.length]?.src;
-    this.preload(this.items[this.indexActual]?.src);
-    this.preload(prev);
-    this.preload(next);
-  }
-
-  abrirLightbox(idx: number) {
-    this.indexActual = idx;
-    this.abierto = true;
-    document.body.style.overflow = 'hidden';
-    this.preloadNeighbors();
-  }
-  cerrarLightbox() {
-    this.abierto = false;
-    document.body.style.overflow = '';
-  }
-  prev() {
-    this.indexActual = (this.indexActual - 1 + this.items.length) % this.items.length;
-    this.preloadNeighbors();
-  }
-  next() {
-    this.indexActual = (this.indexActual + 1) % this.items.length;
-    this.preloadNeighbors();
-  }
-
-  // Teclas rápidas
-  @HostListener('window:keydown', ['$event'])
-  onKey(e: KeyboardEvent) {
-    if (!this.abierto) return;
-    if (e.key === 'Escape') this.cerrarLightbox();
-    if (e.key === 'ArrowRight') this.next();
-    if (e.key === 'ArrowLeft') this.prev();
+  ngAfterViewInit() {
+    this.computeStep();
+    this.startAuto();
+    window.addEventListener('resize', this.resizeHandler, { passive: true });
   }
 
   ngOnDestroy() {
-    document.body.style.overflow = '';
+    this.pause();
+    window.removeEventListener('resize', this.resizeHandler);
+  }
+
+  /** Calcula el ancho de un ítem + gap para desplazar exactamente una tarjeta */
+  private computeStep() {
+    const reel = this.reelRef.nativeElement;
+    const card = reel.querySelector<HTMLElement>('.shot');
+    if (!card) return;
+
+    // gap puede venir como column-gap o gap
+    const styles = getComputedStyle(reel);
+    const gap = parseFloat(styles.columnGap || styles.gap || '16');
+    this.stepPx = card.clientWidth + gap;
+  }
+
+  /** Auto-scroll */
+  private startAuto() {
+    this.autoplayId = window.setInterval(() => this.scrollBy(1), 3800);
+  }
+  pause() { if (this.autoplayId) { clearInterval(this.autoplayId); this.autoplayId = undefined; } }
+  resume() { if (!this.autoplayId) this.startAuto(); }
+
+  /** Scroll helpers */
+  private scrollBy(dir: number) {
+    const reel = this.reelRef.nativeElement;
+    reel.scrollBy({ left: dir * this.stepPx, behavior: 'smooth' });
+  }
+  nudge(dir: number) {
+    this.pause();
+    this.scrollBy(dir);
   }
 }

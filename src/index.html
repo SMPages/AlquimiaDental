@@ -4,13 +4,17 @@
   <meta charset="utf-8" />
   <title>Dra. Sorany Díaz P. - Especialista en Odontología Estética</title>
 
-  <!-- IMPORTANTE: base href para GitHub Pages (ruta del repo) -->
-  <base href="/AlquimiaDental/">
+  <!-- === BASE HREF === -->
+  <!-- LOCAL (vite): -->
+  <base href="/" />
+  <!-- PRODUCCIÓN (GitHub Pages):
+  <base href="/AlquimiaDental/" />
+  -->
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Primary Meta Tags (ES por defecto) -->
+  <!-- Primary Meta Tags -->
   <meta name="description" content="Dra. Sorany Díaz P., especialista en odontología estética y rehabilitación oral. Más de 15 años transformando sonrisas con técnicas avanzadas." />
   <meta name="keywords" content="dentista Bogotá, odontología estética, rehabilitación oral, implantes dentales, carillas porcelana, blanqueamiento dental, turismo dental" />
   <meta name="author" content="Dra. Sorany Díaz P." />
@@ -26,18 +30,20 @@
   <meta property="og:site_name" content="Alquimia Dental®" />
 
   <!-- Twitter -->
+   <link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dra. Sorany Díaz P. - Especialista en Odontología Estética" />
   <meta name="twitter:description" content="Especialista en odontología estética y rehabilitación oral con más de 15 años transformando sonrisas." />
   <meta name="twitter:image" content="https://smpages.github.io/AlquimiaDental/assets/images/og-image.jpg" />
 
-  <!-- Canonical & Alternates (usa rutas absolutas públicas) -->
+  <!-- Canonical & Alternates -->
   <link rel="canonical" href="https://smpages.github.io/AlquimiaDental/es" />
   <link rel="alternate" hreflang="es" href="https://smpages.github.io/AlquimiaDental/es" />
   <link rel="alternate" hreflang="en" href="https://smpages.github.io/AlquimiaDental/en" />
   <link rel="alternate" hreflang="x-default" href="https://smpages.github.io/AlquimiaDental/es" />
 
-  <!-- Favicons -->
+  <!-- Favicons & PWA -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
   <link rel="manifest" href="assets/manifest.webmanifest" />
@@ -47,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- JSON-LD (Dentist/MedicalBusiness) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -69,29 +75,34 @@
     ]
   }
   </script>
-<script>
-  (function () {
-    // base href del index (Angular lo inyecta a /AlquimiaDental/ en producción)
-    var base = (document.querySelector('base')?.getAttribute('href') || '/').replace(/\/+$/, '/') ;
-    // ¿estamos justo en la raíz del repo?
-    var atRoot =
-      location.pathname === base ||
-      location.pathname === base.replace(/\/+$/, '');
 
-    if (!atRoot) return;
+  <!-- Redirección a /es o /en cuando caen a la raíz -->
+  <script>
+    (function () {
+      var base = (document.querySelector('base')?.getAttribute('href') || '/').replace(/\/+$/, '/') ;
+      var atRoot = location.pathname === base || location.pathname === base.replace(/\/+$/, '');
+      if (!atRoot) return;
 
-    // detecta idioma del navegador
-    var lang = (navigator.language || 'es').slice(0,2).toLowerCase();
-    if (lang !== 'en' && lang !== 'es') lang = 'es';
+      var lang = (navigator.language || 'es').slice(0,2).toLowerCase();
+      if (lang !== 'en' && lang !== 'es') lang = 'es';
 
-    // redirige a /<repo>/<lang>/
-    var dest = (base + lang + '/').replace(/\/+/g, '/');
-    location.replace(dest);
-  })();
-</script>
-  <noscript>Esta aplicación funciona mejor con JavaScript habilitado.</noscript>
+      var dest = (base + lang + '/').replace(/\/+/g, '/');
+      location.replace(dest);
+    })();
+  </script>
 </head>
+
 <body>
+  <!-- Banner para usuarios sin JS (debe estar en <body>, no en <head>) -->
+  <noscript>
+    <div style="
+      margin:0; padding:12px 16px; text-align:center;
+      background:#fbe9e3; color:#6b4a3f; font-family:system-ui, -apple-system, Segoe UI, Roboto, 'Open Sans', 'Montserrat', sans-serif;
+      border-bottom:1px solid #e3c2b3;">
+      Esta aplicación funciona mejor con JavaScript habilitado.
+    </div>
+  </noscript>
+
   <app-root></app-root>
 </body>
 </html>

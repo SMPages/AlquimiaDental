@@ -1,99 +1,114 @@
-/* Contenedor y tipografías como ya los tienes… */
-
-/* ===== Masonry limpio ===== */
-.galeria-masonry{
-  columns: 1;                /* 1 columna en móvil */
-  column-gap: clamp(0.9rem, 2.5vw, 1.25rem);
-
-  @media (min-width: 900px){
-    columns: 2;              /* 2 columnas en desktop */
-  }
+/* ===== Sección ===== */
+#galeria { scroll-margin-top: calc(var(--header-h, 76px) + 24px); }
+@media (max-width: 768px) {
+  #galeria { scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); }
+}
+.galeria-section {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
 }
 
-/* Cada tarjeta evita romperse entre columnas */
-.galeria-card{
-  break-inside: avoid;       /* clave para masonry */
-  display: block;
-  margin-bottom: clamp(0.9rem, 2.5vw, 1.25rem);
+/* ===== Reel ===== */
+:root { --reel-gap: clamp(12px, 2vw, 20px); --reel-pad: clamp(6px, 1.2vw, 10px); }
 
-  background: color-mix(in oklch, var(--card) 92%, #fff 8%);
-  border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
-  border-radius: 16px;
-  padding: clamp(.8rem, 2vw, 1rem);
-  box-shadow: 0 8px 22px rgba(74,69,63,.08);
-  backdrop-filter: blur(6px);
+.reel-wrapper { position: relative; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.reel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 88%;                 /* 1 en móvil */
+  gap: clamp(12px, 2vw, 20px);            /* <<< Espacio entre imágenes */
+  padding: clamp(6px, 1.5vw, 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 
-  .card-title{
-    font-weight: 800;
-    color: var(--foreground);
-    font-size: 1rem;
-    margin: 0 0 .5rem;
-  }
-
-  .card-desc{
-    color: var(--foreground);
-    opacity: .9;
-    font-size: .95rem;
-    line-height: 1.6;
-    margin: .6rem 0 0;
-  }
+  &::-webkit-scrollbar { height: 0; width: 0; }
+  scrollbar-width: none;
 }
 
-/* ===== Marco de foto elegante y consistente ===== */
-.photo-frame{
+/* 2 fotos en tablet */
+@media (min-width: 768px){
+  .reel { grid-auto-columns: calc((100% - 20px) / 2); }
+}
+/* 3 fotos en desktop */
+@media (min-width: 1100px){
+  .reel { grid-auto-columns: calc((100% - 40px) / 3); }
+}
+
+/* ===== Ítem (sin marco ni sombra) ===== */
+.shot {
+  margin: 0;
   position: relative;
-  border-radius: 14px;
+  scroll-snap-align: start;
+  height: clamp(180px, 26vw, 260px);      /* <<< tamaño tipo Opiniones */
   overflow: hidden;
-  background: #f3f1ef;
-  cursor: zoom-in;
-  /* Mantén proporción agradable sin cortar texto */
-  aspect-ratio: 4 / 5;        /* vertical tipo IG; cambia a 3/4 si prefieres */
-  /* sutil borde interior */
-  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--border) 60%, #fff 40%), 
-              0 4px 16px rgba(0,0,0,.06);
+  background: #000;
+  border-radius: 14px;                    /* bordes suaves */
+  box-shadow: 0 6px 14px rgba(0,0,0,.08); /* sombra ligera */
 
-  img{
-    width: 100%; height: 100%;
-    object-fit: cover;       /* llena sin deformar */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                    /* rellena el espacio */
     display: block;
-    transform: translateZ(0);
-    transition: transform .28s ease;
+    transition: transform .25s ease;
   }
-  &:hover img{ transform: scale(1.012); }
 
-  /* chips “Antes/Después” sutiles */
-  .chips{ position:absolute; inset:0; pointer-events:none; }
-  .chip{
-    position: absolute; top: .55rem; left: .55rem;
-    background: rgba(0,0,0,.55);
-    color: #fff; font-weight: 800; font-size: .78rem;
-    border-radius: .55rem; padding: .28rem .55rem;
-  }
-  .chip-right{ left: auto; right: .55rem; }
+  &:hover img { transform: scale(1.03); }
 }
-
-/* Botón */
-.btn-ver{
-  width: 100%;
-  margin-top: .7rem;
-  padding: .7rem 1rem; border-radius: .75rem;
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-  color: var(--primary-foreground); font-weight: 800; border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
-  text-decoration: none; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 4px 14px rgba(212,165,116,.28);
-  &:hover{ transform: translateY(-1px); box-shadow: 0 8px 22px rgba(212,165,116,.36); }
-  &:focus-visible{ outline:none; box-shadow: 0 0 0 3px var(--background), 0 0 0 6px rgba(193,120,84,.35); }
+/* ===== Overlay pequeño arriba izq. (opcional) ===== */
+.shot-overlay {
+  position: absolute; left: .75rem; top: .75rem;
+  display: flex; flex-direction: column; gap: .15rem;
+  padding: .35rem .55rem;
+  border-radius: .5rem;
+  background: color-mix(in oklch, #000 28%, transparent 72%);
+  color: #fff; max-width: min(78%, 520px);
 }
+.ov-title { font-weight: 800; font-family: 'Playfair Display', serif; font-size: clamp(.85rem, 1.9vw, 1rem); line-height: 1.15; }
+.ov-desc  { font-size: clamp(.72rem, 1.6vw, .9rem); line-height: 1.3; opacity: .92; }
 
-/* Lightbox: mantén tu implementación, solo afinamos límites */
-.lightbox-content{
-  margin: 4vh auto;
-  max-width: min(1100px, 92vw);
-  background: #111;
+/* ===== Flechas ===== */
+.reel-nav{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: clamp(34px, 4vw, 42px); height: clamp(34px, 4vw, 42px);
   border-radius: 12px;
-  overflow: hidden;
-  display: grid; grid-template-rows: auto 1fr auto;
+  border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: var(--primary-foreground);
+  display: grid; place-items: center;
+  font-size: 1.2rem; font-weight: 800;
+  box-shadow: 0 6px 18px rgba(212,165,116,.32);
+  cursor: pointer; z-index: 2;
 }
-.lb-media img{
-  width: 100%; height: auto; max-height: 78vh; object-fit: contain; display: block;
+.reel-nav.left  { left: .25rem; }
+.reel-nav.right { right: .25rem; }
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
 }
+
+.section-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    font-family: "Playfair Display", serif !important;
+    font-weight: 700 !important;
+    color: var(--foreground) !important;
+    font-size: clamp(1.7rem, 6.2vw, 2.4rem) !important;
+    line-height: 1.2 !important;
+    margin: 0.25rem 0 0.6rem !important;
+    -webkit-text-fill-color: currentColor !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+}
+/* Ocultar flechas si no hay overflow (cuando haya soporte general de :has) */
+/*
+@supports selector(:has(*)) {
+  .reel-wrapper:has(.reel:not(:overflowing)) .reel-nav { display: none; }
+}
+*/

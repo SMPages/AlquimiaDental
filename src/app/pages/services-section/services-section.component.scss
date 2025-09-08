@@ -1,191 +1,182 @@
-/* Ajuste de ancla para header fijo (si lo usas) */
-#services { scroll-margin-top: calc(var(--header-h, 76px) + 24px); }
-@media (max-width: 768px) {
-  #services { scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); }
+/* ===== Sección Servicios ===== */
+#services { 
+  scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); 
 }
 
-/* ===== Fondo mármol + grano suave (v0 adaptado a paleta) ===== */
-.marble-bg {
-  background:
-    linear-gradient(135deg, var(--background) 0%, color-mix(in oklch, var(--background) 85%, #fff 15%) 100%);
-  position: relative;
-  isolation: isolate;
-}
-.marble-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: .6;
-  pointer-events: none;
-  background: url('data:image/svg+xml,\
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">\
-    <defs><pattern id="g" width="100" height="100" patternUnits="userSpaceOnUse">\
-      <circle cx="25" cy="25" r="0.5" fill="%23d4a574" opacity="0.10"/>\
-      <circle cx="75" cy="75" r="0.3" fill="%23c17854" opacity="0.08"/>\
-      <circle cx="50" cy="10" r="0.4" fill="%238b8680" opacity="0.06"/>\
-    </pattern></defs>\
-    <rect width="100" height="100" fill="url(%23g)"/>\
-  </svg>');
-  z-index: 0;
-}
-
-/* ===== Estructura ===== */
 .services-section {
-  padding: clamp(4rem, 8vw, 6rem) 0;
-  position: relative;
-  z-index: 1;
+  padding: clamp(3rem, 7vw, 5rem) 0;
 
   .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 3vw, 2rem);
   }
 
+  /* ===== Encabezado ===== */
   .section-header {
     text-align: center;
-    margin-bottom: clamp(2rem, 6vw, 4rem);
+    margin-bottom: clamp(1.5rem, 5vw, 2.25rem);
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
       font-weight: 700;
       color: var(--foreground);
-      margin-bottom: .9rem;
+      margin: 0 0 .6rem;
       position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -0.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 64px; height: 3px;
+      &::after{
+        content:"";
+        position:absolute; left:50%; bottom:-.45rem; transform:translateX(-50%);
+        width:64px; height:3px; border-radius:2px;
         background: linear-gradient(90deg, var(--secondary), var(--primary));
-        border-radius: 2px;
       }
     }
 
     .section-subtitle {
-      font-size: clamp(1rem, 2.4vw, 1.125rem);
+      font-size: clamp(.95rem, 3.6vw, 1.05rem);
       color: var(--muted-foreground);
-      max-width: 640px;
+      line-height: 1.6;
       margin: 0 auto;
-      line-height: 1.65;
+      max-width: 640px;
     }
   }
 
   /* ===== Grid ===== */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1.25rem, 3.5vw, 2rem);
-    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 3.5vw, 1.5rem);
+    margin-bottom: clamp(2rem, 6vw, 3rem);
+  }
+  @media (min-width: 640px){
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px){
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
-  /* ===== Card ===== */
+  /* ===== Tarjeta de servicio ===== */
   .service-card {
-    background: color-mix(in oklch, var(--card) 88%, #fff 12%);
-    backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: clamp(1.5rem, 4vw, 2rem);
-    text-align: center;
+    background: color-mix(in oklch, var(--card) 90%, #fff 10%);
     border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
-    box-shadow: 0 4px 20px rgba(74, 69, 63, 0.08);
-    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(74,69,63,.08);
+    padding: clamp(1rem, 4vw, 1.25rem);
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
 
     &:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(74, 69, 63, 0.15);
-      border-color: color-mix(in oklch, var(--border) 40%, var(--secondary) 60%);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 22px rgba(74,69,63,.12);
     }
+  }
 
-        /* Contenedor circular que recorta la imagen */
-    .service-media {
-      width: clamp(64px, 9vw, 88px);
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+  /* ===== Imagen circular ===== */
+  .service-media {
+    width: clamp(64px, 18vw, 84px);
+    height: clamp(64px, 18vw, 84px);
+    margin: 0 auto clamp(.75rem, 3vw, 1rem);
+    border-radius: 999px;
+    overflow: hidden;
+    background: #eee;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08), inset 0 0 0 3px rgba(255,255,255,.6);
+  }
+  .service-photo {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+  }
 
-      /* Opcional: aro/halo suave detrás */
-      background: radial-gradient(120% 120% at 30% 30%, var(--secondary), var(--primary));
-      box-shadow: 0 6px 18px rgba(193, 120, 84, 0.25);
-      display: block; /* asegura el rectángulo del contenedor */
-    }
+  /* ===== Títulos y texto ===== */
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--foreground);
+    font-size: clamp(1.05rem, 4.4vw, 1.25rem);
+    line-height: 1.25;
+    margin: .15rem 0 .5rem;
+  }
 
-    /* La foto llena el círculo sin deformarse */
-    .service-photo {
-      width: 100%;
-      height: 100%;
-      display: block;         /* elimina espacios/fugas */
-      object-fit: cover;      /* recorta proporcionalmente */
-      object-position: center;
-      /* MUY IMPORTANTE: sin filtros que inviertan colores */
-      filter: none;
-    }
-
-    .service-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: .6rem;
-    }
-
-    .service-description {
-      color: var(--foreground);
-      opacity: .85;
-      line-height: 1.65;
-      font-size: .95rem;
-    }
+  .service-description {
+    color: var(--foreground);
+    opacity: .9;
+    line-height: 1.65;
+    font-size: clamp(.93rem, 3.6vw, 1rem);
   }
 
   /* ===== CTA ===== */
   .services-cta {
     text-align: center;
-    padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+    padding: clamp(1.4rem, 4vw, 2rem);
     background: rgba(255,255,255,.6);
-    border-radius: 20px;
     border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
+    border-radius: 20px;
 
     .cta-text {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1rem, 3.3vw, 1.1rem);
       color: var(--foreground);
-      opacity: .9;
-      margin-bottom: clamp(1.25rem, 3vw, 2rem);
       font-weight: 600;
+      margin-bottom: clamp(.8rem, 2.5vw, 1.1rem);
     }
 
     .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:.9rem 2rem; border-radius: 999px; font-weight:800; font-size:1.05rem;
       color: var(--primary-foreground);
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
       border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
-      padding: .95rem 2.25rem;
-      border-radius: 999px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
-      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+      box-shadow: 0 4px 15px rgba(212,165,116,.30);
+      text-decoration:none;
+      transition: transform .2s ease, box-shadow .2s ease;
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
-      }
-      &:active { transform: translateY(0); }
-      &:focus-visible {
-        outline: none;
-        box-shadow:
-          0 0 0 3px var(--background),
-          0 0 0 6px rgba(193, 120, 84, 0.35);
+      &:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(212,165,116,.40); }
+      &:focus-visible { 
+        outline:none; 
+        box-shadow: 0 0 0 3px var(--background), 0 0 0 6px rgba(193,120,84,.35); 
       }
     }
   }
 }
+/* === FIX duro: asegurar que el título se vea en móvil (y en general) === */
+#services .section-header .section-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-align: center;;
+  position: relative;      /* para el ::after */
+  z-index: 1;
 
-/* Fallback si tu stack no soporta color-mix/oklch:
-   - cambia color-mix(...) por var(--primary) o var(--secondary) directamente. */
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  color: var(--foreground) !important;
+  font-size: clamp(1.7rem, 6.2vw, 2.4rem) !important;
+  line-height: 1.2 !important;
+  margin: .25rem 0 .6rem !important;
+
+  /* por si algún reset aplica efectos raros en mobile */
+  -webkit-text-fill-color: currentColor !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* aseguramos la línea decorativa si otro estilo la pisa */
+#services .section-header .section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -.45rem;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+}
+
+/* si el header fijo lo estaba tapando al entrar por ancla, aumentamos el offset */
+#services { scroll-margin-top: calc(var(--header-h-sm, 64px) + 24px) !important; }
+
+/* opcional: pequeño padding por si otro estilo colapsa márgenes en móvil */
+#services .section-header { padding-top: .25rem; text-align: center;}
+

@@ -1,34 +1,33 @@
-<!-- Feed Masonry -->
-<div class="galeria-masonry" role="list">
-  <article class="galeria-card"
-           role="listitem"
-           *ngFor="let item of items; let i = index; trackBy: trackById">
-    <h3 class="card-title">{{ item.titleKey | translate }}</h3>
+<section id="galeria" class="galeria-section marble-bg" aria-labelledby="galeria-title">
+  <div class="container">
+    <header class="section-header text-center">
+      <h2 id="galeria-title" class="section-title">{{ 'gallery.title' | translate }}</h2>
+      <p class="section-subtitle">{{ 'gallery.subtitle' | translate }}</p>
+    </header>
 
-    <!-- Foto -->
-    <figure class="photo-frame"
-            (click)="abrirLightbox(i)"
-            (keyup.enter)="abrirLightbox(i)"
-            tabindex="0"
-            [attr.aria-describedby]="item.descKey ? ('caption-' + i) : null">
-      <img
-        [src]="item.src"
-        [alt]="item.altKey | translate"
-        loading="lazy"
-        decoding="async" />
-      <!-- chips opcionales -->
-      <figcaption class="chips" aria-hidden="true">
-        <span class="chip">Antes</span>
-        <span class="chip chip-right">Después</span>
-      </figcaption>
-    </figure>
+    <!-- Reel -->
+    <div class="reel-wrapper"
+         (mouseenter)="pause()"
+         (mouseleave)="resume()">
+      <button class="reel-nav left" type="button" (click)="nudge(-1)" aria-label="Anterior">‹</button>
 
-    <p class="card-desc" *ngIf="item.descKey" [attr.id]="'caption-' + i">
-      {{ item.descKey | translate }}
-    </p>
+      <div #reel class="reel" role="list">
+        <figure class="shot" role="listitem"
+                *ngFor="let item of items; trackBy: trackById">
+          <img [src]="item.src"
+               [alt]="item.altKey | translate"
+               loading="lazy"
+               decoding="async" />
 
-    <button class="btn-ver" type="button" (click)="abrirLightbox(i)">
-      {{ 'gallery.btnView' | translate }}
-    </button>
-  </article>
-</div>
+          <!-- Overlay pequeño (opcional) -->
+          <figcaption class="shot-overlay" *ngIf="item.titleKey || item.descKey">
+            <span class="ov-title">{{ item.titleKey | translate }}</span>
+            <span class="ov-desc" *ngIf="item.descKey">{{ item.descKey | translate }}</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <button class="reel-nav right" type="button" (click)="nudge(1)" aria-label="Siguiente">›</button>
+    </div>
+  </div>
+</section>

@@ -18,12 +18,28 @@
   --ring: rgba(193, 120, 84, 0.3); /* Terracotta focus ring */
   --radius: 0.5rem;
   --primary-color: var(--primary);
+  --header-safe: 76px;   /* desktop aprox */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+.page{
+  // padding-top: var(--header-safe);
+}
+[id]{
+  scroll-margin-top: calc(var(--header-safe) + 16px);
+}
+@media (max-width: 768px){
+  :root{ --header-safe: 64px; }
 }
 
 body {
