@@ -1,116 +1,138 @@
 // src/auth/dash-admin/gallery/gallery-admin.component.ts
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GalleryService, GalleryItem } from '../../../backend/gallery.service';
 import { FormsModule } from '@angular/forms';
+import {
+  GalleryService,
+  GalleryItem,
+} from '../../../backend/gallery.service';
 
 @Component({
   standalone: true,
   selector: 'app-gallery-admin',
   imports: [CommonModule, FormsModule],
-  template: `
-  <div class="card">
-    <div class="toolbar">
-      <h2>Galería</h2>
-      <div class="actions">
-        <input class="input" placeholder="Filtrar por tag…" [(ngModel)]="tag" (input)="fetch()"/>
-        <label class="switch">
-          <input type="checkbox" [(ngModel)]="onlyVisible" (change)="fetch()"> <span>Solo visibles</span>
-        </label>
-        <label class="file">
-          <input type="file" (change)="upload($event)"> <span class="btn btn-primary">Subir</span>
-        </label>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="tile" *ngFor="let it of items()">
-        <img *ngIf="it.kind==='image'" [src]="it.url" [alt]="it.alt_text||it.title||''">
-        <div class="meta">
-          <div class="title ellipsis">{{ it.title || '(sin título)' }}</div>
-          <div class="muted ellipsis">{{ it.tags.join(', ') || '—' }}</div>
-        </div>
-        <div class="row-actions">
-          <button class="btn sm" (click)="toggle(it)">{{ it.is_visible ? 'Ocultar':'Mostrar' }}</button>
-          <button class="btn sm" (click)="edit(it)">Editar</button>
-          <button class="btn sm danger" (click)="remove(it)">Eliminar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <button class="btn" (click)="prev()" [disabled]="page()<=1">«</button>
-      <span>Página {{ page() }}</span>
-      <button class="btn" (click)="next()">»</button>
-    </div>
-  </div>
-  `,
-  styles: [`
-    :host{display:block}
-    .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px}
-    .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
-    .actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-    .input{border:1px solid var(--border);border-radius:10px;padding:8px 10px;min-width:220px}
-    .switch{display:flex;align-items:center;gap:8px;color:var(--muted)}
-    .file input[type=file]{display:none}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-    .tile{border:1px solid var(--border);border-radius:12px;padding:10px;background:#fff;display:flex;flex-direction:column;gap:8px}
-    img{width:100%;height:160px;object-fit:cover;border-radius:8px;border:1px solid var(--border)}
-    .meta{display:flex;flex-direction:column;gap:2px}
-    .title{font-weight:600}
-    .muted{color:var(--muted)}
-    .row-actions{display:flex;gap:6px;flex-wrap:wrap}
-    .btn{border:1px solid var(--border);border-radius:10px;background:#fff;padding:6px 10px;cursor:pointer}
-    .btn:hover{background:var(--bg-page)}
-    .btn.sm{padding:4px 8px}
-    .btn.danger{color:#b4231a;border-color:#ffd6d4}
-    .btn.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
-    .btn.btn-primary:hover{background:var(--accent-600);border-color:var(--accent-600)}
-    .ellipsis{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .footer{display:flex;gap:10px;align-items:center;justify-content:flex-end;margin-top:12px}
-  `]
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryAdminComponent {
   private gallery = inject(GalleryService);
+
   items = signal<GalleryItem[]>([]);
   page = signal(1);
-  pageSize = 24;
+  readonly pageSize = 24;
+
   tag = '';
   onlyVisible = false;
+  loading = signal(false);
+  error = signal<string | null>(null);
 
-  async ngOnInit(){ await this.fetch(); }
-
-  async fetch(){
-    // Para público tenemos listVisible; para admin usa listAdminItems (ya lo hicimos)
-    const res = await this.gallery.listAdminItems({
-      page: this.page(), pageSize: this.pageSize,
-      search: this.tag || undefined,
-      visible: this.onlyVisible ? true : 'all' as any
-    } as any);
-    this.items.set(res.items);
+  async ngOnInit() {
+    await this.fetch();
   }
 
-  next(){ this.page.update(p=>p+1); this.fetch(); }
-  prev(){ this.page.update(p=>Math.max(1,p-1)); this.fetch(); }
+  async fetch() {
+    this.loading.set(true);
+    this.error.set(null);
+    try {
+      const res = await this.gallery.listAdmin({
+        page: this.page(),
+        pageSize: this.pageSize,
+        search: this.tag || undefined,
+        // visible: 1 | 0 | 'all' en el servicio: traducimos el boolean a 1 | 'all'
+        visible: this.onlyVisible ? (1 as any) : ('all' as any),
+      } as any);
 
-  async upload(ev: Event){
+      // Si quisieras filtrar por tag en cliente, puedes hacerlo aquí:
+      const filtered = this.tag
+        ? res.items.filter((x) => (x.tags ?? []).includes(this.tag))
+        : res.items;
+
+      this.items.set(filtered);
+    } catch (e: any) {
+      this.error.set(e?.message ?? 'No se pudo cargar la galería.');
+    } finally {
+      this.loading.set(false);
+    }
+  }
+
+  next() {
+    this.page.update((p) => p + 1);
+    this.fetch();
+  }
+
+  prev() {
+    this.page.update((p) => Math.max(1, p - 1));
+    this.fetch();
+  }
+
+  async upload(ev: Event) {
     const input = ev.target as HTMLInputElement;
     const file = input.files?.[0];
-    if (!file) return;
-    const created = await this.gallery.createItemFromFile(file, { kind: 'image', isVisible: true });
-    this.items.update(arr => [created, ...arr]);
-    input.value = '';
+
+    // Preferimos un método nativo si lo tienes en tu GalleryService
+    const anySvc = this.gallery as any;
+
+    try {
+      if (file && typeof anySvc.createItemFromFile === 'function') {
+        const created: GalleryItem = await anySvc.createItemFromFile(file, {
+          kind: 'image',
+          is_visible: true,
+          title: file.name,
+        });
+        this.items.update((arr) => [created, ...arr]);
+      } else {
+        // Fallback: pedir URL manual si aún no tienes endpoint de upload
+        const url = prompt(
+          'No hay endpoint de subida disponible.\nPega una URL pública de la imagen:'
+        );
+        if (!url) return;
+
+        const created = await this.gallery.createItem({
+          url,
+          kind: 'image',
+          is_visible: true,
+          title: url.split('/').pop() ?? '(sin título)',
+        } as any);
+
+        this.items.update((arr) => [created, ...arr]);
+      }
+    } catch (e: any) {
+      this.error.set(e?.message ?? 'No se pudo crear el ítem.');
+    } finally {
+      if (input) input.value = '';
+    }
   }
 
-  async toggle(it: GalleryItem){
-    const updated = await this.gallery.setItemVisibility(it.id, !it.is_visible);
-    this.items.update(list => list.map(x => x.id===it.id ? updated : x));
+  async toggle(it: GalleryItem) {
+    try {
+      const updated = await this.gallery.updateItem(it.id, {
+        is_visible: !it.is_visible,
+      } as any);
+      this.items.update((list) => list.map((x) => (x.id === it.id ? updated : x)));
+    } catch (e: any) {
+      this.error.set(e?.message ?? 'No se pudo cambiar la visibilidad.');
+    }
   }
 
-  edit(it: GalleryItem){ /* abre modal con título, alt_text, tags [] y guarda con updateItem */ }
-  async remove(it: GalleryItem){
+  edit(it: GalleryItem) {
+    // Aquí abrirías tu modal; por ahora, ejemplo simple:
+    const newTitle = prompt('Nuevo título:', it.title ?? '');
+    if (newTitle === null) return;
+    this.gallery
+      .updateItem(it.id, { title: newTitle } as any)
+      .then((u) =>
+        this.items.update((list) => list.map((x) => (x.id === it.id ? u : x)))
+      )
+      .catch((e) => this.error.set(e?.message ?? 'No se pudo editar el ítem.'));
+  }
+
+  async remove(it: GalleryItem) {
     if (!confirm('¿Eliminar este ítem?')) return;
-    await this.gallery.removeItem(it.id);
-    this.items.update(list => list.filter(x=>x.id!==it.id));
+    try {
+      await this.gallery.deleteItem(it.id);
+      this.items.update((list) => list.filter((x) => x.id !== it.id));
+    } catch (e: any) {
+      this.error.set(e?.message ?? 'No se pudo eliminar.');
+    }
   }
 }

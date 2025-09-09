@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LoginService } from '../../backend/login.service';
+import { LoginService } from '../../core/auth/login.service';
 
 @Component({
   standalone: true,
@@ -25,6 +25,13 @@ export class DashAdminComponent {
   }
 
   toggleSidebar() { this.sidebarOpen.set(!this.sidebarOpen()); }
+
+  /** Cierra el sidebar al navegar en pantallas pequeñas */
+  maybeCloseOnMobile() {
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      this.sidebarOpen.set(false);
+    }
+  }
 
   logout() {
     this.auth.logout();

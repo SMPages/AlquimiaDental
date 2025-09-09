@@ -1,171 +1,108 @@
-// src/app/services/testimonios.service.ts
+// src/app/services/blog.service.ts
 import { Injectable, inject } from '@angular/core';
-import { SUPABASE } from '../core/supabase.token';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
+export type MediaKind = 'image' | 'video' | 'file';
 export type PublishStatus = 'draft' | 'scheduled' | 'published' | 'archived';
 
-export interface TestimonioRecord {
-  id: string;                 // uuid
-  author_name: string;
-  author_role?: string | null;
-  avatar_url?: string | null;
-  rating?: number | null;     // 1..5
-  content: string;
-  source_url?: string | null;
+export interface BlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt?: string | null;
+  cover_url?: string | null;
+  media_url?: string | null;
+  media_kind?: MediaKind | null;
+  published_at?: string | null;
+  tags: string[];          // viene de JSON en la API → normalizado a array
   is_featured: boolean;
-  order_index: number;
   created_at: string;
   updated_at: string;
-  published_at?: string | null;
-  status: PublishStatus;      // en nuestra tabla default 'published'
 }
-
-export interface TestimonioCreateInput {
-  author_name: string;
-  content: string;
-  author_role?: string | null;
-  avatar_url?: string | null;
-  rating?: number | null;
-  source_url?: string | null;
-  is_featured?: boolean;
-  order_index?: number;
-  status?: PublishStatus;     // default published
-  published_at?: string | null;
-}
-
-export interface TestimonioUpdateInput extends Partial<TestimonioCreateInput> {}
 
 @Injectable({ providedIn: 'root' })
-export class TestimoniosService {
-  private sb = inject(SUPABASE);
+export class BlogService {
+  private http = inject(HttpClient);
+  private get api() { return environment.apiBase; }
 
-  // ======= Público (vista ya filtrada por publicados) =======
-  async listPublic(opts?: { limit?: number }) {
-    const limit = Math.min(100, Math.max(1, opts?.limit ?? 20));
-    const { data, error } = await this.sb
-      .schema('dental')
-      .from('v_testimonios_publicados')
-      .select('*')
-      .order('is_featured', { ascending: false })
-      .order('order_index', { ascending: true })
-      .order('created_at', { ascending: false })
-      .limit(limit);
+  /**
+   * Lista posts publicados con paginación y filtros opcionales.
+   */
+  async listPublished(opts?: {
+    page?: number;
+    pageSize?: number;
+    search?: string;
+    tag?: string;
+    featuredFirst?: boolean; // (el ORDER lo maneja el backend, esto es solo semántico)
+  }): Promise<{ items: BlogPost[]; total: number; page: number; pageSize: number }> {
 
-    if (error) throw error;
-    return (data ?? []) as TestimonioRecord[];
+    let params = new HttpParams()
+      .set('page', String(Math.max(1, opts?.page ?? 1)))
+      .set('pageSize', String(Math.min(50, Math.max(1, opts?.pageSize ?? 10))))
+      .set('status', 'published'); // 👈 clave: solo publicados
+
+    if (opts?.search) params = params.set('search', opts.search);
+    if (opts?.tag)     params = params.set('tag', opts.tag);
+
+    // posts.php ya ordena (destacados / fechas). El backend que te pasé lo soporta.
+    const res = await this.http.get<{items: any[]; total: number; page: number; pageSize: number}>(
+      `${this.api}/posts.php`, { params }
+    ).toPromise();
+
+    const items = (res?.items ?? []).map(normalizePost);
+    return { items, total: res?.total ?? 0, page: res?.page ?? 1, pageSize: res?.pageSize ?? items.length };
   }
 
-  /** Envío abierto de testimonio (público). Por RLS sólo inserta campos permitidos. */
-  async submitPublic(author_name: string, content: string, opts?: {
-    rating?: number; author_role?: string; avatar_url?: string; source_url?: string;
-  }) {
-    const payload: Partial<TestimonioRecord> = {
-      author_name,
-      content,
-      rating: opts?.rating ?? null,
-      author_role: opts?.author_role ?? null,
-      avatar_url: opts?.avatar_url ?? null,
-      source_url: opts?.source_url ?? null,
-      // el estado/featured lo controla el admin o las policies
-    };
-
-    const { error } = await this.sb.schema('dental').from('testimonios').insert([payload]);
-    if (error) throw error;
-    return true;
+  /**
+   * Obtiene un post publicado por slug.
+   */
+  async getBySlug(slug: string): Promise<BlogPost> {
+    const params = new HttpParams().set('slug', slug).set('status', 'published');
+    const data = await this.http.get<any>(`${this.api}/posts.php`, { params }).toPromise();
+    if (!data) throw new Error('Post no encontrado');
+    return normalizePost(data);
   }
 
-  // ======= Admin =======
-  async listAdmin(opts?: {
-    page?: number; pageSize?: number; search?: string;
-    status?: PublishStatus | 'all';
-    orderBy?: 'created_at'|'updated_at'|'published_at'|'order_index';
-    ascending?: boolean;
-  }) {
-    const page = Math.max(1, opts?.page ?? 1);
-    const pageSize = Math.min(100, Math.max(1, opts?.pageSize ?? 20));
-    const from = (page - 1) * pageSize;
-    const to = from + pageSize - 1;
+  /**
+   * Destacados (featured). Puedes variar el límite.
+   */
+  async listFeatured(limit = 3): Promise<BlogPost[]> {
+    let params = new HttpParams()
+      .set('page', '1')
+      .set('pageSize', String(limit))
+      .set('status', 'published')
+      .set('featured', '1'); // el backend puede interpretar featured=1
 
-    let q = this.sb.schema('dental').from('testimonios').select('*', { count: 'exact' });
+    const res = await this.http.get<{items: any[]}>(
+      `${this.api}/posts.php`, { params }
+    ).toPromise();
 
-    if (opts?.search) {
-      q = q.or(`author_name.ilike.%${opts.search}%,content.ilike.%${opts.search}%`);
-    }
-    if (opts?.status && opts.status !== 'all') q = q.eq('status', opts.status);
-
-    const orderBy = opts?.orderBy ?? 'created_at';
-    const ascending = !!opts?.ascending;
-    q = q.order(orderBy, { ascending }).range(from, to);
-
-    const { data, error, count } = await q;
-    if (error) throw error;
-
-    return { items: (data ?? []) as TestimonioRecord[], total: count ?? 0, page, pageSize };
+    return (res?.items ?? []).map(normalizePost);
   }
+}
 
-  async create(input: TestimonioCreateInput) {
-    const payload: Partial<TestimonioRecord> = {
-      author_name: input.author_name,
-      content: input.content,
-      author_role: input.author_role ?? null,
-      avatar_url: input.avatar_url ?? null,
-      rating: input.rating ?? null,
-      source_url: input.source_url ?? null,
-      is_featured: !!input.is_featured,
-      order_index: input.order_index ?? 0,
-      status: input.status ?? 'published',
-      published_at: input.published_at ?? new Date().toISOString(),
-    };
+/* ===== Helpers ===== */
+function normalizePost(p: any): BlogPost {
+  return {
+    id: Number(p.id),
+    slug: String(p.slug ?? ''),
+    title: String(p.title ?? ''),
+    excerpt: p.excerpt ?? null,
+    cover_url: p.cover_url ?? null,
+    media_url: p.media_url ?? null,
+    media_kind: p.media_kind ?? null,
+    published_at: p.published_at ?? null,
+    tags: Array.isArray(p.tags) ? p.tags : safeParseTags(p.tags),
+    is_featured: !!p.is_featured,
+    created_at: p.created_at,
+    updated_at: p.updated_at,
+  };
+}
 
-    const { data, error } = await this.sb.schema('dental')
-      .from('testimonios').insert([payload]).select('*').single();
-    if (error) throw error;
-    return data as TestimonioRecord;
-  }
-
-  async update(id: string, patch: TestimonioUpdateInput) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('testimonios').update(patch).eq('id', id).select('*').single();
-    if (error) throw error;
-    return data as TestimonioRecord;
-  }
-
-  async publish(id: string, when: Date | null = new Date()) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('testimonios')
-      .update({ status: 'published', published_at: (when ?? new Date()).toISOString() })
-      .eq('id', id).select('*').single();
-    if (error) throw error;
-    return data as TestimonioRecord;
-  }
-
-  async unpublish(id: string) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('testimonios').update({ status: 'draft', published_at: null })
-      .eq('id', id).select('*').single();
-    if (error) throw error;
-    return data as TestimonioRecord;
-  }
-
-  async setFeatured(id: string, featured: boolean) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('testimonios').update({ is_featured: featured }).eq('id', id)
-      .select('*').single();
-    if (error) throw error;
-    return data as TestimonioRecord;
-  }
-
-  async reorder(items: { id: string; order_index: number }[]) {
-    const { error } = await this.sb.schema('dental')
-      .from('testimonios').upsert(items, { onConflict: 'id' });
-    if (error) throw error;
-    return true;
-  }
-
-  async remove(id: string) {
-    const { error } = await this.sb.schema('dental')
-      .from('testimonios').delete().eq('id', id);
-    if (error) throw error;
-    return true;
-  }
+function safeParseTags(val: any): string[] {
+  try {
+    const arr = typeof val === 'string' ? JSON.parse(val) : val;
+    return Array.isArray(arr) ? arr : [];
+  } catch { return []; }
 }

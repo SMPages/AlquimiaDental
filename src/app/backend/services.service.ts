@@ -1,264 +1,149 @@
-// src/app/services/servicios.service.ts
+// src/app/services/services.service.ts
 import { Injectable, inject } from '@angular/core';
-import { SUPABASE } from '../core/supabase.token';
+import { HttpClient, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-export type MediaKind = 'image' | 'video' | 'file';
-
-export interface ServicioRecord {
-  id: string;            // uuid
-  name: string;
-  slug: string;
-  short_desc?: string | null;
-  long_desc_md?: string | null;
-  icon_url?: string | null;
-  price_amount?: string | number | null;  // numeric -> string en JS del driver
-  price_currency: string;                 // 'COP' default
-  duration_min?: number | null;
-  is_active: boolean;
-  is_featured: boolean;
-  order_index: number;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface ServicioCreateInput {
-  name: string;
+export interface ServiceItem {
+  id?: number | string;
+  title: string;
   slug?: string;
-  short_desc?: string | null;
-  long_desc_md?: string | null;
-  icon_url?: string | null;
-  price_amount?: number | null;
-  price_currency?: string;
-  duration_min?: number | null;
-  is_active?: boolean;
-  is_featured?: boolean;
-  order_index?: number;
+  shortDescription?: string;
+  description?: string;
+  price?: number;
+  durationMinutes?: number;
+  imageUrl?: string | null;
+  isActive?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
-export interface ServicioUpdateInput extends Partial<ServicioCreateInput> {}
+export interface ServiceQuery {
+  q?: string;
+  page?: number;      // 1-based
+  pageSize?: number;
+  isActive?: boolean;
+  sort?: 'recent' | 'title_asc' | 'title_desc' | 'price_asc' | 'price_desc';
+}
 
-export interface ServicioMedia {
-  id: string;         // uuid
-  servicio_id: string;
-  url: string;
-  kind: MediaKind;
-  alt_text?: string | null;
-  order_index: number;
-  created_at: string;
-  updated_at: string;
+export interface PagedResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
 }
 
 @Injectable({ providedIn: 'root' })
-export class ServiciosService {
-  private sb = inject(SUPABASE);
+export class ServicesService {
+  private http = inject(HttpClient);
+  /** Igual que en gallery.service.ts */
+  private get api() { return environment.apiBase; }
 
-  // ======= Público =======
-  async listActive(opts?: { tagSearch?: string; page?: number; pageSize?: number }) {
-    // (no hay tags en servicios por ahora; orden default de la vista)
-    const page = Math.max(1, opts?.page ?? 1);
-    const pageSize = Math.min(100, Math.max(1, opts?.pageSize ?? 50));
-    const from = (page - 1) * pageSize;
-    const to = from + pageSize - 1;
+  /** REST puro */
+  private base = `${this.api}/services`;
+  /** Si usas PHP file: */
+  // private base = `${this.api}/services.php`;
 
-    const { data, error, count } = await this.sb
-      .schema('dental').from('v_servicios_activos')
-      .select('*', { count: 'exact' })
-      .range(from, to);
-
-    if (error) throw error;
-    return { items: (data ?? []) as ServicioRecord[], total: count ?? 0, page, pageSize };
-  }
-
-  async getBySlugPublic(slug: string) {
-    const { data, error } = await this.sb
-      .schema('dental').from('servicios')
-      .select('*').eq('slug', slug).eq('is_active', true)
-      .single();
-    if (error) throw error;
-    return data as ServicioRecord;
-  }
-
-  // ======= Admin =======
-  async listAdmin(opts?: {
-    page?: number; pageSize?: number; search?: string;
-    active?: boolean|'all'; featuredFirst?: boolean;
-  }) {
-    const page = Math.max(1, opts?.page ?? 1);
-    const pageSize = Math.min(100, Math.max(1, opts?.pageSize ?? 20));
-    const from = (page - 1) * pageSize;
-    const to = from + pageSize - 1;
-
-    let q = this.sb.schema('dental').from('servicios').select('*', { count: 'exact' });
-
-    if (opts?.search) {
-      q = q.or(`name.ilike.%${opts.search}%,short_desc.ilike.%${opts.search}%`);
+  //#region Helpers
+  private handleError(err: HttpErrorResponse) {
+    const message =
+      err.error?.message ??
+      (typeof err.error === 'string' ? err.error : null) ??
+      err.message ??
+      'Request error';
+    if (!environment.production) {
+      console.error('[ServicesService] Error:', err);
     }
-    if (typeof opts?.active === 'boolean') {
-      q = q.eq('is_active', opts.active);
-    }
-
-    // Orden: featured desc, order_index asc, name asc
-    q = q.order('is_featured', { ascending: false })
-         .order('order_index', { ascending: true })
-         .order('name', { ascending: true })
-         .range(from, to);
-
-    const { data, error, count } = await q;
-    if (error) throw error;
-
-    return { items: (data ?? []) as ServicioRecord[], total: count ?? 0, page, pageSize };
+    return throwError(() => new Error(message));
   }
 
-  async getById(id: string) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicios').select('*').eq('id', id).single();
-    if (error) throw error;
-    return data as ServicioRecord;
+  private buildParams(query?: ServiceQuery) {
+    let params = new HttpParams();
+    if (!query) return params;
+
+    if (query.q) params = params.set('q', query.q);
+    if (query.page) params = params.set('page', String(query.page));
+    if (query.pageSize) params = params.set('pageSize', String(query.pageSize));
+    if (typeof query.isActive === 'boolean') params = params.set('isActive', String(query.isActive));
+    if (query.sort) params = params.set('sort', query.sort);
+    return params;
+  }
+  //#endregion
+
+  //#region Queries
+  /** Lista paginada (GET /services?q=&page=&pageSize=&isActive=&sort=) */
+  getServices(query?: ServiceQuery): Observable<PagedResult<ServiceItem>> {
+    const params = this.buildParams(query);
+    return this.http.get<PagedResult<ServiceItem>>(this.base, { params }).pipe(
+      map(res => ({
+        items: res.items ?? [],
+        total: Number(res.total ?? 0),
+        page: Number(res.page ?? query?.page ?? 1),
+        pageSize: Number(res.pageSize ?? query?.pageSize ?? 10),
+      })),
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async create(input: ServicioCreateInput) {
-    const baseSlug = (input.slug?.trim()?.length ? input.slug! : input.name);
-    const slug = await this.ensureUniqueSlug(this.slugify(baseSlug));
-
-    const payload: Partial<ServicioRecord> = {
-      name: input.name,
-      slug,
-      short_desc: input.short_desc ?? null,
-      long_desc_md: input.long_desc_md ?? null,
-      icon_url: input.icon_url ?? null,
-      price_amount: input.price_amount ?? null,
-      price_currency: input.price_currency ?? 'COP',
-      duration_min: input.duration_min ?? null,
-      is_active: input.is_active ?? true,
-      is_featured: input.is_featured ?? false,
-      order_index: input.order_index ?? 0,
-    };
-
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicios').insert([payload]).select('*').single();
-    if (error) throw error;
-    return data as ServicioRecord;
+  /** Todos (sin paginar) – útil para menús o secciones públicas */
+  getAllActive(): Observable<ServiceItem[]> {
+    const params = new HttpParams().set('isActive', 'true').set('pageSize', '9999');
+    return this.http.get<PagedResult<ServiceItem>>(this.base, { params }).pipe(
+      map(r => r.items ?? []),
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async update(id: string, patch: ServicioUpdateInput) {
-    const updates: any = { ...patch };
-    if (typeof patch.slug === 'string') {
-      const baseSlug = this.slugify(patch.slug);
-      updates.slug = await this.ensureUniqueSlug(baseSlug, id);
-    }
+  /** Detalle (GET /services/:id) */
+  getById(id: number | string): Observable<ServiceItem> {
+    return this.http.get<ServiceItem>(`${this.base}/${id}`).pipe(
+      catchError(this.handleError.bind(this))
+    );
+  }
+  //#endregion
 
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicios').update(updates).eq('id', id).select('*').single();
-    if (error) throw error;
-    return data as ServicioRecord;
+  //#region Commands
+  /** Crear (POST /services) */
+  create(payload: ServiceItem): Observable<ServiceItem> {
+    return this.http.post<ServiceItem>(this.base, payload, jsonHeaders()).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async setActive(id: string, active: boolean) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicios').update({ is_active: active }).eq('id', id)
-      .select('*').single();
-    if (error) throw error;
-    return data as ServicioRecord;
+  /** Actualizar (PUT /services/:id) */
+  update(id: number | string, payload: Partial<ServiceItem>): Observable<ServiceItem> {
+    return this.http.put<ServiceItem>(`${this.base}/${id}`, payload, jsonHeaders()).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async setFeatured(id: string, featured: boolean) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicios').update({ is_featured: featured }).eq('id', id)
-      .select('*').single();
-    if (error) throw error;
-    return data as ServicioRecord;
+  /** Eliminar (DELETE /services/:id) */
+  delete(id: number | string): Observable<{ success: boolean }> {
+    return this.http.delete<{ success: boolean }>(`${this.base}/${id}`).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async reorder(items: { id: string; order_index: number }[]) {
-    const { error } = await this.sb.schema('dental')
-      .from('servicios').upsert(items, { onConflict: 'id' });
-    if (error) throw error;
-    return true;
+  /** Activar/Desactivar (PATCH /services/:id/toggle) */
+  toggleActive(id: number | string, isActive: boolean): Observable<ServiceItem> {
+    return this.http.patch<ServiceItem>(`${this.base}/${id}/toggle`, { isActive }, jsonHeaders()).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
 
-  async remove(id: string) {
-    const { error } = await this.sb.schema('dental')
-      .from('servicios').delete().eq('id', id);
-    if (error) throw error;
-    return true;
+  /** Subir imagen (POST /services/:id/image) con FormData */
+  uploadImage(id: number | string, file: File): Observable<ServiceItem> {
+    const form = new FormData();
+    form.append('image', file);
+    return this.http.post<ServiceItem>(`${this.base}/${id}/image`, form).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
-
-  // ======= Media (servicio_media) =======
-  async listMedia(servicioId: string) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicio_media').select('*')
-      .eq('servicio_id', servicioId)
-      .order('order_index', { ascending: true });
-    if (error) throw error;
-    return (data ?? []) as ServicioMedia[];
-  }
-
-  async addMediaFromUrl(servicioId: string, url: string, kind: MediaKind = 'image', altText?: string, orderIndex = 0) {
-    const { data, error } = await this.sb.schema('dental')
-      .from('servicio_media')
-      .insert([{ servicio_id: servicioId, url, kind, alt_text: altText ?? null, order_index: orderIndex }])
-      .select('*').single();
-    if (error) throw error;
-    return data as ServicioMedia;
-  }
-
-  async addMediaFromFile(servicioId: string, file: File, opts?: {
-    kind?: MediaKind; altText?: string; orderIndex?: number; bucket?: string;
-  }) {
-    const bucket = opts?.bucket ?? 'dental';
-    const kind = opts?.kind ?? 'image';
-    const path = `servicios/${servicioId}/${Date.now()}_${sanitizeFilename(file.name)}`;
-
-    const up = await this.sb.storage.from(bucket).upload(path, file, { upsert: false });
-    if (up.error) throw up.error;
-
-    const pub = this.sb.storage.from(bucket).getPublicUrl(path);
-    const url = pub.data.publicUrl;
-
-    return this.addMediaFromUrl(servicioId, url, kind, opts?.altText, opts?.orderIndex ?? 0);
-  }
-
-  async removeMedia(mediaId: string) {
-    const { error } = await this.sb.schema('dental')
-      .from('servicio_media').delete().eq('id', mediaId);
-    if (error) throw error;
-    return true;
-  }
-
-  async reorderMedia(servicioId: string, items: { id: string; order_index: number }[]) {
-    const { error } = await this.sb.schema('dental')
-      .from('servicio_media').upsert(items, { onConflict: 'id' });
-    if (error) throw error;
-    return true;
-  }
-
-  // ======= Helpers =======
-  private slugify(text: string): string {
-    return (text || '')
-      .toString()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .trim()
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-');
-  }
-
-  private async ensureUniqueSlug(baseSlug: string, excludeId?: string): Promise<string> {
-    let slug = baseSlug;
-    let i = 1;
-
-    while (true) {
-      let q = this.sb.schema('dental').from('servicios').select('id').eq('slug', slug).limit(1);
-      if (excludeId) q = q.neq('id', excludeId);
-      const { data, error } = await q;
-      if (error) throw error;
-      if (!data || data.length === 0) return slug;
-      i++; slug = `${baseSlug}-${i}`;
-    }
-  }
+  //#endregion
 }
 
-function sanitizeFilename(name: string) {
-  return name.replace(/[^\w.\-]+/g, '_');
+/** Headers JSON (PHP debe aceptar application/json en php://input) */
+function jsonHeaders() {
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return { headers };
 }

@@ -1,1 +1,89 @@
-<p>posts works!</p>
+<div class="card">
+  <div class="toolbar">
+    <h2>Posts</h2>
+    <div class="actions">
+      <input
+        class="input"
+        type="search"
+        placeholder="Buscar por título…"
+        [(ngModel)]="search"
+        (input)="onSearch()" />
+
+      <select class="input" [(ngModel)]="status" (change)="reload()">
+        <option value="all">Todos</option>
+        <option value="draft">Borrador</option>
+        <option value="scheduled">Programado</option>
+        <option value="published">Publicado</option>
+        <option value="archived">Archivado</option>
+      </select>
+
+      <button class="btn btn-primary" (click)="newPost()">Nuevo</button>
+    </div>
+  </div>
+
+  <div class="state" *ngIf="loading()">Cargando…</div>
+  <div class="state error" *ngIf="error()">{{ error() }}</div>
+
+  <div class="table" *ngIf="!loading() && !error()">
+    <div class="thead">
+      <div>Título</div>
+      <div class="hide-sm">Slug</div>
+      <div class="hide-sm">Estado</div>
+      <div class="hide-sm">Actualizado</div>
+      <div>Acciones</div>
+    </div>
+
+    <ng-container *ngIf="items().length; else empty">
+      <div class="row" *ngFor="let p of items()">
+        <div class="ellipsis">{{ p.title }}</div>
+        <div class="muted ellipsis hide-sm">{{ p.slug || '—' }}</div>
+        <div class="hide-sm">
+          <span
+            class="badge"
+            [class.pub]="p.status === 'published'"
+            [class.draft]="p.status === 'draft'"
+            [class.scheduled]="p.status === 'scheduled'"
+            [class.archived]="p.status === 'archived'">
+            {{ p.status }}
+          </span>
+        </div>
+        <div class="muted hide-sm">
+          {{ p.updated_at ? (p.updated_at | date : 'short') : '—' }}
+        </div>
+        <div class="row-actions">
+          <button class="btn sm" (click)="edit(p.id.toString())">Editar</button>
+          <button
+            class="btn sm"
+            *ngIf="p.status !== 'published'; else unpubTpl"
+            (click)="publish(p)">
+            Publicar
+          </button>
+          <ng-template #unpubTpl>
+            <button class="btn sm" (click)="unpublish(p)">Despublicar</button>
+          </ng-template>
+
+          <button class="btn sm danger" (click)="remove(p)">Eliminar</button>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #empty>
+      <div class="empty">
+        <p class="muted">No hay resultados.</p>
+        <button
+          class="btn"
+          (click)="clearFilters()"
+          *ngIf="search || status !== 'all'">
+          Limpiar filtros
+        </button>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="footer" *ngIf="!loading() && total() > pageSize">
+    <button class="btn" (click)="prev()" [disabled]="page() <= 1">«</button>
+    <span>Página {{ page() }}</span>
+    <button class="btn" (click)="next()" [disabled]="page() >= maxPage()">»</button>
+    <span class="muted count">• {{ total() }} total</span>
+  </div>
+</div>

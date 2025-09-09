@@ -1,1 +1,55 @@
-<p>gallery works!</p>
+<div class="card">
+  <div class="toolbar">
+    <h2>Galería</h2>
+
+    <div class="actions">
+      <input
+        class="input"
+        placeholder="Filtrar por tag…"
+        [(ngModel)]="tag"
+        (input)="fetch()" />
+
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="onlyVisible" (change)="fetch()" />
+        <span>Solo visibles</span>
+      </label>
+
+      <label class="file">
+        <input type="file" accept="image/*" (change)="upload($event)" />
+        <span class="btn btn-primary">Subir</span>
+      </label>
+    </div>
+  </div>
+
+  <p *ngIf="error()" class="error">{{ error() }}</p>
+
+  <div class="grid" [class.loading]="loading()">
+    <div class="tile" *ngFor="let it of items()">
+      <img
+        *ngIf="it.kind === 'image'"
+        [src]="it.url"
+        [alt]="it.alt_text || it.title || ''" />
+
+      <div class="meta">
+        <div class="title ellipsis">{{ it.title || '(sin título)' }}</div>
+        <div class="muted ellipsis">
+          {{ (it.tags || []).join(', ') || '—' }}
+        </div>
+      </div>
+
+      <div class="row-actions">
+        <button class="btn sm" (click)="toggle(it)">
+          {{ it.is_visible ? 'Ocultar' : 'Mostrar' }}
+        </button>
+        <button class="btn sm" (click)="edit(it)">Editar</button>
+        <button class="btn sm danger" (click)="remove(it)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <button class="btn" (click)="prev()" [disabled]="page() <= 1">«</button>
+    <span>Página {{ page() }}</span>
+    <button class="btn" (click)="next()">»</button>
+  </div>
+</div>

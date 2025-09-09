@@ -54,12 +54,7 @@ export const routes: Routes = [
       loadComponent: () =>
         import('./auth/dash-admin/dash-admin.component').then(m => m.DashAdminComponent),
       children: [
-        { path: '', pathMatch: 'full', redirectTo: 'overview' },
-
-        // Overview simple
-        { path: 'overview', loadComponent: () =>
-          import('./auth/dash-admin/overview/overview.component').then(m => m.OverviewComponent) },
-
+        { path: '', pathMatch: 'full', redirectTo: 'posts' },
         // CRUDs (carga perezosa de cada sección)
         { path: 'posts', loadComponent: () =>
           import('./auth/dash-admin/posts/posts.component').then(m => m.PostsAdminComponent) },

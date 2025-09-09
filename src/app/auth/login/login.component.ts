@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
 // Mantén tu import según tu estructura
-import { LoginService } from '../../backend/login.service';
+import { LoginService } from '../../core/auth/login.service';
 
 @Component({
   standalone: true,
