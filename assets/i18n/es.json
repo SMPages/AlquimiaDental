@@ -8,8 +8,20 @@
     "blog": "Artículos",
     "opinions": "Opiniones"
   },
+  "admin": {
+    "title": "Panel de administración",
+    "overview": "Resumen",
+    "content": "Contenido",
+    "posts": "Posts",
+    "blog": "Blog",
+    "gallery": "Galería",
+    "testimonials": "Testimonios",
+    "services": "Servicios",
+    "logout": "Salir"
+  },
   "header": {
-    "bookCta": "Agenda conmigo"
+    "bookCta": "Agenda conmigo",
+    "admin": "Admin"
   },
    "hero": {
     "title": "Dra. Sorany Díaz",
@@ -21,7 +33,7 @@
     "mediaMention": "Mencionada en"
   },
   "clinic": {
-    "title": "Cuidamos cada detalle para que tu experiencia sea cómoda, moderna y segura.",
+    "title": "Alquimia dental® la visión de la Dra Sorany Díaz",
     "photo1Alt": "Recepción del consultorio dental",
     "photo2Alt": "Área de atención odontológica",
     "photo3Alt": "Equipo odontológico moderno"
@@ -174,5 +186,24 @@
     "rights": "Todos los derechos reservados",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Panel de administración",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "remember": "Recordarme",
+      "forgot": "¿Olvidaste tu contraseña?",
+      "cta": "Entrar",
+      "loading": "Validando...",
+      "disclaimer": "Acceso restringido para administradores."
+    },
+    "errors": {
+      "required": "Este campo es obligatorio.",
+      "email": "Ingresa un correo válido.",
+      "minlength": "Debe tener al menos {{n}} caracteres."
+    }
   }
+
 }
