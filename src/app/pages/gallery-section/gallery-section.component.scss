@@ -1,114 +1,279 @@
-/* ===== Sección ===== */
+
+/* Alto del slide (puedes ajustar el clamp a tu gusto) */
+:root { --slide-h: clamp(260px, 55vw, 560px); }
+
 #galeria { scroll-margin-top: calc(var(--header-h, 76px) + 24px); }
-@media (max-width: 768px) {
-  #galeria { scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); }
-}
+@media (max-width: 768px) { #galeria { scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); } }
+
 .galeria-section {
   padding: clamp(3.5rem, 7vw, 6rem) 0;
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); }
-}
-
-/* ===== Reel ===== */
-:root { --reel-gap: clamp(12px, 2vw, 20px); --reel-pad: clamp(6px, 1.2vw, 10px); }
-
-.reel-wrapper { position: relative; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-.reel {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 88%;                 /* 1 en móvil */
-  gap: clamp(12px, 2vw, 20px);            /* <<< Espacio entre imágenes */
-  padding: clamp(6px, 1.5vw, 12px);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-
-  &::-webkit-scrollbar { height: 0; width: 0; }
-  scrollbar-width: none;
-}
-
-/* 2 fotos en tablet */
-@media (min-width: 768px){
-  .reel { grid-auto-columns: calc((100% - 20px) / 2); }
-}
-/* 3 fotos en desktop */
-@media (min-width: 1100px){
-  .reel { grid-auto-columns: calc((100% - 40px) / 3); }
-}
-
-/* ===== Ítem (sin marco ni sombra) ===== */
-.shot {
-  margin: 0;
-  position: relative;
-  scroll-snap-align: start;
-  height: clamp(180px, 26vw, 260px);      /* <<< tamaño tipo Opiniones */
-  overflow: hidden;
-  background: #000;
-  border-radius: 14px;                    /* bordes suaves */
-  box-shadow: 0 6px 14px rgba(0,0,0,.08); /* sombra ligera */
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;                    /* rellena el espacio */
-    display: block;
-    transition: transform .25s ease;
+  background: transparent;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
   }
 
-  &:hover img { transform: scale(1.03); }
+  .section-header { text-align: center; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; color: var(--foreground);
+    font-size: clamp(1.7rem, 6.2vw, 2.4rem); line-height: 1.2;
+    margin: .25rem 0 .6rem; position: relative;
+    &::after {
+      content: '';
+      position: absolute; left: 50%; transform: translateX(-50%); bottom: -.45rem;
+      width: 64px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+  }
+  .section-subtitle { color: var(--muted-foreground); }
 }
-/* ===== Overlay pequeño arriba izq. (opcional) ===== */
-.shot-overlay {
-  position: absolute; left: .75rem; top: .75rem;
-  display: flex; flex-direction: column; gap: .15rem;
-  padding: .35rem .55rem;
-  border-radius: .5rem;
-  background: color-mix(in oklch, #000 28%, transparent 72%);
-  color: #fff; max-width: min(78%, 520px);
-}
-.ov-title { font-weight: 800; font-family: 'Playfair Display', serif; font-size: clamp(.85rem, 1.9vw, 1rem); line-height: 1.15; }
-.ov-desc  { font-size: clamp(.72rem, 1.6vw, .9rem); line-height: 1.3; opacity: .92; }
 
-/* ===== Flechas ===== */
-.reel-nav{
+/* ===== Carrusel ===== */
+.carousel {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  background: #000;
+}
+
+.viewport { width: 100%; overflow: hidden; }
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  transform: translateX(calc(var(--index, 0) * -100%));
+  transition: transform .45s ease;
+}
+
+.slide {
+  height: var(--slide-h);
+  position: relative; height: clamp(220px, 42vw, 520px);
+  background: #000;
+}
+.slide-img {
+width: 100%;
+  height: 100%;
+  object-fit: contain;              /* ← muestra la imagen completa */
+  object-position: center center;   /* centrada */
+  background: #000;  
+}
+
+/* Caption (solo md+ como en CoreUI demo) */
+@media (min-width: 768px) {
+  .caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 1rem 1.25rem 1.5rem;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 100%);
+    text-shadow: 0 1px 2px rgba(0,0,0,.45);
+  }
+  .cap-title {
+    margin: 0 0 .35rem; font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-weight: 800; font-size: clamp(1rem, 2vw, 1.4rem);
+    text-align: center;
+  }
+  .cap-sub { margin: 0; font-size: clamp(.85rem, 1.6vw, 1rem); opacity: .95;
+  text-align: center; }
+}
+@media (max-width: 767.98px) { .d-none-md { display: none; } }
+
+/* Controles */
+.ctrl {
   position: absolute; top: 50%; transform: translateY(-50%);
   width: clamp(34px, 4vw, 42px); height: clamp(34px, 4vw, 42px);
-  border-radius: 12px;
-  border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
+  border-radius: 12px; border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
   background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-  color: var(--primary-foreground);
-  display: grid; place-items: center;
-  font-size: 1.2rem; font-weight: 800;
-  box-shadow: 0 6px 18px rgba(212,165,116,.32);
-  cursor: pointer; z-index: 2;
+  color: var(--primary-foreground); display: grid; place-items: center;
+  font-size: 1.2rem; font-weight: 800; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(212,165,116,.32); z-index: 2;
 }
-.reel-nav.left  { left: .25rem; }
-.reel-nav.right { right: .25rem; }
-.section-header {
-  text-align: center;
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+.ctrl-prev { left: .5rem; }
+.ctrl-next { right: .5rem; }
+
+/* Dots */
+.dots {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  bottom: .65rem; display: flex; gap: .4rem; z-index: 2;
+}
+.dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(0,0,0,.25);
+  transform: scale(1); transition: transform .2s ease, background(.2s) ease;
+}
+.dot.active { background: #fff; transform: scale(1.15); }
+
+/* CTA inferior */
+.gallery-cta { margin-top: clamp(1.25rem, 3.5vw, 2rem); text-align: center; }
+.cta-link {
+  text-decoration: none; font-weight: 800; color: var(--primary);
+  border-bottom: 1px dashed currentColor; padding-bottom: 1px;
+  &:hover { opacity: .9; }
 }
 
-.section-title {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    font-family: "Playfair Display", serif !important;
-    font-weight: 700 !important;
-    color: var(--foreground) !important;
-    font-size: clamp(1.7rem, 6.2vw, 2.4rem) !important;
-    line-height: 1.2 !important;
-    margin: 0.25rem 0 0.6rem !important;
-    -webkit-text-fill-color: currentColor !important;
-    filter: none !important;
-    mix-blend-mode: normal !important;
+
+.propuesta-card {
+  margin-top: 2rem;
+  position: relative;
+  padding: 1.25rem 1.25rem 1.1rem 1.35rem;
+  border: 1px solid var(--border-c);
+  border-radius: 14px;
+  background: var(--primary);
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.1);
+    border-color: color-mix(in srgb, var(--primary) 80%, #ffffff 20%);
+  }
+
+  .propuesta-text {
+    font-size: 1.125rem;
+    color: #fff;
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-inline: auto;
+
+    .marca {
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+
+  .btn-row {
+    display: inline-flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ===== Botón base ===== */
+  .btn-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-radius: 8px;
+    padding: .65rem 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    transition:
+      transform .12s ease,
+      box-shadow .12s ease,
+      background-color .15s ease,
+      color .15s ease,
+      border-color .15s ease;
+
+    .bi { font-size: 1.1em; vertical-align: -2px; }
+    &:active { transform: translateY(0); }
+    &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  }
+
+  /* ===== Primario (inversión en hover) ===== */
+  .btn-hero.primary {
+    background: #fff;
+    color: var(--primary);
+    border-color: #fff;
+  }
+  .btn-hero.primary:hover,
+  .btn-hero.primary:focus-visible {
+    background: var(--primary);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+    text-decoration: none;
+  }
+
+  /* Asegura que el texto dentro herede el color del botón */
+  .btn-hero .cta-text { color: inherit; }
+
+  /* ===== Secundario (borde blanco, fondo transparente) ===== */
+  .btn-hero.secondary {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,.85);
+  }
+  .btn-hero.secondary:hover,
+  .btn-hero.secondary:focus-visible {
+    background: rgba(255,255,255,.08);
+    border-color: #fff;
+    color: #fff;
+  }
 }
-/* Ocultar flechas si no hay overflow (cuando haya soporte general de :has) */
-/*
-@supports selector(:has(*)) {
-  .reel-wrapper:has(.reel:not(:overflowing)) .reel-nav { display: none; }
+
+
+  /* ===== Flechas tipo chevron (blancas, elegantes) ===== */
+.reel-nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;                 /* área de clic generosa */
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;     /* sin caja visible */
+  cursor: pointer;
+
+  /* halo muy sutil para contraste sobre fotos oscuras */
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
+
+  /* dibujamos el chevron con bordes (crisp y liviano) */
+  &::before{
+    content:"";
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    /* right: 45deg  →  >
+       left:  -135deg →  < */
+  }
+
+  &:hover{
+    background: rgba(0,0,0,.18);         /* círculo tenue para hover */
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  }
+
+  &:focus-visible{
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,.9),     /* aro blanco */
+      0 0 0 6px rgba(0,0,0,.25);          /* halo externo para contraste */
+    background: rgba(0,0,0,.22);
+  }
+
+  @media (hover:none){
+    /* en táctil, hazlas un pelín más grandes */
+    width: 54px; height: 54px;
+  }
 }
-*/
+
+.reel-nav.left{
+  left: 12px;
+  &::before{ transform: rotate(-135deg); }  /* < */
+}
+
+.reel-nav.right{
+  right: 12px;
+  &::before{ transform: rotate(45deg); }    /* > */
+}
+
+/* opcional: acercar un poco en pantallas pequeñas */
+@media (max-width: 600px){
+  .reel-nav.left  { left: 6px; }
+  .reel-nav.right { right: 6px; }
+}

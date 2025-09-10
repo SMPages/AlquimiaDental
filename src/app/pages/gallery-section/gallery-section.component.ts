@@ -1,76 +1,101 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, signal, computed, HostListener } from '@angular/core';
+import { NgFor, NgClass } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
-type GalleryItem = {
+type Slide = {
   id: number;
   src: string;
+  title?: string;
+  subtitle?: string;
   titleKey?: string;
-  altKey: string;
-  descKey?: string;
+  subtitleKey?: string;
+  alt?: string;
 };
 
 @Component({
-  selector: 'app-gallery-section',
+  selector: 'app-gallery-carousel',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [NgFor, TranslatePipe],
   templateUrl: './gallery-section.component.html',
   styleUrls: ['./gallery-section.component.scss']
 })
-export class GallerySectionComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('reel', { static: true }) reelRef!: ElementRef<HTMLDivElement>;
-
-  items: GalleryItem[] = [
-    { id: 1, src: 'images/caso3.jpg', titleKey: 'gallery.items.case1.title', altKey: 'gallery.items.case1.alt', descKey: 'gallery.items.case1.desc' },
-    { id: 2, src: 'images/caso1.jpg', titleKey: 'gallery.items.case2.title', altKey: 'gallery.items.case2.alt' },
-    { id: 3, src: 'images/caso2.jpg', titleKey: 'gallery.items.case3.title', altKey: 'gallery.items.case3.alt', descKey: 'gallery.items.case3.desc' },
-    // { id: 4, src: 'images/caso4.jpg', titleKey: 'gallery.items.case4.title', altKey: 'gallery.items.case4.alt' },
-    // { id: 5, src: 'images/caso5.jpg', titleKey: 'gallery.items.case5.title', altKey: 'gallery.items.case5.alt' }
+export class GalleryCarouselComponent implements OnInit, OnDestroy {
+  slides: Slide[] = [
+    {
+      id: 1,
+      src: 'images/caso3.jpg',
+      titleKey: 'gallery.items.case1.title',
+      subtitleKey: 'gallery.items.case1.desc',
+      alt: 'Rehabilitación total sobre implantes'
+    },
+    {
+      id: 2,
+      src: 'images/caso1.jpg',
+      titleKey: 'gallery.items.case2.title',
+      subtitleKey: 'gallery.items.case2.desc',
+      alt: 'Diseño de sonrisa – Carillas cerámicas'
+    },
+    {
+      id: 3,
+      src: 'images/caso2.jpg',
+      titleKey: 'gallery.items.case3.title',
+      subtitleKey: 'gallery.items.case3.desc',
+      alt: 'Blanqueamiento dental'
+    }
   ];
 
-  trackById = (_: number, i: GalleryItem) => i.id;
+  current = signal(0);                 // índice activo
+  total   = computed(() => this.slides.length);
 
-  private autoplayId?: number;
-  private stepPx = 0;
-  private resizeHandler = () => this.computeStep();
+  private timer?: number;
+  readonly intervalMs = 5000;          // autoplay: 5s
+  isHovering = false;
 
-  ngAfterViewInit() {
-    this.computeStep();
-    this.startAuto();
-    window.addEventListener('resize', this.resizeHandler, { passive: true });
+  // gestos táctiles
+  private touchStartX = 0;
+  private touchDeltaX = 0;
+
+  ngOnInit() { this.start(); }
+  ngOnDestroy() { this.stop(); }
+
+  start() {
+    this.stop();
+    this.timer = window.setInterval(() => {
+      if (!this.isHovering) this.next();
+    }, this.intervalMs);
+  }
+  stop() {
+    if (this.timer) { clearInterval(this.timer); this.timer = undefined; }
   }
 
-  ngOnDestroy() {
-    this.pause();
-    window.removeEventListener('resize', this.resizeHandler);
+  go(i: number) {
+    const n = this.total();
+    this.current.set((i + n) % n);
   }
+  prev() { this.go(this.current() - 1); }
+  next() { this.go(this.current() + 1); }
 
-  /** Calcula el ancho de un ítem + gap para desplazar exactamente una tarjeta */
-  private computeStep() {
-    const reel = this.reelRef.nativeElement;
-    const card = reel.querySelector<HTMLElement>('.shot');
-    if (!card) return;
+  onMouseEnter() { this.isHovering = true; }
+  onMouseLeave() { this.isHovering = false; }
 
-    // gap puede venir como column-gap o gap
-    const styles = getComputedStyle(reel);
-    const gap = parseFloat(styles.columnGap || styles.gap || '16');
-    this.stepPx = card.clientWidth + gap;
+  // Accesibilidad: teclado
+  @HostListener('document:keydown.arrowLeft', ['$event'])
+  onArrowLeft(e: KeyboardEvent) { e.preventDefault(); this.prev(); }
+  @HostListener('document:keydown.arrowRight', ['$event'])
+  onArrowRight(e: KeyboardEvent) { e.preventDefault(); this.next(); }
+
+  // Swipe táctil básico
+  onTouchStart(ev: TouchEvent) {
+    this.touchStartX = ev.touches[0].clientX;
+    this.touchDeltaX = 0;
   }
-
-  /** Auto-scroll */
-  private startAuto() {
-    this.autoplayId = window.setInterval(() => this.scrollBy(1), 3800);
+  onTouchMove(ev: TouchEvent) {
+    this.touchDeltaX = ev.touches[0].clientX - this.touchStartX;
   }
-  pause() { if (this.autoplayId) { clearInterval(this.autoplayId); this.autoplayId = undefined; } }
-  resume() { if (!this.autoplayId) this.startAuto(); }
-
-  /** Scroll helpers */
-  private scrollBy(dir: number) {
-    const reel = this.reelRef.nativeElement;
-    reel.scrollBy({ left: dir * this.stepPx, behavior: 'smooth' });
-  }
-  nudge(dir: number) {
-    this.pause();
-    this.scrollBy(dir);
+  onTouchEnd() {
+    const THRESHOLD = 40; // px
+    if (this.touchDeltaX > THRESHOLD) this.prev();
+    else if (this.touchDeltaX < -THRESHOLD) this.next();
+    this.touchStartX = this.touchDeltaX = 0;
   }
 }

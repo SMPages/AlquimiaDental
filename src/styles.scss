@@ -6,7 +6,7 @@
   --foreground: #4a453f; /* Dark warm gray */
   --card: #fcfbf9; /* Light warm background */
   --card-foreground: #4a453f; /* Dark warm gray */
-  --primary: #c17854; /* Terracotta */
+  --primary: #c5683a; /* Terracotta */
   --primary-foreground: #fcfbf9; /* Light warm text */
   --secondary: #d4a574; /* Ochre */
   --secondary-foreground: #4a453f; /* Dark warm gray */
@@ -21,6 +21,31 @@
   --primary-color: var(--primary);
   --header-safe: 76px;   /* desktop aprox */
 }
+
+.btn-generic-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 8px;
+  padding: .65rem 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  color: #fff;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+}
+  .btn-generic-primary:hover,
+  .btn-generic-primary:focus-visible {
+    color: var(--primary);
+    background-color: #fff;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+    text-decoration: none;
+  }
 
 * {
   margin: 0;
@@ -73,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   border: none;
 }
-
+iframe#instagram-embed-0 {margin: 0 auto !important;}
 /* Botón primario */
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), #b86f4f);

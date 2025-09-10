@@ -1,6 +1,10 @@
-import { Component, ElementRef, AfterViewInit, ViewChild, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+// src/app/components/alquimia-dental/alquimia-dental.component.ts
+import { Component, ElementRef, AfterViewInit, ViewChild, inject, DestroyRef } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../i18n/translation.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 declare global {
   interface Window { instgrm?: { Embeds: { process: () => void } }; }
@@ -9,56 +13,51 @@ declare global {
 @Component({
   selector: 'app-alquimia-dental',
   standalone: true,
-  imports: [RouterModule, NgIf],
+  imports: [RouterModule, NgIf, TranslatePipe],
   templateUrl: './alquimia-dental.component.html',
   styleUrl: './alquimia-dental.component.scss'
 })
 export class AlquimiaDentalComponent implements AfterViewInit {
-  private router = inject(Router);
-
-  @ViewChild('igEmbed',    { static: true }) igEmbed!: ElementRef<HTMLElement>;
+  @ViewChild('igEmbed', { static: true }) igEmbed!: ElementRef<HTMLElement>;
   @ViewChild('igSentinel', { static: true }) igSentinel!: ElementRef<HTMLElement>;
 
-  /** controla el skeleton/visibilidad del embed */
+  private i18n = inject(TranslationService);
+  private destroyRef = inject(DestroyRef);
+
   igReady = false;
 
-  /** idioma actual deducido de la URL (/es|/en) */
-  get lang(): 'es' | 'en' {
-    const seg = this.router.url.split('?')[0].split('#')[0].split('/').filter(Boolean)[0];
-    return (seg === 'en' ? 'en' : 'es') as 'es' | 'en';
+  // idioma actual para links como [routerLink]="['/', currentLang]"
+  currentLang: 'es' | 'en' = this.i18n.currentLang as 'es' | 'en';
+
+  constructor() {
+    // reactivo al cambio de idioma desde el header
+    this.i18n.lang$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(l => this.currentLang = (l as 'es' | 'en'));
   }
 
-  /** CTA WhatsApp */
   whatsappHref =
     'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';
 
   ngAfterViewInit(): void {
-    // Observa el bloque; solo cuando sea visible cargamos el script de IG
     const target = this.igSentinel?.nativeElement ?? this.igEmbed.nativeElement;
-
     const io = new IntersectionObserver((entries, obs) => {
-      const entry = entries[0];
-      if (!entry?.isIntersecting) return;
+      if (!entries[0]?.isIntersecting) return;
       obs.disconnect();
       this.loadInstagramEmbed();
-    }, { rootMargin: '200px 0px 200px 0px', threshold: 0.25 });
-
+    }, { rootMargin: '200px 0px', threshold: 0.25 });
     io.observe(target);
   }
 
-  /** Carga perezosa del script de Instagram y procesa el embed */
   private loadInstagramEmbed() {
     const process = () => {
       try {
         window.instgrm?.Embeds?.process();
-        // pequeño margen para que IG pinte su iframe antes de mostrar
         setTimeout(() => { this.igReady = true; }, 800);
       } catch {
-        // si algo falla, igual quitamos el skeleton para no bloquear
         this.igReady = true;
       }
     };
-
     if (!document.querySelector('script[data-ig-embed]')) {
       const s = document.createElement('script');
       s.src = 'https://www.instagram.com/embed.js';

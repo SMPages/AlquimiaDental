@@ -1,71 +1,69 @@
 <section id="alquimia" class="alquimia-section" aria-labelledby="alquimia-title">
   <div class="container">
-    <!-- Encabezado -->
     <header class="head">
-      <h1 id="alquimia-title" class="title">Alquimia Dental</h1>
-      <p class="lead">
-        La odontología no es solo técnica ni estética: es <strong>transformación</strong>.
-        En Alquimia Dental creemos que cada sonrisa guarda una historia y una energía única.
-      </p>
-      <p class="copy">
-        Así como la alquimia antigua buscaba convertir los metales en oro, nuestro propósito es
-        transformar el dolor, la inseguridad o el desgaste en <strong>belleza</strong>,
-        <strong>confianza</strong> y <strong>luz interior</strong>.
-      </p>
+      <h1 id="alquimia-title" class="title">{{ 'alquimia.title' | translate }}</h1>
+        <p class="lead">
+            {{ 'alquimia.lead' | translate:{ t: ('alquimiaWords.transform' | translate) } }}
+        </p>
+        <!-- copy -->
+        <p class="lead">
+          {{ 'alquimia.copy' | translate:{
+              b: ('alquimiaWords.beauty' | translate),
+              c: ('alquimiaWords.confidence' | translate),
+              l: ('alquimiaWords.innerLight' | translate)
+          } }}
+        </p>
     </header>
 
-    <!-- Dos columnas -->
     <div class="grid">
-      <!-- Izquierda: filosofía -->
-      <article class="panel">
-        <h2 class="h2">Filosofía de marca</h2>
+      <article class="panel" aria-describedby="philosophy-desc">
+        <h2 class="h2">{{ 'alquimia.philosophy.title' | translate }}</h2>
 
-        <blockquote class="quote">
-          Una sonrisa renovada no es solamente dientes alineados o blancos; es un espejo del alma
-          que refleja amor propio, seguridad y poder personal.
+        <blockquote id="philosophy-desc" class="quote">
+          {{ 'alquimia.philosophy.quote' | translate }}
         </blockquote>
 
-        <p>
-          Aquí, cada tratamiento se convierte en un <em>ritual de transformación</em>:
-          cada carilla, cada diseño de sonrisa y cada detalle estético es una llave que abre puertas
-          a una nueva versión de ti.
-        </p>
+        <p>{{ 'alquimia.philosophy.p1' | translate }}</p>
 
         <ul class="bullets">
-          <li><strong>Ciencia</strong> odontológica de alta precisión.</li>
-          <li><strong>Arte</strong> estético para realzar tu belleza natural.</li>
-          <li><strong>Conexión</strong> emocional y espiritual: sonreír también es sanar.</li>
+          <li>{{ 'alquimia.philosophy.bullets.science'     | translate }}</li>
+          <li>{{ 'alquimia.philosophy.bullets.art'         | translate }}</li>
+          <li>{{ 'alquimia.philosophy.bullets.connection'  | translate }}</li>
         </ul>
+        
+        
+        <div id="propuesta" class="propuesta-card fade-in">
+          <p class="propuesta-text">
+            {{ 'alquimia.proposal.text' | translate }}
+          </p>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" [href]="whatsappHref" target="_blank" rel="noopener">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i> Agenda tu cita
+          <div class="btn-row">
+             <a class="btn-hero primary"
+            [href]="whatsappHref"
+            target="_blank" rel="noopener"
+            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            {{ 'alquimia.cta.book' | translate }}
           </a>
-          <a class="btn btn-outline" [routerLink]="['/', lang]" fragment="servicios">
-            Ver tratamientos
+          <a class="btn-hero secondary" [routerLink]="['/', currentLang, 'services']">
+            {{ 'alquimia.cta.seeTreatments' | translate }}
           </a>
+          </div>
         </div>
       </article>
 
-      <!-- Derecha: Reel (lazy + skeleton) -->
       <aside class="media" [class.loaded]="igReady">
-        <!-- Skeleton -->
-        <div class="skeleton" *ngIf="!igReady" aria-hidden="true"></div>
-        <!-- Sentinel para IntersectionObserver -->
+        <img *ngIf="!igReady" class="skeleton" alt="" aria-hidden="true" />
         <div #igSentinel class="sentinel" aria-hidden="true"></div>
 
-        <!-- Embed de Instagram -->
-        <blockquote
-          #igEmbed
-          class="instagram-media"
+        <blockquote #igEmbed class="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/reel/DOFAaDsDHre/"
-          data-instgrm-version="14"
-          [attr.aria-hidden]="!igReady">
+          data-instgrm-version="14" [attr.aria-hidden]="!igReady">
         </blockquote>
 
         <noscript>
           <p>
-            Mira el video en Instagram:
+            {{ 'alquimia.media.viewOnIg' | translate }}
             <a href="https://www.instagram.com/reel/DOFAaDsDHre/" target="_blank" rel="noopener">
               &#64;drsoranyporcelainsmile
             </a>
@@ -73,13 +71,5 @@
         </noscript>
       </aside>
     </div>
-
-    <!-- Banda final -->
-    <section class="band">
-      <p>Tu sonrisa es tu sello, tu luz y tu alquimia. 🌟</p>
-      <a class="btn btn-primary" [href]="whatsappHref" target="_blank" rel="noopener">
-        <i class="bi bi-whatsapp" aria-hidden="true"></i> Empezar mi transformación
-      </a>
-    </section>
   </div>
 </section>

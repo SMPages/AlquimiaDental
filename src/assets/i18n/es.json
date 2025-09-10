@@ -8,29 +8,30 @@
     "blog": "Artículos",
     "opinions": "Opiniones"
   },
-  "admin": {
-    "title": "Panel de administración",
-    "overview": "Resumen",
-    "content": "Contenido",
-    "posts": "Posts",
-    "blog": "Blog",
-    "gallery": "Galería",
-    "testimonials": "Testimonios",
-    "services": "Servicios",
-    "logout": "Salir"
-  },
   "header": {
     "bookCta": "Agenda conmigo",
     "admin": "Admin"
+  },
+  "home": {
+    "featured": {
+      "title": "Tratamientos destacados"
+    }
   },
    "hero": {
     "title": "Dra. Sorany Díaz",
     "subtitle": "Especialista en estética dental en Bogotá",
     "description": "Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.",
     "ctaPrimary": "Agenda tu cita",
-    "ctaSecondary": "Conóceme",
     "imageAlt": "Odontóloga especialista en estética dental en Bogotá",
-    "mediaMention": "Mencionada en"
+    "mediaMention": "Mencionada en",
+    "mediaMentionAria": "Abrir artículo en Rolling Stone",
+    "mediaLogoAlt": "Logo de Rolling Stone",
+    "proposal": {
+      "text": "es la visión de la Dra. Sorany Díaz: un enfoque integral que combina estética, salud y una experiencia humana excepcional."
+    },
+    "ctaSecondary": "Conoce la marca",
+    "ctaSecondaryAria": "Conocer la marca Alquimia Dental",
+    "whatsappAria": "Chatear por WhatsApp para agendar cita"
   },
   "clinic": {
     "title": "Alquimia dental® la visión de la Dra Sorany Díaz",
@@ -86,9 +87,45 @@
       }
     }
   },
-   "testimonials": {
+   "alquimia": {
+    "title": "Alquimia Dental",
+    "lead": "La odontología no es solo técnica ni estética: es {{t}}.",
+    "copy": "Así como la alquimia antigua buscaba convertir los metales en oro, nuestro propósito es transformar el dolor, la inseguridad o el desgaste en {{b}}, {{c}} y {{l}}.",
+    "philosophy": {
+      "title": "Filosofía de marca",
+      "quote": "Una sonrisa renovada no es solamente dientes alineados o blancos; es un espejo del alma que refleja amor propio, seguridad y poder personal.",
+      "p1": "Aquí, cada tratamiento se convierte en un ritual de transformación: cada carilla, cada diseño de sonrisa y cada detalle estético es una llave que abre puertas a una nueva versión de ti.",
+      "bullets": {
+        "science": "Ciencia odontológica de alta precisión.",
+        "art": "Arte estético para realzar tu belleza natural.",
+        "connection": "Conexión emocional y espiritual: sonreír también es sanar."
+      }
+    },
+    "proposal": {
+      "text": "¿Qué esperas para transformar tu sonrisa en Alquimia Dental®?"
+    },
+    "cta": {
+      "book": "Agendar valoración",
+      "book_aria": "Abrir WhatsApp para agendar valoración",
+      "seeTreatments": "Ver tratamientos"
+    },
+    "media": {
+      "viewOnIg": "Mira el video en Instagram:"
+    },
+    "band": {
+      "text": "Tu sonrisa es tu sello, tu luz y tu alquimia. 🌟",
+      "cta": "Empezar mi transformación"
+    }
+  },
+  "alquimiaWords": {
+    "transform": "transformación",
+    "beauty": "belleza",
+    "confidence": "confianza",
+    "innerLight": "luz interior"
+  },
+  "testimonials": {
     "title": "💬 Historias de mis pacientes",
-    "subtitle": "Cada sonrisa cuenta una historia. Aquí comparto algunas experiencias de quienes han confiado en mí.",
+    "subtitle": "Cada paciente trae un sueño. Aquí encontrarás relatos reales de quienes confiaron en Alquimia Dental para volver a sonreír con seguridad.",
     "moreText": "¿Quieres ver más reseñas reales?",
     "moreButton": "Ver más en Google",
     "moreAria": "Abrir reseñas en Google",
@@ -153,57 +190,19 @@
     }
   },
   "gallery": {
-    "title": "📸 Antes y después",
-    "subtitle": "Algunos resultados de mis tratamientos.",
-    "badgeBefore": "Antes",
-    "badgeAfter": "Después",
-    "btnView": "Ver en grande",
-    "lightbox": {
-      "label": "Vista ampliada",
-      "close": "Cerrar",
-      "prev": "Anterior",
-      "next": "Siguiente"
-    },
+    "title": "Antes y después",
+    "subtitle": "Soy la Dra. Sorany Díaz. Alquimia Dental es mi manera de entender la odontología: ciencia y arte para convertir inseguridades en confianza. A veces basta un detalle; otras, una rehabilitación completa. En todos los casos, el objetivo es el mismo: que tu sonrisa refleje tu mejor versión y que te sientas feliz con ella. 💎✨",
+    "moreCta": "Ver más casos en Instagram",
     "items": {
-      "case1": {
-        "title": "Rehabilitación total sobre implantes",
-        "alt": "Antes y después de rehabilitación total sobre implantes",
-        "desc": "Función y estética recuperadas con prótesis sobre implantes."
-      },
-      "case2": {
-        "title": "Diseño de sonrisa – Carillas cerámicas",
-        "alt": "Antes y después con carillas cerámicas"
-      },
-      "case3": {
-        "title": "Blanqueamiento y resinas estéticas",
-        "alt": "Comparación antes y después de blanqueamiento y resinas",
-        "desc": "Función y estética recuperadas con prótesis sobre implantes."
-      }
+      "case1": { "title": "Rehabilitación total sobre implantes", "desc": "Función y estética recuperadas con prótesis sobre implantes.", "alt": "Rehabilitación total" },
+      "case2": { "title": "Diseño de sonrisa – Carillas cerámicas", "desc": "Planeación estética personalizada, mock-up y acabado natural.", "alt": "Diseño de sonrisa y carillas" },
+      "case3": { "title": "Blanqueamiento dental", "desc": "Aclara varios tonos de forma segura y controlada.", "alt": "Blanqueamiento dental" }
     }
   },
-   "footer": {
+ "footer": {
     "slogan": "Transformando sonrisas con ciencia, arte y alma",
     "rights": "Todos los derechos reservados",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
-  },
-  "auth": {
-    "login": {
-      "title": "Iniciar sesión",
-      "subtitle": "Panel de administración",
-      "email": "Correo electrónico",
-      "password": "Contraseña",
-      "remember": "Recordarme",
-      "forgot": "¿Olvidaste tu contraseña?",
-      "cta": "Entrar",
-      "loading": "Validando...",
-      "disclaimer": "Acceso restringido para administradores."
-    },
-    "errors": {
-      "required": "Este campo es obligatorio.",
-      "email": "Ingresa un correo válido.",
-      "minlength": "Debe tener al menos {{n}} caracteres."
-    }
   }
-
 }

@@ -2,48 +2,78 @@
 <section id="testimonials" class="testimonials-section marble-bg" aria-labelledby="testimonials-title">
   <div class="container">
     <header class="section-header text-center">
-      <h2 id="testimonials-title">{{ 'testimonials.title' | translate }}</h2>
+      <h2 id="testimonials-title" class="section-title">{{ 'testimonials.title' | translate }}</h2>
       <p class="section-subtitle">{{ 'testimonials.subtitle' | translate }}</p>
     </header>
 
-    <!-- Carrusel multitarjeta -->
-    <div class="t-reel-wrapper">
-      <button class="t-reel-nav left" type="button" (click)="scrollBy(-1)" [attr.aria-label]="'Prev'">‹</button>
+    <!-- Carrusel tipo Gallery: 1 tarjeta a pantalla, flechas + dots -->
+    <div class="t-carousel" (mouseenter)="pause()" (mouseleave)="resume()">
 
-      <div class="t-reel" #reel role="list">
-        <article class="testimonial-card"
-                 role="listitem"
-                 *ngFor="let k of items; trackBy: trackByKey"
-                 itemprop="review" itemscope itemtype="https://schema.org/Review">
-          <div class="quote-icon" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="24" height="24" focusable="false" aria-hidden="true">
-              <path fill="currentColor" d="M3.5 3A2.5 2.5 0 0 0 1 5.5V8a2 2 0 0 0 2 2h2V8H3.75A1.75 1.75 0 0 1 2 6.25V6A3 3 0 0 1 5 3h.5V3H3.5zm9 0A2.5 2.5 0 0 0 10 5.5V8a2 2 0 0 0 2 2h2V8h-1.25A1.75 1.75 0 0 1 11 6.25V6a3 3 0 0 1 3-3h.5V3h-2z"/>
-            </svg>
-          </div>
+      <!-- Flecha anterior -->
+      <button class="t-nav prev" type="button" (click)="go(-1)" aria-label="Anterior"></button>
 
-          <p class="testimonial-text" itemprop="reviewBody">
-            {{ ('testimonials.items.' + k + '.text') | translate }}
-          </p>
+      <!-- Pista -->
+      <div #track class="t-track" role="list" (scroll)="onScroll()">
+        <article
+          class="t-slide"
+          role="listitem"
+          *ngFor="let k of items; let i = index; trackBy: trackByKey"
+          [class.active]="i === idx"
+          itemprop="review" itemscope itemtype="https://schema.org/Review">
 
-          <div class="testimonial-author">
-            <strong itemprop="author">{{ ('testimonials.items.' + k + '.author') | translate }}</strong>
+          <div class="t-card">
+            <div class="quote-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="22" height="22" focusable="false" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M3.5 3A2.5 2.5 0 0 0 1 5.5V8a2 2 0 0 0 2 2h2V8H3.75A1.75 1.75 0 0 1 2 6.25V6A3 3 0 0 1 5 3h.5V3H3.5zm9 0A2.5 2.5 0 0 0 10 5.5V8a2 2 0 0 0 2 2h2V8h-1.25A1.75 1.75 0 0 1 11 6.25V6a3 3 0 0 1 3-3h.5V3h-2z" />
+              </svg>
+            </div>
+
+            <p class="t-text" itemprop="reviewBody">
+              {{ ('testimonials.items.' + k + '.text') | translate }}
+            </p>
+
+            <div class="t-author">
+              <strong itemprop="author">{{ ('testimonials.items.' + k + '.author') | translate }}</strong>
+            </div>
           </div>
         </article>
       </div>
 
-      <button class="t-reel-nav right" type="button" (click)="scrollBy(1)" [attr.aria-label]="'Next'">›</button>
-    </div>
+      <!-- Flecha siguiente -->
+      <button class="t-nav next" type="button" (click)="go(1)" aria-label="Siguiente"></button>
 
-    <!-- CTA: Ver más en Google -->
-    <div class="testimonials-cta">
-      <p class="cta-text">{{ 'testimonials.moreText' | translate }}</p>
-      <a class="cta-button"
-         [href]="googleReviewsUrl"
-         target="_blank"
-         rel="noopener"
-         [attr.aria-label]="'testimonials.moreAria' | translate">
-        {{ 'testimonials.moreButton' | translate }}
-      </a>
+      <!-- Dots -->
+      <div class="t-dots" *ngIf="items.length > 1" aria-hidden="false" aria-label="Indicadores de testimonio">
+        <button
+          *ngFor="let _ of items; let i = index"
+          type="button"
+          class="dot"
+          [class.active]="i === idx"
+          (click)="to(i)"
+          [attr.aria-label]="'Ir al testimonio ' + (i + 1)">
+        </button>
+      </div>
     </div>
+     <!-- CTA inferior opcional -->
+       <div id="propuesta" class="propuesta-card fade-in">
+          <p class="propuesta-text">
+            {{ 'testimonials.moreText' | translate }}
+          </p>
+
+          <a
+            class="btn-hero primary"
+            [href]="googleReviewsUrl"
+            target="_blank"
+            rel="noopener"
+            aria-label="Ver más testimonios en Google Reviews"
+          >
+            <i class="bi bi-google" aria-hidden="true"></i>
+            <span class="cta-text">
+               {{ 'testimonials.moreButton' | translate }}
+            </span>
+          </a>
+        </div>
+
   </div>
 </section>

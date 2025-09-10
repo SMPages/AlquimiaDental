@@ -13,11 +13,11 @@
           <a
             href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
             target="_blank" rel="noopener"
-            aria-label="Artículo en Rolling Stone"
+            [attr.aria-label]="'hero.mediaMentionAria' | translate"
           >
             <img
               src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
-              alt="Rolling Stone"
+              [alt]="'hero.mediaLogoAlt' | translate"
               width="110" height="26"
               loading="lazy" decoding="async"
               class="mention-logo"
@@ -28,9 +28,8 @@
         <!-- ⭐ Card Propuesta: texto + dos botones -->
         <div id="propuesta" class="propuesta-card fade-in">
           <p class="propuesta-text">
-            <span class="marca">Alquimia Dental®</span> es la visión de la
-            <strong>Dra. Sorany Díaz</strong>: un enfoque integral que combina estética,
-            salud y una experiencia humana excepcional.
+            <span class="marca">Alquimia Dental®</span>
+            {{ 'hero.proposal.text' | translate }}
           </p>
 
           <div class="btn-row">
@@ -39,7 +38,7 @@
               [href]="whatsappHref"
               target="_blank"
               rel="noopener"
-              aria-label="Chatear por WhatsApp para agendar cita"
+              [attr.aria-label]="'hero.whatsappAria' | translate"
             >
               <i class="bi bi-whatsapp" aria-hidden="true"></i>
               {{ 'hero.ctaPrimary' | translate }}
@@ -48,9 +47,9 @@
             <a
               class="btn-hero secondary"
               [routerLink]="['/', currentLang, 'alquimia-dental']"
-              aria-label="Conoce la marca Alquimia Dental"
+              [attr.aria-label]="'hero.ctaSecondaryAria' | translate"
             >
-              Conoce la marca
+              {{ 'hero.ctaSecondary' | translate }}
             </a>
           </div>
         </div>
@@ -59,7 +58,7 @@
       <!-- Columna derecha: imagen -->
       <div class="hero-image fade-in">
         <img
-          src="/images/elegant-dental-doctor.jpg"
+          src="images/elegant-dental-doctor.jpg"
           [alt]="'hero.imageAlt' | translate"
           class="doctor-photo"
           decoding="async"
@@ -72,7 +71,7 @@
 
 <section id="servicios" class="section servicios">
   <div class="container">
-    <h2>Tratamientos destacados</h2>
+    <h2>{{ 'home.featured.title' | translate }}</h2>
 
     <div class="services-list">
       <article class="service-card" *ngFor="let s of featuredServices">
@@ -81,8 +80,9 @@
         </div>
 
         <div class="content">
-          <h3>{{ s.title }}</h3>
-          <p>{{ s.excerpt }}</p>
+          <!-- Si tu array trae claves i18n, usa s.titleKey/s.excerptKey -->
+          <h3>{{ s.title | translate }}</h3>
+          <p>{{ s.excerpt | translate }}</p>
         </div>
       </article>
     </div>

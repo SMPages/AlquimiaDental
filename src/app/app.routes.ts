@@ -33,7 +33,7 @@ export const routes: Routes = [
       {
         path: 'gallery',
         loadComponent: () =>
-          import('./pages/gallery-section/gallery-section.component').then(m => m.GallerySectionComponent)
+          import('./pages/gallery-section/gallery-section.component').then(m => m.GalleryCarouselComponent)
       },
       {
         path: 'blog',

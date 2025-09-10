@@ -13,7 +13,7 @@
       </a> -->
       <a
         class="logo"
-        [routerLink]="['/', currentLang]"
+        [routerLink]="['/', currentLang, 'alquimia-dental']"
         (click)="closeMenu()"
         aria-label="Alquimia Dental – Home"
       >
@@ -107,7 +107,7 @@
       <div class="header-actions">
         <!-- CTA WhatsApp con icono bi -->
         <a
-          class="btn btn-primary"
+          class="btn-generic-primary"
           [href]="whatsappHref"
           target="_blank"
           rel="noopener noreferrer"
@@ -128,7 +128,7 @@
             (click)="switchLang('es')"
             [attr.aria-label]="currentLang === 'es' ? 'Idioma actual: Español' : 'Cambiar a Español'"
           >
-            <img src="/icons/co.svg" alt="" aria-hidden="true" class="flag" />
+            <img src="images/co.svg" alt="" aria-hidden="true" class="flag" />
             <span class="sr-only">ES</span>
           </button>
 
@@ -142,7 +142,7 @@
             (click)="switchLang('en')"
             [attr.aria-label]="currentLang === 'en' ? 'Current language: English' : 'Switch to English'"
           >
-            <img src="/icons/us.svg" alt="" aria-hidden="true" class="flag" />
+            <img src="images/us.svg" alt="" aria-hidden="true" class="flag" />
             <span class="sr-only">EN</span>
           </button>
         </nav>

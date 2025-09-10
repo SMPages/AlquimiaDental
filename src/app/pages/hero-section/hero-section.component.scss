@@ -62,29 +62,14 @@
 
   /* ⭐ Card destacada “Propuesta” */
   .propuesta-card {
-    --tint: color-mix(in srgb, var(--primary) 82%, #ffffff 18%);
-    --border-c: color-mix(in srgb, var(--primary) 70%, #ffffff 30%);
-
+  
     position: relative;
     padding: 1.25rem 1.25rem 1.1rem 1.35rem;
     border: 1px solid var(--border-c);
     border-radius: 14px;
-    background: linear-gradient(180deg, var(--tint) 0%, color-mix(in srgb, var(--tint) 90%, #000 10%) 100%);
-    box-shadow: 0 8px 22px rgba(0,0,0,.08);
+    background: var(--primary);
     transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
     text-align: center; /* coherente con el diseño actual */
-
-    /* franja izquierda */
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0; top: 12px; bottom: 12px;
-      width: 4px;
-      border-radius: 4px;
-      background: var(--primary);
-      opacity: .9;
-    }
-
     &:hover {
       transform: translateY(-1px);
       box-shadow: 0 12px 28px rgba(0,0,0,.1);
@@ -133,6 +118,14 @@
       box-shadow: 0 2px 6px rgba(0,0,0,.06);
       &:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
     }
+      .btn-hero.primary:hover,
+      .btn-hero.primary:focus-visible {
+        background: var(--primary);
+        color: #fff;
+        border-color: #fff;
+        box-shadow: 0 8px 18px rgba(0,0,0,.08);
+        text-decoration: none;
+      }
 
     .btn-hero.secondary {
       background: transparent;
@@ -140,6 +133,15 @@
       border: 1px solid rgba(255,255,255,.8);
       &:hover { background: rgba(255,255,255,.08); border-color: #fff; }
     }
+
+    .btn-hero.secondary:hover,
+      .btn-hero.secondary:focus-visible {
+        background: #fff ;
+        color: var(--primary);
+        border-color: var(--primary);
+        box-shadow: 0 8px 18px rgba(0,0,0,.08);
+        text-decoration: none;
+      }
   }
 
   /* Imagen derecha */
