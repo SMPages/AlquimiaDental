@@ -1,3 +1,4 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
 /* Global styles with warm earth tone color palette */
 :root {
   /* Warm earth tone color palette for dental website */
@@ -32,9 +33,7 @@
   top: 0; left: 0; right: 0;
   z-index: 1000;
 }
-.page{
-  // padding-top: var(--header-safe);
-}
+
 [id]{
   scroll-margin-top: calc(var(--header-safe) + 16px);
 }
@@ -58,11 +57,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+  .container {
+    margin-top: 70px !important;
+  }
 
 .btn {
   display: inline-flex;

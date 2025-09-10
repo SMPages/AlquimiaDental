@@ -1,69 +1,90 @@
 <section class="hero-section">
   <div class="container">
     <div class="hero-content">
+      <!-- Columna izquierda: texto -->
       <div class="hero-text">
-        <!-- H1 -->
         <h1 class="hero-title fade-in">{{ 'hero.title' | translate }}</h1>
-
-        <!-- H2 -->
         <h2 class="hero-subtitle fade-in">{{ 'hero.subtitle' | translate }}</h2>
-
-        <!-- Párrafo -->
         <p class="hero-description fade-in">{{ 'hero.description' | translate }}</p>
 
         <!-- En los medios -->
         <div class="hero-media-mention fade-in">
           <span class="mention-text">{{ 'hero.mediaMention' | translate }}</span>
-          <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
-             target="_blank" rel="noopener"
-             aria-label="Artículo en Rolling Stone">
-            <img src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
-                 alt="Rolling Stone"
-                 width="120" height="auto"
-                 loading="lazy" decoding="async"
-                 class="mention-logo" />
+          <a
+            href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
+            target="_blank" rel="noopener"
+            aria-label="Artículo en Rolling Stone"
+          >
+            <img
+              src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
+              alt="Rolling Stone"
+              width="110" height="26"
+              loading="lazy" decoding="async"
+              class="mention-logo"
+            />
           </a>
         </div>
 
-        <!-- Botones -->
-        <div class="hero-buttons fade-in">
-          <a href="https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quiero%20agendar%20una%20valoraci%C3%B3n."
-             target="_blank"
-             rel="noopener"
-             class="btn btn-primary"
-             aria-label="Chatear por WhatsApp para agendar cita">
-            {{ 'hero.ctaPrimary' | translate }}
-          </a>
+        <!-- ⭐ Card Propuesta: texto + dos botones -->
+        <div id="propuesta" class="propuesta-card fade-in">
+          <p class="propuesta-text">
+            <span class="marca">Alquimia Dental®</span> es la visión de la
+            <strong>Dra. Sorany Díaz</strong>: un enfoque integral que combina estética,
+            salud y una experiencia humana excepcional.
+          </p>
 
-          <a [routerLink]="['/', currentLang, 'about']"
-             class="btn btn-secondary">
-            {{ 'hero.ctaSecondary' | translate }}
-          </a>
+          <div class="btn-row">
+            <a
+              class="btn-hero primary"
+              [href]="whatsappHref"
+              target="_blank"
+              rel="noopener"
+              aria-label="Chatear por WhatsApp para agendar cita"
+            >
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+              {{ 'hero.ctaPrimary' | translate }}
+            </a>
+
+            <a
+              class="btn-hero secondary"
+              [routerLink]="['/', currentLang, 'alquimia-dental']"
+              aria-label="Conoce la marca Alquimia Dental"
+            >
+              Conoce la marca
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Imagen principal -->
+      <!-- Columna derecha: imagen -->
       <div class="hero-image fade-in">
-        <img src="images/elegant-dental-doctor.jpg"
-             [alt]="'hero.imageAlt' | translate"
-             class="doctor-photo" />
+        <img
+          src="/images/elegant-dental-doctor.jpg"
+          [alt]="'hero.imageAlt' | translate"
+          class="doctor-photo"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Fotos del consultorio -->
-    <div class="clinic-gallery fade-in">
-      <h4 class="clinic-title">{{ 'clinic.title' | translate }}</h4>
-      <div class="clinic-photos">
-        <img src="images/consultorio-1.jpg"
-             [alt]="'clinic.photo1Alt' | translate"
-             loading="lazy" decoding="async" />
-        <img src="images/consultorio-1.jpg"
-             [alt]="'clinic.photo2Alt' | translate"
-             loading="lazy" decoding="async" />
-        <img src="images/consultorio-1.jpg"
-             [alt]="'clinic.photo3Alt' | translate"
-             loading="lazy" decoding="async" />
-      </div>
+<section id="servicios" class="section servicios">
+  <div class="container">
+    <h2>Tratamientos destacados</h2>
+
+    <div class="services-list">
+      <article class="service-card" *ngFor="let s of featuredServices">
+        <div class="media">
+          <img *ngIf="s.img" [src]="s.img" [alt]="s.alt || s.title" />
+        </div>
+
+        <div class="content">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.excerpt }}</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>

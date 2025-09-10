@@ -1,60 +1,162 @@
 <!-- src/app/components/header/header.component.html -->
-<header class="header">
+<header class="header" [class.scrolled]="scrolled" [class.menu-open]="isMenuOpen">
   <div class="container-header">
     <div class="header-content">
-      <!-- Logo -->
-      <div class="logo">
+      <!-- Logo (link a home) -->
+      <!-- <a
+        class="logo"
+        [routerLink]="['/', currentLang]"
+        (click)="closeMenu()"
+        aria-label="Alquimia Dental – Home"
+      >
         <h2>{{ 'brand' | translate }}</h2>
-      </div>
-
+      </a> -->
+      <a
+        class="logo"
+        [routerLink]="['/', currentLang]"
+        (click)="closeMenu()"
+        aria-label="Alquimia Dental – Home"
+      >
+        <!-- Usa SVG principal -->
+        <img
+          src="logo.png"
+          width="80"
+          height="80"
+          alt=""
+          aria-hidden="true"
+          class="logo-img"
+          decoding="async"
+        />
+        <!-- Texto accesible para lectores de pantalla -->
+        <!-- <span class="sr-only">{{ 'brand' | translate }}</span> -->
+      </a>
       <!-- Navegación principal -->
-      <nav class="nav" [class.nav-open]="isMenuOpen">
+      <nav
+        id="main-nav"
+        class="nav"
+        [class.nav-open]="isMenuOpen"
+        role="navigation"
+        aria-label="Main"
+      >
         <ul class="nav-list">
-          <li><a [routerLink]="['/', currentLang]" (click)="closeMenu()" class="nav-link">{{ 'nav.home' | translate }}</a></li>
-          <li><a [routerLink]="['/', currentLang, 'about']" (click)="closeMenu()" class="nav-link">{{ 'nav.about' | translate }}</a></li>
-          <li><a [routerLink]="['/', currentLang, 'services']" (click)="closeMenu()" class="nav-link">{{ 'nav.services' | translate }}</a></li>
-          <li><a [routerLink]="['/', currentLang, 'gallery']" (click)="closeMenu()" class="nav-link">{{ 'nav.gallery' | translate }}</a></li>
-          <li><a [routerLink]="['/', currentLang, 'blog']" (click)="closeMenu()" class="nav-link">{{ 'nav.blog' | translate }}</a></li>
-          <li><a [routerLink]="['/', currentLang, 'opinions']" (click)="closeMenu()" class="nav-link">{{ 'nav.opinions' | translate }}</a></li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.home' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang, 'about']"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.about' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang, 'services']"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.services' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang, 'gallery']"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.gallery' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang, 'blog']"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.blog' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              [routerLink]="['/', currentLang, 'opinions']"
+              routerLinkActive="active"
+              (click)="closeMenu()"
+              class="nav-link"
+            >
+              <span>{{ 'nav.opinions' | translate }}</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <!-- Acciones del header -->
+      <!-- Acciones -->
       <div class="header-actions">
-        <!-- CTA directo a WhatsApp -->
-        <a class="btn btn-primary" href="https://wa.me/573147992217" target="_blank" rel="noopener">
-          {{ 'header.bookCta' | translate }}
+        <!-- CTA WhatsApp con icono bi -->
+        <a
+          class="btn btn-primary"
+          [href]="whatsappHref"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="whatsappAriaLabel"
+          (click)="closeMenu()"
+        >
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+          <span class="btn-text">{{ 'header.bookCta' | translate }}</span>
         </a>
 
-        <!-- NUEVO: botón Admin → /login -->
-        <a class="btn btn-outline" [routerLink]="['/', currentLang, 'login']">
-          {{ 'header.admin' | translate }}
-        </a>
-
-        <!-- Switch de idioma -->
+        <!-- Switch de idioma con banderas -->
         <nav class="lang-switch" aria-label="Language selector">
           <button
             type="button"
-            class="lang-btn"
+            class="lang-btn flag-btn"
             [class.active]="currentLang === 'es'"
             [attr.aria-current]="currentLang === 'es' ? 'true' : null"
             (click)="switchLang('es')"
-          >ES</button>
+            [attr.aria-label]="currentLang === 'es' ? 'Idioma actual: Español' : 'Cambiar a Español'"
+          >
+            <img src="/icons/co.svg" alt="" aria-hidden="true" class="flag" />
+            <span class="sr-only">ES</span>
+          </button>
 
           <span class="sep" aria-hidden="true">/</span>
 
           <button
             type="button"
-            class="lang-btn"
+            class="lang-btn flag-btn"
             [class.active]="currentLang === 'en'"
             [attr.aria-current]="currentLang === 'en' ? 'true' : null"
             (click)="switchLang('en')"
-          >EN</button>
+            [attr.aria-label]="currentLang === 'en' ? 'Current language: English' : 'Switch to English'"
+          >
+            <img src="/icons/us.svg" alt="" aria-hidden="true" class="flag" />
+            <span class="sr-only">EN</span>
+          </button>
         </nav>
 
         <!-- Botón hamburguesa -->
-        <button class="menu-toggle" (click)="toggleMenu()" aria-label="Menu">
-          <span></span><span></span><span></span>
+        <button
+          class="menu-toggle"
+          (click)="toggleMenu()"
+          aria-label="Menu"
+          [attr.aria-expanded]="isMenuOpen"
+          aria-controls="main-nav"
+          (keyup.escape)="closeMenu()"
+        >
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
       </div>
     </div>

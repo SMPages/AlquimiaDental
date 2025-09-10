@@ -1,204 +1,157 @@
+
+/* src/app/components/header/header.component.scss */
 .header {
-  background: rgba(255, 255, 255, 0.95);
+  --h-pad: 1rem;
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed; inset: 0 0 auto 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease, background .2s ease;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.06);
+    .header-content { padding-block: .6rem; }
+  }
 
   .container-header {
-    max-width: 80%;
+    max-width: 1100px; /* un pelín más ancho que 80% para aire */
+    width: 92%;
     margin: 0 auto;
-    padding: 0 1rem;
-}
+    padding: 0 var(--h-pad);
+  }
+
   .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 0; transition: padding .2s ease;
   }
 
-  .logo h2 {
-    color: var(--primary);
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin: 0;
+  .logo {
+    text-decoration: none;
+    h2 {
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; margin: 0;
+      letter-spacing: .2px;
+    }
+    &:hover h2 { opacity: .9; }
   }
 
+  /* NAV */
   .nav {
+    #main-nav:empty {} /* por si quieres id, opcional */
     .nav-list {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
+      display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0;
     }
 
     .nav-link {
+      position: relative;
       color: var(--foreground);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-      cursor: pointer;
+      text-decoration: none; font-weight: 600; letter-spacing: .2px;
+      padding: .25rem 0; cursor: pointer; display: inline-flex; align-items: center;
+      transition: color .15s ease;
 
-      &:hover {
+      /* subrayado animado */
+      > span {
+        position: relative;
+      }
+      > span::after {
+        content: '';
+        position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+        background: currentColor; transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform .18s ease;
+      }
+      &:hover > span::after { transform: scaleX(1); }
+
+      &.active {
         color: var(--primary);
+        > span::after { transform: scaleX(1); }
       }
     }
   }
 
   .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    display: flex; align-items: center; gap: .75rem;
   }
 
-  .language-switcher {
-    display: flex;
-    gap: 0.5rem;
-
+  /* Idiomas (mantengo tus estilos, sutiles) */
+  .lang-switch {
+    display: inline-flex; align-items: center; gap: .25rem;
+    padding: .125rem; border-radius: .75rem;
+    background: rgba(0,0,0,.04);
     .lang-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.875rem;
-      transition: all 0.2s ease;
-
-      &.active {
-        background: var(--primary);
-        color: var(--primary-foreground);
-        border-color: var(--primary);
-      }
-
-      &:hover:not(.active) {
-        border-color: var(--primary);
-        color: var(--primary);
-      }
+      border: 0; background: transparent; padding: .25rem .5rem;
+      font-weight: 600; line-height: 1; cursor: pointer; opacity: .75;
+      border-radius: .5rem; transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
+      &.active { opacity: 1; box-shadow: 0 0 0 1.5px currentColor inset; }
+      &:hover { opacity: 1; transform: translateY(-1px); }
+      &:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
     }
+    .sep { opacity: .5; user-select: none; }
   }
 
+  /* Botón hamburguesa animado */
   .menu-toggle {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-
-    span {
-      width: 25px;
-      height: 3px;
-      background: var(--foreground);
-      margin: 3px 0;
-      transition: 0.3s;
+    display: none; position: relative; width: 40px; height: 40px;
+    border: 0; background: transparent; cursor: pointer; border-radius: .5rem;
+    .bar {
+      position: absolute; left: 9px; right: 9px; height: 2px; background: var(--foreground);
+      transition: transform .2s ease, opacity .2s ease, top .2s ease, bottom .2s ease;
     }
+    .bar:nth-child(1) { top: 13px; }
+    .bar:nth-child(2) { top: 19px; }
+    .bar:nth-child(3) { top: 25px; }
+  }
+  &.menu-open .menu-toggle {
+    .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .bar:nth-child(2) { opacity: 0; }
+    .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
     .nav {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid var(--border);
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-top: 1px solid var(--border);
+      transform: translateY(-6px); opacity: 0; visibility: hidden;
+      transition: transform .18s ease, opacity .18s ease, visibility 0s linear .18s;
+      .nav-list { flex-direction: column; padding: .75rem 1rem; gap: .5rem; }
+      .nav-link { padding: .5rem 0; }
       &.nav-open {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .nav-list {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 1rem;
+        transform: translateY(0); opacity: 1; visibility: visible;
+        transition: transform .18s ease, opacity .18s ease;
       }
     }
 
-    .menu-toggle {
-      display: flex;
-    }
-
-    .btn {
-      display: none;
-    }
+    .menu-toggle { display: inline-block; }
+    .btn { display: none; } /* ocultar CTA en móvil si quieres */
+    .header-actions { gap: .5rem; }
+    .lang-switch { background: transparent; }
   }
 }
 
-/* Ajustes base para alinear todo en una fila en desktop */
-.header .header-actions {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-}
-
-/* Switch */
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: .25rem;
-  padding: .125rem;
-  border-radius: .75rem;
-  background: rgba(0,0,0,.04); /* sutil para integrarse con la barra */
-  backdrop-filter: saturate(1.2);
-
-  .lang-btn {
-    border: 0;
-    background: transparent;
-    padding: .25rem .5rem;
-    font-weight: 600;
-    line-height: 1;
-    cursor: pointer;
-    opacity: .75;
-    border-radius: .5rem;
-    transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
-
-    &.active {
-      opacity: 1;
-      box-shadow: 0 0 0 1.5px currentColor inset;
-    }
-
-    &:hover { opacity: 1; transform: translateY(-1px); }
-    &:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-  }
-
-  .sep { opacity: .5; user-select: none; }
-}
-
-/* Responsivo: en móvil separa un poco el switch del CTA para que no choquen */
-@media (max-width: 768px) {
-  .header .header-actions {
-    gap: .5rem;
-  }
-  .lang-switch {
-    background: transparent;
-    .lang-btn {
-      padding: .25rem .375rem;
-    }
-  }
-}
-/* Botón outline consistente con el tema */
+/* Botón outline (conservado) */
 .btn.btn-outline {
-  border: 1px solid #111827; /* gris-900 */
-  color: #111827;
-  background: transparent;
-  border-radius: 0.75rem; /* 12px */
-  padding: 0.5rem 1rem;
-  line-height: 1.25rem;
+  border: 1px solid #111827; color: #111827; background: transparent;
+  border-radius: .75rem; padding: .5rem 1rem; line-height: 1.25rem;
   transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  &:hover { background: #111827; color: #fff; border-color: #111827; }
 }
-.btn.btn-outline:hover {
-  background: #111827;
-  color: #fff;
-  border-color: #111827;
+
+/* Respeta usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+.btn.btn-primary .bi {
+  font-size: 1.1em;
+  vertical-align: -2px;
+  margin-right: .45rem;
+}
+
+/* Si en móvil ocultas el texto y dejas solo el ícono: */
+@media (max-width: 768px) {
+  .btn.btn-primary .btn-text { display: none; }
 }

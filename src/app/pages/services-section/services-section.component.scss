@@ -1,8 +1,3 @@
-/* ===== Sección Servicios ===== */
-#services { 
-  scroll-margin-top: calc(var(--header-h-sm, 64px) + 16px); 
-}
-
 .services-section {
   padding: clamp(3rem, 7vw, 5rem) 0;
 
@@ -12,23 +7,26 @@
     padding: 0 clamp(1rem, 3vw, 2rem);
   }
 
-  /* ===== Encabezado ===== */
+  /* Encabezado (lo que ya tenías) */
   .section-header {
     text-align: center;
     margin-bottom: clamp(1.5rem, 5vw, 2.25rem);
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      font-size: clamp(1.7rem, 6.2vw, 2.4rem);
       font-weight: 700;
       color: var(--foreground);
-      margin: 0 0 .6rem;
+      margin: .25rem 0 .6rem;
       position: relative;
 
-      &::after{
-        content:"";
-        position:absolute; left:50%; bottom:-.45rem; transform:translateX(-50%);
-        width:64px; height:3px; border-radius:2px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -.45rem;
+        transform: translateX(-50%);
+        width: 64px; height: 3px; border-radius: 2px;
         background: linear-gradient(90deg, var(--secondary), var(--primary));
       }
     }
@@ -42,141 +40,137 @@
     }
   }
 
-  /* ===== Grid ===== */
-  .services-grid {
+  /* ===== Lista de tarjetas horizontales (como “Tratamientos destacados”) ===== */
+  .services-list {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: clamp(1rem, 3.5vw, 1.5rem);
-    margin-bottom: clamp(2rem, 6vw, 3rem);
-  }
-  @media (min-width: 640px){
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (min-width: 1024px){
-    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    gap: 1.25rem;
   }
 
-  /* ===== Tarjeta de servicio ===== */
   .service-card {
-    background: color-mix(in oklch, var(--card) 90%, #fff 10%);
-    border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
+    display: grid;
+    grid-template-columns: min(38%, 360px) 1fr; /* imagen / texto */
+    align-items: center;
+    gap: 1rem;
+
+    background: #fff;
+    border: 1px solid var(--border);
     border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(74,69,63,.08);
-    padding: clamp(1rem, 4vw, 1.25rem);
-    text-align: center;
-    transition: transform .3s ease, box-shadow .3s ease;
+    overflow: hidden; /* para que la imagen recorte el radio */
+    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 22px rgba(74,69,63,.12);
-    }
-  }
-
-  /* ===== Imagen circular ===== */
-  .service-media {
-    width: clamp(64px, 18vw, 84px);
-    height: clamp(64px, 18vw, 84px);
-    margin: 0 auto clamp(.75rem, 3vw, 1rem);
-    border-radius: 999px;
-    overflow: hidden;
-    background: #eee;
-    box-shadow: 0 6px 20px rgba(0,0,0,.08), inset 0 0 0 3px rgba(255,255,255,.6);
-  }
-  .service-photo {
-    width: 100%; 
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-  }
-
-  /* ===== Títulos y texto ===== */
-  .service-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: var(--foreground);
-    font-size: clamp(1.05rem, 4.4vw, 1.25rem);
-    line-height: 1.25;
-    margin: .15rem 0 .5rem;
-  }
-
-  .service-description {
-    color: var(--foreground);
-    opacity: .9;
-    line-height: 1.65;
-    font-size: clamp(.93rem, 3.6vw, 1rem);
-  }
-
-  /* ===== CTA ===== */
-  .services-cta {
-    text-align: center;
-    padding: clamp(1.4rem, 4vw, 2rem);
-    background: rgba(255,255,255,.6);
-    border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
-    border-radius: 20px;
-
-    .cta-text {
-      font-size: clamp(1rem, 3.3vw, 1.1rem);
-      color: var(--foreground);
-      font-weight: 600;
-      margin-bottom: clamp(.8rem, 2.5vw, 1.1rem);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.1);
+      border-color: rgba(0,0,0,.06);
     }
 
-    .cta-button {
-      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-      padding:.9rem 2rem; border-radius: 999px; font-weight:800; font-size:1.05rem;
-      color: var(--primary-foreground);
-      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-      border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
-      box-shadow: 0 4px 15px rgba(212,165,116,.30);
-      text-decoration:none;
-      transition: transform .2s ease, box-shadow .2s ease;
+    .media {
+      height: 240px;              /* alto consistente */
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
 
-      &:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(212,165,116,.40); }
-      &:focus-visible { 
-        outline:none; 
-        box-shadow: 0 0 0 3px var(--background), 0 0 0 6px rgba(193,120,84,.35); 
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        aspect-ratio: 4 / 5;      /* igual que el hero */
+      }
+    }
+
+    .content {
+      padding: 1rem 1.25rem;
+
+      h3 {
+        margin: 0 0 .35rem;
+        font-size: 1.25rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: var(--foreground);
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted-foreground);
+        line-height: 1.6;
+        font-size: 1.05rem;
+        max-width: 58ch;
       }
     }
   }
-}
-/* === FIX duro: asegurar que el título se vea en móvil (y en general) === */
-#services .section-header .section-title {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  text-align: center;;
-  position: relative;      /* para el ::after */
-  z-index: 1;
 
-  font-family: 'Playfair Display', serif !important;
-  font-weight: 700 !important;
-  color: var(--foreground) !important;
-  font-size: clamp(1.7rem, 6.2vw, 2.4rem) !important;
-  line-height: 1.2 !important;
-  margin: .25rem 0 .6rem !important;
-
-  /* por si algún reset aplica efectos raros en mobile */
-  -webkit-text-fill-color: currentColor !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
+  /* ===== Responsive: apila en móvil como el hero ===== */
+  @media (max-width: 900px) {
+    .service-card {
+      grid-template-columns: 1fr; /* imagen arriba, texto abajo */
+      .media   { height: 220px; }
+      .content { text-align: center; padding: .9rem 1rem 1.1rem; }
+      .content p { margin-left: auto; margin-right: auto; }
+    }
+  }
+  @media (max-width: 480px) {
+    .service-card .media { height: 190px; }
+  }
 }
 
-/* aseguramos la línea decorativa si otro estilo la pisa */
-#services .section-header .section-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -.45rem;
-  transform: translateX(-50%);
-  width: 64px;
-  height: 3px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--secondary), var(--primary));
+/* Fondo mármol opcional (igual que antes) */
+.marble-bg {
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(167,126,86,.05), transparent 60%),
+    radial-gradient(1000px 500px at 90% 20%, rgba(0,0,0,.03), transparent 70%);
+}
+/* ===== CTA de servicios (restaurado) ===== */
+.services-section .services-cta {
+  margin-top: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: rgba(255,255,255,.6);
+  border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
 }
 
-/* si el header fijo lo estaba tapando al entrar por ancla, aumentamos el offset */
-#services { scroll-margin-top: calc(var(--header-h-sm, 64px) + 24px) !important; }
+.services-section .services-cta .cta-text {
+  margin: 0 0 clamp(.8rem, 2.5vw, 1.1rem);
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: clamp(1rem, 3.3vw, 1.1rem);
+}
 
-/* opcional: pequeño padding por si otro estilo colapsa márgenes en móvil */
-#services .section-header { padding-top: .25rem; text-align: center;}
+.services-section .services-cta .cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
 
+  color: var(--primary-foreground);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
+  box-shadow: 0 4px 15px rgba(212,165,116,.30);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.services-section .services-cta .cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(212,165,116,.40);
+}
+
+.services-section .services-cta .cta-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--background),
+              0 0 0 6px rgba(193,120,84,.35);
+}
+
+/* evita que estilos globales de <a> (links morados) lo sobreescriban */
+.services-section .services-cta .cta-button,
+.services-section .services-cta .cta-button:visited {
+  color: var(--primary-foreground);
+}

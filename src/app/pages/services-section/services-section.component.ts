@@ -15,7 +15,7 @@ type ServiceKey =
 
 export class ServicesSectionComponent {
   items: Array<{key: ServiceKey; icon: string}> = [
-    { key: 'digital',      icon: 'images/digital.jpg' },
+    { key: 'digital',      icon: 'servicios/digital.png' },
     { key: 'whitening',    icon: 'images/blanqueamiento.jpeg' },
     { key: 'veneers',      icon: 'images/carillas.jpeg' },
     { key: 'cleaning',     icon: 'images/blanqueamiento2.jpeg' },

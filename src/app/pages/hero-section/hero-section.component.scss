@@ -1,144 +1,282 @@
 .hero-section {
-  padding: 8rem 0 5rem;
-  background: linear-gradient(135deg, var(--background) 0%, #f5f1eb 100%);
-  margin-top: 80px;
+  margin-top: 150px;
+  margin-bottom: 2rem;
+  background: transparent;
 
+  .container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Layout dos columnas */
   .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* texto izq / imagen der */
     gap: 4rem;
     align-items: center;
   }
-  .hero-buttons {
-  display: flex;
-  gap: 1rem; 
-}
-.clinic-gallery {
-  margin-top: 2.5rem;
 
-  .clinic-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--foreground);
-    margin-bottom: 0.5rem;
-  }
-
-  .clinic-intro {
-    color: var(--muted-foreground);
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .clinic-photos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-
-    img {
-      width: 100%;
-      border-radius: 0.75rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      object-fit: cover;
-
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-      }
-    }
-  }
-}
-.hero-media-mention {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  margin: .75rem 0 1.5rem;
-  font-size: .9rem;
-  color: var(--muted-foreground);
-
-  .mention-text {
-    font-weight: 500;
-    opacity: .8;
-  }
-
-  .mention-logo {
-    max-height: 28px;
-    width: auto;
-    filter: grayscale(20%) contrast(110%); /* más elegante y no grita */
-    opacity: .9;
-    transition: opacity .2s ease;
-  }
-
-  a:hover .mention-logo {
-    opacity: 1;
-  }
-}
+  /* Tipografía */
   .hero-text {
     .hero-title {
-      font-size: 3.5rem;
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
       color: var(--foreground);
       line-height: 1.1;
     }
-
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
       color: var(--primary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       font-weight: 500;
     }
-
     .hero-description {
       font-size: 1.125rem;
       color: var(--muted-foreground);
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.25rem;
       line-height: 1.6;
+      max-width: 56ch;
+    }
+  }
+
+  /* Mención medios */
+  .hero-media-mention {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin: .75rem 0 1.25rem;
+    font-size: .9rem;
+    color: var(--muted-foreground);
+
+    .mention-text { font-weight: 500; opacity: .85; }
+    .mention-logo {
+      height: 26px; width: auto;
+      filter: grayscale(18%) contrast(110%);
+      opacity: .9; transition: opacity .2s ease;
+      vertical-align: middle;
+    }
+    a:hover .mention-logo { opacity: 1; }
+  }
+
+  /* ⭐ Card destacada “Propuesta” */
+  .propuesta-card {
+    --tint: color-mix(in srgb, var(--primary) 82%, #ffffff 18%);
+    --border-c: color-mix(in srgb, var(--primary) 70%, #ffffff 30%);
+
+    position: relative;
+    padding: 1.25rem 1.25rem 1.1rem 1.35rem;
+    border: 1px solid var(--border-c);
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--tint) 0%, color-mix(in srgb, var(--tint) 90%, #000 10%) 100%);
+    box-shadow: 0 8px 22px rgba(0,0,0,.08);
+    transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+    text-align: center; /* coherente con el diseño actual */
+
+    /* franja izquierda */
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 12px; bottom: 12px;
+      width: 4px;
+      border-radius: 4px;
+      background: var(--primary);
+      opacity: .9;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.1);
+      border-color: color-mix(in srgb, var(--primary) 80%, #ffffff 20%);
+    }
+
+    .propuesta-text {
+      font-size: 1.125rem;
+      color: #fff;
+      margin: 0 0 1rem 0;
+      line-height: 1.6;
+      max-width: 60ch;
+      margin-inline: auto;
+
+      .marca { font-weight: 800; color: #fff; white-space: nowrap; }
+    }
+
+    .btn-row {
+      display: inline-flex;
+      gap: .75rem;
       flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Botones coherentes */
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border-radius: 8px;
+      padding: .65rem 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: transform .12s ease, box-shadow .12s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+
+      &:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+      &:active { transform: translateY(0); }
+      .bi { font-size: 1.1em; vertical-align: -2px; }
+    }
+
+    .btn-hero.primary {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+      &:hover { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+    }
+
+    .btn-hero.secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.8);
+      &:hover { background: rgba(255,255,255,.08); border-color: #fff; }
     }
   }
 
+  /* Imagen derecha */
   .hero-image {
-    display: flex;
-    justify-content: center;
-
+    display: flex; justify-content: flex-end;
     .doctor-photo {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 1rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      width: min(100%, 520px);
+      aspect-ratio: 4 / 5;
       object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      display: block;
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 6rem 0 3rem;
-
+  /* Responsivo */
+  @media (max-width: 900px) {
     .hero-content {
       grid-template-columns: 1fr;
       gap: 2rem;
-      text-align: center;
+    }
+    .hero-text { text-align: center; }
+    .hero-description { margin-left: auto; margin-right: auto; }
+    .propuesta-card { margin-left: auto; margin-right: auto; }
+    .hero-image { justify-content: center; }
+  }
+
+  @media (max-width: 480px) {
+    .propuesta-card .btn-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .5rem;
+
+      .btn-hero { justify-content: center; width: 100%; }
+    }
+  }
+}
+
+/* Util si usas animación */
+.fade-in { will-change: opacity, transform; }
+/* Sección de servicios (debajo del hero) */
+.servicios {
+  padding-top: 0; /* un poco más compacta que otras secciones */
+
+  .container {
+    max-width: 1100px;
+    width: 92%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+  }
+
+  /* Lista de tarjetas (cada una ocupa el ancho en desktop; puedes hacer 2 col con media query si quieres) */
+  .services-list {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;             /* por defecto 1 */
+    @media (min-width: 1100px) { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* Tarjeta horizontal: imagen izquierda / texto derecha */
+  .service-card {
+    display: grid;
+    grid-template-columns: min(38%, 360px) 1fr; /* imagen / texto */
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden; /* para que la imagen “recorte” el radio */
+    box-shadow: 0 6px 16px rgba(0,0,0,.04);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    @media (min-width: 1100px) {
+      .service-card { grid-template-columns: 1fr; } /* imagen arriba, texto abajo en grid de 2 columnas externas */
+    }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+      border-color: rgba(0,0,0,.06);
     }
 
-    .hero-text {
-      .hero-title {
-        font-size: 2.5rem;
-      }
+    .media {
+      height: 240px; /* alto fijo para que todas se vean parejas */
+      @media (min-width: 1280px) { height: 260px; }
 
-      .hero-subtitle {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .content {
+      padding: 1rem 1.25rem;
+
+      h3 {
+        margin: 0 0 .35rem;
         font-size: 1.25rem;
+        color: var(--foreground);
       }
 
-      .hero-actions {
-        justify-content: center;
+      p {
+        margin: 0 0 .75rem;
+        color: var(--muted-foreground);
+        line-height: 1.55;
+      }
+
+      .btn-link {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: color .15s ease, border-color .15s ease;
+
+        &:hover {
+          color: color-mix(in srgb, var(--primary) 92%, #000 8%);
+          border-color: currentColor;
+        }
       }
     }
+  }
+
+  /* Responsive: apilar en móvil */
+  @media (max-width: 900px) {
+    .service-card {
+      grid-template-columns: 1fr; /* imagen arriba, texto abajo */
+      .media { height: 200px; }
+      .content { padding: .9rem 1rem 1.1rem; }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-card .media { height: 180px; }
   }
 }
