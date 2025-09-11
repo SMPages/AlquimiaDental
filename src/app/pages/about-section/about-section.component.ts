@@ -9,4 +9,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './about-section.component.html',
   styleUrls: ['./about-section.component.scss']
 })
-export class AboutSectionComponent {}
+export class AboutSectionComponent {
+
+    whatsappHref =
+    'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';
+}

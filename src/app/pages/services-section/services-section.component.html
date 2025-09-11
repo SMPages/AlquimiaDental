@@ -23,11 +23,20 @@
       </article>
     </div>
 
-    <div class="services-cta">
-      <p class="cta-text">{{ 'services.ctaText' | translate }}</p>
-      <a href="https://wa.me/573147992217" target="_blank" rel="noopener" class="btn-generic-primary">
-        {{ 'services.ctaButton' | translate }}
-      </a>
-    </div>
+    <div id="propuesta" class="propuesta-card fade-in">
+          <p class="propuesta-text">
+            {{ 'services.ctaText' | translate}}
+          </p>
+
+          <div class="btn-row">
+             <a class="btn-hero primary"
+            [href]="whatsappHref"
+            target="_blank" rel="noopener"
+            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            {{ 'services.ctaButton' | translate }}
+          </a>
+          </div>
+        </div>
   </div>
 </section>

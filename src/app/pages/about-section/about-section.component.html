@@ -52,16 +52,20 @@
         </div>
 
         <!-- CTA -->
-        <div class="about-cta fade-in">
-          <p>{{ 'about.ctaText' | translate }}</p>
-          <a
-            href="https://wa.me/573147992217"
-            target="_blank"
-            rel="noopener"
-            class="btn-generic-primary"
-          >
+         <div id="propuesta" class="propuesta-card fade-in">
+          <p class="propuesta-text">
+            {{ 'about.ctaText' | translate }}
+          </p>
+
+          <div class="btn-row">
+             <a class="btn-hero primary"
+            [href]="whatsappHref"
+            target="_blank" rel="noopener"
+            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
             {{ 'about.ctaBtn' | translate }}
           </a>
+          </div>
         </div>
 
         <!-- Stats -->

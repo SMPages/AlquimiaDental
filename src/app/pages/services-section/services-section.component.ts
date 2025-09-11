@@ -24,4 +24,6 @@ export class ServicesSectionComponent {
     { key: 'rehabImplant', icon: 'images/protesis.jpeg' },
     { key: 'prosthesis',   icon: 'images/protesis1.jpeg' }
   ];
+    whatsappHref =
+    'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';
 }
