@@ -8,7 +8,7 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     canMatch: [browserLangRedirectGuard],
-    redirectTo: '' // Angular lo pide aunque no se use
+    redirectTo: 'es' // Angular lo pide aunque no se use
   },
 
   {
