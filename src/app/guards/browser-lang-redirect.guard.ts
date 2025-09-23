@@ -1,13 +1,15 @@
-import { CanMatchFn, Router } from '@angular/router';
+import { CanMatchFn, Route, UrlSegment, Router } from '@angular/router';
 import { inject } from '@angular/core';
 
-const SUPPORTED = ['es', 'en'] as const;
-const pickLang = (): 'es' | 'en' =>
-  (navigator?.language || navigator?.languages?.[0] || 'en').toLowerCase().startsWith('es') ? 'es' : 'en';
+export const browserLangRedirectGuard: CanMatchFn =
+  (_route: Route, _segments: UrlSegment[]) => {
+    const router = inject(Router);
 
-export const browserLangRedirectGuard: CanMatchFn = () => {
-  const router = inject(Router);
-  const stored = (localStorage.getItem('preferredLang') || '').toLowerCase();
-  if (SUPPORTED.includes(stored as any)) return router.createUrlTree(['/', stored]);
-  return router.createUrlTree(['/', pickLang()]);
-};
+    // si guardaste el idioma del usuario, respétalo
+    const stored = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || '';
+
+    let lang = (stored || (navigator.language || 'es')).slice(0, 2).toLowerCase();
+    if (lang !== 'en' && lang !== 'es') lang = 'es';
+
+    return router.parseUrl('/' + lang);
+  };
