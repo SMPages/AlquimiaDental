@@ -6,9 +6,7 @@
     "AlquimiaDental": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
+        "@schematics/angular:component": { "style": "scss" }
       },
       "root": "",
       "sourceRoot": "src",
@@ -20,9 +18,7 @@
             "outputPath": "dist/alquimia-dental",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -30,33 +26,20 @@
               "src/assets",
               "src/404.html",
               "src/.nojekyll",
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              { "glob": "**/*", "input": "public" } 
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
             "localize": false
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "50kB",
-                  "maximumError": "50kB"
-                }
-              ],
               "outputHashing": "all",
-              "baseHref": "/AlquimiaDental/"
+              "baseHref": "/",
+              "budgets": [
+                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1MB" },
+                { "type": "anyComponentStyle", "maximumWarning": "50kB", "maximumError": "50kB" }
+              ]
             },
             "development": {
               "optimization": false,
@@ -69,22 +52,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "AlquimiaDental:build:production"
-            },
-            "development": {
-              "buildTarget": "AlquimiaDental:build:development"
-            }
+            "production": { "buildTarget": "AlquimiaDental:build:production" },
+            "development": { "buildTarget": "AlquimiaDental:build:development" }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        }
+        "extract-i18n": { "builder": "@angular-devkit/build-angular:extract-i18n" }
       }
     }
   },
-  "cli": {
-    "analytics": false
-  }
+  "cli": { "analytics": false }
 }
