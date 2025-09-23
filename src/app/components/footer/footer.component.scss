@@ -99,3 +99,35 @@
 
   .footer-bottom { font-size: .85rem; }
 }
+
+/* Botón flotante WhatsApp */
+.whatsapp-fab {
+  position: fixed;
+  right: max(50px, env(safe-area-inset-right));
+  bottom: max(50px, env(safe-area-inset-bottom));
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  z-index: 1000;              /* por encima del contenido */
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+
+  &:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 24px rgba(0,0,0,.22); }
+  &:active { transform: scale(.98); }
+
+  @media (max-width: 480px) {
+    width: 54px; height: 54px;
+    right: max(10px, env(safe-area-inset-right));
+  bottom: max(50px, env(safe-area-inset-bottom));
+    svg { width: 26px; height: 26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+  @media print { display: none !important; }
+}

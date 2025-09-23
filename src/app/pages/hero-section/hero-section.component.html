@@ -10,13 +10,11 @@
         <!-- En los medios -->
         <div class="hero-media-mention fade-in">
           <span class="mention-text">{{ 'hero.mediaMention' | translate }}</span>
-          <a
-            href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
+          <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
             target="_blank" rel="noopener"
             [attr.aria-label]="'hero.mediaMentionAria' | translate"
           >
-            <img
-              src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
+            <img src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=400&ssl=1"
               [alt]="'hero.mediaLogoAlt' | translate"
               width="110" height="26"
               loading="lazy" decoding="async"
@@ -33,8 +31,7 @@
           </p>
 
           <div class="btn-row">
-            <a
-              class="btn-hero primary"
+            <a class="btn-hero primary"
               [href]="whatsappHref"
               target="_blank"
               rel="noopener"
@@ -44,8 +41,7 @@
               {{ 'hero.ctaPrimary' | translate }}
             </a>
 
-            <a
-              class="btn-hero secondary"
+            <a class="btn-hero secondary"
               [routerLink]="['/', currentLang, 'alquimia-dental']"
               [attr.aria-label]="'hero.ctaSecondaryAria' | translate"
             >
@@ -57,8 +53,7 @@
 
       <!-- Columna derecha: imagen -->
       <div class="hero-image fade-in">
-        <img
-          src="images/elegant-dental-doctor.jpg"
+        <img src="images/elegant-dental-doctor.jpg"
           [alt]="'hero.imageAlt' | translate"
           class="doctor-photo"
           decoding="async"
@@ -76,13 +71,13 @@
     <div class="services-list">
       <article class="service-card" *ngFor="let s of featuredServices">
         <div class="media">
-          <img *ngIf="s.img" [src]="s.img" [alt]="s.alt || s.title" />
+          <img *ngIf="s.img" [src]="s.img" [alt]="s.altKey | translate" />
         </div>
 
         <div class="content">
-          <!-- Si tu array trae claves i18n, usa s.titleKey/s.excerptKey -->
-          <h3>{{ s.title | translate }}</h3>
-          <p>{{ s.excerpt | translate }}</p>
+          <!-- Usando claves i18n para título y descripción -->
+          <h3>{{ s.titleKey | translate }}</h3>
+          <p>{{ s.excerptKey | translate }}</p>
         </div>
       </article>
     </div>

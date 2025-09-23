@@ -4,7 +4,7 @@
   background: transparent;
 
   .container {
-    max-width: 1100px;
+    max-width: 70%;
     width: 100%;
     margin: 0 auto;
   }
@@ -62,7 +62,7 @@
 
   /* Imagen derecha */
   .hero-image {
-    display: flex; justify-content: flex-end;
+    display: flex; justify-content: center;
     .doctor-photo {
       width: min(100%, 520px);
       aspect-ratio: 4 / 5;
@@ -103,7 +103,7 @@
   padding-top: 0; /* un poco más compacta que otras secciones */
 
   .container {
-    max-width: 1100px;
+    max-width: 70%;
     width: 92%;
     margin: 0 auto;
   }
@@ -144,8 +144,8 @@
     }
 
     .media {
-      height: 240px; /* alto fijo para que todas se vean parejas */
-      @media (min-width: 1280px) { height: 260px; }
+      height: 300px; /* alto fijo para que todas se vean parejas */
+      @media (min-width: 1280px) { height: 300px; }
 
       img {
         width: 100%;

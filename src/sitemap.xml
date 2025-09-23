@@ -1,21 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ===== HOME ===== -->
   <url>
-    <loc>https://drasoranydiaz.com/es</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://alquimiadental.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es"/>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drasoranydiaz.com/en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://drasoranydiaz.com/es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drasoranydiaz.com/es"/>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://drasoranydiaz.com/en</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://alquimiadental.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es"/>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://drasoranydiaz.com/en"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://drasoranydiaz.com/es"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://drasoranydiaz.com/es"/>
+    <changefreq>monthly</changefreq>
   </url>
+
+  <!-- ===== ABOUT / ALQUIMIA DENTAL ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/about"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/about"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ===== SERVICES ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/services</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/services"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/services"/>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/services"/>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ===== GALLERY ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/gallery</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/gallery"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/gallery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/gallery"/>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/gallery</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/gallery"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/gallery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/gallery"/>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ===== BLOG ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/blog</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/blog"/>
+    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/blog"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/blog"/>
+    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- ===== OPINIONS / TESTIMONIALS ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/opinions</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/opinions"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/opinions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/opinions"/>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/opinions</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/opinions"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/opinions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/opinions"/>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ===== ALQUIMIA DENTAL (marca) ===== -->
+  <url>
+    <loc>https://alquimiadental.com/es/alquimia-dental</loc>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/alquimia-dental"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/alquimia-dental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/alquimia-dental"/>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://alquimiadental.com/en/alquimia-dental</loc>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://alquimiadental.com/en/alquimia-dental"/>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://alquimiadental.com/es/alquimia-dental"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alquimiadental.com/es/alquimia-dental"/>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>

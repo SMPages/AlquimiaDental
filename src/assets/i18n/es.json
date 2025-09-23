@@ -18,9 +18,9 @@
     }
   },
    "hero": {
-    "title": "Dra. Sorany Díaz",
-    "subtitle": "Odontologa especialista en estética dental en Bogotá",
-    "description": "Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.",
+    "title": "Odontología Estética en Bogotá – Diseño de Sonrisa | Dra. Sorany Díaz",
+    "subtitle": "Sonríe con confianza: especialista en estética dental, implantes y rehabilitación oral.",
+    "description": "Combinamos ciencia, arte y calidez humana para transformar sonrisas y brindar tratamientos de alta calidad a pacientes de Bogotá y del exterior.",
     "ctaPrimary": "Agenda tu cita",
     "imageAlt": "Odontóloga especialista en estética dental en Bogotá",
     "mediaMention": "Mencionada en",
@@ -63,12 +63,12 @@
       },
       "cleaning": {
         "title": "Limpieza dental profesional",
-        "desc": "Son láminas ultrafinas de cerámica que se adhieren a la superficie frontal de los dientes para mejorar su forma, color y tamaño.<p><strong>Alta estética:</strong> logran un aspecto totalmente natural, similar al esmalte.<br><strong>Durabilidad:</strong> son resistentes y mantienen su color con el tiempo.<br><strong>Conservadoras:</strong> requieren un desgaste mínimo del diente.<br><strong>Versátiles:</strong> corrigen fracturas, espacios, manchas y desarmonías dentales.</p><p>Con ellas, tu sonrisa no solo cambia por fuera… también refleja la seguridad y confianza que llevas dentro.</p>",
+        "desc": "La limpieza dental profesional es un procedimiento fundamental para mantener la salud de tu boca. <p>Elimina la placa bacteriana y el sarro que el cepillado diario no puede retirar, previniendo caries y enfermedades de las encías.</p><p>Beneficios:</p><ul><li>Remueve manchas superficiales y mejora el aspecto de los dientes.</li><li>Elimina el mal aliento causado por bacterias acumuladas.</li><li>Permite la detección temprana de problemas bucales.</li><li>Contribuye al bienestar general y la confianza en tu sonrisa.</li></ul><p>Realizarse limpiezas periódicas es clave para disfrutar de una boca sana, fresca y una sonrisa más radiante.</p>",        
         "alt": "Limpieza dental profesional"
       },
       "jewelry": {
         "title": "Joyas Dentales – Grillz Oro / Plata",
-        "desc": "Personaliza tu sonrisa con diseños seguros y a medida.",
+        "desc": "Las joyas dentales y grillz de oro/plata son accesorios decorativos removibles que se colocan en uno o varios dientes para personalizar tu sonrisa con estilo propio. <p>Se fabrican a medida, utilizando metales valiosos como oro y plata, y pueden incluir diseños únicos según tu preferencia.</p><p>Beneficios:</p><ul><li>Expresión estética exclusiva y personalizada.</li><li>Colocación segura por profesionales.</li><li>Opción removible, sin daño al diente natural.</li></ul><p>Pide asesoría odontológica para disfrutar tu joya dental con seguridad y confianza.</p>",        
         "alt": "Joyas dentales y grillz"
       },
       "smileDesign": {
@@ -215,5 +215,33 @@
     "rights": "Todos los derechos reservados",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
+  },
+  "services_hero": {
+  "title": "Nuestros servicios",
+  "subtitle": "Tratamientos especializados para tu sonrisa",
+  "ctaText": "¿Listo para transformar tu sonrisa? Agenda una valoración.",
+  "ctaButton": "Agenda tu cita",
+  "items": {
+    "carillas": {
+      "title": "Diseño de sonrisa en resina de alta estética",
+      "desc": "Son una alternativa estética y conservadora para transformar tu sonrisa sin tallar tus dientes naturales.",
+      "alt": "Resinas directas sin desgaste"
+    },
+    "protesis-total": {
+      "title": "Prótesis total",
+      "desc": "Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.",
+      "alt": "Prótesis total"
+    },
+    "limpieza-dental": {
+      "title": "Rehabilitación completa con coronas cerámicas",
+      "desc": "La rehabilitación completa con coronas cerámicas es un tratamiento integral de odontología restauradora y estética en el que se recubren todos los dientes con coronas de cerámica de alta estética y resistencia.",
+      "alt": "Rehabilitación completa con coronas cerámicas"
+    },
+    "blanqueamiento": {
+      "title": "Blanqueamiento",
+      "desc": "Blanqueamiento seguro y efectivo. Aclara varios tonos controlando la sensibilidad y cuidando el esmalte.",
+      "alt": "Blanqueamiento dental"
+    }
   }
+}
 }
