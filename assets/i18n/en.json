@@ -1,0 +1,218 @@
+{
+  "brand": "Alquimia Dental®",
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blog": "Blog",
+    "opinions": "Testimonials"
+  },
+  "header": {
+    "bookCta": "Book with me",
+    "admin": "Admin"
+  },
+  "home": {
+    "featured": {
+      "title": "Featured treatments"
+    }
+  },
+  "hero": {
+    "title": "Dr. Sorany Díaz",
+    "subtitle": "Dentist specializing in dental aesthetics in Bogotá",
+    "description": "We transform smiles through cosmetic dentistry, implants, and oral rehabilitation. Patients from different countries travel to Bogotá to trust our experience and human touch.",
+    "ctaPrimary": "Book your appointment",
+    "imageAlt": "Cosmetic dentistry specialist in Bogotá",
+    "mediaMention": "Featured in",
+    "mediaMentionAria": "Open article on Rolling Stone",
+    "mediaLogoAlt": "Rolling Stone logo",
+    "proposal": {
+      "text": "is the vision of Dr. Sorany Díaz: a comprehensive approach that brings together aesthetics, health, and an exceptional human experience."
+    },
+    "ctaSecondary": "Discover the brand",
+    "ctaSecondaryAria": "Discover the Alquimia Dental brand",
+    "whatsappAria": "Chat on WhatsApp to book an appointment"
+  },
+  "clinic": {
+    "title": "Alquimia Dental® — the vision of Dr. Sorany Díaz",
+    "photo1Alt": "Dental clinic reception",
+    "photo2Alt": "Dental care area",
+    "photo3Alt": "Modern dental equipment"
+  },
+"services": {
+  "title": "Our Services",
+  "subtitle": "Specialized treatments for your smile",
+  "ctaText": "Ready to transform your smile? Book a consultation.",
+  "ctaButton": "Book your appointment",
+  "items": {
+    "digital": {
+      "title": "Digital Dentistry",
+      "desc": "Digital dentistry integrates advanced technology such as intraoral scanners, 3D software, and CAD/CAM systems to provide precise diagnoses and personalized treatments. <p>This approach enhances patient comfort, reduces intervention time, and enables highly aesthetic and functional results.</p><p>With digital dentistry, each procedure is carefully planned, facilitating durable restorations, advanced orthodontics, and custom-made prosthetics.</p><p>This is the future of dentistry—it combines innovation, efficiency, and personalized care to optimize your oral health.</p>",
+      "alt": "Digital dentistry"
+    },
+    "whitening": {
+      "title": "Teeth Whitening",
+      "desc": "Teeth whitening is an aesthetic treatment that improves the color of the teeth, removing stains and brightening their natural shade. <p>It is a safe and effective procedure that can be performed in-office or at home, tailored to each patient’s needs.</p><p>Benefits:</p><ul><li>Enhances your smile and self-confidence.</li><li>Visible results in just a few sessions.</li><li>Quick, minimally invasive procedure.</li></ul><p>An ideal treatment for those seeking a whiter, more radiant smile.</p>",        
+      "alt": "Teeth whitening"
+    },
+    "veneers": {
+      "title": "Ceramic Veneers (Cosmetic Smile Design)",
+      "desc": "These are ultra-thin ceramic shells bonded to the front surface of your teeth to improve their shape, color, and size.<p><strong>Highly aesthetic:</strong> Achieve a totally natural appearance, similar to enamel.<br><strong>Durable:</strong> Resistant and color-stable over time.<br><strong>Conservative:</strong> Require minimal tooth reduction.<br><strong>Versatile:</strong> Correct chips, spaces, stains, and dental discrepancies.</p><p>With veneers, your smile not only changes externally—it also reflects the confidence and assurance within.</p>",
+      "alt": "Ceramic veneers and lumineers"
+    },
+    "cleaning": {
+      "title": "Professional Dental Cleaning",
+      "desc": "Professional dental cleaning removes plaque and tartar buildup to prevent gum disease and cavities.<p>This procedure leaves your mouth feeling fresh and helps maintain long-term oral health.<br><strong>Benefits:</strong><ul><li>Removes stain and bacteria not eliminated by everyday brushing.</li><li>Promotes healthy gums and prevents inflammation.</li><li>Polishes enamel for a brighter smile.</li></ul></p>Regular cleanings are essential for a healthy, radiant smile.",
+      "alt": "Professional dental cleaning"
+    },
+    "jewelry": {
+      "title": "Dental Jewelry – Gold / Silver Grillz",
+      "desc": "Customize your smile with safe, tailor-made designs.",
+      "alt": "Dental jewelry and grillz"
+    },
+    "smileDesign": {
+      "title": "Advanced Smile Design",
+      "desc": "This is a personalized treatment designed to harmonize the shape, color, and size of your teeth with your facial features.<p><strong>Aesthetic and functional:</strong> Not only does it improve the beauty of your smile, it also supports chewing and oral health.<br><strong>Personalized:</strong> Each design is tailored to your personality, features, and expectations.<br><strong>Versatile:</strong> May include resins, veneers, crowns, or other procedures as needed.<br><strong>Transformative:</strong> A renewed smile has a direct impact on your confidence and security.</p><p>Smile design doesn’t change who you are… it brings out your best and restores your confidence to smile without limits.</p>",
+      "alt": "High-aesthetic smile design"
+    },
+    "rehabImplant": {
+      "title": "Rehabilitation with Metal Core",
+      "desc": "Rehabilitation with a metal core is a dental procedure that restores tooth structure using custom-fitted metal posts as a base for crowns or bridges. <p>These cores are made to provide exceptional mechanical strength and stability, especially in teeth that have lost significant structure.</p> <p>Advantages:</p> <ul> <li>High durability and resistance to chewing forces.</li> <li>Provides strong support for final restorations.</li> <li>Helps preserve and fortify weakened teeth.</li> </ul> <p>This type of rehabilitation is widely used to restore function and aesthetics in endodontically treated or severely damaged teeth, ensuring a healthy, functional smile.</p>",
+      "alt": "Oral rehabilitation and implantology"
+    },
+    "prosthesis": {
+      "title": "Complete Denture",
+      "desc": "A removable device designed to replace all teeth when lost in one or both arches.<p>Main benefits:</p><ul><li>Restores chewing function and phonetics.</li><li>Supports lips and face, improving overall facial aesthetics.</li><li>Restores confidence by enabling you to smile and speak securely.</li></ul><p>Modern dentures are crafted with advanced techniques that provide greater comfort, better fit, and a much more natural appearance.</p><p>Regaining your smile also means reclaiming your quality of life.</p>",
+      "alt": "Complete denture"
+    },
+    "prosthesis2": {
+      "title": "Bio-characterized Acrylic Dentures",
+      "desc": "These removable acrylic dentures go beyond just replacing teeth: they are designed to closely mimic natural gum and tooth tissues, resulting in a harmonious and realistic smile.<p><strong>Benefits:</strong></p><ul><li>Gums characterized with natural shades and textures.</li><li>Teeth with lifelike color and shapes.</li><li>Greater comfort and adaptability.</li><li>A functional, aesthetic, and affordable option to restore your smile.</li></ul><p>With bio-characterized acrylic dentures, you not only regain your ability to chew and smile—you also regain the confidence to look and feel your best.</p>",
+      "alt": "Bio-characterized acrylic dentures"
+    },
+    "Bordeincisal": {
+      "title": "Incisal Edge",
+      "desc": "This is the thinnest and most translucent part of the front teeth (incisors), the area that directly contacts food during biting.<p><strong>Importance:</strong></p><ul><li>Contributes naturalness and brightness to your smile.</li><li>Its shape and length influence facial harmony.</li><li>If worn or fractured, it can affect both aesthetics and function.</li></ul><p>Using resins, veneers, or crowns, it is possible to restore the incisal edge, regaining balance, beauty, and health for your smile.</p>",
+      "alt": "Incisal edge"
+    }
+  }
+},
+  "alquimia": {
+    "title": "Alquimia Dental",
+    "lead": "Dentistry is not only technique or aesthetics — it is {{t}}.",
+    "copy": "Just like ancient alchemy sought to turn metals into gold, our purpose is to transform pain, insecurity, or wear into {{b}}, {{c}}, and {{l}}.",
+    "philosophy": {
+      "title": "Brand philosophy",
+      "quote": "A renewed smile is not only aligned or white teeth; it is a mirror of the soul that reflects self-love, confidence, and personal power.",
+      "p1": "Here, every treatment becomes a ritual of transformation: each veneer, smile design, and aesthetic detail is a key that opens doors to a new version of yourself.",
+      "bullets": {
+        "science": "High-precision dental science.",
+        "art": "Aesthetic art to enhance your natural beauty.",
+        "connection": "Emotional and spiritual connection: smiling is also healing."
+      }
+    },
+    "proposal": {
+      "text": "What are you waiting for to transform your smile at Alquimia Dental®?"
+    },
+    "cta": {
+      "book": "Book an evaluation",
+      "book_aria": "Open WhatsApp to book an evaluation",
+      "seeTreatments": "See treatments"
+    },
+    "media": {
+      "viewOnIg": "Watch the video on Instagram:"
+    },
+    "band": {
+      "text": "Your smile is your signature, your light, and your alchemy. 🌟",
+      "cta": "Start my transformation"
+    }
+  },
+  "alquimiaWords": {
+    "transform": "transformation",
+    "beauty": "beauty",
+    "confidence": "confidence",
+    "innerLight": "inner light"
+  },
+  "testimonials": {
+    "title": "💬 Stories from my patients",
+    "subtitle": "Every patient brings a dream. Here you’ll find real stories from those who trusted Alquimia Dental to smile with confidence again.",
+    "moreText": "Want to read more real reviews?",
+    "moreButton": "See more on Google",
+    "moreAria": "Open Google reviews",
+    "items": {
+      "alejandra": {
+        "author": "Alejandra Cabarique Garcia",
+        "text": "“A professional dedicated to her patients, very responsible and detail-oriented; but also human and full of empathy. It’s the first time I’ve found a dentist who doesn’t scare me during procedures. I recommend her 😌”"
+      },
+      "milena": {
+        "author": "Milena Gracia",
+        "text": "“I’d like to express my complete satisfaction with the service provided by Dr. Sorany, who gave me a smile design that exceeded all my expectations. From the first moment she showed professionalism, guiding me clearly and thoroughly through the entire process. The result gave me great confidence when smiling. She used top-quality materials and her recommendations were very clear. Totally recommended!”"
+      },
+      "carlos": {
+        "author": "Carlos Libardo Lopez Penaloza",
+        "text": "“I used to be terrified of dentists… and with Dr. Sorany I found a professional who understands nervous patients like me. I was so delighted that I recommended many friends and brought my son for treatment. Thank you so much!”"
+      },
+      "angelica": {
+        "author": "Angélica Parra",
+        "text": "“Excellent work! I went in urgently for a broken filling. They treated me warmly and professionally, explaining not only the urgent issue but also the general state of my teeth. Recommended for her polished work: I was very happy with the result.”"
+      },
+      "brigitte": {
+        "author": "Brigitte Martinez D.",
+        "text": "“Excellent oral rehabilitator. I had an emergency with my veneers and Dr. Sorany explained and recommended what was best for my dental health. After the procedure the result was wonderful: she gave me my smile back. Highly recommended!”"
+      },
+      "john": {
+        "author": "John Ortiz",
+        "text": "“I recommend Dr. Sorany’s work. She is very punctual and clear from the start without stretching out or overpricing the treatment. She made 2 crowns and several fillings for me; I was very satisfied with her work.”"
+      },
+      "dayanna": {
+        "author": "Dayanna Sánchez",
+        "text": "“Dr. Sorany has treated me for more than 8 years and she is a great professional. Her diagnoses are always accurate and her way of working is impeccable. Highly recommended.”"
+      }
+    }
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Dentistry with science, art, and soul",
+    "imageAlt": "Dr. Sorany Díaz, Dentist specializing in oral rehabilitation and aesthetics in Popayán",
+    "intro1": "👩🏻‍⚕️ I’m Dr. Sorany Díaz Pechene, a specialist in oral rehabilitation and aesthetics.",
+    "intro2": "In my practice I follow what I call",
+    "introStrong": "dental alchemy",
+    "intro3": ": transforming every smile with a human, personalized, and cutting-edge approach.",
+    "philosophy": "For me, every treatment goes beyond fillings, veneers, or crowns: it’s a process of trust, self-esteem, and personal transformation.",
+    "servicesTitle": "Featured services",
+    "ctaText": "Every smile can become a new story. Start yours today.",
+    "ctaBtn": "Book your appointment",
+    "yearsExperience": "Years of experience",
+    "happyPatients": "Happy patients",
+    "successRate": "Success rate",
+    "internationalPatients": "International patients"
+  },
+  "media": {
+    "title": "📰 In the media",
+    "subtitle": "Mentions and articles where I’ve shared my work at Alquimia Dental®.",
+    "featured": {
+      "source": "Rolling Stone",
+      "headline": "The art of reinventing smiles",
+      "excerpt": "I am a specialist in oral rehabilitation and I devote my work to uniting science and aesthetics to transform smiles with health and confidence.",
+      "readMore": "Read full article",
+      "imageAlt": "Cover of the article The art of reinventing smiles",
+      "linkAria": "Open article: The art of reinventing smiles (Rolling Stone)"
+    }
+  },
+  "gallery": {
+    "title": "Before & after",
+    "subtitle": "I’m Dr. Sorany Díaz. Alquimia Dental is my way of understanding dentistry: science and art to turn insecurities into confidence. Sometimes a detail is enough; other times, it takes full rehabilitation. In every case, the goal is the same: that your smile reflects your best self and that you feel happy with it. 💎✨",
+    "moreCta": "See more cases on Instagram",
+    "items": {
+      "case1": { "title": "Full-arch implant rehabilitation", "desc": "Function and aesthetics restored with implant-supported prostheses.", "alt": "Full arch rehabilitation" },
+      "case2": { "title": "Smile design — Ceramic veneers", "desc": "Personalized aesthetic planning, mock-up, and natural finish.", "alt": "Smile design and veneers" },
+      "case3": { "title": "Teeth whitening", "desc": "Lighten several shades safely and in a controlled way.", "alt": "Teeth whitening" }
+    }
+  },
+  "footer": {
+    "slogan": "Transforming smiles with science, art, and soul",
+    "rights": "All rights reserved",
+    "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
+    "brand": "Alquimia Dental®"
+  }
+}

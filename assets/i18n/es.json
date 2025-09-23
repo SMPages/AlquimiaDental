@@ -1,0 +1,219 @@
+{
+  "brand": "Alquimia Dental®",
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de mí",
+    "services": "Servicios",
+    "gallery": "Galería",
+    "blog": "Artículos",
+    "opinions": "Opiniones"
+  },
+  "header": {
+    "bookCta": "Agenda conmigo",
+    "admin": "Admin"
+  },
+  "home": {
+    "featured": {
+      "title": "Tratamientos destacados"
+    }
+  },
+   "hero": {
+    "title": "Dra. Sorany Díaz",
+    "subtitle": "Odontologa especialista en estética dental en Bogotá",
+    "description": "Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.",
+    "ctaPrimary": "Agenda tu cita",
+    "imageAlt": "Odontóloga especialista en estética dental en Bogotá",
+    "mediaMention": "Mencionada en",
+    "mediaMentionAria": "Abrir artículo en Rolling Stone",
+    "mediaLogoAlt": "Logo de Rolling Stone",
+    "proposal": {
+      "text": "es la visión de la Dra. Sorany Díaz: un enfoque integral que combina estética, salud y una experiencia humana excepcional."
+    },
+    
+    "ctaSecondary": "Conoce la marca",
+    "ctaSecondaryAria": "Conocer la marca Alquimia Dental",
+    "whatsappAria": "Chatear por WhatsApp para agendar cita"
+  },
+  "clinic": {
+    "title": "Alquimia dental® la visión de la Dra Sorany Díaz",
+    "photo1Alt": "Recepción del consultorio dental",
+    "photo2Alt": "Área de atención odontológica",
+    "photo3Alt": "Equipo odontológico moderno"
+  },
+  "services": {
+    "title": "Nuestros servicios",
+    "subtitle": "Tratamientos especializados para tu sonrisa",
+    "ctaText": "¿Listo para transformar tu sonrisa? Agenda una valoración.",
+    "ctaButton": "Agenda tu cita",
+    "items": {
+      "digital": {
+        "title": "Odontología Digital",
+        "desc": "La odontología digital integra tecnología avanzada como escáneres intraorales, software 3D y sistemas CAD/CAM para ofrecer diagnósticos precisos y tratamientos personalizados. <p>Este enfoque mejora la comodidad del paciente, reduce tiempos de intervención y permite resultados altamente estéticos y funcionales.</p><p>Con la odontología digital, cada procedimiento es planificado con precisión, facilitando restauraciones duraderas, ortodoncia avanzada y prótesis hechas a medida.</p><p>Es el futuro de la odontología que combina innovación, eficiencia y cuidado individualizado para optimizar tu salud bucal.</p>",
+        "alt": "Odontología digital"
+      },
+      "whitening": {
+        "title": "Blanqueamiento dental",
+        "desc": "El blanqueamiento dental es un tratamiento estético que mejora el color de los dientes, eliminando manchas y aclarando su tono natural. <p>Es un procedimiento seguro y eficaz que puede realizarse en consultorio o de forma ambulatoria, adaptándose a las necesidades de cada paciente.</p><p>Beneficios:</p><ul><li>Mejora la sonrisa y la confianza personal.</li><li>Resultados visibles en pocas sesiones.</li><li>Procedimiento rápido y mínimamente invasivo.</li></ul><p>Un tratamiento ideal para quienes desean una sonrisa más blanca y radiante.</p>",        
+        "alt": "Blanqueamiento dental"
+      },
+      "veneers": {
+        "title": "Carillas cerámicas (Diseño de sonrisa ceramicas)",
+        "desc": "Son láminas ultrafinas de cerámica que se adhieren a la superficie frontal de los dientes para mejorar su forma, color y tamaño.<p><strong>Alta estética:</strong> logran un aspecto totalmente natural, similar al esmalte.<br><strong>Durabilidad:</strong> son resistentes y mantienen su color con el tiempo.<br><strong>Conservadoras:</strong> requieren un desgaste mínimo del diente.<br><strong>Versátiles:</strong> corrigen fracturas, espacios, manchas y desarmonías dentales.</p><p>Con ellas, tu sonrisa no solo cambia por fuera… también refleja la seguridad y confianza que llevas dentro.</p>",
+        "alt": "Lentes y carillas cerámicas"
+      },
+      "cleaning": {
+        "title": "Limpieza dental profesional",
+        "desc": "Son láminas ultrafinas de cerámica que se adhieren a la superficie frontal de los dientes para mejorar su forma, color y tamaño.<p><strong>Alta estética:</strong> logran un aspecto totalmente natural, similar al esmalte.<br><strong>Durabilidad:</strong> son resistentes y mantienen su color con el tiempo.<br><strong>Conservadoras:</strong> requieren un desgaste mínimo del diente.<br><strong>Versátiles:</strong> corrigen fracturas, espacios, manchas y desarmonías dentales.</p><p>Con ellas, tu sonrisa no solo cambia por fuera… también refleja la seguridad y confianza que llevas dentro.</p>",
+        "alt": "Limpieza dental profesional"
+      },
+      "jewelry": {
+        "title": "Joyas Dentales – Grillz Oro / Plata",
+        "desc": "Personaliza tu sonrisa con diseños seguros y a medida.",
+        "alt": "Joyas dentales y grillz"
+      },
+      "smileDesign": {
+        "title": "Diseños de sonrisa de alta estética",
+        "desc": "Es un tratamiento personalizado que busca armonizar la forma, el color y el tamaño de tus dientes con los rasgos de tu rostro.<p><strong>Estético y funcional:</strong> no solo mejora la belleza de tu sonrisa, también favorece la masticación y la salud oral.<br><strong>Personalizado:</strong> cada diseño se adapta a tu personalidad, facciones y expectativas.<br><strong>Versátil:</strong> puede incluir resinas, carillas, coronas u otros procedimientos según tus necesidades.<br><strong>Transformador:</strong> una sonrisa renovada impacta directamente en tu seguridad y confianza.</p><p>El diseño de sonrisa no cambia quién eres… resalta lo mejor de ti y te devuelve la certeza de sonreír sin límites.</p>",
+        "alt": "Diseño de sonrisa de alta estética"
+      },
+      "rehabImplant": {
+        "title": "Rehabilitación sobre nucleo metálico",
+        "desc": "La rehabilitación sobre núcleo metálico es un procedimiento dental que consiste en restaurar la estructura dental utilizando núcleos de metal como base para soportar coronas o puentes. <p>Estos núcleos se fabrican a medida para ofrecer una excelente resistencia mecánica y estabilidad, especialmente en dientes con pérdida significativa de estructura.</p> <p>Ventajas:</p> <ul> <li>Alta durabilidad y resistencia a las fuerzas masticatorias.</li> <li>Proporciona soporte firme para la restauración definitiva.</li> <li>Permite conservar y fortalecer dientes debilitados.</li> </ul> <p>Este tipo de rehabilitación es ampliamente usado para devolver función y estética en dientes tratados endodónticamente o con daños importantes, garantizando una sonrisa saludable y funcional.</p>",
+        "alt": "Rehabilitación e implantología oral"
+      },
+      "prosthesis": {
+        "title": "Prótesis total",
+        "desc": "Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.<p>Beneficios principales:</p><ul><li>Recupera la función masticatoria y la fonética.</li><li>Devuelve soporte a los labios y al rostro, mejorando la estética facial.</li><li>Restaura la confianza al poder sonreír y hablar con seguridad.</li></ul><p>Hoy en día las prótesis totales se diseñan con técnicas avanzadas que ofrecen mayor comodidad, adaptación y un aspecto mucho más natural.</p><p>Porque recuperar tu sonrisa también significa recuperar calidad de vida.</p>",
+        "alt": "Prótesis total"
+      },
+       "prosthesis2": {
+        "title": "Protesis acrílicas biocaracterizadas",
+        "desc": "Son prótesis removibles elaboradas en acrílico que van más allá de reemplazar dientes: están diseñadas para imitar con detalle la <strong>naturalidad de la encía y de los dientes</strong>, logrando una sonrisa armónica y realista.<p><strong>Beneficios:</strong></p><ul><li>Encías caracterizadas con matices y texturas naturales.</li><li>Dientes con colores y formas que se asemejan a los naturales.</li><li>Mayor comodidad y adaptación.</li><li>Una opción funcional, estética y accesible para recuperar tu sonrisa.</li></ul><p>Con las prótesis acrílicas biocaracterizadas, no solo vuelves a masticar y sonreír… también recuperas la seguridad de verte y sentirte bien.</p>",
+        "alt": "Protesis acrílicas biocaracterizadas"
+      },
+      "Bordeincisal": {
+        "title": "Borde incisal",
+        "desc": "Es la zona más fina y transparente de los dientes anteriores (incisivos), la que entra en contacto directo al cortar los alimentos.<p><strong>Importancia:</strong></p><ul><li>Aporta naturalidad y luminosidad a la sonrisa.</li><li>Su forma y longitud influyen en la armonía facial.</li><li>Si se desgasta o fractura, puede afectar tanto la estética como la función.</li></ul><p>Con resinas, carillas o coronas es posible <strong>restaurar el borde incisal</strong>, devolviendo equilibrio, belleza y salud a tu sonrisa.</p>",
+        "alt": "Borde incisal"
+      }
+    }
+  },
+   "alquimia": {
+    "title": "Alquimia Dental",
+    "lead": "La odontología no es solo técnica ni estética: es {{t}}.",
+    "copy": "Así como la alquimia antigua buscaba convertir los metales en oro, nuestro propósito es transformar el dolor, la inseguridad o el desgaste en {{b}}, {{c}} y {{l}}.",
+    "philosophy": {
+      "title": "Filosofía de marca",
+      "quote": "Una sonrisa renovada no es solamente dientes alineados o blancos; es un espejo del alma que refleja amor propio, seguridad y poder personal.",
+      "p1": "Aquí, cada tratamiento se convierte en un ritual de transformación: cada carilla, cada diseño de sonrisa y cada detalle estético es una llave que abre puertas a una nueva versión de ti.",
+      "bullets": {
+        "science": "Ciencia odontológica de alta precisión.",
+        "art": "Arte estético para realzar tu belleza natural.",
+        "connection": "Conexión emocional y espiritual: sonreír también es sanar."
+      }
+    },
+    "proposal": {
+      "text": "¿Qué esperas para transformar tu sonrisa en Alquimia Dental®?"
+    },
+    "cta": {
+      "book": "Agendar valoración",
+      "book_aria": "Abrir WhatsApp para agendar valoración",
+      "seeTreatments": "Ver tratamientos"
+    },
+    "media": {
+      "viewOnIg": "Mira el video en Instagram:"
+    },
+    "band": {
+      "text": "Tu sonrisa es tu sello, tu luz y tu alquimia. 🌟",
+      "cta": "Empezar mi transformación"
+    }
+  },
+  "alquimiaWords": {
+    "transform": "transformación",
+    "beauty": "belleza",
+    "confidence": "confianza",
+    "innerLight": "luz interior"
+  },
+  "testimonials": {
+    "title": "💬 Historias de mis pacientes",
+    "subtitle": "Cada paciente trae un sueño. Aquí encontrarás relatos reales de quienes confiaron en Alquimia Dental para volver a sonreír con seguridad.",
+    "moreText": "¿Quieres ver más reseñas reales?",
+    "moreButton": "Ver más en Google",
+    "moreAria": "Abrir reseñas en Google",
+    "items": {
+      "alejandra": {
+        "author": "Alejandra Cabarique Garcia",
+        "text": "“Una profesional dedicada a sus pacientes, muy responsable y detallista en su trabajo; pero humana y llena de empatía. Es la primera vez que encuentro una odontóloga que no me da temor ni miedo en los procedimientos, la recomiendo 😌”"
+      },
+      "milena": {
+        "author": "Milena Gracia",
+        "text": "“Me gustaría expresar mi total satisfacción con el servicio brindado por la Dra. Sorany, quien me realizó un diseño de sonrisa que superó todas mis expectativas. Desde el primer momento demostró profesionalismo, guiándome de manera clara y detallada a lo largo de todo el proceso. El resultado me dio mucha confianza al sonreír. Utilizó materiales de excelente calidad y sus recomendaciones fueron muy claras. ¡Totalmente recomendada!”"
+      },
+      "carlos": {
+        "author": "Carlos Libardo Lopez Penaloza",
+        "text": "“Yo le tenía pavor a los odontólogos... y en la Dra. Sorany encontré una profesional comprensiva para personas nerviosas como yo. Quedé tan encantado que recomendé a muchos de mis amigos y traje a mi hijo para sus tratamientos. ¡Muchas gracias!”"
+      },
+      "angelica": {
+        "author": "Angélica Parra",
+        "text": "“¡Excelente trabajo! Acudí con urgencia por el quiebre de una resina. Me atendieron con calidez y profesionalismo, explicándome no solo el daño de mi urgencia sino también el estado general de mis dientes. Recomendada por su trabajo tan pulido: quedé muy feliz con el resultado.”"
+      },
+      "brigitte": {
+        "author": "Brigitte Martinez D.",
+        "text": "“Excelente rehabilitadora oral. Me surgió una emergencia con mis carillas y la Dra. Sorany me explicó y recomendó lo mejor para mi salud dental. Después del procedimiento el resultado fue maravilloso: me devolvió la sonrisa. ¡Muy recomendada!”"
+      },
+      "john": {
+        "author": "John Ortiz",
+        "text": "“Recomiendo el trabajo de la Dra. Sorany. Es muy cumplida y clara desde el principio sin extender el tratamiento ni encarecerlo. Me realizó 2 coronas y varias resinas; quedé muy satisfecho con su trabajo.”"
+      },
+      "dayanna": {
+        "author": "Dayanna Sánchez",
+        "text": "“La Dra. Sorany me ha atendido por más de 8 años y es una gran profesional. Sus diagnósticos siempre son acertados y su forma de trabajar es impecable. Muy recomendada.”"
+      }
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Odontología con ciencia, arte y alma",
+    "imageAlt": "Dra. Sorany Díaz, odontologa especialista en rehabilitación y estética oral en Popayán",
+    "intro1": "👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.",
+    "intro2": "En mi consultorio practico lo que llamo",
+    "introStrong": "alquimia dental",
+    "intro3": ": transformar cada sonrisa con un enfoque humano, personalizado y de vanguardia.",
+    "philosophy": "Para mí, cada tratamiento va más allá de resinas, carillas o coronas: es un proceso de confianza, autoestima y transformación personal.",
+    "servicesTitle": "Servicios destacados",
+    "ctaText": "Cada sonrisa puede ser una nueva historia. Empieza la tuya hoy mismo.",
+    "ctaBtn": "Agenda tu cita",
+    "yearsExperience": "Años de experiencia",
+    "happyPatients": "Pacientes felices",
+    "successRate": "Índice de éxito",
+    "internationalPatients": "Pacientes internacionales"
+  },
+  "media": {
+    "title": "📰 En los medios",
+    "subtitle": "Menciones y artículos donde he compartido mi trabajo en Alquimia Dental®.",
+    "featured": {
+      "source": "Rolling Stone",
+      "headline": "El arte de reinventar sonrisas",
+      "excerpt": "Soy especialista en rehabilitación oral y dedico mi trabajo a unir ciencia y estética para transformar sonrisas con salud y confianza.",
+      "readMore": "Leer artículo completo",
+      "imageAlt": "Portada del artículo El arte de reinventar sonrisas",
+      "linkAria": "Abrir artículo: El arte de reinventar sonrisas (Rolling Stone)"
+    }
+  },
+  "gallery": {
+    "title": "Antes y después",
+    "subtitle": "Soy la Dra. Sorany Díaz. Alquimia Dental es mi manera de entender la odontología: ciencia y arte para convertir inseguridades en confianza. A veces basta un detalle; otras, una rehabilitación completa. En todos los casos, el objetivo es el mismo: que tu sonrisa refleje tu mejor versión y que te sientas feliz con ella. 💎✨",
+    "moreCta": "Ver más casos en Instagram",
+    "items": {
+      "case1": { "title": "Rehabilitación total sobre implantes", "desc": "Función y estética recuperadas con prótesis sobre implantes.", "alt": "Rehabilitación total" },
+      "case2": { "title": "Diseño de sonrisa – Carillas cerámicas", "desc": "Planeación estética personalizada, mock-up y acabado natural.", "alt": "Diseño de sonrisa y carillas" },
+      "case3": { "title": "Blanqueamiento dental", "desc": "Aclara varios tonos de forma segura y controlada.", "alt": "Blanqueamiento dental" }
+    }
+  },
+ "footer": {
+    "slogan": "Transformando sonrisas con ciencia, arte y alma",
+    "rights": "Todos los derechos reservados",
+    "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
+    "brand": "Alquimia Dental®"
+  }
+}
