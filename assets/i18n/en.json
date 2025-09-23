@@ -214,5 +214,33 @@
     "rights": "All rights reserved",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
+  },
+"services_hero": {
+  "title": "Our Services",
+  "subtitle": "Specialized treatments for your smile",
+  "ctaText": "Ready to transform your smile? Book a consultation.",
+  "ctaButton": "Book your appointment",
+  "items": {
+    "carillas": {
+      "title": "High-aesthetic resin smile design",
+      "desc": "A conservative, aesthetic option to transform your smile without shaving your natural teeth.",
+      "alt": "No-prep direct resins"
+    },
+    "protesis-total": {
+      "title": "Complete denture",
+      "desc": "A removable device designed to replace all teeth when they have been lost in one or both arches.",
+      "alt": "Complete denture"
+    },
+    "limpieza-dental": {
+      "title": "Full-mouth rehabilitation with ceramic crowns",
+      "desc": "An integrated restorative and aesthetic treatment that covers all teeth with high-aesthetic, high-strength ceramic crowns.",
+      "alt": "Full rehabilitation with ceramic crowns"
+    },
+    "blanqueamiento": {
+      "title": "Teeth whitening",
+      "desc": "Safe, effective whitening. Brightens several shades while managing sensitivity and protecting enamel.",
+      "alt": "Teeth whitening"
+    }
   }
+}
 }

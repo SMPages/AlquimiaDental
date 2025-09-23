@@ -18,9 +18,9 @@
     }
   },
    "hero": {
-    "title": "Dra. Sorany Díaz",
-    "subtitle": "Odontologa especialista en estética dental en Bogotá",
-    "description": "Transformamos sonrisas con tratamientos de odontología estética, implantes y rehabilitación oral. Pacientes de diferentes países viajan a Bogotá para confiar en nuestra experiencia y calidad humana.",
+    "title": "Odontología Estética en Bogotá – Diseño de Sonrisa | Dra. Sorany Díaz",
+    "subtitle": "Sonríe con confianza: especialista en estética dental, implantes y rehabilitación oral.",
+    "description": "Combinamos ciencia, arte y calidez humana para transformar sonrisas y brindar tratamientos de alta calidad a pacientes de Bogotá y del exterior.",
     "ctaPrimary": "Agenda tu cita",
     "imageAlt": "Odontóloga especialista en estética dental en Bogotá",
     "mediaMention": "Mencionada en",
@@ -215,5 +215,33 @@
     "rights": "Todos los derechos reservados",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
+  },
+  "services_hero": {
+  "title": "Nuestros servicios",
+  "subtitle": "Tratamientos especializados para tu sonrisa",
+  "ctaText": "¿Listo para transformar tu sonrisa? Agenda una valoración.",
+  "ctaButton": "Agenda tu cita",
+  "items": {
+    "carillas": {
+      "title": "Diseño de sonrisa en resina de alta estética",
+      "desc": "Son una alternativa estética y conservadora para transformar tu sonrisa sin tallar tus dientes naturales.",
+      "alt": "Resinas directas sin desgaste"
+    },
+    "protesis-total": {
+      "title": "Prótesis total",
+      "desc": "Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.",
+      "alt": "Prótesis total"
+    },
+    "limpieza-dental": {
+      "title": "Rehabilitación completa con coronas cerámicas",
+      "desc": "La rehabilitación completa con coronas cerámicas es un tratamiento integral de odontología restauradora y estética en el que se recubren todos los dientes con coronas de cerámica de alta estética y resistencia.",
+      "alt": "Rehabilitación completa con coronas cerámicas"
+    },
+    "blanqueamiento": {
+      "title": "Blanqueamiento",
+      "desc": "Blanqueamiento seguro y efectivo. Aclara varios tonos controlando la sensibilidad y cuidando el esmalte.",
+      "alt": "Blanqueamiento dental"
+    }
   }
+}
 }
