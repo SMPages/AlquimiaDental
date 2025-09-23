@@ -1,43 +1,50 @@
+/* ===== HERO ===== */
 .hero-section {
-  margin-top: 150px;
+  /* Si tienes header fijo, ajusta esta separación */
+  --header-offset: 150px;
+
+  margin-top: var(--header-offset);
   margin-bottom: 2rem;
   background: transparent;
 
   .container {
-    max-width: 70%;
-    width: 100%;
+    /* En móvil: ocupa casi todo el ancho */
+    width: 92%;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
-  /* Layout dos columnas */
+  /* Layout */
   .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* texto izq / imagen der */
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr; /* texto / imagen */
+    gap: 3rem;
     align-items: center;
   }
 
   /* Tipografía */
   .hero-text {
     .hero-title {
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.75rem, 5.2vw, 3rem);
       font-weight: 600;
-      margin: 0 0 1rem;
+      margin: 0 0 0.75rem;
       color: var(--foreground);
-      line-height: 1.1;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
     }
     .hero-subtitle {
-      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+      font-size: clamp(1rem, 3.6vw, 1.35rem);
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       font-weight: 500;
+      line-height: 1.35;
     }
     .hero-description {
-      font-size: 1.125rem;
+      font-size: clamp(0.975rem, 2.8vw, 1.125rem);
       color: var(--muted-foreground);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       line-height: 1.6;
-      max-width: 56ch;
+      max-width: 60ch;
     }
   }
 
@@ -46,13 +53,13 @@
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    margin: .75rem 0 1.25rem;
+    margin: .5rem 0 1rem;
     font-size: .9rem;
     color: var(--muted-foreground);
 
     .mention-text { font-weight: 500; opacity: .85; }
     .mention-logo {
-      height: 26px; width: auto;
+      height: 22px; width: auto;
       filter: grayscale(18%) contrast(110%);
       opacity: .9; transition: opacity .2s ease;
       vertical-align: middle;
@@ -73,11 +80,11 @@
     }
   }
 
-  /* Responsivo */
-  @media (max-width: 900px) {
+  /* ===== Breakpoints ===== */
+  @media (max-width: 1024px) {
     .hero-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr; /* 1 columna antes */
+      gap: 1.75rem;
     }
     .hero-text { text-align: center; }
     .hero-description { margin-left: auto; margin-right: auto; }
@@ -85,92 +92,129 @@
     .hero-image { justify-content: center; }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
+    margin-top: calc(var(--header-offset) + 4px);
+    .hero-media-mention { justify-content: center; }
+    .hero-image { margin-top: .25rem; }
+  }
+
+  @media (max-width: 420px) {
+    .hero-text .hero-title { line-height: 1.2; }
+    .hero-media-mention .mention-logo { height: 20px; }
     .propuesta-card .btn-row {
       display: grid;
       grid-template-columns: 1fr;
-      gap: .5rem;
+      gap: .6rem;
 
       .btn-hero { justify-content: center; width: 100%; }
     }
   }
 }
 
-/* Util si usas animación */
+/* Micro-optimización animaciones */
 .fade-in { will-change: opacity, transform; }
-/* Sección de servicios (debajo del hero) */
+
+/* ===== SERVICIOS ===== */
 .servicios {
-  padding-top: 0; /* un poco más compacta que otras secciones */
+  padding-top: 0;
 
   .container {
-    max-width: 70%;
     width: 92%;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
     margin-bottom: 1rem;
     color: var(--foreground);
+    text-align: left;
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 
-  /* Lista de tarjetas (cada una ocupa el ancho en desktop; puedes hacer 2 col con media query si quieres) */
+  /* Grid de tarjetas */
   .services-list {
     display: grid;
-    gap: 1.25rem;
-    grid-template-columns: 1fr;             /* por defecto 1 */
-    @media (min-width: 1100px) { grid-template-columns: 1fr 1fr; }
+    gap: 1rem;
+    grid-template-columns: 1fr; /* móvil: 1 col */
   }
 
-  /* Tarjeta horizontal: imagen izquierda / texto derecha */
+  @media (min-width: 992px) {
+    .services-list { grid-template-columns: 1fr 1fr; } /* desktop: 2 col */
+  }
+
+  @media (min-width: 1400px) {
+    .services-list { grid-template-columns: repeat(3, 1fr); } /* extra ancho: 3 col */
+  }
+
+  /* Tarjeta */
   .service-card {
     display: grid;
-    grid-template-columns: min(38%, 360px) 1fr; /* imagen / texto */
-    align-items: center;
-    gap: 1rem;
+    grid-template-columns: 1fr; /* móvil: imagen arriba, texto abajo */
+    align-items: stretch;
+    gap: 0;
     background: #fff;
     border: 1px solid var(--border);
     border-radius: 16px;
-    overflow: hidden; /* para que la imagen “recorte” el radio */
+    overflow: hidden;
     box-shadow: 0 6px 16px rgba(0,0,0,.04);
     transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    @media (min-width: 1100px) {
-      .service-card { grid-template-columns: 1fr; } /* imagen arriba, texto abajo en grid de 2 columnas externas */
-    }
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 28px rgba(0,0,0,.08);
       border-color: rgba(0,0,0,.06);
     }
 
+    /* === IMAGEN COMPLETA (sin recorte) === */
     .media {
-      height: 300px; /* alto fijo para que todas se vean parejas */
-      @media (min-width: 1280px) { height: 300px; }
+      /* Nada de alturas fijas ni aspect-ratio forzado */
+      height: auto;
+      aspect-ratio: auto;
+
+      /* Centrar la imagen dentro del contenedor */
+      display: grid;
+      place-items: center;
+      background: transparent; /* o un tono suave si quieres “marco” */
 
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;  /* <- clave para NO recortar */
         display: block;
       }
     }
 
     .content {
-      padding: 1rem 1.25rem;
+      padding: 1rem 1.1rem 1.15rem;
 
       h3 {
         margin: 0 0 .35rem;
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         color: var(--foreground);
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
       }
 
       p {
-        margin: 0 0 .75rem;
+        margin: 0 0 .8rem;
         color: var(--muted-foreground);
         line-height: 1.55;
+        font-size: .98rem;
       }
 
-      .btn-link {
+      .btn-link,
+      .more {
+        display: inline-block;
         color: var(--primary);
         font-weight: 600;
         text-decoration: none;
@@ -185,16 +229,64 @@
     }
   }
 
-  /* Responsive: apilar en móvil */
-  @media (max-width: 900px) {
+  /* Tarjeta horizontal solo en rango medio (si quieres)
+     — sin imponer alturas a la imagen para que siga viéndose completa */
+  @media (min-width: 768px) and (max-width: 991px) {
     .service-card {
-      grid-template-columns: 1fr; /* imagen arriba, texto abajo */
-      .media { height: 200px; }
-      .content { padding: .9rem 1rem 1.1rem; }
+      grid-template-columns: min(42%, 360px) 1fr;
+
+      .media {
+        height: auto;        /* asegúrate de no forzar */
+        aspect-ratio: auto;  /* idem */
+      }
+      .content { padding: 1rem 1.25rem; }
     }
   }
 
-  @media (max-width: 480px) {
-    .service-card .media { height: 180px; }
+  /* En desktop ancho NO imponemos altura, para no recortar */
+  @media (min-width: 1200px) {
+    .service-card .media {
+      height: auto;
+      aspect-ratio: auto;
+    }
   }
+}
+@media (min-width: 992px) {
+  .servicios {
+    /* 2 columnas de tarjetas en desktop; 3 si tu pantalla es muy ancha ya lo controla tu grid */
+    .services-list { grid-template-columns: 1fr 1fr; }
+
+    .service-card {
+      /* Tarjeta horizontal: imagen izq / texto der */
+      grid-template-columns: min(42%, 420px) 1fr; /* ajusta 420px a tu gusto */
+      align-items: center;
+      gap: 0;
+
+      .media {
+        /* Altura uniforme y sin recorte (letterbox) */
+        height: 280px;                 /* 260–320px funciona bien */
+        display: grid;
+        place-items: center;
+        background: #f7f4f0;           /* sutil para “marco” (opcional) */
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;         /* imagen completa */
+          display: block;
+        }
+      }
+
+      .content {
+        padding: 1.25rem 1.4rem;
+      }
+    }
+  }
+}
+
+/* Extra ancho: quepan 3 por fila si ya lo definiste */
+@media (min-width: 1400px) {
+  .servicios .services-list { grid-template-columns: repeat(2, 1fr); }
 }

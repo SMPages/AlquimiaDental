@@ -155,3 +155,33 @@
 @media (max-width: 768px) {
   .btn.btn-primary .btn-text { display: none; }
 }
+/* --- Móvil: ocultar el botón "Agenda conmigo" --- */
+@media (max-width: 768px) {
+  .header {
+    .nav {
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: #fff; border-top: 1px solid var(--border);
+      transform: translateY(-6px); opacity: 0; visibility: hidden;
+      transition: transform .18s ease, opacity .18s ease, visibility 0s linear .18s;
+
+      .nav-list { flex-direction: column; padding: .75rem 1rem; gap: .5rem; }
+      .nav-link  { padding: .5rem 0; }
+
+      &.nav-open {
+        transform: translateY(0); opacity: 1; visibility: visible;
+        transition: transform .18s ease, opacity .18s ease;
+      }
+    }
+
+    .menu-toggle { display: inline-block; }
+    .header-actions { gap: .5rem; }
+
+    /* ⛔️ Oculta el CTA de WhatsApp en móvil */
+    .header-actions .btn-generic-primary { 
+      display: none !important; 
+    }
+
+    /* Opcional: estiliza el selector de idioma en móvil */
+    .lang-switch { background: transparent; }
+  }
+}
