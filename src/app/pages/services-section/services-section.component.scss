@@ -66,20 +66,21 @@
     }
 
     .media {
-      height: 240px;              /* alto consistente */
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    aspect-ratio: 4 / 5; // Fuerza el contenedor a la relación exacta
+    width: 100%;
+    max-width: 360px; // opcional, para limitar el ancho en desktop
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        aspect-ratio: 4 / 5;      /* igual que el hero */
-      }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // o 'contain' según preferencia
+      aspect-ratio: 4 / 5; // asegura que la imagen mantenga la proporción sin distorsión
+      display: block;
     }
+  }
 
     .content {
       padding: 1rem 1.25rem;

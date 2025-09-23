@@ -3,8 +3,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { NgFor } from '@angular/common';
 
 type ServiceKey =
-  | 'digital' | 'whitening' | 'veneers' | 'cleaning'
-  | 'jewelry' | 'smileDesign' | 'rehabImplant' | 'prosthesis';
+  | 'digital' | 'smileDesign' | 'whitening' | 'veneers' | 'cleaning'
+  | 'jewelry'  | 'rehabImplant' | 'prosthesis' | 'Bordeincisal' | 'prosthesis2';
 
 @Component({
   selector: 'app-services-section',
@@ -16,13 +16,15 @@ type ServiceKey =
 export class ServicesSectionComponent {
   items: Array<{key: ServiceKey; icon: string}> = [
     { key: 'digital',      icon: 'servicios/digital.png' },
-    { key: 'whitening',    icon: 'images/blanqueamiento.jpeg' },
-    { key: 'veneers',      icon: 'images/carillas.jpeg' },
+    { key: 'smileDesign',  icon: 'servicios/carillas.png' },
+    { key: 'prosthesis',   icon: 'servicios/protesis.png' },
+    { key: 'prosthesis2',   icon: 'servicios/protesis2.png' },
+    { key: 'whitening',    icon: 'servicios/blanqueamiento.png' },
+    { key: 'veneers',      icon: 'servicios/carillasceramicas.png' },
     { key: 'cleaning',     icon: 'images/blanqueamiento2.jpeg' },
-    { key: 'jewelry',      icon: 'images/joyas.jpg' },
-    { key: 'smileDesign',  icon: 'images/diseno.jpeg' },
-    { key: 'rehabImplant', icon: 'images/protesis.jpeg' },
-    { key: 'prosthesis',   icon: 'images/protesis1.jpeg' }
+    { key: 'jewelry',      icon: 'servicios/joyas.png' },
+    { key: 'Bordeincisal', icon: 'servicios/bordeincisal.png' },
+    { key: 'rehabImplant', icon: 'servicios/rehabilitacion.png' }
   ];
     whatsappHref =
     'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';

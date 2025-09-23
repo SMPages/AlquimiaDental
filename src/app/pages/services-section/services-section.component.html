@@ -5,7 +5,7 @@
       <p class="section-subtitle">{{ 'services.subtitle' | translate }}</p>
     </header>
 
-    <!-- ⬇️ igual a “Tratamientos destacados”: lista de tarjetas horizontales -->
+    <!-- Lista de tarjetas horizontales -->
     <div class="services-list">
       <article class="service-card" *ngFor="let s of items">
         <div class="media" aria-hidden="true">
@@ -18,25 +18,26 @@
 
         <div class="content">
           <h3>{{ ('services.items.' + s.key + '.title') | translate }}</h3>
-          <p>{{ ('services.items.' + s.key + '.desc') | translate }}</p>
+          <!-- Renderiza HTML -->
+          <p [innerHTML]="('services.items.' + s.key + '.desc') | translate"></p>
         </div>
       </article>
     </div>
 
     <div id="propuesta" class="propuesta-card fade-in">
-          <p class="propuesta-text">
-            {{ 'services.ctaText' | translate}}
-          </p>
+      <p class="propuesta-text">
+        {{ 'services.ctaText' | translate }}
+      </p>
 
-          <div class="btn-row">
-             <a class="btn-hero primary"
-            [href]="whatsappHref"
-            target="_blank" rel="noopener"
-            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-            {{ 'services.ctaButton' | translate }}
-          </a>
-          </div>
-        </div>
+      <div class="btn-row">
+        <a class="btn-hero primary"
+           [href]="whatsappHref"
+           target="_blank" rel="noopener"
+           [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+          {{ 'services.ctaButton' | translate }}
+        </a>
+      </div>
+    </div>
   </div>
 </section>

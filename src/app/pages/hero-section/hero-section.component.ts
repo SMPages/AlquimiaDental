@@ -32,20 +32,20 @@ export class HeroSectionComponent {
 get featuredServices(): FeaturedService[] {
   const es: FeaturedService[] = [
     {
-      title: 'Carillas dentales',
+      title: 'Diseño de sonrisa en resina de alta estética',
       slug: 'carillas',
       excerpt:
-        'Armonía, forma y color en tu sonrisa. Corrigen tamaño, bordes y pequeñas imperfecciones con técnicas mínimamente invasivas.',
+        'Son una alternativa estética y conservadora para transformar tu sonrisa sin tallar tus dientes naturales..',
       img: 'servicios/carillas.png',
-      alt: 'Carillas dentales',
+      alt: 'Resinas directas sin desgaste',
     },
     {
-      title: 'Diseño de sonrisa',
-      slug: 'diseno-de-sonrisa',
+      title: 'Prótesis total',
+      slug: 'protesis-total',
       excerpt:
-        'Planeación estética personalizada para una sonrisa armónica. Integra análisis facial, mock-up de prueba y un plan de tratamiento a medida.',
-      img: 'servicios/diseno.jpeg',
-      alt: 'Diseño de sonrisa',
+        'Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.',
+      img: 'servicios/protesis.png',
+      alt: 'Prótesis total',
     },
     {
       title: 'Limpieza dental',
@@ -60,7 +60,7 @@ get featuredServices(): FeaturedService[] {
       slug: 'blanqueamiento',
       excerpt:
         'Blanqueamiento seguro y efectivo. Aclara varios tonos controlando la sensibilidad y cuidando el esmalte.',
-      img: 'servicios/carillas.png',
+      img: 'servicios/blanqueamiento.png',
       alt: 'Blanqueamiento dental',
     },
   ];
