@@ -14,7 +14,8 @@
   },
   "home": {
     "featured": {
-      "title": "Tratamientos destacados"
+      "title": "Tratamientos destacados",
+      "verMas": "Ver más"
     }
   },
    "hero": {
@@ -217,31 +218,35 @@
     "brand": "Alquimia Dental®"
   },
   "services_hero": {
-  "title": "Nuestros servicios",
-  "subtitle": "Tratamientos especializados para tu sonrisa",
-  "ctaText": "¿Listo para transformar tu sonrisa? Agenda una valoración.",
-  "ctaButton": "Agenda tu cita",
-  "items": {
-    "carillas": {
-      "title": "Diseño de sonrisa en resina de alta estética",
-      "desc": "Son una alternativa estética y conservadora para transformar tu sonrisa sin tallar tus dientes naturales.",
-      "alt": "Resinas directas sin desgaste"
-    },
-    "protesis-total": {
-      "title": "Prótesis total",
-      "desc": "Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.",
-      "alt": "Prótesis total"
-    },
-    "limpieza-dental": {
-      "title": "Rehabilitación completa con coronas cerámicas",
-      "desc": "La rehabilitación completa con coronas cerámicas es un tratamiento integral de odontología restauradora y estética en el que se recubren todos los dientes con coronas de cerámica de alta estética y resistencia.",
-      "alt": "Rehabilitación completa con coronas cerámicas"
-    },
-    "blanqueamiento": {
-      "title": "Blanqueamiento",
-      "desc": "Blanqueamiento seguro y efectivo. Aclara varios tonos controlando la sensibilidad y cuidando el esmalte.",
-      "alt": "Blanqueamiento dental"
+    "title": "Transforma tu sonrisa con expertos",
+    "subtitle": "Tratamientos dentales de alta calidad, resultados inmediatos y naturales",
+    "ctaText": "¿Listo para una sonrisa espectacular? Agenda una valoración personalizada y descubre cómo podemos ayudarte.",
+    "ctaButton": "Reserva tu cita",
+    "items": {
+      "carillas": {
+        "title": "Diseño de sonrisa, Bogotá - Colombia",
+        "desc": "El diseño de sonrisa en resina de alta estética forma más rápida y segura de transformar tu sonrisa sin dañar tus dientes. Resultados súper estéticos en tiempo récord.",
+        "alt": "Carillas de resina directas para una sonrisa perfecta",
+        "detailedDesc": "<h3>¿Por qué elegir carillas estéticas?</h3><p>Las carillas de resina ofrecen una transformación inmediata y natural de tu sonrisa, mejorando color, forma y alineación de tus dientes.</p><h3>Beneficios</h3><ul><li>Procedimiento mínimamente invasivo, preservando tu estructura dental.</li><li>Sonrisa atractiva en una sola sesión.</li><li>Resultados duraderos y totalmente personalizados.</li><li>Reparaciones rápidas si se presentan daños.</li></ul><h3>Cuidado profesional</h3><p>Disfruta de una sonrisa brillante y duradera asistiendo a revisiones regulares y limpiezas profesionales.</p>"
+      },
+      "protesis-total": {
+        "title": "Prótesis total, Bogotá - Colombia",
+        "desc": "Recupera tu confianza y calidad de vida con prótesis dentales personalizadas de apariencia natural.",
+        "alt": "Prótesis total estética y funcional",
+        "detailedDesc": "<h3>La solución definitiva en rehabilitación</h3><p>Nuestras prótesis totales devuelven la funcionalidad y estética a tu sonrisa. Diseñadas a medida y con materiales de alta calidad para máxima comodidad.</p><h3>Ventajas</h3><ul><li>Mejora inmediata en masticación y habla.</li><li>Soporte facial rejuvenecido y natural.</li><li>Ajuste personalizado para máxima seguridad y estabilidad.</li></ul><h3>Mantenimiento profesional</h3><p>Basta una limpieza diaria y controles periódicos para mantener la belleza de tu sonrisa renovada.</p>"
+      },
+      "limpieza-dental": {
+        "title": "Rehabilitación con coronas cerámicas, Bogotá - Colombia",
+        "desc": "Recupera la salud, función y belleza de tu sonrisa con coronas cerámicas de máxima estética y resistencia.",
+        "alt": "Rehabilitación dental con coronas de porcelana",
+        "detailedDesc": "<h3>Restauración total con estética natural</h3><p>Consigue una sonrisa fuerte y absolutamente natural con coronas cerámicas diseñadas digitalmente y adaptadas perfectamente a ti.</p><h3>Ventajas</h3><ul><li>Larga duración y resistencia.</li><li>Apariencia completamente natural.</li><li>Protección total de dientes debilitados.</li></ul><h3>Proceso especializado</h3><p>Un procedimiento ágil y seguro acompañado por especialistas en salud y estética dental.</p>"
+      },
+      "blanqueamiento": {
+        "title": "Blanqueamiento dental, Bogotá - Colombia",
+        "desc": "Logra una sonrisa más blanca, saludable y atractiva en pocas sesiones con un tratamiento seguro y personalizado.",
+        "alt": "Blanqueamiento dental seguro y efectivo",
+        "detailedDesc": "<h3>Resultados que enamoran</h3><p>El blanqueamiento profesional elimina manchas y realza el tono de tus dientes para una sonrisa impactante, sin dañar el esmalte y con mínimo riesgo de sensibilidad.</p><h3>Beneficios directos</h3><ul><li>Cambio visible desde la primera sesión.</li><li>Tratamiento cómodo y adaptado a cada paciente.</li><li>Mantenimiento sencillo para prolongar el efecto radiante.</li></ul><h3>Consejo experto</h3><p>Evita alimentos y bebidas que tiñen para conservar tu nueva sonrisa y notarás los resultados durante mucho más tiempo.</p>"
+      }
     }
   }
-}
 }

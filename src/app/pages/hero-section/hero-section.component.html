@@ -74,11 +74,15 @@
           <img *ngIf="s.img" [src]="s.img" [alt]="s.altKey | translate" />
         </div>
 
-        <div class="content">
-          <!-- Usando claves i18n para título y descripción -->
-          <h3>{{ s.titleKey | translate }}</h3>
-          <p>{{ s.excerptKey | translate }}</p>
-        </div>
+       <div class="content">
+        <h3>{{ s.titleKey | translate }}</h3>
+        <p>{{ s.excerptKey | translate }}</p>
+        <a class="btn-link more"
+          [routerLink]="['/', currentLang, 'servicio', s.slug]"
+          [attr.aria-label]="'Ver más sobre ' + (s.titleKey | translate)">
+          {{ ('home.featured.verMas' | translate) || 'Ver más' }}
+        </a>
+      </div>
       </article>
     </div>
   </div>

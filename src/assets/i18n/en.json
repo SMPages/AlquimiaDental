@@ -14,7 +14,8 @@
   },
   "home": {
     "featured": {
-      "title": "Featured treatments"
+      "title": "Featured treatments",
+      "verMas": "See more"
     }
   },
   "hero": {
@@ -216,30 +217,34 @@
     "brand": "Alquimia Dental®"
   },
 "services_hero": {
-  "title": "Our Services",
-  "subtitle": "Specialized treatments for your smile",
-  "ctaText": "Ready to transform your smile? Book a consultation.",
+  "title": "Transform your smile with experts",
+  "subtitle": "High-quality dental treatments with immediate and natural results",
+  "ctaText": "Ready for a spectacular smile? Schedule a personalized consultation and discover how we can help you.",
   "ctaButton": "Book your appointment",
   "items": {
     "carillas": {
-      "title": "High-aesthetic resin smile design",
-      "desc": "A conservative, aesthetic option to transform your smile without shaving your natural teeth.",
-      "alt": "No-prep direct resins"
+      "title": "Smile design, Bogotá - Colombia",
+      "desc": "High-aesthetic resin veneers are the fastest and safest way to transform your smile without damaging your teeth. Super aesthetic results in record time.",
+      "alt": "Direct resin veneers for a perfect smile",
+      "detailedDesc": "<h3>Why choose aesthetic veneers?</h3><p>Resin veneers offer an immediate and natural transformation of your smile, improving the color, shape, and alignment of your teeth.</p><h3>Benefits</h3><ul><li>Minimally invasive procedure that preserves your natural tooth structure.</li><li>Attractive smile in just one session.</li><li>Durable and fully customized results.</li><li>Quick and simple repairs if needed.</li></ul><h3>Professional care</h3><p>Enjoy a bright and lasting smile by attending regular check-ups and professional cleanings.</p>"
     },
     "protesis-total": {
-      "title": "Complete denture",
-      "desc": "A removable device designed to replace all teeth when they have been lost in one or both arches.",
-      "alt": "Complete denture"
+      "title": "Full dentures, Bogotá - Colombia",
+      "desc": "Regain your confidence and quality of life with personalized dental prosthetics that look and feel completely natural.",
+      "alt": "Aesthetic and functional full dentures",
+      "detailedDesc": "<h3>The ultimate solution in dental rehabilitation</h3><p>Our full dentures restore both functionality and aesthetics to your smile. Each piece is custom-designed using high-quality materials for maximum comfort.</p><h3>Advantages</h3><ul><li>Immediate improvement in chewing and speech.</li><li>Natural and rejuvenated facial support.</li><li>Custom fit for optimal security and stability.</li></ul><h3>Professional maintenance</h3><p>Simple daily cleaning and periodic check-ups are enough to keep your renewed smile beautiful and healthy.</p>"
     },
     "limpieza-dental": {
-      "title": "Full-mouth rehabilitation with ceramic crowns",
-      "desc": "An integrated restorative and aesthetic treatment that covers all teeth with high-aesthetic, high-strength ceramic crowns.",
-      "alt": "Full rehabilitation with ceramic crowns"
+      "title": "Dental rehabilitation with ceramic crowns, Bogotá - Colombia",
+      "desc": "Restore the health, function, and beauty of your smile with highly aesthetic and resistant ceramic crowns.",
+      "alt": "Dental restoration with porcelain crowns",
+      "detailedDesc": "<h3>Complete restoration with natural aesthetics</h3><p>Achieve a strong and completely natural smile with digitally designed ceramic crowns perfectly adapted to you.</p><h3>Advantages</h3><ul><li>Long-lasting strength and resistance.</li><li>Completely natural appearance.</li><li>Total protection for weakened teeth.</li></ul><h3>Specialized process</h3><p>A fast and safe procedure performed by specialists in dental health and aesthetics.</p>"
     },
     "blanqueamiento": {
-      "title": "Teeth whitening",
-      "desc": "Safe, effective whitening. Brightens several shades while managing sensitivity and protecting enamel.",
-      "alt": "Teeth whitening"
+      "title": "Teeth whitening, Bogotá - Colombia",
+      "desc": "Get a whiter, healthier, and more attractive smile in just a few sessions with a safe and personalized treatment.",
+      "alt": "Safe and effective teeth whitening",
+      "detailedDesc": "<h3>Results you’ll love</h3><p>Professional whitening removes stains and enhances your tooth shade for a stunning smile—without damaging enamel and with minimal sensitivity.</p><h3>Direct benefits</h3><ul><li>Visible change from the very first session.</li><li>Comfortable and personalized treatment for every patient.</li><li>Simple maintenance to prolong your radiant results.</li></ul><h3>Expert advice</h3><p>Avoid foods and drinks that stain to preserve your new smile and enjoy your results for much longer.</p>"
     }
   }
 }

@@ -50,6 +50,11 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./components/alquimia-dental/alquimia-dental.component').then(m => m.AlquimiaDentalComponent)
       },
+      {
+        path: 'servicio/:slug',
+        loadComponent: () =>
+          import('./components/servicio-detalle/servicio-detalle.component').then(m => m.ServicioDetalleComponent)
+      },
       { path: '**', redirectTo: '' }
     ]
   },

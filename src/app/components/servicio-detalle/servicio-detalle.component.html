@@ -1,0 +1,48 @@
+<section class="servicio-detalle-section marble-bg" *ngIf="servicio">
+  <div class="container text-center">
+    <header class="section-header text-center">
+      <h1 class="section-title">{{ servicio.title | translate }}</h1>
+      <p class="section-subtitle">{{ servicio.desc | translate }}</p>
+    </header>
+    
+    <div class="detalle-grid">
+
+      <!-- Imagen del servicio -->
+      <div class="media" *ngIf="servicio.image">
+        <img
+          [src]="servicio.image"
+          [alt]="servicio.alt | translate"
+          class="detalle-img"
+          loading="lazy"
+          decoding="async"
+          width="420"
+          height="auto"
+        />
+      </div>
+
+      <!-- Contenido del servicio -->
+      <div class="content">
+        <!-- Descripción extendida (HTML real del JSON) -->
+        <div
+          class="servicio-extra"
+          [innerHTML]="servicio.detailedDesc"
+        ></div>
+      </div>
+    </div>
+        <div id="propuesta" class="propuesta-card fade-in">
+      <p class="propuesta-text">
+        {{ 'services.ctaText' | translate }}
+      </p>
+
+      <div class="btn-row">
+        <a class="btn-hero primary"
+           [href]="whatsappHref"
+           target="_blank" rel="noopener"
+           [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+          {{ 'services.ctaButton' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
