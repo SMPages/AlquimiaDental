@@ -177,7 +177,7 @@
     "title": "About me",
     "subtitle": "Dentistry with science, art, and soul",
     "imageAlt": "Dr. Sorany Díaz, Dentist specializing in oral rehabilitation and aesthetics in Popayán",
-    "intro1": "👩🏻‍⚕️ I’m Dr. Sorany Díaz Pechene, a specialist in oral rehabilitation and aesthetics.",
+    "intro1": "I’m Dr. Sorany Díaz Pechene, a specialist in oral rehabilitation and aesthetics.",
     "intro2": "In my practice I follow what I call",
     "introStrong": "dental alchemy",
     "intro3": ": transforming every smile with a human, personalized, and cutting-edge approach.",
@@ -310,5 +310,13 @@
       "text": "Start yours today.",
       "btn": "Book your appointment"
     }
+  },
+  "aboutPage": {
+    "credEyebrow": "Education",
+    "credTitle": "A career devoted to your smile",
+    "clinicEyebrow": "The clinic",
+    "clinicTitle": "A space designed for you",
+    "clinicText": "A calm, carefully designed space in Fontibón, Bogotá, where every visit starts with a conversation.",
+    "servicesAll": "See all services"
   }
 }

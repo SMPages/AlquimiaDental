@@ -177,7 +177,7 @@
     "title": "Sobre mí",
     "subtitle": "Odontología con ciencia, arte y alma",
     "imageAlt": "Dra. Sorany Díaz, odontologa especialista en rehabilitación y estética oral en Popayán",
-    "intro1": "👩🏻‍⚕️ Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.",
+    "intro1": "Soy la Dra. Sorany Díaz Pechene, especialista en rehabilitación y estética oral.",
     "intro2": "En mi consultorio practico lo que llamo",
     "introStrong": "alquimia dental",
     "intro3": ": transformar cada sonrisa con un enfoque humano, personalizado y de vanguardia.",
@@ -310,5 +310,13 @@
       "text": "Empieza la tuya hoy mismo.",
       "btn": "Agenda tu cita"
     }
+  },
+  "aboutPage": {
+    "credEyebrow": "Formación",
+    "credTitle": "Una trayectoria al servicio de tu sonrisa",
+    "clinicEyebrow": "El consultorio",
+    "clinicTitle": "Un espacio pensado para ti",
+    "clinicText": "Un ambiente tranquilo y cuidado, en Fontibón, Bogotá, donde cada visita empieza con una conversación.",
+    "servicesAll": "Ver todos los servicios"
   }
 }
