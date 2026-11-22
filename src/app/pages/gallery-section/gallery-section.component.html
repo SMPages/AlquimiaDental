@@ -1,9 +1,11 @@
+<app-page-hero
+  [eyebrow]="'nav.gallery' | translate"
+  [title]="'gallery.title' | translate"
+  [subtitle]="'gallery.subtitle' | translate">
+</app-page-hero>
+
 <section id="galeria" class="galeria-section marble-bg" aria-labelledby="galeria-title">
   <div class="container">
-    <header class="section-header text-center">
-      <h2 id="galeria-title" class="section-title">{{ 'gallery.title' | translate }}</h2>
-      <p class="section-subtitle">{{ 'gallery.subtitle' | translate }}</p>
-    </header>
 
     <div class="carousel"
          role="region"
@@ -58,9 +60,7 @@
     <!-- CTA inferior opcional -->
        <div id="propuesta" class="propuesta-card fade-in">
           <p class="propuesta-text">
-            <span class="marca">Alquimia Dental®</span> es la visión de la
-            <strong>Dra. Sorany Díaz</strong>: un enfoque integral que combina estética,
-            salud y una experiencia humana excepcional.
+            <span class="marca">Alquimia Dental®</span> {{ 'hero.proposal.text' | translate }}
           </p>
 
           <a

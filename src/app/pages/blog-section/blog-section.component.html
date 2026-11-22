@@ -1,15 +1,12 @@
+<app-page-hero
+  [eyebrow]="'nav.blog' | translate"
+  [title]="'media.title' | translate"
+  [subtitle]="'media.subtitle' | translate">
+</app-page-hero>
+
 <!-- src/app/pages/blog-section/blog-section.component.html -->
 <section id="media" class="media-section marble-bg" aria-labelledby="media-title">
   <div class="container">
-    <!-- Encabezado -->
-    <header class="section-header text-center">
-      <h2 id="media-title" class="section-title">
-        {{ 'media.title' | translate }}
-      </h2>
-      <p class="section-subtitle">
-        {{ 'media.subtitle' | translate }}
-      </p>
-    </header>
 
     <!-- Artículo destacado -->
     <article class="featured-article" itemscope itemtype="https://schema.org/NewsArticle">

@@ -1,179 +1,111 @@
-.services-section {
-  padding: clamp(3rem, 7vw, 5rem) 0;
+:host { display: block; }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 clamp(1rem, 3vw, 2rem);
+.inner { width: 92%; max-width: 1150px; margin: 0 auto; }
+
+.services { padding: clamp(3rem, 7vw, 6rem) 0 clamp(1rem, 3vw, 2rem); }
+
+.svc {
+  display: grid;
+  grid-template-columns: minmax(260px, 400px) 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  border-top: 1px solid var(--border);
+
+  &:first-child { border-top: 0; padding-top: 0; }
+
+  &.flip {
+    grid-template-columns: 1fr minmax(260px, 400px);
+    .media { order: 2; }
   }
 
-  /* Encabezado (lo que ya tenías) */
-  .section-header {
-    text-align: center;
-    margin-bottom: clamp(1.5rem, 5vw, 2.25rem);
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 6.2vw, 2.4rem);
-      font-weight: 700;
-      color: var(--foreground);
-      margin: .25rem 0 .6rem;
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: -.45rem;
-        transform: translateX(-50%);
-        width: 64px; height: 3px; border-radius: 2px;
-        background: linear-gradient(90deg, var(--secondary), var(--primary));
-      }
-    }
-
-    .section-subtitle {
-      font-size: clamp(.95rem, 3.6vw, 1.05rem);
-      color: var(--muted-foreground);
-      line-height: 1.6;
-      margin: 0 auto;
-      max-width: 640px;
-    }
-  }
-
-  /* ===== Lista de tarjetas horizontales (como “Tratamientos destacados”) ===== */
-  .services-list {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .service-card {
-    display: grid;
-    grid-template-columns: min(38%, 360px) 1fr; /* imagen / texto */
-    align-items: center;
-    gap: 1rem;
-
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden; /* para que la imagen recorte el radio */
-    box-shadow: 0 6px 16px rgba(0,0,0,.06);
-    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0,0,0,.1);
-      border-color: rgba(0,0,0,.06);
-    }
-
-    .media {
-    aspect-ratio: 4 / 5; // Fuerza el contenedor a la relación exacta
+  .media {
+    aspect-ratio: 4 / 5;
     width: 100%;
-    max-width: 360px; // opcional, para limitar el ancho en desktop
-    border-radius: 16px;
+    border-radius: 999px 999px 18px 18px;
     overflow: hidden;
-    box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    background: var(--muted);
+    box-shadow: 0 24px 50px rgba(42, 36, 32, .16);
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; // o 'contain' según preferencia
-      aspect-ratio: 4 / 5; // asegura que la imagen mantenga la proporción sin distorsión
+      width: 100%; height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform .8s ease;
     }
   }
+  &:hover .media img { transform: scale(1.04); }
 
-    .content {
-      padding: 1rem 1.25rem;
-
-      h3 {
-        margin: 0 0 .35rem;
-        font-size: 1.25rem;
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        color: var(--foreground);
-      }
-
-      p {
-        margin: 0;
-        color: var(--muted-foreground);
-        line-height: 1.6;
-        font-size: 1.05rem;
-        max-width: 58ch;
-      }
-    }
+  .num {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: .4rem;
   }
 
-  /* ===== Responsive: apila en móvil como el hero ===== */
-  @media (max-width: 900px) {
-    .service-card {
-      grid-template-columns: 1fr; /* imagen arriba, texto abajo */
-      .media   { height:  100%; margin: 0 auto;}
-      .content { text-align: center; padding: .9rem 1rem 1.1rem; }
-      .content p { margin-left: auto; margin-right: auto; }
-    }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--ink);
   }
-  @media (max-width: 480px) {
-    .service-card .media { height: 100%; text-align: center; margin: 0 auto;}
+
+  p {
+    color: var(--muted-foreground);
+    line-height: 1.75;
+    font-size: 1.02rem;
+    max-width: 60ch;
   }
 }
 
-/* Fondo mármol opcional (igual que antes) */
-.marble-bg {
-  background:transparent;
-}
-/* ===== CTA de servicios (restaurado) ===== */
-.services-section .services-cta {
-  margin-top: clamp(1.5rem, 5vw, 2.5rem);
+/* El texto llega como HTML (innerHTML): requiere ::ng-deep */
+:host ::ng-deep .svc p strong { color: var(--ink); font-weight: 600; }
+
+/* CTA */
+.cta {
+  margin-top: clamp(2rem, 5vw, 4rem);
   text-align: center;
-  padding: clamp(1.25rem, 4vw, 2rem);
-  background: rgba(255,255,255,.6);
-  border: 1px solid color-mix(in oklch, var(--border) 70%, var(--secondary) 30%);
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.06);
-}
+  background:
+    radial-gradient(700px 300px at 50% 0%, rgba(201, 163, 106, .18), transparent 70%),
+    var(--ink);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
 
-.services-section .services-cta .cta-text {
-  margin: 0 0 clamp(.8rem, 2.5vw, 1.1rem);
-  color: var(--foreground);
-  font-weight: 600;
-  font-size: clamp(1rem, 3.3vw, 1.1rem);
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    color: var(--ivory);
+    max-width: 22ch;
+    margin: 0 auto 2rem;
+  }
 }
-
-.services-section .services-cta .cta-button {
+.btn-gold {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding: .9rem 2rem;
+  gap: .55rem;
+  padding: .95rem 1.9rem;
   border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.05rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
   text-decoration: none;
-
-  color: var(--primary-foreground);
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-  border: 1px solid color-mix(in oklch, var(--primary) 80%, #000 20%);
-  box-shadow: 0 4px 15px rgba(212,165,116,.30);
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  border: 1px solid var(--gold);
+  transition: transform .15s ease, background-color .2s ease;
+  &:hover, &:focus-visible { background: var(--ivory); transform: translateY(-2px); }
 }
 
-.services-section .services-cta .cta-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(212,165,116,.40);
+@media (max-width: 860px) {
+  .svc, .svc.flip {
+    grid-template-columns: 1fr;
+    .media { order: 0; max-width: 340px; margin: 0 auto; }
+    .body { text-align: center; }
+    p { margin-inline: auto; }
+  }
 }
 
-.services-section .services-cta .cta-button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--background),
-              0 0 0 6px rgba(193,120,84,.35);
-}
-
-/* evita que estilos globales de <a> (links morados) lo sobreescriban */
-.services-section .services-cta .cta-button,
-.services-section .services-cta .cta-button:visited {
-  color: var(--primary-foreground);
-}
-
-.propuesta-card {
-  margin-top: 2rem;
+@media (prefers-reduced-motion: reduce) {
+  .svc .media img { transition: none; }
 }

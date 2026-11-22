@@ -1,8 +1,9 @@
 /* ===== Footer base ===== */
 .footer {
-  background: #2e2b29;
-  color: #eee;
-  padding: 2rem 1rem;
+  background: var(--ink);
+  color: rgba(246,240,230,.85);
+  padding: clamp(2.5rem, 6vw, 4rem) 1rem 1.5rem;
+  border-top: 1px solid rgba(201,163,106,.35);
 
    .container {
     max-width: 1100px;
@@ -23,17 +24,17 @@
 .footer-map iframe {
   width: 100%;
   height: clamp(220px, 36vh, 340px);
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   display: block;
 }
 
 /* ===== Texto / enlaces ===== */
-.footer-contact h3 { color: #d6c0a3; margin-bottom: .5rem; }
+.footer-contact h3 { color: var(--gold); font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; margin-bottom: .5rem; }
 .footer-contact ul { list-style: none; padding: 0; margin: 0; }
 .footer-contact li { margin: .3rem 0; }
-.footer a { color: #eee; text-decoration: none; }
-.footer a:hover { color: #d6c0a3; }
+.footer a { color: rgba(246,240,230,.9); text-decoration: none; }
+.footer a:hover { color: var(--gold); }
 
 /* ===== Redes (cuadradas con bordes redondeados) ===== */
 .footer-social {
@@ -47,9 +48,10 @@
   align-items: center;
   justify-content: center;
   width: 36px; height: 36px;
-  border-radius: 6px;             /* cuadrado con esquinas redondeadas */
-  background: #fff;               /* fondo neutro */
-  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(201,163,106,.6);
+  box-shadow: none;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
@@ -59,14 +61,13 @@
 }
 
 /* Colores de marca del ícono */
-.footer-social .social-link.instagram { color: #E1306C; } /* Instagram */
-.footer-social .social-link.facebook  { color: #1877F2; } /* Facebook */
+.footer-social .social-link { color: var(--gold); }
 
 /* Hover único (no duplicar) */
 .footer-social .social-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(0,0,0,.25);
-  background: #fdfdfd;            /* aclara el fondo sin cambiar el color del ícono */
+  background: var(--gold); color: var(--ink);
 }
 
 /* ===== Línea inferior ===== */
@@ -74,7 +75,7 @@
   text-align: center;
   margin-top: 1.5rem;
   font-size: .9rem;
-  border-top: 1px solid #444;
+  border-top: 1px solid rgba(246,240,230,.14);
   padding-top: 1rem;
 }
 
@@ -103,10 +104,10 @@
 /* Botón flotante WhatsApp */
 .whatsapp-fab {
   position: fixed;
-  right: max(50px, env(safe-area-inset-right));
-  bottom: max(50px, env(safe-area-inset-bottom));
-  width: 80px;
-  height: 80px;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: #25d366;
   color: #fff;
@@ -122,9 +123,9 @@
   &:active { transform: scale(.98); }
 
   @media (max-width: 480px) {
-    width: 54px; height: 54px;
+    width: 48px; height: 48px;
     right: max(10px, env(safe-area-inset-right));
-  bottom: max(50px, env(safe-area-inset-bottom));
+  bottom: max(20px, env(safe-area-inset-bottom));
     svg { width: 26px; height: 26px; }
   }
 

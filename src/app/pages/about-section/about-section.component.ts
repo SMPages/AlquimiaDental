@@ -1,11 +1,12 @@
 // src/app/pages/about-section/about-section.component.ts
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, PageHeroComponent],
   templateUrl: './about-section.component.html',
   styleUrls: ['./about-section.component.scss']
 })

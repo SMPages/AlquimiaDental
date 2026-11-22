@@ -1,12 +1,13 @@
-<section id="alquimia" class="alquimia-section" aria-labelledby="alquimia-title">
+<app-page-hero
+  [eyebrow]="'brand' | translate"
+  [title]="'alquimia.title' | translate"
+  [subtitle]="'alquimia.lead' | translate:{ t: ('alquimiaWords.transform' | translate) }">
+</app-page-hero>
+
+<section id="alquimia" class="alquimia-section" aria-label="Alquimia Dental">
   <div class="container">
     <header class="head">
-      <h1 id="alquimia-title" class="title">{{ 'alquimia.title' | translate }}</h1>
-        <p class="lead">
-            {{ 'alquimia.lead' | translate:{ t: ('alquimiaWords.transform' | translate) } }}
-        </p>
-        <!-- copy -->
-        <p class="lead">
+        <p class="copy">
           {{ 'alquimia.copy' | translate:{
               b: ('alquimiaWords.beauty' | translate),
               c: ('alquimiaWords.confidence' | translate),

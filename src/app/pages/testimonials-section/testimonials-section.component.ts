@@ -1,3 +1,4 @@
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 // src/app/pages/testimonials-section/testimonials-section.component.ts
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -10,7 +11,7 @@ type TKey =
 @Component({
   selector: 'app-testimonials-section',
   standalone: true,
-  imports: [NgFor, TranslatePipe, NgIf],
+  imports: [NgFor, TranslatePipe, NgIf, PageHeroComponent],
   templateUrl: './testimonials-section.component.html',
   styleUrls: ['./testimonials-section.component.scss']
 })

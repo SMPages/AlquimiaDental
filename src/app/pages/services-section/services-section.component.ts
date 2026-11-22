@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { NgFor } from '@angular/common';
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 
 type ServiceKey =
   | 'digital' | 'smileDesign' | 'whitening' | 'veneers' | 'cleaning'
@@ -8,7 +9,7 @@ type ServiceKey =
 
 @Component({
   selector: 'app-services-section',
-  imports: [NgFor, TranslatePipe],
+  imports: [NgFor, TranslatePipe, PageHeroComponent],
   templateUrl: './services-section.component.html',
   styleUrl: './services-section.component.scss'
 })
@@ -26,6 +27,10 @@ export class ServicesSectionComponent {
     { key: 'Bordeincisal', icon: 'servicios/bordeincisal.png' },
     { key: 'rehabImplant', icon: 'servicios/rehabilitacion.png' }
   ];
+  roman(i: number): string {
+    return ['I','II','III','IV','V','VI','VII','VIII','IX','X'][i] ?? String(i + 1);
+  }
+
     whatsappHref =
     'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';
 }

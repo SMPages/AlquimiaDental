@@ -1,3 +1,4 @@
+import { PageHeroComponent } from '../page-hero/page-hero.component';
 // src/app/components/alquimia-dental/alquimia-dental.component.ts
 import { Component, ElementRef, AfterViewInit, ViewChild, inject, DestroyRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,7 +14,7 @@ declare global {
 @Component({
   selector: 'app-alquimia-dental',
   standalone: true,
-  imports: [RouterModule, NgIf, TranslatePipe],
+  imports: [RouterModule, NgIf, TranslatePipe, PageHeroComponent],
   templateUrl: './alquimia-dental.component.html',
   styleUrl: './alquimia-dental.component.scss'
 })

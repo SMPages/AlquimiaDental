@@ -1,94 +1,67 @@
-<!-- src/app/pages/about-section/about-section.component.html -->
-<section id="sobre-mi" class="about-section section" aria-labelledby="about-title">
-  <div class="container">
-    <div class="about-content">
+<app-page-hero
+  [eyebrow]="'nav.about' | translate"
+  [title]="'about.title' | translate"
+  [subtitle]="'about.subtitle' | translate">
+</app-page-hero>
 
-      <!-- Imagen -->
-      <div class="about-image">
-        <img
-          src="images/about.png"
-          [alt]="'about.imageAlt' | translate"
-          width="440" height="600"
-          loading="lazy" decoding="async" fetchpriority="low"
-          class="office-photo fade-in"
-        />
-      </div>
+<section id="sobre-mi" class="about" [attr.aria-label]="'about.title' | translate">
+  <div class="inner about-grid">
 
-      <!-- Texto -->
-      <div class="about-text">
-        <h2 id="about-title" class="section-title fade-in">
-          {{ 'about.title' | translate }}
-        </h2>
-
-        <h3 class="section-subtitle fade-in">
-          {{ 'about.subtitle' | translate }}
-        </h3>
-
-        <p class="about-description fade-in">
-          {{ 'about.intro1' | translate }}
-          {{ 'about.intro2' | translate }}
-          <strong>{{ 'about.introStrong' | translate }}</strong>{{ 'about.intro3' | translate }}
-        </p>
-
-        <p class="about-description fade-in">
-          {{ 'about.philosophy' | translate }}
-        </p>
-
-        <!-- Servicios destacados -->
-        <div class="credentials fade-in">
-          <h4 class="credentials-title">
-            {{ 'about.servicesTitle' | translate }}
-          </h4>
-          <ul class="credentials-list services-list">
-            <li>{{ 'services.items.digital.title' | translate }}</li>
-            <li>{{ 'services.items.whitening.title' | translate }}</li>
-            <li>{{ 'services.items.veneers.title' | translate }}</li>
-            <li>{{ 'services.items.cleaning.title' | translate }}</li>
-            <li>{{ 'services.items.jewelry.title' | translate }}</li>
-            <li>{{ 'services.items.smileDesign.title' | translate }}</li>
-            <li>{{ 'services.items.rehabImplant.title' | translate }}</li>
-            <li>{{ 'services.items.prosthesis.title' | translate }}</li>
-          </ul>
-        </div>
-
-        <!-- CTA -->
-         <div id="propuesta" class="propuesta-card fade-in">
-          <p class="propuesta-text">
-            {{ 'about.ctaText' | translate }}
-          </p>
-
-          <div class="btn-row">
-             <a class="btn-hero primary"
-            [href]="whatsappHref"
-            target="_blank" rel="noopener"
-            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-            {{ 'about.ctaBtn' | translate }}
-          </a>
-          </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-grid fade-in" aria-label="Resultados y experiencia">
-          <div class="stat-item">
-            <h3>10+</h3>
-            <p>{{ 'about.yearsExperience' | translate }}</p>
-          </div>
-          <div class="stat-item">
-            <h3>2000+</h3>
-            <p>{{ 'about.happyPatients' | translate }}</p>
-          </div>
-          <div class="stat-item">
-            <h3>98%</h3>
-            <p>{{ 'about.successRate' | translate }}</p>
-          </div>
-          <div class="stat-item">
-            <h3>50+</h3>
-            <p>{{ 'about.internationalPatients' | translate }}</p>
-          </div>
-        </div>
-
-      </div>
+    <div class="photo">
+      <img
+        src="images/about.png"
+        [alt]="'about.imageAlt' | translate"
+        width="440" height="600"
+        loading="lazy" decoding="async"
+        class="office-photo" />
     </div>
+
+    <div class="text">
+      <p class="lead">
+        {{ 'about.intro1' | translate }}
+        {{ 'about.intro2' | translate }}
+        <strong>{{ 'about.introStrong' | translate }}</strong>{{ 'about.intro3' | translate }}
+      </p>
+
+      <blockquote class="philosophy">
+        {{ 'about.philosophy' | translate }}
+      </blockquote>
+
+      <h2 class="list-title">{{ 'about.servicesTitle' | translate }}</h2>
+      <ul class="services-list">
+        <li>{{ 'services.items.digital.title' | translate }}</li>
+        <li>{{ 'services.items.smileDesign.title' | translate }}</li>
+        <li>{{ 'services.items.veneers.title' | translate }}</li>
+        <li>{{ 'services.items.whitening.title' | translate }}</li>
+        <li>{{ 'services.items.cleaning.title' | translate }}</li>
+        <li>{{ 'services.items.jewelry.title' | translate }}</li>
+        <li>{{ 'services.items.rehabImplant.title' | translate }}</li>
+        <li>{{ 'services.items.prosthesis.title' | translate }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Cifras -->
+<section class="stats" [attr.aria-label]="'about.successRate' | translate">
+  <div class="inner stats-grid">
+    <div class="stat"><strong>10+</strong><span>{{ 'about.yearsExperience' | translate }}</span></div>
+    <div class="stat"><strong>2000+</strong><span>{{ 'about.happyPatients' | translate }}</span></div>
+    <div class="stat"><strong>98%</strong><span>{{ 'about.successRate' | translate }}</span></div>
+    <div class="stat"><strong>50+</strong><span>{{ 'about.internationalPatients' | translate }}</span></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="inner">
+    <h2>{{ 'about.ctaText' | translate }}</h2>
+    <a class="btn-gold"
+      [href]="whatsappHref"
+      target="_blank" rel="noopener"
+      [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+      <i class="bi bi-whatsapp" aria-hidden="true"></i>
+      {{ 'about.ctaBtn' | translate }}
+    </a>
   </div>
 </section>

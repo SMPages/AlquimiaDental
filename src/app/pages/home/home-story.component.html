@@ -1,0 +1,91 @@
+<!-- ===== EL PROCESO (oscuro) ===== -->
+<section class="process">
+  <div class="inner">
+    <header class="head">
+      <span class="eyebrow">{{ 'story.process.eyebrow' | translate }}</span>
+      <h2>{{ 'story.process.title' | translate }}</h2>
+    </header>
+
+    <ol class="steps">
+      <li *ngFor="let i of steps">
+        <span class="num" aria-hidden="true">{{ roman(i) }}</span>
+        <h3>{{ 'story.process.steps.' + i + '.t' | translate }}</h3>
+        <p>{{ 'story.process.steps.' + i + '.d' | translate }}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== CASOS REALES ===== -->
+<section class="cases">
+  <div class="inner">
+    <header class="head">
+      <span class="eyebrow">{{ 'story.cases.eyebrow' | translate }}</span>
+      <h2>{{ 'story.cases.title' | translate }}</h2>
+    </header>
+
+    <div class="cases-grid">
+      <figure *ngFor="let c of cases">
+        <div class="frame">
+          <img [src]="c.img" [alt]="'gallery.items.' + c.key + '.alt' | translate" loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <strong>{{ 'gallery.items.' + c.key + '.title' | translate }}</strong>
+          <span>{{ 'gallery.items.' + c.key + '.desc' | translate }}</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="cases-cta">
+      <a class="link-arrow" [routerLink]="['/', currentLang, 'gallery']">
+        {{ 'story.cases.cta' | translate }} <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="link-arrow" [href]="instagram" target="_blank" rel="noopener">
+        {{ 'story.cases.ig' | translate }} <i class="bi bi-instagram" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA DOCTORA (salvia) ===== -->
+<section class="doctor">
+  <div class="inner doctor-grid">
+    <div>
+      <span class="eyebrow">{{ 'story.doctor.eyebrow' | translate }}</span>
+      <blockquote>
+        <span class="mark" aria-hidden="true">“</span>
+        {{ 'story.doctor.quote' | translate }}
+      </blockquote>
+      <p class="signature">{{ 'story.doctor.name' | translate }}</p>
+    </div>
+
+    <ul class="creds">
+      <li>
+        <strong>{{ 'story.doctor.cred1t' | translate }}</strong>
+        <span>{{ 'story.doctor.cred1d' | translate }}</span>
+      </li>
+      <li>
+        <strong>{{ 'story.doctor.cred2t' | translate }}</strong>
+        <span>{{ 'story.doctor.cred2d' | translate }}</span>
+      </li>
+      <li>
+        <a class="link-arrow light" [routerLink]="['/', currentLang, 'about']">
+          {{ 'story.doctor.more' | translate }} <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="final">
+  <div class="inner">
+    <h2>{{ 'story.final.title' | translate }}</h2>
+    <p>{{ 'story.final.text' | translate }}</p>
+    <a class="btn-gold" [href]="whatsappHref" target="_blank" rel="noopener"
+       [attr.aria-label]="'hero.whatsappAria' | translate">
+      <i class="bi bi-whatsapp" aria-hidden="true"></i>
+      {{ 'story.final.btn' | translate }}
+    </a>
+  </div>
+</section>

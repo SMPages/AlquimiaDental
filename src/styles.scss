@@ -3,22 +3,28 @@
 :root {
   /* Warm earth tone color palette for dental website */
   --background: #faf8f5; /* Warm beige */
-  --foreground: #4a453f; /* Dark warm gray */
+  --foreground: #2a2420; /* Tinta café */
   --card: #fcfbf9; /* Light warm background */
-  --card-foreground: #4a453f; /* Dark warm gray */
-  --primary: #c5683a; /* Terracotta */
+  --card-foreground: #2a2420;
+  --primary: #b8643a; /* Cobre */
   --primary-foreground: #fcfbf9; /* Light warm text */
   --secondary: #d4a574; /* Ochre */
-  --secondary-foreground: #4a453f; /* Dark warm gray */
+  --secondary-foreground: #2a2420;
   --muted: #f0ede8; /* Soft warm gray */
-  --muted-foreground: #8b8680; /* Medium warm gray */
-  --accent: #d4a574; /* Ochre accent */
+  --muted-foreground: #6f665d; /* Gris cálido con mejor contraste */
+  --accent: #c9a36a; /* Dorado suave */
   --accent-foreground: #fcfbf9; /* Light warm text */
   --border: #e8e3dc; /* Warm border */
   --input: #ffffff; /* White input */
   --ring: rgba(193, 120, 84, 0.3); /* Terracotta focus ring */
   --radius: 0.5rem;
   --primary-color: var(--primary);
+  --ink: #2a2420;
+  --ink-soft: #3a322c;
+  --ivory: #f6f0e6;
+  --gold: #c9a36a;
+  --sage: #4b5a4a;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --header-safe: 76px;   /* desktop aprox */
 
   --background-stand-out: radial-gradient(
@@ -32,26 +38,28 @@
   
     position: relative;
     padding: 1.25rem 1.25rem 1.1rem 1.35rem;
-    border: 1px solid var(--border-c);
-    border-radius: 14px;
-    background: var(--background-stand-out);
+    border: 1px solid rgba(201,163,106,.35);
+    border-radius: 20px;
+    background: radial-gradient(600px 200px at 50% 0%, rgba(201,163,106,.16), transparent 70%), var(--ink);
     transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
     text-align: center; /* coherente con el diseño actual */
     &:hover {
       transform: translateY(-1px);
       box-shadow: 0 12px 28px rgba(0,0,0,.1);
-      border-color: #dcdfd7;
+      border-color: var(--gold);
     }
 
     .propuesta-text {
       font-size: 1.125rem;
-      color: var(--color-text-stand-out);
-      margin: 0 0 1rem 0;
+      color: var(--ivory);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      margin: 0 0 1.25rem 0;
       line-height: 1.6;
       max-width: 60ch;
       margin-inline: auto;
 
-      .marca { font-weight: 800; color: var(--color-text-stand-out); white-space: nowrap; }
+      .marca { font-weight: 700; color: var(--gold); white-space: nowrap; }
     }
 
     .btn-row {
@@ -75,32 +83,32 @@
       .bi { font-size: 1.1em; vertical-align: -2px; }
     }
     .btn-hero.primary {
-      background: #fff;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+      background: var(--gold);
+      color: var(--ink);
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      box-shadow: none;
     }
       .btn-hero.primary:hover,
       .btn-hero.primary:focus-visible {
-        background: var(--primary);
-        color: #fff;
-        border-color: #fff;
-        box-shadow: 0 8px 18px rgba(0,0,0,.08);
+        background: var(--ivory);
+        color: var(--ink);
+        border-color: var(--ivory);
         text-decoration: none;
       }
 
     .btn-hero.secondary {
-      color: var(--color-text-stand-out);
-      background-color: #fff;
-      border: 1px solid var(--color-text-stand-out);
+      color: var(--ivory);
+      background-color: transparent;
+      border: 1px solid rgba(246,240,230,.4);
+      border-radius: 999px;
     }
 
     .btn-hero.secondary:hover,
       .btn-hero.secondary:focus-visible {
-        background-color: var(--primary);
-        border: 1px solid var(--primary);
-        color: #fff;
-        box-shadow: 0 8px 18px rgba(0,0,0,.08);
+        border-color: var(--gold);
+        color: var(--gold);
+        background-color: transparent;
         text-decoration: none;
       }
   }
@@ -112,25 +120,24 @@
   align-items: center;
   justify-content: center;
   gap: .5rem;
-  border-radius: 8px;
-  padding: .65rem 1rem;
-  font-weight: 700;
+  border-radius: 999px;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
-  border: 1.5px solid transparent;
-  color: var(--color-text-stand-out);
-  background-color: var(--background-stand-out);
-  border: 1px solid var(--color-text-stand-out);
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  color: var(--ivory);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
 }
-  .btn-generic-primary:hover,
-  .btn-generic-primary:focus-visible {
-    background-color: var(--primary);
-    border: 1px solid var(--primary);
-    color: #fff;
-    box-shadow: 0 8px 18px rgba(0,0,0,.08);
-    text-decoration: none;
-  }
+.btn-generic-primary:hover,
+.btn-generic-primary:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
 
 * {
   margin: 0;
@@ -161,15 +168,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.2;
   color: var(--foreground);
 }
 
-  .container {
-    margin-top: 70px !important;
-  }
 
 .btn {
   display: inline-flex;

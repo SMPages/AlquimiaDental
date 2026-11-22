@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { ViewEncapsulation } from '@angular/core';
+import { combineLatest } from 'rxjs';
+import { PageHeroComponent } from '../page-hero/page-hero.component';
 @Component({
   selector: 'app-servicio-detalle',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, TranslatePipe, PageHeroComponent],
   templateUrl: './servicio-detalle.component.html',
   styleUrls: ['./servicio-detalle.component.scss'],
    encapsulation: ViewEncapsulation.None 
@@ -29,12 +31,15 @@ export class ServicioDetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    // stream() vuelve a emitir cuando carga o cambia el idioma
+    combineLatest([
+      this.route.paramMap,
+      this.translate.stream('services_hero.items')
+    ]).subscribe(([params, items]) => {
       const slug = params.get('slug');
       if (!slug) return;
 
-      const items = this.translate.instant('services_hero.items');
-      const base = items[slug];
+      const base = items?.[slug];
       if (!base) {
         console.warn('Servicio no encontrado:', slug);
         return;

@@ -1,3 +1,4 @@
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 // src/app/pages/blog-section/blog-section.component.ts
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -5,7 +6,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-blog-section',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, PageHeroComponent],
   templateUrl: './blog-section.component.html',
   styleUrls: ['./blog-section.component.scss']
 })

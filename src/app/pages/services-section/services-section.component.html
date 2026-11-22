@@ -1,43 +1,38 @@
-<section id="services" class="services-section marble-bg" aria-labelledby="services-title">
-  <div class="container">
-    <header class="section-header text-center">
-      <h2 id="services-title" class="section-title">{{ 'services.title' | translate }}</h2>
-      <p class="section-subtitle">{{ 'services.subtitle' | translate }}</p>
-    </header>
+<app-page-hero
+  [eyebrow]="'nav.services' | translate"
+  [title]="'services.title' | translate"
+  [subtitle]="'services.subtitle' | translate">
+</app-page-hero>
 
-    <!-- Lista de tarjetas horizontales -->
-    <div class="services-list">
-      <article class="service-card" *ngFor="let s of items">
-        <div class="media" aria-hidden="true">
-          <img
-            [src]="s.icon"
-            [alt]="'services.items.' + s.key + '.alt' | translate"
-            loading="lazy"
-            decoding="async" />
-        </div>
-
-        <div class="content">
-          <h3>{{ ('services.items.' + s.key + '.title') | translate }}</h3>
-          <!-- Renderiza HTML -->
-          <p [innerHTML]="('services.items.' + s.key + '.desc') | translate"></p>
-        </div>
-      </article>
-    </div>
-
-    <div id="propuesta" class="propuesta-card fade-in">
-      <p class="propuesta-text">
-        {{ 'services.ctaText' | translate }}
-      </p>
-
-      <div class="btn-row">
-        <a class="btn-hero primary"
-           [href]="whatsappHref"
-           target="_blank" rel="noopener"
-           [attr.aria-label]="'alquimia.cta.book_aria' | translate">
-          <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          {{ 'services.ctaButton' | translate }}
-        </a>
+<section id="services" class="services" [attr.aria-label]="'services.title' | translate">
+  <div class="inner">
+    <article class="svc" *ngFor="let s of items; let i = index" [class.flip]="i % 2 === 1">
+      <div class="media">
+        <img
+          [src]="s.icon"
+          [alt]="'services.items.' + s.key + '.alt' | translate"
+          loading="lazy"
+          decoding="async" />
       </div>
-    </div>
+
+      <div class="body">
+        <span class="num" aria-hidden="true">{{ roman(i) }}</span>
+        <h2>{{ ('services.items.' + s.key + '.title') | translate }}</h2>
+        <p [innerHTML]="('services.items.' + s.key + '.desc') | translate"></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="inner">
+    <h2>{{ 'services.ctaText' | translate }}</h2>
+    <a class="btn-gold"
+       [href]="whatsappHref"
+       target="_blank" rel="noopener"
+       [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+      <i class="bi bi-whatsapp" aria-hidden="true"></i>
+      {{ 'services.ctaButton' | translate }}
+    </a>
   </div>
 </section>

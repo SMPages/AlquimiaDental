@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { SeoService } from "../../services/seo.service";
 import { HeroSectionComponent } from "../hero-section/hero-section.component";
+import { HomeStoryComponent } from "./home-story.component";
 @Component({
   selector: "app-home",
   standalone: true,
   imports: [CommonModule,
-    HeroSectionComponent
+    HeroSectionComponent,
+    HomeStoryComponent
   ],
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],

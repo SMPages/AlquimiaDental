@@ -19,6 +19,8 @@
     }
   },
   "hero": {
+    "headlinePre": "Your smile,",
+    "headlineEm": "transformed",
     "title": "Dr. Sorany Díaz",
     "subtitle": "Dentist specializing in dental aesthetics in Bogotá",
     "description": "We transform smiles through cosmetic dentistry, implants, and oral rehabilitation. Patients from different countries travel to Bogotá to trust our experience and human touch.",
@@ -40,64 +42,64 @@
     "photo2Alt": "Dental care area",
     "photo3Alt": "Modern dental equipment"
   },
-"services": {
-  "title": "Our Services",
-  "subtitle": "Specialized treatments for your smile",
-  "ctaText": "Ready to transform your smile? Book a consultation.",
-  "ctaButton": "Book your appointment",
-  "items": {
-    "digital": {
-      "title": "Digital Dentistry",
-      "desc": "Digital dentistry integrates advanced technology such as intraoral scanners, 3D software, and CAD/CAM systems to provide precise diagnoses and personalized treatments. <p>This approach enhances patient comfort, reduces intervention time, and enables highly aesthetic and functional results.</p><p>With digital dentistry, each procedure is carefully planned, facilitating durable restorations, advanced orthodontics, and custom-made prosthetics.</p><p>This is the future of dentistry—it combines innovation, efficiency, and personalized care to optimize your oral health.</p>",
-      "alt": "Digital dentistry"
-    },
-    "whitening": {
-      "title": "Teeth Whitening",
-      "desc": "Teeth whitening is an aesthetic treatment that improves the color of the teeth, removing stains and brightening their natural shade. <p>It is a safe and effective procedure that can be performed in-office or at home, tailored to each patient’s needs.</p><p>Benefits:</p><ul><li>Enhances your smile and self-confidence.</li><li>Visible results in just a few sessions.</li><li>Quick, minimally invasive procedure.</li></ul><p>An ideal treatment for those seeking a whiter, more radiant smile.</p>",        
-      "alt": "Teeth whitening"
-    },
-    "veneers": {
-      "title": "Ceramic Veneers (Cosmetic Smile Design)",
-      "desc": "These are ultra-thin ceramic shells bonded to the front surface of your teeth to improve their shape, color, and size.<p><strong>Highly aesthetic:</strong> Achieve a totally natural appearance, similar to enamel.<br><strong>Durable:</strong> Resistant and color-stable over time.<br><strong>Conservative:</strong> Require minimal tooth reduction.<br><strong>Versatile:</strong> Correct chips, spaces, stains, and dental discrepancies.</p><p>With veneers, your smile not only changes externally—it also reflects the confidence and assurance within.</p>",
-      "alt": "Ceramic veneers and lumineers"
-    },
-    "cleaning": {
-      "title": "Professional Dental Cleaning",
-      "desc": "Professional dental cleaning is a fundamental procedure for maintaining oral health. <p>It removes plaque and tartar that brushing alone cannot eliminate, helping to prevent cavities and gum disease.</p><p>Benefits:</p><ul><li>Removes surface stains and improves the appearance of your teeth.</li><li>Eliminates bad breath caused by bacteria buildup.</li><li>Enables early detection of oral problems.</li><li>Contributes to overall well-being and boosts confidence in your smile.</li></ul><p>Regular cleanings are key to enjoying a healthy mouth, lasting freshness, and a brighter smile.</p>",
-      "alt": "Professional dental cleaning"
-    },
-    "jewelry": {
-      "title": "Dental Jewelry – Gold / Silver Grillz",
-      "desc": "Dental jewelry and gold/silver grillz are removable decorative accessories placed on one or more teeth, allowing you to customize your smile with unique style. <p>They are custom-made using valuable metals such as gold and silver, and can feature exclusive designs according to your preferences.</p><p>Benefits:</p><ul><li>Exclusive and personalized aesthetic expression.</li><li>Safe placement by dental professionals.</li><li>Removable option that does not harm your natural teeth.</li></ul><p>Ask your dentist for advice to enjoy your dental jewelry safely and with confidence.</p>",      
-      "alt": "Dental jewelry and grillz"
-    },
-    "smileDesign": {
-      "title": "Advanced Smile Design",
-      "desc": "This is a personalized treatment designed to harmonize the shape, color, and size of your teeth with your facial features.<p><strong>Aesthetic and functional:</strong> Not only does it improve the beauty of your smile, it also supports chewing and oral health.<br><strong>Personalized:</strong> Each design is tailored to your personality, features, and expectations.<br><strong>Versatile:</strong> May include resins, veneers, crowns, or other procedures as needed.<br><strong>Transformative:</strong> A renewed smile has a direct impact on your confidence and security.</p><p>Smile design doesn’t change who you are… it brings out your best and restores your confidence to smile without limits.</p>",
-      "alt": "High-aesthetic smile design"
-    },
-    "rehabImplant": {
-      "title": "Rehabilitation with Metal Core",
-      "desc": "Rehabilitation with a metal core is a dental procedure that restores tooth structure using custom-fitted metal posts as a base for crowns or bridges. <p>These cores are made to provide exceptional mechanical strength and stability, especially in teeth that have lost significant structure.</p> <p>Advantages:</p> <ul> <li>High durability and resistance to chewing forces.</li> <li>Provides strong support for final restorations.</li> <li>Helps preserve and fortify weakened teeth.</li> </ul> <p>This type of rehabilitation is widely used to restore function and aesthetics in endodontically treated or severely damaged teeth, ensuring a healthy, functional smile.</p>",
-      "alt": "Oral rehabilitation and implantology"
-    },
-    "prosthesis": {
-      "title": "Complete Denture",
-      "desc": "A removable device designed to replace all teeth when lost in one or both arches.<p>Main benefits:</p><ul><li>Restores chewing function and phonetics.</li><li>Supports lips and face, improving overall facial aesthetics.</li><li>Restores confidence by enabling you to smile and speak securely.</li></ul><p>Modern dentures are crafted with advanced techniques that provide greater comfort, better fit, and a much more natural appearance.</p><p>Regaining your smile also means reclaiming your quality of life.</p>",
-      "alt": "Complete denture"
-    },
-    "prosthesis2": {
-      "title": "Bio-characterized Acrylic Dentures",
-      "desc": "These removable acrylic dentures go beyond just replacing teeth: they are designed to closely mimic natural gum and tooth tissues, resulting in a harmonious and realistic smile.<p><strong>Benefits:</strong></p><ul><li>Gums characterized with natural shades and textures.</li><li>Teeth with lifelike color and shapes.</li><li>Greater comfort and adaptability.</li><li>A functional, aesthetic, and affordable option to restore your smile.</li></ul><p>With bio-characterized acrylic dentures, you not only regain your ability to chew and smile—you also regain the confidence to look and feel your best.</p>",
-      "alt": "Bio-characterized acrylic dentures"
-    },
-    "Bordeincisal": {
-      "title": "Incisal Edge",
-      "desc": "This is the thinnest and most translucent part of the front teeth (incisors), the area that directly contacts food during biting.<p><strong>Importance:</strong></p><ul><li>Contributes naturalness and brightness to your smile.</li><li>Its shape and length influence facial harmony.</li><li>If worn or fractured, it can affect both aesthetics and function.</li></ul><p>Using resins, veneers, or crowns, it is possible to restore the incisal edge, regaining balance, beauty, and health for your smile.</p>",
-      "alt": "Incisal edge"
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Specialized treatments for your smile",
+    "ctaText": "Ready to transform your smile? Book a consultation.",
+    "ctaButton": "Book your appointment",
+    "items": {
+      "digital": {
+        "title": "Digital Dentistry",
+        "desc": "Digital dentistry integrates advanced technology such as intraoral scanners, 3D software, and CAD/CAM systems to provide precise diagnoses and personalized treatments. <p>This approach enhances patient comfort, reduces intervention time, and enables highly aesthetic and functional results.</p><p>With digital dentistry, each procedure is carefully planned, facilitating durable restorations, advanced orthodontics, and custom-made prosthetics.</p><p>This is the future of dentistry—it combines innovation, efficiency, and personalized care to optimize your oral health.</p>",
+        "alt": "Digital dentistry"
+      },
+      "whitening": {
+        "title": "Teeth Whitening",
+        "desc": "Teeth whitening is an aesthetic treatment that improves the color of the teeth, removing stains and brightening their natural shade. <p>It is a safe and effective procedure that can be performed in-office or at home, tailored to each patient’s needs.</p><p>Benefits:</p><ul><li>Enhances your smile and self-confidence.</li><li>Visible results in just a few sessions.</li><li>Quick, minimally invasive procedure.</li></ul><p>An ideal treatment for those seeking a whiter, more radiant smile.</p>",
+        "alt": "Teeth whitening"
+      },
+      "veneers": {
+        "title": "Ceramic Veneers (Cosmetic Smile Design)",
+        "desc": "These are ultra-thin ceramic shells bonded to the front surface of your teeth to improve their shape, color, and size.<p><strong>Highly aesthetic:</strong> Achieve a totally natural appearance, similar to enamel.<br><strong>Durable:</strong> Resistant and color-stable over time.<br><strong>Conservative:</strong> Require minimal tooth reduction.<br><strong>Versatile:</strong> Correct chips, spaces, stains, and dental discrepancies.</p><p>With veneers, your smile not only changes externally—it also reflects the confidence and assurance within.</p>",
+        "alt": "Ceramic veneers and lumineers"
+      },
+      "cleaning": {
+        "title": "Professional Dental Cleaning",
+        "desc": "Professional dental cleaning is a fundamental procedure for maintaining oral health. <p>It removes plaque and tartar that brushing alone cannot eliminate, helping to prevent cavities and gum disease.</p><p>Benefits:</p><ul><li>Removes surface stains and improves the appearance of your teeth.</li><li>Eliminates bad breath caused by bacteria buildup.</li><li>Enables early detection of oral problems.</li><li>Contributes to overall well-being and boosts confidence in your smile.</li></ul><p>Regular cleanings are key to enjoying a healthy mouth, lasting freshness, and a brighter smile.</p>",
+        "alt": "Professional dental cleaning"
+      },
+      "jewelry": {
+        "title": "Dental Jewelry – Gold / Silver Grillz",
+        "desc": "Dental jewelry and gold/silver grillz are removable decorative accessories placed on one or more teeth, allowing you to customize your smile with unique style. <p>They are custom-made using valuable metals such as gold and silver, and can feature exclusive designs according to your preferences.</p><p>Benefits:</p><ul><li>Exclusive and personalized aesthetic expression.</li><li>Safe placement by dental professionals.</li><li>Removable option that does not harm your natural teeth.</li></ul><p>Ask your dentist for advice to enjoy your dental jewelry safely and with confidence.</p>",
+        "alt": "Dental jewelry and grillz"
+      },
+      "smileDesign": {
+        "title": "Advanced Smile Design",
+        "desc": "This is a personalized treatment designed to harmonize the shape, color, and size of your teeth with your facial features.<p><strong>Aesthetic and functional:</strong> Not only does it improve the beauty of your smile, it also supports chewing and oral health.<br><strong>Personalized:</strong> Each design is tailored to your personality, features, and expectations.<br><strong>Versatile:</strong> May include resins, veneers, crowns, or other procedures as needed.<br><strong>Transformative:</strong> A renewed smile has a direct impact on your confidence and security.</p><p>Smile design doesn’t change who you are… it brings out your best and restores your confidence to smile without limits.</p>",
+        "alt": "High-aesthetic smile design"
+      },
+      "rehabImplant": {
+        "title": "Rehabilitation with Metal Core",
+        "desc": "Rehabilitation with a metal core is a dental procedure that restores tooth structure using custom-fitted metal posts as a base for crowns or bridges. <p>These cores are made to provide exceptional mechanical strength and stability, especially in teeth that have lost significant structure.</p> <p>Advantages:</p> <ul> <li>High durability and resistance to chewing forces.</li> <li>Provides strong support for final restorations.</li> <li>Helps preserve and fortify weakened teeth.</li> </ul> <p>This type of rehabilitation is widely used to restore function and aesthetics in endodontically treated or severely damaged teeth, ensuring a healthy, functional smile.</p>",
+        "alt": "Oral rehabilitation and implantology"
+      },
+      "prosthesis": {
+        "title": "Complete Denture",
+        "desc": "A removable device designed to replace all teeth when lost in one or both arches.<p>Main benefits:</p><ul><li>Restores chewing function and phonetics.</li><li>Supports lips and face, improving overall facial aesthetics.</li><li>Restores confidence by enabling you to smile and speak securely.</li></ul><p>Modern dentures are crafted with advanced techniques that provide greater comfort, better fit, and a much more natural appearance.</p><p>Regaining your smile also means reclaiming your quality of life.</p>",
+        "alt": "Complete denture"
+      },
+      "prosthesis2": {
+        "title": "Bio-characterized Acrylic Dentures",
+        "desc": "These removable acrylic dentures go beyond just replacing teeth: they are designed to closely mimic natural gum and tooth tissues, resulting in a harmonious and realistic smile.<p><strong>Benefits:</strong></p><ul><li>Gums characterized with natural shades and textures.</li><li>Teeth with lifelike color and shapes.</li><li>Greater comfort and adaptability.</li><li>A functional, aesthetic, and affordable option to restore your smile.</li></ul><p>With bio-characterized acrylic dentures, you not only regain your ability to chew and smile—you also regain the confidence to look and feel your best.</p>",
+        "alt": "Bio-characterized acrylic dentures"
+      },
+      "Bordeincisal": {
+        "title": "Incisal Edge",
+        "desc": "This is the thinnest and most translucent part of the front teeth (incisors), the area that directly contacts food during biting.<p><strong>Importance:</strong></p><ul><li>Contributes naturalness and brightness to your smile.</li><li>Its shape and length influence facial harmony.</li><li>If worn or fractured, it can affect both aesthetics and function.</li></ul><p>Using resins, veneers, or crowns, it is possible to restore the incisal edge, regaining balance, beauty, and health for your smile.</p>",
+        "alt": "Incisal edge"
+      }
     }
-  }
-},
+  },
   "alquimia": {
     "title": "Alquimia Dental",
     "lead": "Dentistry is not only technique or aesthetics — it is {{t}}.",
@@ -205,9 +207,21 @@
     "subtitle": "I’m Dr. Sorany Díaz. Alquimia Dental is my way of understanding dentistry: science and art to turn insecurities into confidence. Sometimes a detail is enough; other times, it takes full rehabilitation. In every case, the goal is the same: that your smile reflects your best self and that you feel happy with it. 💎✨",
     "moreCta": "See more cases on Instagram",
     "items": {
-      "case1": { "title": "Full-arch implant rehabilitation", "desc": "Function and aesthetics restored with implant-supported prostheses.", "alt": "Full arch rehabilitation" },
-      "case2": { "title": "Smile design — Ceramic veneers", "desc": "Personalized aesthetic planning, mock-up, and natural finish.", "alt": "Smile design and veneers" },
-      "case3": { "title": "Teeth whitening", "desc": "Lighten several shades safely and in a controlled way.", "alt": "Teeth whitening" }
+      "case1": {
+        "title": "Full-arch implant rehabilitation",
+        "desc": "Function and aesthetics restored with implant-supported prostheses.",
+        "alt": "Full arch rehabilitation"
+      },
+      "case2": {
+        "title": "Smile design — Ceramic veneers",
+        "desc": "Personalized aesthetic planning, mock-up, and natural finish.",
+        "alt": "Smile design and veneers"
+      },
+      "case3": {
+        "title": "Teeth whitening",
+        "desc": "Lighten several shades safely and in a controlled way.",
+        "alt": "Teeth whitening"
+      }
     }
   },
   "footer": {
@@ -216,36 +230,85 @@
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
     "brand": "Alquimia Dental®"
   },
-"services_hero": {
-  "title": "Transform your smile with experts",
-  "subtitle": "High-quality dental treatments with immediate and natural results",
-  "ctaText": "Ready for a spectacular smile? Schedule a personalized consultation and discover how we can help you.",
-  "ctaButton": "Book your appointment",
-  "items": {
-    "carillas": {
-      "title": "Smile design, Bogotá - Colombia",
-      "desc": "High-aesthetic resin veneers are the fastest and safest way to transform your smile without damaging your teeth. Super aesthetic results in record time.",
-      "alt": "Direct resin veneers for a perfect smile",
-      "detailedDesc": "<h3>Why choose aesthetic veneers?</h3><p>Resin veneers offer an immediate and natural transformation of your smile, improving the color, shape, and alignment of your teeth.</p><h3>Benefits</h3><ul><li>Minimally invasive procedure that preserves your natural tooth structure.</li><li>Attractive smile in just one session.</li><li>Durable and fully customized results.</li><li>Quick and simple repairs if needed.</li></ul><h3>Professional care</h3><p>Enjoy a bright and lasting smile by attending regular check-ups and professional cleanings.</p>"
+  "services_hero": {
+    "title": "Transform your smile with experts",
+    "subtitle": "High-quality dental treatments with immediate and natural results",
+    "ctaText": "Ready for a spectacular smile? Schedule a personalized consultation and discover how we can help you.",
+    "ctaButton": "Book your appointment",
+    "items": {
+      "carillas": {
+        "title": "Smile design, Bogotá - Colombia",
+        "desc": "High-aesthetic resin veneers are the fastest and safest way to transform your smile without damaging your teeth. Super aesthetic results in record time.",
+        "alt": "Direct resin veneers for a perfect smile",
+        "detailedDesc": "<h3>Why choose aesthetic veneers?</h3><p>Resin veneers offer an immediate and natural transformation of your smile, improving the color, shape, and alignment of your teeth.</p><h3>Benefits</h3><ul><li>Minimally invasive procedure that preserves your natural tooth structure.</li><li>Attractive smile in just one session.</li><li>Durable and fully customized results.</li><li>Quick and simple repairs if needed.</li></ul><h3>Professional care</h3><p>Enjoy a bright and lasting smile by attending regular check-ups and professional cleanings.</p>"
+      },
+      "protesis-total": {
+        "title": "Full dentures, Bogotá - Colombia",
+        "desc": "Regain your confidence and quality of life with personalized dental prosthetics that look and feel completely natural.",
+        "alt": "Aesthetic and functional full dentures",
+        "detailedDesc": "<h3>The ultimate solution in dental rehabilitation</h3><p>Our full dentures restore both functionality and aesthetics to your smile. Each piece is custom-designed using high-quality materials for maximum comfort.</p><h3>Advantages</h3><ul><li>Immediate improvement in chewing and speech.</li><li>Natural and rejuvenated facial support.</li><li>Custom fit for optimal security and stability.</li></ul><h3>Professional maintenance</h3><p>Simple daily cleaning and periodic check-ups are enough to keep your renewed smile beautiful and healthy.</p>"
+      },
+      "limpieza-dental": {
+        "title": "Dental rehabilitation with ceramic crowns, Bogotá - Colombia",
+        "desc": "Restore the health, function, and beauty of your smile with highly aesthetic and resistant ceramic crowns.",
+        "alt": "Dental restoration with porcelain crowns",
+        "detailedDesc": "<h3>Complete restoration with natural aesthetics</h3><p>Achieve a strong and completely natural smile with digitally designed ceramic crowns perfectly adapted to you.</p><h3>Advantages</h3><ul><li>Long-lasting strength and resistance.</li><li>Completely natural appearance.</li><li>Total protection for weakened teeth.</li></ul><h3>Specialized process</h3><p>A fast and safe procedure performed by specialists in dental health and aesthetics.</p>"
+      },
+      "blanqueamiento": {
+        "title": "Teeth whitening, Bogotá - Colombia",
+        "desc": "Get a whiter, healthier, and more attractive smile in just a few sessions with a safe and personalized treatment.",
+        "alt": "Safe and effective teeth whitening",
+        "detailedDesc": "<h3>Results you’ll love</h3><p>Professional whitening removes stains and enhances your tooth shade for a stunning smile—without damaging enamel and with minimal sensitivity.</p><h3>Direct benefits</h3><ul><li>Visible change from the very first session.</li><li>Comfortable and personalized treatment for every patient.</li><li>Simple maintenance to prolong your radiant results.</li></ul><h3>Expert advice</h3><p>Avoid foods and drinks that stain to preserve your new smile and enjoy your results for much longer.</p>"
+      }
+    }
+  },
+  "story": {
+    "process": {
+      "eyebrow": "The process",
+      "title": "From idea to smile",
+      "steps": [
+        {
+          "t": "Diagnosis",
+          "d": "A clinical assessment and an honest conversation about what you want to achieve."
+        },
+        {
+          "t": "Digital design",
+          "d": "We plan your smile digitally before starting treatment."
+        },
+        {
+          "t": "Smile preview",
+          "d": "You see and try the expected result so you can decide with confidence."
+        },
+        {
+          "t": "Custom porcelain",
+          "d": "We craft and place each piece with precision and a natural finish."
+        },
+        {
+          "t": "Result and follow-up",
+          "d": "Check-ups so your smile stays as good as the first day."
+        }
+      ]
     },
-    "protesis-total": {
-      "title": "Full dentures, Bogotá - Colombia",
-      "desc": "Regain your confidence and quality of life with personalized dental prosthetics that look and feel completely natural.",
-      "alt": "Aesthetic and functional full dentures",
-      "detailedDesc": "<h3>The ultimate solution in dental rehabilitation</h3><p>Our full dentures restore both functionality and aesthetics to your smile. Each piece is custom-designed using high-quality materials for maximum comfort.</p><h3>Advantages</h3><ul><li>Immediate improvement in chewing and speech.</li><li>Natural and rejuvenated facial support.</li><li>Custom fit for optimal security and stability.</li></ul><h3>Professional maintenance</h3><p>Simple daily cleaning and periodic check-ups are enough to keep your renewed smile beautiful and healthy.</p>"
+    "cases": {
+      "eyebrow": "Real cases",
+      "title": "Results that speak for themselves",
+      "cta": "See more cases",
+      "ig": "Instagram"
     },
-    "limpieza-dental": {
-      "title": "Dental rehabilitation with ceramic crowns, Bogotá - Colombia",
-      "desc": "Restore the health, function, and beauty of your smile with highly aesthetic and resistant ceramic crowns.",
-      "alt": "Dental restoration with porcelain crowns",
-      "detailedDesc": "<h3>Complete restoration with natural aesthetics</h3><p>Achieve a strong and completely natural smile with digitally designed ceramic crowns perfectly adapted to you.</p><h3>Advantages</h3><ul><li>Long-lasting strength and resistance.</li><li>Completely natural appearance.</li><li>Total protection for weakened teeth.</li></ul><h3>Specialized process</h3><p>A fast and safe procedure performed by specialists in dental health and aesthetics.</p>"
+    "doctor": {
+      "eyebrow": "The doctor",
+      "name": "Dr. Sorany Díaz",
+      "quote": "For me, every treatment goes beyond resins, veneers or crowns: it is a process of trust, self-esteem and personal transformation.",
+      "cred1t": "Dentist",
+      "cred1d": "Universidad Antonio Nariño, Popayán",
+      "cred2t": "Specialization in Oral Rehabilitation",
+      "cred2d": "Universidad Colegio Odontológico, Cali",
+      "more": "Meet the doctor"
     },
-    "blanqueamiento": {
-      "title": "Teeth whitening, Bogotá - Colombia",
-      "desc": "Get a whiter, healthier, and more attractive smile in just a few sessions with a safe and personalized treatment.",
-      "alt": "Safe and effective teeth whitening",
-      "detailedDesc": "<h3>Results you’ll love</h3><p>Professional whitening removes stains and enhances your tooth shade for a stunning smile—without damaging enamel and with minimal sensitivity.</p><h3>Direct benefits</h3><ul><li>Visible change from the very first session.</li><li>Comfortable and personalized treatment for every patient.</li><li>Simple maintenance to prolong your radiant results.</li></ul><h3>Expert advice</h3><p>Avoid foods and drinks that stain to preserve your new smile and enjoy your results for much longer.</p>"
+    "final": {
+      "title": "Every smile can be a new story.",
+      "text": "Start yours today.",
+      "btn": "Book your appointment"
     }
   }
-}
 }

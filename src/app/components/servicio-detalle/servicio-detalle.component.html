@@ -1,48 +1,38 @@
-<section class="servicio-detalle-section marble-bg" *ngIf="servicio">
-  <div class="container text-center">
-    <header class="section-header text-center">
-      <h1 class="section-title">{{ servicio.title | translate }}</h1>
-      <p class="section-subtitle">{{ servicio.desc | translate }}</p>
-    </header>
-    
-    <div class="detalle-grid">
+<ng-container *ngIf="servicio">
+  <app-page-hero
+    [eyebrow]="'nav.services' | translate"
+    [title]="servicio.title | translate"
+    [subtitle]="servicio.desc | translate">
+  </app-page-hero>
 
-      <!-- Imagen del servicio -->
-      <div class="media" *ngIf="servicio.image">
+  <section class="sd-section">
+    <div class="sd-inner sd-grid">
+
+      <div class="sd-media" *ngIf="servicio.image">
         <img
           [src]="servicio.image"
           [alt]="servicio.alt | translate"
-          class="detalle-img"
           loading="lazy"
-          decoding="async"
-          width="420"
-          height="auto"
-        />
+          decoding="async" />
       </div>
 
-      <!-- Contenido del servicio -->
-      <div class="content">
+      <div class="sd-content">
         <!-- Descripción extendida (HTML real del JSON) -->
-        <div
-          class="servicio-extra"
-          [innerHTML]="servicio.detailedDesc"
-        ></div>
+        <div class="sd-extra" [innerHTML]="servicio.detailedDesc"></div>
       </div>
     </div>
-        <div id="propuesta" class="propuesta-card fade-in">
-      <p class="propuesta-text">
-        {{ 'services.ctaText' | translate }}
-      </p>
+  </section>
 
-      <div class="btn-row">
-        <a class="btn-hero primary"
-           [href]="whatsappHref"
-           target="_blank" rel="noopener"
-           [attr.aria-label]="'alquimia.cta.book_aria' | translate">
-          <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          {{ 'services.ctaButton' | translate }}
-        </a>
-      </div>
+  <section class="sd-cta">
+    <div class="sd-inner">
+      <h2>{{ 'services.ctaText' | translate }}</h2>
+      <a class="sd-btn"
+         [href]="whatsappHref"
+         target="_blank" rel="noopener"
+         [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        {{ 'services.ctaButton' | translate }}
+      </a>
     </div>
-  </div>
-</section>
+  </section>
+</ng-container>

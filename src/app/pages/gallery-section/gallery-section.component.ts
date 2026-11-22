@@ -1,3 +1,4 @@
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 import { Component, OnDestroy, OnInit, signal, computed, HostListener } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -15,7 +16,7 @@ type Slide = {
 @Component({
   selector: 'app-gallery-carousel',
   standalone: true,
-  imports: [NgFor, TranslatePipe],
+  imports: [NgFor, TranslatePipe, PageHeroComponent],
   templateUrl: './gallery-section.component.html',
   styleUrls: ['./gallery-section.component.scss']
 })

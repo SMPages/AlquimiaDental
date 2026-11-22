@@ -24,6 +24,13 @@ export class HeroSectionComponent {
 
   private readonly whatsappPhone = '573147992217';
 
+  active = 0;
+  bySlug = (_: number, s: FeaturedService) => s.slug;
+
+  roman(i: number): string {
+    return ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][i] ?? String(i + 1);
+  }
+
   get currentLang(): 'es' | 'en' {
     return (this.i18n.currentLang as 'es' | 'en') || 'es';
   }

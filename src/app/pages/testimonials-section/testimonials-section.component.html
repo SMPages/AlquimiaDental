@@ -1,10 +1,12 @@
+<app-page-hero
+  [eyebrow]="'nav.opinions' | translate"
+  [title]="'testimonials.title' | translate"
+  [subtitle]="'testimonials.subtitle' | translate">
+</app-page-hero>
+
 <!-- src/app/pages/testimonials-section/testimonials-section.component.html -->
 <section id="testimonials" class="testimonials-section marble-bg" aria-labelledby="testimonials-title">
   <div class="container">
-    <header class="section-header text-center">
-      <h2 id="testimonials-title" class="section-title">{{ 'testimonials.title' | translate }}</h2>
-      <p class="section-subtitle">{{ 'testimonials.subtitle' | translate }}</p>
-    </header>
 
     <!-- Carrusel tipo Gallery: 1 tarjeta a pantalla, flechas + dots -->
     <div class="t-carousel" (mouseenter)="pause()" (mouseleave)="resume()">

@@ -18,7 +18,9 @@
       "verMas": "Ver más"
     }
   },
-   "hero": {
+  "hero": {
+    "headlinePre": "Tu sonrisa,",
+    "headlineEm": "transformada",
     "title": "Odontología Estética en Bogotá – Diseño de Sonrisa | Dra. Sorany Díaz",
     "subtitle": "Sonríe con confianza: especialista en estética dental, implantes y rehabilitación oral.",
     "description": "Combinamos ciencia, arte y calidez humana para transformar sonrisas y brindar tratamientos de alta calidad a pacientes de Bogotá y del exterior.",
@@ -30,7 +32,6 @@
     "proposal": {
       "text": "es la visión de la Dra. Sorany Díaz: un enfoque integral que combina estética, salud y una experiencia humana excepcional."
     },
-    
     "ctaSecondary": "Conoce la marca",
     "ctaSecondaryAria": "Conocer la marca Alquimia Dental",
     "whatsappAria": "Chatear por WhatsApp para agendar cita"
@@ -54,7 +55,7 @@
       },
       "whitening": {
         "title": "Blanqueamiento dental",
-        "desc": "El blanqueamiento dental es un tratamiento estético que mejora el color de los dientes, eliminando manchas y aclarando su tono natural. <p>Es un procedimiento seguro y eficaz que puede realizarse en consultorio o de forma ambulatoria, adaptándose a las necesidades de cada paciente.</p><p>Beneficios:</p><ul><li>Mejora la sonrisa y la confianza personal.</li><li>Resultados visibles en pocas sesiones.</li><li>Procedimiento rápido y mínimamente invasivo.</li></ul><p>Un tratamiento ideal para quienes desean una sonrisa más blanca y radiante.</p>",        
+        "desc": "El blanqueamiento dental es un tratamiento estético que mejora el color de los dientes, eliminando manchas y aclarando su tono natural. <p>Es un procedimiento seguro y eficaz que puede realizarse en consultorio o de forma ambulatoria, adaptándose a las necesidades de cada paciente.</p><p>Beneficios:</p><ul><li>Mejora la sonrisa y la confianza personal.</li><li>Resultados visibles en pocas sesiones.</li><li>Procedimiento rápido y mínimamente invasivo.</li></ul><p>Un tratamiento ideal para quienes desean una sonrisa más blanca y radiante.</p>",
         "alt": "Blanqueamiento dental"
       },
       "veneers": {
@@ -64,12 +65,12 @@
       },
       "cleaning": {
         "title": "Limpieza dental profesional",
-        "desc": "La limpieza dental profesional es un procedimiento fundamental para mantener la salud de tu boca. <p>Elimina la placa bacteriana y el sarro que el cepillado diario no puede retirar, previniendo caries y enfermedades de las encías.</p><p>Beneficios:</p><ul><li>Remueve manchas superficiales y mejora el aspecto de los dientes.</li><li>Elimina el mal aliento causado por bacterias acumuladas.</li><li>Permite la detección temprana de problemas bucales.</li><li>Contribuye al bienestar general y la confianza en tu sonrisa.</li></ul><p>Realizarse limpiezas periódicas es clave para disfrutar de una boca sana, fresca y una sonrisa más radiante.</p>",        
+        "desc": "La limpieza dental profesional es un procedimiento fundamental para mantener la salud de tu boca. <p>Elimina la placa bacteriana y el sarro que el cepillado diario no puede retirar, previniendo caries y enfermedades de las encías.</p><p>Beneficios:</p><ul><li>Remueve manchas superficiales y mejora el aspecto de los dientes.</li><li>Elimina el mal aliento causado por bacterias acumuladas.</li><li>Permite la detección temprana de problemas bucales.</li><li>Contribuye al bienestar general y la confianza en tu sonrisa.</li></ul><p>Realizarse limpiezas periódicas es clave para disfrutar de una boca sana, fresca y una sonrisa más radiante.</p>",
         "alt": "Limpieza dental profesional"
       },
       "jewelry": {
         "title": "Joyas Dentales – Grillz Oro / Plata",
-        "desc": "Las joyas dentales y grillz de oro/plata son accesorios decorativos removibles que se colocan en uno o varios dientes para personalizar tu sonrisa con estilo propio. <p>Se fabrican a medida, utilizando metales valiosos como oro y plata, y pueden incluir diseños únicos según tu preferencia.</p><p>Beneficios:</p><ul><li>Expresión estética exclusiva y personalizada.</li><li>Colocación segura por profesionales.</li><li>Opción removible, sin daño al diente natural.</li></ul><p>Pide asesoría odontológica para disfrutar tu joya dental con seguridad y confianza.</p>",        
+        "desc": "Las joyas dentales y grillz de oro/plata son accesorios decorativos removibles que se colocan en uno o varios dientes para personalizar tu sonrisa con estilo propio. <p>Se fabrican a medida, utilizando metales valiosos como oro y plata, y pueden incluir diseños únicos según tu preferencia.</p><p>Beneficios:</p><ul><li>Expresión estética exclusiva y personalizada.</li><li>Colocación segura por profesionales.</li><li>Opción removible, sin daño al diente natural.</li></ul><p>Pide asesoría odontológica para disfrutar tu joya dental con seguridad y confianza.</p>",
         "alt": "Joyas dentales y grillz"
       },
       "smileDesign": {
@@ -87,7 +88,7 @@
         "desc": "Es un dispositivo removible diseñado para reemplazar todos los dientes cuando se han perdido en una o ambas arcadas.<p>Beneficios principales:</p><ul><li>Recupera la función masticatoria y la fonética.</li><li>Devuelve soporte a los labios y al rostro, mejorando la estética facial.</li><li>Restaura la confianza al poder sonreír y hablar con seguridad.</li></ul><p>Hoy en día las prótesis totales se diseñan con técnicas avanzadas que ofrecen mayor comodidad, adaptación y un aspecto mucho más natural.</p><p>Porque recuperar tu sonrisa también significa recuperar calidad de vida.</p>",
         "alt": "Prótesis total"
       },
-       "prosthesis2": {
+      "prosthesis2": {
         "title": "Protesis acrílicas biocaracterizadas",
         "desc": "Son prótesis removibles elaboradas en acrílico que van más allá de reemplazar dientes: están diseñadas para imitar con detalle la <strong>naturalidad de la encía y de los dientes</strong>, logrando una sonrisa armónica y realista.<p><strong>Beneficios:</strong></p><ul><li>Encías caracterizadas con matices y texturas naturales.</li><li>Dientes con colores y formas que se asemejan a los naturales.</li><li>Mayor comodidad y adaptación.</li><li>Una opción funcional, estética y accesible para recuperar tu sonrisa.</li></ul><p>Con las prótesis acrílicas biocaracterizadas, no solo vuelves a masticar y sonreír… también recuperas la seguridad de verte y sentirte bien.</p>",
         "alt": "Protesis acrílicas biocaracterizadas"
@@ -99,7 +100,7 @@
       }
     }
   },
-   "alquimia": {
+  "alquimia": {
     "title": "Alquimia Dental",
     "lead": "La odontología no es solo técnica ni estética: es {{t}}.",
     "copy": "Así como la alquimia antigua buscaba convertir los metales en oro, nuestro propósito es transformar el dolor, la inseguridad o el desgaste en {{b}}, {{c}} y {{l}}.",
@@ -206,12 +207,24 @@
     "subtitle": "Soy la Dra. Sorany Díaz. Alquimia Dental es mi manera de entender la odontología: ciencia y arte para convertir inseguridades en confianza. A veces basta un detalle; otras, una rehabilitación completa. En todos los casos, el objetivo es el mismo: que tu sonrisa refleje tu mejor versión y que te sientas feliz con ella. 💎✨",
     "moreCta": "Ver más casos en Instagram",
     "items": {
-      "case1": { "title": "Rehabilitación total sobre implantes", "desc": "Función y estética recuperadas con prótesis sobre implantes.", "alt": "Rehabilitación total" },
-      "case2": { "title": "Diseño de sonrisa – Carillas cerámicas", "desc": "Planeación estética personalizada, mock-up y acabado natural.", "alt": "Diseño de sonrisa y carillas" },
-      "case3": { "title": "Blanqueamiento dental", "desc": "Aclara varios tonos de forma segura y controlada.", "alt": "Blanqueamiento dental" }
+      "case1": {
+        "title": "Rehabilitación total sobre implantes",
+        "desc": "Función y estética recuperadas con prótesis sobre implantes.",
+        "alt": "Rehabilitación total"
+      },
+      "case2": {
+        "title": "Diseño de sonrisa – Carillas cerámicas",
+        "desc": "Planeación estética personalizada, mock-up y acabado natural.",
+        "alt": "Diseño de sonrisa y carillas"
+      },
+      "case3": {
+        "title": "Blanqueamiento dental",
+        "desc": "Aclara varios tonos de forma segura y controlada.",
+        "alt": "Blanqueamiento dental"
+      }
     }
   },
- "footer": {
+  "footer": {
     "slogan": "Transformando sonrisas con ciencia, arte y alma",
     "rights": "Todos los derechos reservados",
     "address": "Cl. 18 #77-51 Oficina 419, Fontibón, Bogotá",
@@ -247,6 +260,55 @@
         "alt": "Blanqueamiento dental seguro y efectivo",
         "detailedDesc": "<h3>Resultados que enamoran</h3><p>El blanqueamiento profesional elimina manchas y realza el tono de tus dientes para una sonrisa impactante, sin dañar el esmalte y con mínimo riesgo de sensibilidad.</p><h3>Beneficios directos</h3><ul><li>Cambio visible desde la primera sesión.</li><li>Tratamiento cómodo y adaptado a cada paciente.</li><li>Mantenimiento sencillo para prolongar el efecto radiante.</li></ul><h3>Consejo experto</h3><p>Evita alimentos y bebidas que tiñen para conservar tu nueva sonrisa y notarás los resultados durante mucho más tiempo.</p>"
       }
+    }
+  },
+  "story": {
+    "process": {
+      "eyebrow": "El proceso",
+      "title": "De la idea a la sonrisa",
+      "steps": [
+        {
+          "t": "Diagnóstico",
+          "d": "Una valoración clínica y una conversación honesta sobre lo que quieres lograr."
+        },
+        {
+          "t": "Diseño digital",
+          "d": "Planeamos tu sonrisa en digital antes de iniciar el tratamiento."
+        },
+        {
+          "t": "Prueba de sonrisa",
+          "d": "Ves y pruebas el resultado esperado para decidir con tranquilidad."
+        },
+        {
+          "t": "Porcelana a medida",
+          "d": "Elaboramos y colocamos cada pieza con precisión y acabado natural."
+        },
+        {
+          "t": "Resultado y seguimiento",
+          "d": "Controles para que tu sonrisa se mantenga como el primer día."
+        }
+      ]
+    },
+    "cases": {
+      "eyebrow": "Casos reales",
+      "title": "Resultados que hablan solos",
+      "cta": "Ver más casos",
+      "ig": "Instagram"
+    },
+    "doctor": {
+      "eyebrow": "La doctora",
+      "name": "Dra. Sorany Díaz",
+      "quote": "Para mí, cada tratamiento va más allá de resinas, carillas o coronas: es un proceso de confianza, autoestima y transformación personal.",
+      "cred1t": "Odontóloga",
+      "cred1d": "Universidad Antonio Nariño, Popayán",
+      "cred2t": "Especialización en Rehabilitación oral",
+      "cred2d": "Universidad Colegio Odontológico, Cali",
+      "more": "Conoce a la doctora"
+    },
+    "final": {
+      "title": "Cada sonrisa puede ser una nueva historia.",
+      "text": "Empieza la tuya hoy mismo.",
+      "btn": "Agenda tu cita"
     }
   }
 }
