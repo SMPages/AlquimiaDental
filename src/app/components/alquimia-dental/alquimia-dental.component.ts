@@ -1,8 +1,8 @@
 import { PageHeroComponent } from '../page-hero/page-hero.component';
 // src/app/components/alquimia-dental/alquimia-dental.component.ts
-import { Component, ElementRef, AfterViewInit, ViewChild, inject, DestroyRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild, inject, DestroyRef, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { NgIf, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../i18n/translation.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -24,6 +24,7 @@ export class AlquimiaDentalComponent implements AfterViewInit {
 
   private i18n = inject(TranslationService);
   private destroyRef = inject(DestroyRef);
+  private platformId = inject(PLATFORM_ID);
 
   igReady = false;
 
@@ -41,6 +42,9 @@ export class AlquimiaDentalComponent implements AfterViewInit {
     'https://wa.me/573147992217?text=Hola%20Dra.%20Sorany,%20quisiera%20agendar%20una%20valoraci%C3%B3n.';
 
   ngAfterViewInit(): void {
+    // IntersectionObserver y el embed de Instagram solo existen en el navegador
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const target = this.igSentinel?.nativeElement ?? this.igEmbed.nativeElement;
     const io = new IntersectionObserver((entries, obs) => {
       if (!entries[0]?.isIntersecting) return;

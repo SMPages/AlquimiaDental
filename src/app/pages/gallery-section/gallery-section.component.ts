@@ -40,14 +40,14 @@ export class GalleryCarouselComponent {
     caso('images/caso3.jpg', 1, 'rehab'),
     caso('images/caso1.jpg', 2, 'aesthetic'),
     caso('images/caso2.jpg', 3, 'aesthetic'),
-    servicio('servicios/carillasceramicas.png', 'veneers', 'aesthetic'),
-    servicio('servicios/protesis.png', 'prosthesis', 'rehab'),
-    servicio('servicios/blanqueamiento.png', 'whitening', 'aesthetic'),
-    servicio('servicios/rehabilitacion.png', 'rehabImplant', 'rehab'),
-    servicio('servicios/carillas.png', 'smileDesign', 'aesthetic'),
-    servicio('servicios/protesis2.png', 'prosthesis2', 'rehab'),
-    servicio('servicios/bordeincisal.png', 'Bordeincisal', 'aesthetic'),
-    servicio('servicios/joyas.png', 'jewelry', 'aesthetic')
+    servicio('servicios/carillasceramicas.webp', 'veneers', 'aesthetic'),
+    servicio('servicios/protesis.webp', 'prosthesis', 'rehab'),
+    servicio('servicios/blanqueamiento.webp', 'whitening', 'aesthetic'),
+    servicio('servicios/rehabilitacion.webp', 'rehabImplant', 'rehab'),
+    servicio('servicios/carillas.webp', 'smileDesign', 'aesthetic'),
+    servicio('servicios/protesis2.webp', 'prosthesis2', 'rehab'),
+    servicio('servicios/bordeincisal.webp', 'Bordeincisal', 'aesthetic'),
+    servicio('servicios/joyas.webp', 'jewelry', 'aesthetic')
   ];
 
   readonly filters: Filter[] = ['all', 'aesthetic', 'rehab'];

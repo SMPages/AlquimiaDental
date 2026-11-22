@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "build:gh": "ng build --configuration production --base-href=/",
-    "postbuild:gh": "copy dist\\alquimia-dental\\browser\\index.html dist\\alquimia-dental\\browser\\404.html",
+    "postbuild:gh": "copy dist\\alquimia-dental\\browser\\index.csr.html dist\\alquimia-dental\\browser\\404.html",
     "deploy:gh": "npm run build:gh && npm run postbuild:gh && npx angular-cli-ghpages --dir=dist/alquimia-dental/browser --cname=alquimiadental.com",
     "serve:ssr:AlquimiaDental": "node dist/alquimia-dental/server/server.mjs"
   },

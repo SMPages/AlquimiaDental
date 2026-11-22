@@ -22,16 +22,16 @@ interface ServiceItem { key: ServiceKey; icon: string; cat: Category; /** Slug d
 })
 export class ServicesSectionComponent {
   readonly items: ServiceItem[] = [
-    { key: 'digital',      icon: 'servicios/digital.png',          cat: 'tech' },
-    { key: 'smileDesign',  icon: 'servicios/carillas.png',         cat: 'aesthetic', detail: 'carillas' },
-    { key: 'prosthesis',   icon: 'servicios/protesis.png',         cat: 'rehab', detail: 'protesis-total' },
-    { key: 'prosthesis2',  icon: 'servicios/protesis2.png',        cat: 'rehab' },
-    { key: 'whitening',    icon: 'servicios/blanqueamiento.png',   cat: 'aesthetic', detail: 'blanqueamiento' },
-    { key: 'veneers',      icon: 'servicios/carillasceramicas.png', cat: 'aesthetic' },
+    { key: 'digital',      icon: 'servicios/digital.webp',          cat: 'tech' },
+    { key: 'smileDesign',  icon: 'servicios/carillas.webp',         cat: 'aesthetic', detail: 'carillas' },
+    { key: 'prosthesis',   icon: 'servicios/protesis.webp',         cat: 'rehab', detail: 'protesis-total' },
+    { key: 'prosthesis2',  icon: 'servicios/protesis2.webp',        cat: 'rehab' },
+    { key: 'whitening',    icon: 'servicios/blanqueamiento.webp',   cat: 'aesthetic', detail: 'blanqueamiento' },
+    { key: 'veneers',      icon: 'servicios/carillasceramicas.webp', cat: 'aesthetic' },
     { key: 'cleaning',     icon: 'images/blanqueamiento2.jpeg',    cat: 'tech' },
-    { key: 'jewelry',      icon: 'servicios/joyas.png',            cat: 'aesthetic' },
-    { key: 'Bordeincisal', icon: 'servicios/bordeincisal.png',     cat: 'aesthetic' },
-    { key: 'rehabImplant', icon: 'servicios/rehabilitacion.png',   cat: 'rehab' }
+    { key: 'jewelry',      icon: 'servicios/joyas.webp',            cat: 'aesthetic' },
+    { key: 'Bordeincisal', icon: 'servicios/bordeincisal.webp',     cat: 'aesthetic' },
+    { key: 'rehabImplant', icon: 'servicios/rehabilitacion.webp',   cat: 'rehab' }
   ];
 
   private i18n = inject(TranslationService);

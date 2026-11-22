@@ -1,5 +1,6 @@
 import { ApplicationConfig, APP_INITIALIZER } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideClientHydration } from '@angular/platform-browser';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 
@@ -12,7 +13,9 @@ export const appConfig: ApplicationConfig = {
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'top', anchorScrolling: 'enabled' })
     ),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
+    // Reutiliza el HTML prerenderizado en lugar de volver a dibujarlo
+    provideClientHydration(),
 
     // ngx-translate v17
     provideTranslateService({

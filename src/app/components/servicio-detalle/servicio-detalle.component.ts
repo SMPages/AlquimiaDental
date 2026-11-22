@@ -26,10 +26,10 @@ export class ServicioDetalleComponent implements OnInit {
 
   // 🖼️ Mapeo de imágenes coherente con hero-section
   readonly serviceImages: Record<string, string> = {
-    'carillas': 'servicios/carillas.png',
-    'protesis-total': 'servicios/protesis.png',
-    'limpieza-dental': 'servicios/rehabilitaciontotal.png',
-    'blanqueamiento': 'servicios/blanqueamiento.png'
+    'carillas': 'servicios/carillas.webp',
+    'protesis-total': 'servicios/protesis.webp',
+    'limpieza-dental': 'servicios/rehabilitaciontotal.webp',
+    'blanqueamiento': 'servicios/blanqueamiento.webp'
   };
 
   /** Slugs de todas las páginas de detalle. */

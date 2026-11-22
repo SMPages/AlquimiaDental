@@ -42,28 +42,28 @@ export class HeroSectionComponent {
         titleKey: 'services_hero.items.carillas.title',
         slug: 'carillas',
         excerptKey: 'services_hero.items.carillas.desc',
-        img: 'servicios/carillas.png',
+        img: 'servicios/carillas.webp',
         altKey: 'services_hero.items.carillas.alt',
       },
       {
         titleKey: 'services_hero.items.protesis-total.title',
         slug: 'protesis-total',
         excerptKey: 'services_hero.items.protesis-total.desc',
-        img: 'servicios/protesis.png',
+        img: 'servicios/protesis.webp',
         altKey: 'services_hero.items.protesis-total.alt',
       },
       {
         titleKey: 'services_hero.items.limpieza-dental.title',
         slug: 'limpieza-dental',
         excerptKey: 'services_hero.items.limpieza-dental.desc',
-        img: 'servicios/rehabilitaciontotal.png',
+        img: 'servicios/rehabilitaciontotal.webp',
         altKey: 'services_hero.items.limpieza-dental.alt',
       },
       {
         titleKey: 'services_hero.items.blanqueamiento.title',
         slug: 'blanqueamiento',
         excerptKey: 'services_hero.items.blanqueamiento.desc',
-        img: 'servicios/blanqueamiento.png',
+        img: 'servicios/blanqueamiento.webp',
         altKey: 'services_hero.items.blanqueamiento.alt',
       }
     ];
