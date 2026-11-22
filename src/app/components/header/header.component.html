@@ -1,164 +1,72 @@
-<!-- src/app/components/header/header.component.html -->
 <header class="header" [class.scrolled]="scrolled" [class.menu-open]="isMenuOpen">
-  <div class="container-header">
-    <div class="header-content">
-      <!-- Logo (link a home) -->
-      <!-- <a
-        class="logo"
-        [routerLink]="['/', currentLang]"
-        (click)="closeMenu()"
-        aria-label="Alquimia Dental – Home"
-      >
-        <h2>{{ 'brand' | translate }}</h2>
-      </a> -->
-      <a
-        class="logo"
-        [routerLink]="['/', currentLang, 'alquimia-dental']"
-        (click)="closeMenu()"
-        aria-label="Alquimia Dental – Home"
-      >
-        <!-- Usa SVG principal -->
-        <img
-          src="logo.png"
-          width="80"
-          height="80"
-          alt=""
-          aria-hidden="true"
-          class="logo-img"
-          decoding="async"
-        />
-        <!-- Texto accesible para lectores de pantalla -->
-        <!-- <span class="sr-only">{{ 'brand' | translate }}</span> -->
+  <div class="bar-inner">
+
+    <!-- Logo -> inicio -->
+    <a class="logo"
+       [routerLink]="['/', currentLang]"
+       (click)="closeMenu()"
+       aria-label="Alquimia Dental – Home">
+      <img src="logo.png" width="80" height="80" alt="" aria-hidden="true" class="logo-img" decoding="async" />
+    </a>
+
+    <!-- Navegación principal -->
+    <nav id="main-nav" class="nav" [class.nav-open]="isMenuOpen" aria-label="Main">
+      <ul class="nav-list">
+        <li *ngFor="let l of links; let i = index">
+          <a class="nav-link"
+             [routerLink]="linkFor(l.path)"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: l.exact }"
+             (click)="closeMenu()">
+            <span class="idx" aria-hidden="true">{{ roman(i) }}</span>
+            <span class="label">{{ l.key | translate }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- CTA dentro del menú móvil -->
+      <a class="cta cta-mobile"
+         [href]="whatsappHref"
+         target="_blank" rel="noopener noreferrer"
+         [attr.aria-label]="whatsappAriaLabel"
+         (click)="closeMenu()">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        {{ 'header.bookCta' | translate }}
       </a>
-      <!-- Navegación principal -->
-      <nav
-        id="main-nav"
-        class="nav"
-        [class.nav-open]="isMenuOpen"
-        role="navigation"
-        aria-label="Main"
-      >
-        <ul class="nav-list">
-          <li>
-            <a
-              [routerLink]="['/', currentLang]"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.home' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="['/', currentLang, 'about']"
-              routerLinkActive="active"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.about' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="['/', currentLang, 'services']"
-              routerLinkActive="active"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.services' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="['/', currentLang, 'gallery']"
-              routerLinkActive="active"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.gallery' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="['/', currentLang, 'blog']"
-              routerLinkActive="active"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.blog' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a
-              [routerLink]="['/', currentLang, 'opinions']"
-              routerLinkActive="active"
-              (click)="closeMenu()"
-              class="nav-link"
-            >
-              <span>{{ 'nav.opinions' | translate }}</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    </nav>
 
-      <!-- Acciones -->
-      <div class="header-actions">
-        <!-- CTA WhatsApp con icono bi -->
-        <a
-          class="btn-generic-primary"
-          [href]="whatsappHref"
-          target="_blank"
-          rel="noopener noreferrer"
-          [attr.aria-label]="whatsappAriaLabel"
-          (click)="closeMenu()"
-        >
-          <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          <span class="btn-text">{{ 'header.bookCta' | translate }}</span>
-        </a>
+    <!-- Acciones -->
+    <div class="actions">
+      <a class="cta cta-desktop"
+         [href]="whatsappHref"
+         target="_blank" rel="noopener noreferrer"
+         [attr.aria-label]="whatsappAriaLabel">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        <span>{{ 'header.bookCta' | translate }}</span>
+      </a>
 
-        <!-- Switch de idioma con banderas -->
-        <nav class="lang-switch" aria-label="Language selector">
-          <button
-            type="button"
-            class="lang-btn flag-btn"
-            [class.active]="currentLang === 'es'"
-            [attr.aria-current]="currentLang === 'es' ? 'true' : null"
-            (click)="switchLang('es')"
-            [attr.aria-label]="currentLang === 'es' ? 'Idioma actual: Español' : 'Cambiar a Español'"
-          >
-            <img src="images/co.svg" alt="" aria-hidden="true" class="flag" />
-            <span class="sr-only">ES</span>
-          </button>
-
-          <span class="sep" aria-hidden="true">/</span>
-
-          <button
-            type="button"
-            class="lang-btn flag-btn"
-            [class.active]="currentLang === 'en'"
-            [attr.aria-current]="currentLang === 'en' ? 'true' : null"
-            (click)="switchLang('en')"
-            [attr.aria-label]="currentLang === 'en' ? 'Current language: English' : 'Switch to English'"
-          >
-            <img src="images/us.svg" alt="" aria-hidden="true" class="flag" />
-            <span class="sr-only">EN</span>
-          </button>
-        </nav>
-
-        <!-- Botón hamburguesa -->
-        <button
-          class="menu-toggle"
-          (click)="toggleMenu()"
-          aria-label="Menu"
-          [attr.aria-expanded]="isMenuOpen"
-          aria-controls="main-nav"
-          (keyup.escape)="closeMenu()"
-        >
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
+      <div class="lang" role="group" aria-label="Language selector">
+        <button type="button" class="lang-btn"
+          [class.active]="currentLang === 'es'"
+          [attr.aria-current]="currentLang === 'es' ? 'true' : null"
+          (click)="switchLang('es')"
+          [attr.aria-label]="currentLang === 'es' ? 'Idioma actual: Español' : 'Cambiar a Español'">ES</button>
+        <span class="sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn"
+          [class.active]="currentLang === 'en'"
+          [attr.aria-current]="currentLang === 'en' ? 'true' : null"
+          (click)="switchLang('en')"
+          [attr.aria-label]="currentLang === 'en' ? 'Current language: English' : 'Switch to English'">EN</button>
       </div>
+
+      <button class="menu-toggle"
+        type="button"
+        (click)="toggleMenu()"
+        aria-label="Menu"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="main-nav">
+        <span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
   </div>
 </header>
