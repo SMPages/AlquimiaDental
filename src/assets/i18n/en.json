@@ -326,7 +326,9 @@
     "tech": "Technology & care",
     "more": "Read more",
     "less": "Show less",
-    "filterLabel": "Filter treatments by category"
+    "filterLabel": "Filter treatments by category",
+    "view": "View treatment",
+    "others": "Other treatments"
   },
   "galleryPage": {
     "close": "Close",

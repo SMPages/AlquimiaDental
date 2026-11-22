@@ -326,7 +326,9 @@
     "tech": "Tecnología y cuidado",
     "more": "Leer más",
     "less": "Ver menos",
-    "filterLabel": "Filtrar tratamientos por categoría"
+    "filterLabel": "Filtrar tratamientos por categoría",
+    "view": "Ver tratamiento",
+    "others": "Otros tratamientos"
   },
   "galleryPage": {
     "close": "Cerrar",

@@ -113,6 +113,21 @@
   }
 }
 
+/* Enlace a la página de detalle */
+.svc .view {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  margin: .9rem 0 0 1.4rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: .2rem;
+  transition: gap .2s ease;
+  &:hover { gap: .7rem; }
+}
+
 /* El texto llega como HTML (innerHTML): requiere ::ng-deep */
 :host ::ng-deep .svc .desc {
   p { margin-top: .7rem; }

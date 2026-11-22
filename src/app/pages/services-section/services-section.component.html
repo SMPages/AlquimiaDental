@@ -43,6 +43,10 @@
             {{ (expanded.has(s.key) ? 'servicesPage.less' : 'servicesPage.more') | translate }}
             <i class="bi" [class.bi-plus-lg]="!expanded.has(s.key)" [class.bi-dash-lg]="expanded.has(s.key)" aria-hidden="true"></i>
           </button>
+
+          <a *ngIf="s.detail" class="view" [routerLink]="['/', currentLang, 'servicio', s.detail]">
+            {{ 'servicesPage.view' | translate }} <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
       </article>
     </div>

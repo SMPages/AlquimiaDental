@@ -59,7 +59,7 @@ export class HeaderComponent {
 
   switchLang(lang: 'es' | 'en') {
     if (lang === this.currentLang) return;
-    localStorage.setItem('preferredLang', lang);
+    try { localStorage.setItem('preferredLang', lang); } catch { /* almacenamiento bloqueado */ }
 
     const url = this.router.url.split('?')[0].split('#')[0];
     const segments = url.split('/').filter(Boolean);

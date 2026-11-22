@@ -3,12 +3,13 @@ import { browserLangRedirectGuard } from './guards/browser-lang-redirect.guard';
 import { langNormalizerGuard } from './guards/lang-normalizer.guard';
 
 export const routes: Routes = [
-  // Entrada sin lang: el guard devuelve UrlTree a /es o /en.
+  // Entrada sin idioma: el guard devuelve un UrlTree a /es o /en.
+  // OJO: no usar redirectTo aquí; Angular ignora canMatch en rutas con redirectTo.
   {
     path: '',
     pathMatch: 'full',
     canMatch: [browserLangRedirectGuard],
-    redirectTo: 'es' // Angular lo pide aunque no se use
+    children: []
   },
 
   {

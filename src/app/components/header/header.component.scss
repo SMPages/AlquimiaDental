@@ -28,7 +28,7 @@
     flex: none;
     display: inline-flex;
     align-items: center;
-    .logo-img { height: 60px; width: auto; display: block; transition: height .25s ease; }
+    .logo-img { height: 60px; width: auto; display: block; transition: height .25s ease; filter: contrast(1.25) brightness(.8); }
   }
   &.scrolled .logo .logo-img { height: 50px; }
 

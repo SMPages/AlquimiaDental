@@ -13,7 +13,7 @@ export class SeoService {
 
   // === AJUSTES GLOBALES ===
   private readonly DOMAIN = 'https://alquimiadental.com';
-  private readonly OG_IMAGE = `${this.DOMAIN}/assets/images/og-image.jpg`;
+  private readonly OG_IMAGE = `${this.DOMAIN}/images/elegant-dental-doctor.jpg`;
   private readonly BUSINESS_NAME = 'Alquimia Dental®';
   private readonly DOCTOR_NAME = 'Dra. Sorany Díaz';
 

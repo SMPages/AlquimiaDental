@@ -23,6 +23,22 @@
     </div>
   </section>
 
+  <!-- Otros tratamientos -->
+  <section class="sd-others">
+    <div class="sd-inner">
+      <h2>{{ 'servicesPage.others' | translate }}</h2>
+      <div class="sd-others-grid">
+        <a *ngFor="let o of others" class="sd-other" [routerLink]="['/', currentLang, 'servicio', o]">
+          <div class="sd-other-media">
+            <img [src]="serviceImages[o]" [alt]="('services_hero.items.' + o + '.alt') | translate" loading="lazy" decoding="async" />
+          </div>
+          <h3>{{ ('services_hero.items.' + o + '.title') | translate }}</h3>
+          <span class="sd-other-link">{{ 'servicesPage.view' | translate }} <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="sd-cta">
     <div class="sd-inner">
       <h2>{{ 'services.ctaText' | translate }}</h2>

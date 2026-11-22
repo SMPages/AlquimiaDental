@@ -27,116 +27,6 @@
   --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --header-safe: 76px;   /* desktop aprox */
 
-  --background-stand-out: radial-gradient(
-    ellipse at center,
-    #e7e9e2 0%,          
-    #cfd1c8 100%      
-  );
-  --color-text-stand-out: #222624c7;
-}
-  .propuesta-card {
-  
-    position: relative;
-    padding: 1.25rem 1.25rem 1.1rem 1.35rem;
-    border: 1px solid rgba(201,163,106,.35);
-    border-radius: 20px;
-    background: radial-gradient(600px 200px at 50% 0%, rgba(201,163,106,.16), transparent 70%), var(--ink);
-    transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
-    text-align: center; /* coherente con el diseño actual */
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(0,0,0,.1);
-      border-color: var(--gold);
-    }
-
-    .propuesta-text {
-      font-size: 1.125rem;
-      color: var(--ivory);
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      margin: 0 0 1.25rem 0;
-      line-height: 1.6;
-      max-width: 60ch;
-      margin-inline: auto;
-
-      .marca { font-weight: 700; color: var(--gold); white-space: nowrap; }
-    }
-
-    .btn-row {
-      display: inline-flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    /* Botones coherentes */
-    .btn-hero {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      border-radius: 8px;
-      padding: .65rem 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      line-height: 1.2;
-      transition: transform .12s ease, box-shadow .12s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
-      .bi { font-size: 1.1em; vertical-align: -2px; }
-    }
-    .btn-hero.primary {
-      background: var(--gold);
-      color: var(--ink);
-      border: 1px solid var(--gold);
-      border-radius: 999px;
-      box-shadow: none;
-    }
-      .btn-hero.primary:hover,
-      .btn-hero.primary:focus-visible {
-        background: var(--ivory);
-        color: var(--ink);
-        border-color: var(--ivory);
-        text-decoration: none;
-      }
-
-    .btn-hero.secondary {
-      color: var(--ivory);
-      background-color: transparent;
-      border: 1px solid rgba(246,240,230,.4);
-      border-radius: 999px;
-    }
-
-    .btn-hero.secondary:hover,
-      .btn-hero.secondary:focus-visible {
-        border-color: var(--gold);
-        color: var(--gold);
-        background-color: transparent;
-        text-decoration: none;
-      }
-  }
-
-
-
-.btn-generic-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  border-radius: 999px;
-  padding: .75rem 1.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-  color: var(--ivory);
-  background: var(--ink);
-  border: 1px solid var(--ink);
-  transition: background-color .2s ease, color .2s ease, transform .15s ease;
-}
-.btn-generic-primary:hover,
-.btn-generic-primary:focus-visible {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-  transform: translateY(-2px);
-  text-decoration: none;
 }
 
 * {
@@ -175,55 +65,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-}
-iframe#instagram-embed-0 {margin: 0 auto !important;}
-/* Botón primario */
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), #b86f4f);
-  color: var(--primary-foreground);
-  box-shadow: 0 4px 12px rgba(193, 120, 84, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(193, 120, 84, 0.4);
-}
-
-/* Botón secundario */
-.btn-secondary {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.btn-secondary:hover {
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border);
-}
-
-.section {
-  padding: 5rem 0;
-}
-
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -241,10 +82,6 @@ iframe#instagram-embed-0 {margin: 0 auto !important;}
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
-  }
-  
-  .section {
-    padding: 3rem 0;
   }
   
   h1 {
