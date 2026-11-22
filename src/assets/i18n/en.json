@@ -318,5 +318,14 @@
     "clinicTitle": "A space designed for you",
     "clinicText": "A calm, carefully designed space in Fontibón, Bogotá, where every visit starts with a conversation.",
     "servicesAll": "See all services"
+  },
+  "servicesPage": {
+    "all": "All",
+    "aesthetic": "Aesthetics",
+    "rehab": "Rehabilitation",
+    "tech": "Technology & care",
+    "more": "Read more",
+    "less": "Show less",
+    "filterLabel": "Filter treatments by category"
   }
 }

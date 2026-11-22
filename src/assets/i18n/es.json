@@ -318,5 +318,14 @@
     "clinicTitle": "Un espacio pensado para ti",
     "clinicText": "Un ambiente tranquilo y cuidado, en Fontibón, Bogotá, donde cada visita empieza con una conversación.",
     "servicesAll": "Ver todos los servicios"
+  },
+  "servicesPage": {
+    "all": "Todos",
+    "aesthetic": "Estética",
+    "rehab": "Rehabilitación",
+    "tech": "Tecnología y cuidado",
+    "more": "Leer más",
+    "less": "Ver menos",
+    "filterLabel": "Filtrar tratamientos por categoría"
   }
 }

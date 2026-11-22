@@ -6,21 +6,46 @@
 
 <section id="services" class="services" [attr.aria-label]="'services.title' | translate">
   <div class="inner">
-    <article class="svc" *ngFor="let s of items; let i = index" [class.flip]="i % 2 === 1">
-      <div class="media">
-        <img
-          [src]="s.icon"
-          [alt]="'services.items.' + s.key + '.alt' | translate"
-          loading="lazy"
-          decoding="async" />
-      </div>
 
-      <div class="body">
-        <span class="num" aria-hidden="true">{{ roman(i) }}</span>
-        <h2>{{ ('services.items.' + s.key + '.title') | translate }}</h2>
-        <p [innerHTML]="('services.items.' + s.key + '.desc') | translate"></p>
-      </div>
-    </article>
+    <!-- Filtros -->
+    <div class="filters" role="group" [attr.aria-label]="'servicesPage.filterLabel' | translate">
+      <button *ngFor="let f of filters"
+        type="button"
+        class="chip"
+        [class.active]="filter === f"
+        [attr.aria-pressed]="filter === f"
+        (click)="setFilter(f)">
+        {{ 'servicesPage.' + f | translate }}
+      </button>
+    </div>
+
+    <!-- Tarjetas -->
+    <div class="grid">
+      <article class="svc" *ngFor="let s of visible; trackBy: trackByKey" [class.open]="expanded.has(s.key)">
+        <div class="media">
+          <img
+            [src]="s.icon"
+            [alt]="'services.items.' + s.key + '.alt' | translate"
+            loading="lazy"
+            decoding="async" />
+        </div>
+
+        <div class="body">
+          <span class="num" aria-hidden="true">{{ roman(s.index) }}</span>
+          <h2>{{ ('services.items.' + s.key + '.title') | translate }}</h2>
+
+          <div class="desc" [id]="'desc-' + s.key" [innerHTML]="('services.items.' + s.key + '.desc') | translate"></div>
+
+          <button type="button" class="more"
+            (click)="toggle(s.key)"
+            [attr.aria-expanded]="expanded.has(s.key)"
+            [attr.aria-controls]="'desc-' + s.key">
+            {{ (expanded.has(s.key) ? 'servicesPage.less' : 'servicesPage.more') | translate }}
+            <i class="bi" [class.bi-plus-lg]="!expanded.has(s.key)" [class.bi-dash-lg]="expanded.has(s.key)" aria-hidden="true"></i>
+          </button>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
