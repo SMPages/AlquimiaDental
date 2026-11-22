@@ -4,78 +4,71 @@
   [subtitle]="'gallery.subtitle' | translate">
 </app-page-hero>
 
-<section id="galeria" class="galeria-section marble-bg" aria-labelledby="galeria-title">
-  <div class="container">
+<section id="galeria" class="gallery" [attr.aria-label]="'gallery.title' | translate">
+  <div class="inner">
 
-    <div class="carousel"
-         role="region"
-         aria-roledescription="carousel"
-         (mouseenter)="onMouseEnter()"
-         (mouseleave)="onMouseLeave()"
-         (touchstart)="onTouchStart($event)"
-         (touchmove)="onTouchMove($event)"
-         (touchend)="onTouchEnd()">
-
-      <!-- Slides -->
-      <div class="viewport">
-        <div class="track" [style.--index]="current()">
-          <article class="slide" *ngFor="let s of slides; let i = index" [attr.aria-hidden]="current() !== i">
-            <img class="slide-img"
-                 [src]="s.src"
-                 [alt]="s.alt || (s.titleKey ? (s.titleKey | translate) : s.title) || 'Slide'"
-                 loading="lazy"
-                 decoding="async" />
-
-            <div class="caption d-none-md">
-              <h3 class="cap-title">
-                {{ s.titleKey ? (s.titleKey | translate) : s.title }}
-              </h3>
-              <p class="cap-sub">
-                {{ s.subtitleKey ? (s.subtitleKey | translate) : s.subtitle }}
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Controles -->
-      <button class="reel-nav left" type="button" aria-label="Anterior" (click)="prev()">‹</button>
-      <button class="reel-nav right" type="button" aria-label="Siguiente" (click)="next()">›</button>
-
-      <!-- Indicadores -->
-      <div class="dots" role="tablist" aria-label="Diapositivas">
-        <button
-          *ngFor="let _ of slides; let i = index"
-          class="dot"
-          [class.active]="current() === i"
-          role="tab"
-          [attr.aria-selected]="current() === i"
-          [attr.aria-controls]="'slide-' + i"
-          (click)="go(i)"
-          [attr.title]="(slides[i].titleKey ? (slides[i].titleKey | translate) : slides[i].title) || ('Slide ' + (i+1))">
-        </button>
-      </div>
+    <!-- Filtros -->
+    <div class="filters" role="group" [attr.aria-label]="'servicesPage.filterLabel' | translate">
+      <button *ngFor="let f of filters"
+        type="button"
+        class="chip"
+        [class.active]="filter === f"
+        [attr.aria-pressed]="filter === f"
+        (click)="setFilter(f)">
+        {{ 'servicesPage.' + f | translate }}
+      </button>
     </div>
 
-    <!-- CTA inferior opcional -->
-       <div id="propuesta" class="propuesta-card fade-in">
-          <p class="propuesta-text">
-            <span class="marca">Alquimia Dental®</span> {{ 'hero.proposal.text' | translate }}
-          </p>
+    <!-- Mosaico -->
+    <div class="masonry">
+      <button *ngFor="let it of visible; let i = index; trackBy: trackBySrc"
+        type="button"
+        class="tile"
+        (click)="open(i)"
+        [attr.aria-label]="('galleryPage.open' | translate) + ' ' + (it.title | translate)">
+        <img [src]="it.src" [alt]="it.alt | translate" loading="lazy" decoding="async" />
+        <span class="cap">{{ it.title | translate }}</span>
+      </button>
+    </div>
+  </div>
+</section>
 
-          <a
-            class="btn-hero primary"
-            href="https://www.instagram.com/drsoranyporcelainsmile/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Ver más casos en Instagram"
-          >
-            <i class="bi bi-instagram" aria-hidden="true"></i>
-            <span class="cta-text">
-              {{ ('gallery.moreCta' | translate) || 'Ver más casos en Instagram' }}
-            </span>
-          </a>
-        </div>
-      
+<!-- Visor -->
+<div class="viewer" *ngIf="current as c"
+     role="dialog" aria-modal="true"
+     [attr.aria-label]="'galleryPage.viewer' | translate"
+     (click)="close()">
+
+  <button type="button" class="v-btn close" (click)="close(); $event.stopPropagation()" [attr.aria-label]="'galleryPage.close' | translate">
+    <i class="bi bi-x-lg" aria-hidden="true"></i>
+  </button>
+
+  <button type="button" class="v-btn prev" (click)="step(-1); $event.stopPropagation()" [attr.aria-label]="'galleryPage.prev' | translate">
+    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+  </button>
+
+  <figure (click)="$event.stopPropagation()">
+    <img [src]="c.src" [alt]="c.alt | translate" />
+    <figcaption>
+      <strong>{{ c.title | translate }}</strong>
+      <span *ngIf="c.desc">{{ c.desc | translate }}</span>
+      <small>{{ openIndex! + 1 }} {{ 'galleryPage.count' | translate }} {{ visible.length }}</small>
+    </figcaption>
+  </figure>
+
+  <button type="button" class="v-btn next" (click)="step(1); $event.stopPropagation()" [attr.aria-label]="'galleryPage.next' | translate">
+    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+  </button>
+</div>
+
+<!-- Cierre -->
+<section class="cta">
+  <div class="inner">
+    <h2>{{ 'story.cases.title' | translate }}</h2>
+    <a class="btn-gold" [href]="instagram" target="_blank" rel="noopener"
+       [attr.aria-label]="'gallery.moreCta' | translate">
+      <i class="bi bi-instagram" aria-hidden="true"></i>
+      {{ 'gallery.moreCta' | translate }}
+    </a>
   </div>
 </section>

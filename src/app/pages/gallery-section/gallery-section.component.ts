@@ -1,102 +1,101 @@
-import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
-import { Component, OnDestroy, OnInit, signal, computed, HostListener } from '@angular/core';
-import { NgFor, NgClass } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
+import { PageHeroComponent } from '../../components/page-hero/page-hero.component';
 
-type Slide = {
-  id: number;
+type Category = 'aesthetic' | 'rehab';
+type Filter = 'all' | Category;
+
+interface GalleryItem {
   src: string;
-  title?: string;
-  subtitle?: string;
-  titleKey?: string;
-  subtitleKey?: string;
-  alt?: string;
-};
+  cat: Category;
+  /** Claves i18n del título, la descripción (opcional) y el texto alternativo. */
+  title: string;
+  desc?: string;
+  alt: string;
+}
+
+const caso = (src: string, n: 1 | 2 | 3, cat: Category): GalleryItem => ({
+  src, cat,
+  title: `gallery.items.case${n}.title`,
+  desc: `gallery.items.case${n}.desc`,
+  alt: `gallery.items.case${n}.alt`
+});
+
+const servicio = (src: string, key: string, cat: Category): GalleryItem => ({
+  src, cat,
+  title: `services.items.${key}.title`,
+  alt: `services.items.${key}.alt`
+});
 
 @Component({
   selector: 'app-gallery-carousel',
   standalone: true,
-  imports: [NgFor, TranslatePipe, PageHeroComponent],
+  imports: [NgFor, NgIf, TranslatePipe, PageHeroComponent],
   templateUrl: './gallery-section.component.html',
   styleUrls: ['./gallery-section.component.scss']
 })
-export class GalleryCarouselComponent implements OnInit, OnDestroy {
-  slides: Slide[] = [
-    {
-      id: 1,
-      src: 'images/caso3.jpg',
-      titleKey: 'gallery.items.case1.title',
-      subtitleKey: 'gallery.items.case1.desc',
-      alt: 'Rehabilitación total sobre implantes'
-    },
-    {
-      id: 2,
-      src: 'images/caso1.jpg',
-      titleKey: 'gallery.items.case2.title',
-      subtitleKey: 'gallery.items.case2.desc',
-      alt: 'Diseño de sonrisa – Carillas cerámicas'
-    },
-    {
-      id: 3,
-      src: 'images/caso2.jpg',
-      titleKey: 'gallery.items.case3.title',
-      subtitleKey: 'gallery.items.case3.desc',
-      alt: 'Blanqueamiento dental'
-    }
+export class GalleryCarouselComponent {
+  readonly items: GalleryItem[] = [
+    caso('images/caso3.jpg', 1, 'rehab'),
+    caso('images/caso1.jpg', 2, 'aesthetic'),
+    caso('images/caso2.jpg', 3, 'aesthetic'),
+    servicio('servicios/carillasceramicas.png', 'veneers', 'aesthetic'),
+    servicio('servicios/protesis.png', 'prosthesis', 'rehab'),
+    servicio('servicios/blanqueamiento.png', 'whitening', 'aesthetic'),
+    servicio('servicios/rehabilitacion.png', 'rehabImplant', 'rehab'),
+    servicio('servicios/carillas.png', 'smileDesign', 'aesthetic'),
+    servicio('servicios/protesis2.png', 'prosthesis2', 'rehab'),
+    servicio('servicios/bordeincisal.png', 'Bordeincisal', 'aesthetic'),
+    servicio('servicios/joyas.png', 'jewelry', 'aesthetic')
   ];
 
-  current = signal(0);                 // índice activo
-  total   = computed(() => this.slides.length);
+  readonly filters: Filter[] = ['all', 'aesthetic', 'rehab'];
+  readonly instagram = 'https://www.instagram.com/drsoranyporcelainsmile/';
 
-  private timer?: number;
-  readonly intervalMs = 5000;          // autoplay: 5s
-  isHovering = false;
+  filter: Filter = 'all';
+  /** Índice (dentro de `visible`) de la imagen abierta en el visor. */
+  openIndex: number | null = null;
 
-  // gestos táctiles
-  private touchStartX = 0;
-  private touchDeltaX = 0;
-
-  ngOnInit() { this.start(); }
-  ngOnDestroy() { this.stop(); }
-
-  start() {
-    this.stop();
-    this.timer = window.setInterval(() => {
-      if (!this.isHovering) this.next();
-    }, this.intervalMs);
-  }
-  stop() {
-    if (this.timer) { clearInterval(this.timer); this.timer = undefined; }
+  get visible(): GalleryItem[] {
+    return this.items.filter(i => this.filter === 'all' || i.cat === this.filter);
   }
 
-  go(i: number) {
-    const n = this.total();
-    this.current.set((i + n) % n);
+  get current(): GalleryItem | null {
+    return this.openIndex === null ? null : this.visible[this.openIndex] ?? null;
   }
-  prev() { this.go(this.current() - 1); }
-  next() { this.go(this.current() + 1); }
 
-  onMouseEnter() { this.isHovering = true; }
-  onMouseLeave() { this.isHovering = false; }
+  setFilter(f: Filter) { this.filter = f; }
 
-  // Accesibilidad: teclado
-  @HostListener('document:keydown.arrowLeft', ['$event'])
-  onArrowLeft(e: KeyboardEvent) { e.preventDefault(); this.prev(); }
-  @HostListener('document:keydown.arrowRight', ['$event'])
-  onArrowRight(e: KeyboardEvent) { e.preventDefault(); this.next(); }
-
-  // Swipe táctil básico
-  onTouchStart(ev: TouchEvent) {
-    this.touchStartX = ev.touches[0].clientX;
-    this.touchDeltaX = 0;
+  open(i: number) {
+    this.openIndex = i;
+    this.lockScroll(true);
   }
-  onTouchMove(ev: TouchEvent) {
-    this.touchDeltaX = ev.touches[0].clientX - this.touchStartX;
+
+  close() {
+    this.openIndex = null;
+    this.lockScroll(false);
   }
-  onTouchEnd() {
-    const THRESHOLD = 40; // px
-    if (this.touchDeltaX > THRESHOLD) this.prev();
-    else if (this.touchDeltaX < -THRESHOLD) this.next();
-    this.touchStartX = this.touchDeltaX = 0;
+
+  step(delta: number) {
+    if (this.openIndex === null) return;
+    const n = this.visible.length;
+    this.openIndex = (this.openIndex + delta + n) % n;
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKey(e: KeyboardEvent) {
+    if (this.openIndex === null) return;
+    if (e.key === 'Escape') this.close();
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); this.step(-1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); this.step(1); }
+  }
+
+  trackBySrc = (_: number, i: GalleryItem) => i.src;
+
+  private lockScroll(lock: boolean) {
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = lock ? 'hidden' : '';
+    }
   }
 }

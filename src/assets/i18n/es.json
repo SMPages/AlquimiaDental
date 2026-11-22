@@ -327,5 +327,13 @@
     "more": "Leer más",
     "less": "Ver menos",
     "filterLabel": "Filtrar tratamientos por categoría"
+  },
+  "galleryPage": {
+    "close": "Cerrar",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "open": "Ampliar imagen:",
+    "viewer": "Visor de imágenes",
+    "count": "de"
   }
 }
