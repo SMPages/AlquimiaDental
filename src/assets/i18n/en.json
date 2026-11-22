@@ -137,7 +137,7 @@
     "innerLight": "inner light"
   },
   "testimonials": {
-    "title": "💬 Stories from my patients",
+    "title": "Stories from my patients",
     "subtitle": "Every patient brings a dream. Here you’ll find real stories from those who trusted Alquimia Dental to smile with confidence again.",
     "moreText": "Want to read more real reviews?",
     "moreButton": "See more on Google",
@@ -191,7 +191,7 @@
     "internationalPatients": "International patients"
   },
   "media": {
-    "title": "📰 In the media",
+    "title": "In the media",
     "subtitle": "Mentions and articles where I’ve shared my work at Alquimia Dental®.",
     "featured": {
       "source": "Rolling Stone",
@@ -335,5 +335,10 @@
     "open": "Enlarge image:",
     "viewer": "Image viewer",
     "count": "of"
+  },
+  "blogPage": {
+    "igTitle": "More stories and cases, every day",
+    "igBtn": "Follow on Instagram",
+    "press": "Press"
   }
 }

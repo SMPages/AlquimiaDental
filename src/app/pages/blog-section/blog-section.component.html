@@ -1,65 +1,65 @@
 <app-page-hero
-  [eyebrow]="'nav.blog' | translate"
+  [eyebrow]="'blogPage.press' | translate"
   [title]="'media.title' | translate"
   [subtitle]="'media.subtitle' | translate">
 </app-page-hero>
 
-<!-- src/app/pages/blog-section/blog-section.component.html -->
-<section id="media" class="media-section marble-bg" aria-labelledby="media-title">
-  <div class="container">
+<!-- ===== Artículo destacado ===== -->
+<section id="media" class="feature" aria-labelledby="featured-title">
+  <article class="inner feature-grid" itemscope itemtype="https://schema.org/NewsArticle">
 
-    <!-- Artículo destacado -->
-    <article class="featured-article" itemscope itemtype="https://schema.org/NewsArticle">
-      <div class="featured-media">
-        <a
-          href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
-          target="_blank" rel="noopener"
-          class="image-link"
-          [attr.aria-label]="'media.featured.linkAria' | translate"
-        >
-          <img
-            src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/05/El-arte-de-reinventar-sonrisas-portada.jpg?w=1280&ssl=1"
-            width="1280" height="720"
-            [alt]="'media.featured.imageAlt' | translate"
-            class="featured-image"
-            loading="lazy" decoding="async" itemprop="image"
-          />
-        </a>
-      </div>
+    <div class="cover">
+      <a href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
+         target="_blank" rel="noopener"
+         class="image-link"
+         [attr.aria-label]="'media.featured.linkAria' | translate">
+        <img
+          src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/05/El-arte-de-reinventar-sonrisas-portada.jpg?w=1280&ssl=1"
+          width="1280" height="720"
+          [alt]="'media.featured.imageAlt' | translate"
+          loading="lazy" decoding="async" itemprop="image" />
+      </a>
 
-      <div class="featured-body">
-        <div class="media-chip">
-          <img
-            src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=1366&ssl=1"
-            alt="Rolling Stone"
-            width="96" height="28"
-            loading="lazy" decoding="async"
-          />
-          <span class="chip-text">{{ 'media.featured.source' | translate }}</span>
-        </div>
+      <!-- Logo en su color original sobre una pastilla marfil -->
+      <span class="badge">
+        <img
+          src="https://i0.wp.com/es.rollingstone.com/wp-content/uploads/2022/08/LOGO-RSEE-DIGITAL-NEW.png?w=1366&ssl=1"
+          alt="Rolling Stone" width="96" height="28"
+          loading="lazy" decoding="async" />
+      </span>
+    </div>
 
-        <h3 class="article-title" itemprop="headline">
-          {{ 'media.featured.headline' | translate }}
-        </h3>
+    <div class="story">
+      <span class="eyebrow">{{ 'media.featured.source' | translate }}</span>
 
-        <p class="article-excerpt" itemprop="description">
-          {{ 'media.featured.excerpt' | translate }}
-        </p>
+      <h2 id="featured-title" itemprop="headline">
+        {{ 'media.featured.headline' | translate }}
+      </h2>
 
-        <div class="article-actions">
-          <a
-            class="btn-generic-primary"
-            href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
-            target="_blank" rel="noopener"
-            itemprop="mainEntityOfPage"
-          >
-            {{ 'media.featured.readMore' | translate }}
-          </a>
-        </div>
-      </div>
-    </article>
+      <p class="excerpt" itemprop="description">
+        {{ 'media.featured.excerpt' | translate }}
+      </p>
 
-    <!-- Grilla para futuros artículos (vacía por ahora) -->
-    <div class="media-grid" role="list"></div>
+      <a class="read"
+         href="https://es.rollingstone.com/el-arte-de-reinventar-sonrisas/"
+         target="_blank" rel="noopener"
+         itemprop="mainEntityOfPage">
+        {{ 'media.featured.readMore' | translate }}
+        <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </article>
+</section>
+
+<!-- ===== Cierre ===== -->
+<section class="cta">
+  <div class="inner">
+    <h2>{{ 'blogPage.igTitle' | translate }}</h2>
+    <a class="btn-gold"
+       href="https://www.instagram.com/drsoranyporcelainsmile/"
+       target="_blank" rel="noopener">
+      <i class="bi bi-instagram" aria-hidden="true"></i>
+      {{ 'blogPage.igBtn' | translate }}
+    </a>
   </div>
 </section>
