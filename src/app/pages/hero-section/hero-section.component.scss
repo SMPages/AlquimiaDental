@@ -102,12 +102,19 @@
 
     .mention-logo {
       height: 22px; width: auto;
-      filter: brightness(0) invert(1);
-      opacity: .75;
-      transition: opacity .2s ease;
+      display: block;
       vertical-align: middle;
     }
-    a:hover .mention-logo { opacity: 1; }
+    /* Pastilla marfil: el logo conserva su color original */
+    a {
+      display: inline-flex;
+      align-items: center;
+      background: var(--ivory);
+      padding: .4rem .9rem;
+      border-radius: 999px;
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    a:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.3); }
   }
 
   /* Foto en arco con marco dorado desplazado */

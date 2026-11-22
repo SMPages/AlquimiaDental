@@ -4,73 +4,91 @@
   [subtitle]="'alquimia.lead' | translate:{ t: ('alquimiaWords.transform' | translate) }">
 </app-page-hero>
 
-<section id="alquimia" class="alquimia-section" aria-label="Alquimia Dental">
-  <div class="container">
-    <header class="head">
-        <p class="copy">
-          {{ 'alquimia.copy' | translate:{
-              b: ('alquimiaWords.beauty' | translate),
-              c: ('alquimiaWords.confidence' | translate),
-              l: ('alquimiaWords.innerLight' | translate)
-          } }}
+<!-- ===== Manifiesto ===== -->
+<section id="alquimia" class="manifesto" aria-label="Alquimia Dental">
+  <div class="inner">
+    <p class="statement">
+      {{ 'alquimia.copy' | translate:{
+          b: ('alquimiaWords.beauty' | translate),
+          c: ('alquimiaWords.confidence' | translate),
+          l: ('alquimiaWords.innerLight' | translate)
+      } }}
+    </p>
+
+    <ul class="gold-words" aria-hidden="true">
+      <li>{{ 'alquimiaWords.beauty' | translate }}</li>
+      <li>{{ 'alquimiaWords.confidence' | translate }}</li>
+      <li>{{ 'alquimiaWords.innerLight' | translate }}</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Filosofía ===== -->
+<section class="philosophy" aria-labelledby="philosophy-title">
+  <div class="inner">
+    <span class="eyebrow" id="philosophy-title">{{ 'alquimia.philosophy.title' | translate }}</span>
+    <blockquote class="quote">
+      <span class="mark" aria-hidden="true">“</span>{{ 'alquimia.philosophy.quote' | translate }}
+    </blockquote>
+    <p class="ritual">{{ 'alquimia.philosophy.p1' | translate }}</p>
+  </div>
+</section>
+
+<!-- ===== Pilares + reel ===== -->
+<section class="pillars-wrap">
+  <div class="inner pillars-grid">
+
+    <ol class="pillars">
+      <li>
+        <span class="num" aria-hidden="true">I</span>
+        <p>{{ 'alquimia.philosophy.bullets.science' | translate }}</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">II</span>
+        <p>{{ 'alquimia.philosophy.bullets.art' | translate }}</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">III</span>
+        <p>{{ 'alquimia.philosophy.bullets.connection' | translate }}</p>
+      </li>
+    </ol>
+
+    <aside class="media" [class.loaded]="igReady">
+      <img *ngIf="!igReady" class="skeleton" alt="" aria-hidden="true" />
+      <div #igSentinel class="sentinel" aria-hidden="true"></div>
+
+      <blockquote #igEmbed class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DOFAaDsDHre/"
+        data-instgrm-version="14" [attr.aria-hidden]="!igReady">
+      </blockquote>
+
+      <noscript>
+        <p>
+          {{ 'alquimia.media.viewOnIg' | translate }}
+          <a href="https://www.instagram.com/reel/DOFAaDsDHre/" target="_blank" rel="noopener">
+            &#64;drsoranyporcelainsmile
+          </a>
         </p>
-    </header>
+      </noscript>
+    </aside>
+  </div>
+</section>
 
-    <div class="grid">
-      <article class="panel" aria-describedby="philosophy-desc">
-        <h2 class="h2">{{ 'alquimia.philosophy.title' | translate }}</h2>
-
-        <blockquote id="philosophy-desc" class="quote">
-          {{ 'alquimia.philosophy.quote' | translate }}
-        </blockquote>
-
-        <p>{{ 'alquimia.philosophy.p1' | translate }}</p>
-
-        <ul class="bullets">
-          <li>{{ 'alquimia.philosophy.bullets.science'     | translate }}</li>
-          <li>{{ 'alquimia.philosophy.bullets.art'         | translate }}</li>
-          <li>{{ 'alquimia.philosophy.bullets.connection'  | translate }}</li>
-        </ul>
-        
-        
-        <div id="propuesta" class="propuesta-card fade-in">
-          <p class="propuesta-text">
-            {{ 'alquimia.proposal.text' | translate }}
-          </p>
-
-          <div class="btn-row">
-             <a class="btn-hero primary"
-            [href]="whatsappHref"
-            target="_blank" rel="noopener"
-            [attr.aria-label]="'alquimia.cta.book_aria' | translate">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-            {{ 'alquimia.cta.book' | translate }}
-          </a>
-          <a class="btn-hero secondary" [routerLink]="['/', currentLang, 'services']">
-            {{ 'alquimia.cta.seeTreatments' | translate }}
-          </a>
-          </div>
-        </div>
-      </article>
-
-      <aside class="media" [class.loaded]="igReady">
-        <img *ngIf="!igReady" class="skeleton" alt="" aria-hidden="true" />
-        <div #igSentinel class="sentinel" aria-hidden="true"></div>
-
-        <blockquote #igEmbed class="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/reel/DOFAaDsDHre/"
-          data-instgrm-version="14" [attr.aria-hidden]="!igReady">
-        </blockquote>
-
-        <noscript>
-          <p>
-            {{ 'alquimia.media.viewOnIg' | translate }}
-            <a href="https://www.instagram.com/reel/DOFAaDsDHre/" target="_blank" rel="noopener">
-              &#64;drsoranyporcelainsmile
-            </a>
-          </p>
-        </noscript>
-      </aside>
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="inner">
+    <h2>{{ 'alquimia.proposal.text' | translate }}</h2>
+    <div class="btn-row">
+      <a class="btn-gold"
+         [href]="whatsappHref"
+         target="_blank" rel="noopener"
+         [attr.aria-label]="'alquimia.cta.book_aria' | translate">
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        {{ 'alquimia.cta.book' | translate }}
+      </a>
+      <a class="btn-ghost" [routerLink]="['/', currentLang, 'services']">
+        {{ 'alquimia.cta.seeTreatments' | translate }}
+      </a>
     </div>
   </div>
 </section>
